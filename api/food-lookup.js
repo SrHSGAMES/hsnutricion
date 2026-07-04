@@ -61,6 +61,12 @@ const FICHA_SCHEMA = {
   required: ["nombre", "categoria", "emoji", "rating", "kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio", "motivo", "sustitutos"]
 };
 
+// Plantilla literal de ejemplo: Gemini no siempre respeta los nombres de campo
+// del response_format, así que reforzamos con un ejemplo JSON explícito en el
+// propio texto del prompt (además del schema, que se manda como refuerzo extra).
+const PLAN_EJEMPLO = `{"foodEn":"<nombre del alimento en inglés>","query":"<consulta de PubMed en inglés>"}`;
+const FICHA_EJEMPLO = `{"nombre":"","categoria":"","emoji":"","rating":"A|B|C|D|E","kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"motivo":"","sustitutos":[{"nombre":"","emoji":"","mejor":true,"kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"porque":""}]}`;
+
 function normalizarId(alimento) {
   return "ia_" + alimento
     .toLowerCase()
@@ -89,9 +95,17 @@ export default async function handler(req, res) {
   try {
     // 1) Consulta de búsqueda en inglés para PubMed
     const plan = extraerJSON(await callGemini(apiKey, {
-      input: `Traduces alimentos al inglés y generas consultas de búsqueda para PubMed sobre sus efectos en la salud. Alimento: "${alimento}". Genera una query de PubMed en inglés (con operadores AND/OR si procede) para encontrar estudios sobre sus efectos nutricionales o en la salud cardiovascular/metabólica. Responde solo con el JSON solicitado.`,
+      input: `Traduces alimentos al inglés y generas consultas de búsqueda para PubMed sobre sus efectos en la salud.
+
+Alimento: "${alimento}". Genera una query de PubMed en inglés (con operadores AND/OR si procede) para encontrar estudios sobre sus efectos nutricionales o en la salud cardiovascular/metabólica.
+
+Responde ÚNICAMENTE con un objeto JSON, sin texto adicional ni bloques de código markdown, usando EXACTAMENTE estos nombres de clave (no los traduzcas ni los cambies): ${PLAN_EJEMPLO}`,
       responseSchema: PLAN_SCHEMA
     }));
+
+    if (!plan.query) {
+      throw new Error("La IA no generó una consulta de búsqueda válida para PubMed.");
+    }
 
     const pmids = await buscarPMIDs(plan.query, 5);
     const metadatos = await obtenerMetadatos(pmids);
@@ -114,7 +128,7 @@ Alimento a analizar: "${alimento}".
 Estudios científicos encontrados en PubMed:
 ${estudiosTexto}
 
-Genera la ficha nutricional en español siguiendo el esquema JSON solicitado.`,
+Genera la ficha nutricional en español. Responde ÚNICAMENTE con un único objeto JSON, sin texto adicional ni bloques de código markdown, usando EXACTAMENTE este formato de claves (no los traduzcas ni los cambies): ${FICHA_EJEMPLO}`,
       responseSchema: FICHA_SCHEMA
     });
 

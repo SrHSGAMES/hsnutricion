@@ -24,12 +24,30 @@ export async function callGemini(apiKey, { input, responseSchema }) {
     throw new Error(`Gemini API ${r.status}: ${t.slice(0, 300)}`);
   }
   const data = await r.json();
-  if (typeof data.output_text !== "string") {
-    // Diagnóstico temporal: si el campo esperado no existe, mostramos la forma
-    // real de la respuesta para poder corregir el parseo correctamente.
-    throw new Error("Respuesta inesperada de Gemini (sin output_text): " + JSON.stringify(data).slice(0, 4000));
+
+  // La respuesta trae un array "steps": puede incluir pasos internos de
+  // razonamiento (type: "thought", sin contenido de texto útil) antes del
+  // paso final con el texto de respuesta en content[].text.
+  const texto = typeof data.output_text === "string"
+    ? data.output_text
+    : extraerTextoDePasos(data.steps);
+
+  if (!texto) {
+    throw new Error("Respuesta vacía o con formato inesperado de Gemini: " + JSON.stringify(data).slice(0, 500));
   }
-  return data.output_text;
+  return texto;
+}
+
+function extraerTextoDePasos(steps) {
+  if (!Array.isArray(steps)) return "";
+  for (let i = steps.length - 1; i >= 0; i--) {
+    const contenido = steps[i]?.content;
+    if (Array.isArray(contenido)) {
+      const texto = contenido.map(c => c.text || "").join("").trim();
+      if (texto) return texto;
+    }
+  }
+  return "";
 }
 
 // Extrae el primer objeto JSON de un texto, tolerando bloques ```json envolventes
