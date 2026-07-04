@@ -27,7 +27,7 @@ export async function callGemini(apiKey, { input, responseSchema }) {
   if (typeof data.output_text !== "string") {
     // Diagnóstico temporal: si el campo esperado no existe, mostramos la forma
     // real de la respuesta para poder corregir el parseo correctamente.
-    throw new Error("Respuesta inesperada de Gemini (sin output_text): " + JSON.stringify(data).slice(0, 500));
+    throw new Error("Respuesta inesperada de Gemini (sin output_text): " + JSON.stringify(data).slice(0, 4000));
   }
   return data.output_text;
 }
