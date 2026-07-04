@@ -20,7 +20,21 @@ export default async function handler(req, res) {
     const idPrueba = "diagnostico_test";
     await guardarAlimentoComunidad(idPrueba, { ok: true, ts: Date.now() });
     const leido = await obtenerAlimentoComunidad(idPrueba);
-    res.status(200).json({ disponible, envVistos, escrituraLecturaOk: Boolean(leido), leido });
+
+    // Limpieza: quitamos la entrada de prueba para no mezclarla con alimentos reales.
+    const base = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    async function comandoLimpieza(cmd) {
+      await fetch(base, {
+        method: "POST",
+        headers: { Authorization: `Bearer ${token}`, "content-type": "application/json" },
+        body: JSON.stringify(cmd)
+      });
+    }
+    await comandoLimpieza(["DEL", `hsn:alimento:${idPrueba}`]);
+    await comandoLimpieza(["SREM", "hsn:indice", idPrueba]);
+
+    res.status(200).json({ disponible, envVistos, escrituraLecturaOk: Boolean(leido), leido, limpiado: true });
   } catch (err) {
     res.status(200).json({ disponible, envVistos, error: err.message });
   }
