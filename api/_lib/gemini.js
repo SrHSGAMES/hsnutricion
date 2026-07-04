@@ -24,7 +24,12 @@ export async function callGemini(apiKey, { input, responseSchema }) {
     throw new Error(`Gemini API ${r.status}: ${t.slice(0, 300)}`);
   }
   const data = await r.json();
-  return data.output_text ?? "";
+  if (typeof data.output_text !== "string") {
+    // Diagnóstico temporal: si el campo esperado no existe, mostramos la forma
+    // real de la respuesta para poder corregir el parseo correctamente.
+    throw new Error("Respuesta inesperada de Gemini (sin output_text): " + JSON.stringify(data).slice(0, 500));
+  }
+  return data.output_text;
 }
 
 // Extrae el primer objeto JSON de un texto, tolerando bloques ```json envolventes
