@@ -10,10 +10,37 @@ local se generan al momento con IA, respaldados por estudios reales de PubMed.
 - `js/data.js` — base de datos nutricional local (41 alimentos).
 - `api/analyze-image.js` — función serverless: detecta alimentos en una foto.
 - `api/food-lookup.js` — función serverless: busca en PubMed y genera con IA
-  la ficha de un alimento que no está en `js/data.js`.
+  la ficha de un alimento que no está en `js/data.js`. Si ya se generó antes
+  (para cualquier visitante), la devuelve al instante desde el almacén
+  compartido sin volver a llamar a la IA.
+- `api/community-foods.js` — función serverless: devuelve todos los alimentos
+  que la IA ha generado hasta ahora, para que la guía y la detección por
+  texto/imagen los reconozcan en cualquier visita.
 
-Las dos funciones usan `GEMINI_API_KEY` (API gratuita de Google Gemini)
+Las funciones usan `GEMINI_API_KEY` (API gratuita de Google Gemini)
 **solo en el servidor**; el navegador nunca ve la clave.
+
+## Alimentos generados por la comunidad (opcional, recomendado)
+
+Cuando alguien busca un alimento que no está en `js/data.js`, la ficha que
+genera la IA se guarda en un almacén compartido (Upstash Redis, nivel
+gratuito). Así, la siguiente persona que busque ese mismo alimento —o lo
+mencione en un texto o una foto— lo recibe al instante, sin gastar cuota de
+la IA ni esperar. La guía completa también se actualiza para todo el mundo.
+
+Es opcional: sin esto configurado, la búsqueda con IA sigue funcionando
+igual, pero cada persona la repite para sí misma en su propia sesión.
+
+**Cómo activarlo (2 minutos, sin salir de Vercel):**
+
+1. En tu proyecto de Vercel, ve a la pestaña **Storage**.
+2. **Create Database** → elige la opción de Redis (Upstash u otra similar
+   del Marketplace) → sigue el asistente y conéctala al proyecto.
+3. Vercel añade automáticamente las variables de entorno necesarias
+   (`UPSTASH_REDIS_REST_URL` / `UPSTASH_REDIS_REST_TOKEN`, o `KV_REST_API_URL`
+   / `KV_REST_API_TOKEN` según el proveedor). Si usa otros nombres, cópialos
+   con los nombres de `.env.example` o ajusta `api/_lib/store.js`.
+4. Redeploy para que se apliquen.
 
 ## Conseguir la clave gratuita de Gemini
 
@@ -35,6 +62,9 @@ Las dos funciones usan `GEMINI_API_KEY` (API gratuita de Google Gemini)
    - `GEMINI_MODEL` (opcional) — por defecto `gemini-2.5-flash`.
    - `NCBI_API_KEY` y `NCBI_EMAIL` (opcionales) — para tener más cuota al
      consultar PubMed.
+   - `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN` (opcionales) —
+     para que los alimentos generados por IA se compartan entre todas las
+     visitas (ver sección siguiente).
 4. Despliega. La web y las funciones `/api/*` quedan servidas juntas.
 
 ### Con la CLI de Vercel

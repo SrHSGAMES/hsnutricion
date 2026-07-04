@@ -182,9 +182,13 @@
     const filtroCategoria = document.getElementById("filtroCategoria");
     const filtroRating = document.getElementById("filtroRating");
 
-    const categorias = [...new Set(FOODS.map(f => f.categoria))].sort();
-    filtroCategoria.innerHTML = '<option value="">Todas las categorías</option>' +
-      categorias.map(c => `<option value="${c}">${c}</option>`).join("");
+    function actualizarCategorias() {
+      const valorActual = filtroCategoria.value;
+      const categorias = [...new Set(FOODS.map(f => f.categoria))].sort();
+      filtroCategoria.innerHTML = '<option value="">Todas las categorías</option>' +
+        categorias.map(c => `<option value="${c}">${c}</option>`).join("");
+      filtroCategoria.value = categorias.includes(valorActual) ? valorActual : "";
+    }
 
     function renderGuia() {
       const q = normalizar(buscadorGuia.value);
@@ -201,14 +205,50 @@
         return;
       }
       lista.forEach((food, i) => {
-        const card = crearTarjetaAlimento(food);
+        const card = crearTarjetaAlimento(food, food.__estudios ? { estudios: food.__estudios } : {});
         card.style.animationDelay = Math.min(i * 0.04, 0.4) + "s";
         guiaGrid.appendChild(card);
       });
       animarBarras(guiaGrid);
     }
+    actualizarCategorias();
     [buscadorGuia, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderGuia));
     renderGuia();
+
+    // Otros bloques (p.ej. la carga de alimentos de la comunidad) llaman a
+    // esto cuando añaden alimentos nuevos a FOODS, para refrescar la vista.
+    window.__refrescarGuia = () => { actualizarCategorias(); renderGuia(); };
+  });
+
+  /* ================= Alimentos generados por la comunidad ================= */
+  // Carga los alimentos que la IA ya generó para otras personas y los añade a
+  // FOODS/INDICE_ALIAS, para que la guía y la detección por texto/imagen los
+  // reconozcan sin volver a llamar a la IA.
+  seguro("alimentos-comunidad", () => {
+    fetch("/api/community-foods")
+      .then(r => (r.ok ? r.json() : { alimentos: [] }))
+      .then(({ alimentos }) => {
+        if (!Array.isArray(alimentos) || !alimentos.length) return;
+        const idsExistentes = new Set(FOODS.map(f => f.id));
+        let nuevos = 0;
+        alimentos.forEach(({ food, estudios }) => {
+          if (!food || !food.id || idsExistentes.has(food.id)) return;
+          food.__estudios = estudios || [];
+          FOODS.push(food);
+          idsExistentes.add(food.id);
+          (food.aliases || []).forEach(alias => {
+            INDICE_ALIAS.push({ alias: normalizar(alias), food });
+          });
+          nuevos++;
+        });
+        if (nuevos > 0) {
+          INDICE_ALIAS.sort((a, b) => b.alias.length - a.alias.length);
+          if (typeof window.__refrescarGuia === "function") window.__refrescarGuia();
+          const statFoods = document.getElementById("statFoods");
+          if (statFoods) statFoods.textContent = FOODS.length;
+        }
+      })
+      .catch(err => console.error("[HSNutrición] No se pudieron cargar los alimentos de la comunidad:", err));
   });
 
   /* ================= Contador hero ================= */
@@ -432,6 +472,20 @@
         aiLookupResult.appendChild(card);
         animarBarras(aiLookupResult);
         card.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        // Lo añadimos también a la detección de esta misma sesión: a partir de
+        // ahora, mencionarlo en texto o imagen ya lo reconoce sin volver a buscar.
+        if (food && food.id && !FOODS.some(f => f.id === food.id)) {
+          food.__estudios = estudios || [];
+          FOODS.push(food);
+          (food.aliases || []).forEach(alias => {
+            INDICE_ALIAS.push({ alias: normalizar(alias), food });
+          });
+          INDICE_ALIAS.sort((a, b) => b.alias.length - a.alias.length);
+          if (typeof window.__refrescarGuia === "function") window.__refrescarGuia();
+          const statFoods = document.getElementById("statFoods");
+          if (statFoods) statFoods.textContent = FOODS.length;
+        }
       } catch (err) {
         console.error(err);
         aiLookupStatus.textContent = "No se pudo completar la búsqueda (" + err.message + "). Prueba de nuevo en unos segundos.";

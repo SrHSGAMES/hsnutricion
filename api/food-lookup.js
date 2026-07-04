@@ -11,6 +11,7 @@
 
 import { callGemini, extraerJSON } from "./_lib/gemini.js";
 import { buscarPMIDs, obtenerMetadatos, obtenerAbstract } from "./_lib/pubmed.js";
+import { obtenerAlimentoComunidad, guardarAlimentoComunidad } from "./_lib/store.js";
 
 const PLAN_SCHEMA = {
   type: "object",
@@ -92,7 +93,16 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: "Falta el nombre del alimento." });
   }
 
+  const id = normalizarId(alimento);
+
   try {
+    // 0) ¿Ya lo buscó alguien antes? Si está en el almacén compartido, nos
+    // ahorramos llamar a la IA y a PubMed por completo.
+    const guardado = await obtenerAlimentoComunidad(id);
+    if (guardado) {
+      return res.status(200).json(guardado);
+    }
+
     // 1) Consulta de búsqueda en inglés para PubMed
     const plan = extraerJSON(await callGemini(apiKey, {
       input: `Traduces alimentos al inglés y generas consultas de búsqueda para PubMed sobre sus efectos en la salud.
@@ -133,11 +143,19 @@ Genera la ficha nutricional en español. Responde ÚNICAMENTE con un único obje
     });
 
     const ficha = extraerJSON(fichaTexto);
-    ficha.id = normalizarId(alimento);
+    ficha.id = id;
     ficha.aliases = [alimento.toLowerCase()];
     ficha.fuente = "ia";
 
-    res.status(200).json({ food: ficha, estudios: conAbstract });
+    const resultado = { food: ficha, estudios: conAbstract };
+
+    // Lo guardamos para todo el mundo: la próxima persona que busque este
+    // alimento (o lo mencione en texto/imagen) lo recibe al instante.
+    await guardarAlimentoComunidad(id, resultado).catch(err =>
+      console.error("[HSNutrición] No se pudo guardar en el almacén compartido:", err)
+    );
+
+    res.status(200).json(resultado);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
