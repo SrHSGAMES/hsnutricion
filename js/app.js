@@ -86,15 +86,28 @@
   function crearCitas(estudios) {
     const cont = document.createElement("div");
     cont.className = "citas";
-    if (!estudios || !estudios.length) {
-      cont.innerHTML = `<p class="citas-title">📚 No se encontraron estudios de PubMed específicos para este alimento; la ficha se basa en tablas de composición estándar.</p>`;
-      return cont;
-    }
-    cont.innerHTML = `<p class="citas-title">📚 Estudios consultados en PubMed</p>` +
-      estudios.map((e, i) =>
-        `<a class="cita-item" href="${e.url}" target="_blank" rel="noopener noreferrer">[${i + 1}] ${e.titulo}${e.revista ? " — " + e.revista : ""}${e.anio ? " (" + e.anio + ")" : ""}</a>`
-      ).join("");
+    cont.innerHTML = estudios.map((e, i) =>
+      `<a class="cita-item" href="${e.url}" target="_blank" rel="noopener noreferrer">[${i + 1}] ${e.titulo}${e.revista ? " — " + e.revista : ""}${e.anio ? " (" + e.anio + ")" : ""}</a>`
+    ).join("");
     return cont;
+  }
+
+  // Botón "Ver X" que muestra/oculta un bloque de contenido — usado tanto para
+  // los sustitutos recomendados como para los estudios de PubMed, así la ficha
+  // no se alarga de golpe con todo visible a la vez.
+  function crearDesplegable(etiqueta, contenido) {
+    const frag = document.createDocumentFragment();
+    const toggle = document.createElement("button");
+    toggle.className = "food-card-footer-toggle";
+    toggle.innerHTML = `<span>${etiqueta}</span>
+      <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>`;
+    toggle.addEventListener("click", () => {
+      toggle.classList.toggle("open");
+      contenido.classList.toggle("open");
+    });
+    frag.appendChild(toggle);
+    frag.appendChild(contenido);
+    return frag;
   }
 
   function crearTarjetaAlimento(food, { conSustitutos = true, estudios = null } = {}) {
@@ -114,21 +127,11 @@
     card.appendChild(crearTablaMacros(food));
 
     if (conSustitutos && food.sustitutos.length) {
-      const toggle = document.createElement("button");
-      toggle.className = "food-card-footer-toggle";
-      toggle.innerHTML = `<span>Ver sustituto${food.sustitutos.length > 1 ? "s" : ""} recomendado${food.sustitutos.length > 1 ? "s" : ""}</span>
-        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg>`;
       const subCont = document.createElement("div");
       subCont.className = "substitutes";
       food.sustitutos.forEach(s => subCont.appendChild(crearSustituto(s)));
-
-      toggle.addEventListener("click", () => {
-        toggle.classList.toggle("open");
-        subCont.classList.toggle("open");
-      });
-
-      card.appendChild(toggle);
-      card.appendChild(subCont);
+      const etiqueta = `Ver sustituto${food.sustitutos.length > 1 ? "s" : ""} recomendado${food.sustitutos.length > 1 ? "s" : ""}`;
+      card.appendChild(crearDesplegable(etiqueta, subCont));
     } else if (conSustitutos) {
       const ok = document.createElement("p");
       ok.className = "food-motivo";
@@ -138,7 +141,15 @@
       card.appendChild(ok);
     }
     if (estudios !== null) {
-      card.appendChild(crearCitas(estudios));
+      if (estudios.length) {
+        card.appendChild(crearDesplegable(`Ver estudios de PubMed consultados (${estudios.length})`, crearCitas(estudios)));
+      } else {
+        const sinEstudios = document.createElement("p");
+        sinEstudios.className = "food-motivo";
+        sinEstudios.style.marginTop = "12px";
+        sinEstudios.textContent = "📚 No se encontraron estudios de PubMed específicos para este alimento; la ficha se basa en tablas de composición estándar.";
+        card.appendChild(sinEstudios);
+      }
     }
     return card;
   }

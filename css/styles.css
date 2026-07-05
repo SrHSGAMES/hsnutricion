@@ -562,14 +562,12 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 #aiLookupResult .food-card { max-width: 480px; }
 
 .citas {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px dashed var(--line);
-  display: flex;
+  display: none;
   flex-direction: column;
   gap: 6px;
+  margin-top: 12px;
 }
-.citas-title { font-size: .78rem; font-weight: 700; color: var(--ink); margin: 0 0 2px; }
+.citas.open { display: flex; animation: fadeIn .35s ease; }
 .cita-item {
   font-size: .8rem;
   color: var(--green-700);
@@ -616,6 +614,35 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 }
 .about-card h3 { font-size: 1.1rem; margin-bottom: 10px; }
 .about-card p { margin: 0; font-size: .92rem; }
+
+/* ---------- Contacto ---------- */
+.contacto-card {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--green-200);
+  border-radius: var(--radius-lg);
+  padding: 30px 32px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  text-align: left;
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.contacto-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.contacto-icon {
+  font-size: 1.9rem;
+  width: 58px; height: 58px;
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  background: var(--green-50);
+  border-radius: 16px;
+}
+.contacto-texto { flex: 1; min-width: 200px; }
+.contacto-texto h3 { font-size: 1.1rem; margin-bottom: 4px; }
+.contacto-texto p { margin: 0; font-size: .9rem; }
 
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--line); padding: 34px 0; background: var(--paper-tint); }
