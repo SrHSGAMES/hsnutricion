@@ -561,19 +561,6 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 #aiLookupResult { margin-top: 20px; }
 #aiLookupResult .food-card { max-width: 480px; }
 
-.ai-ribbon {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--green-100);
-  color: var(--green-700);
-  font-size: .74rem;
-  font-weight: 700;
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-
 .citas {
   margin-top: 16px;
   padding-top: 14px;

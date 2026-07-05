@@ -101,7 +101,6 @@
     const card = document.createElement("article");
     card.className = "food-card";
     card.innerHTML = `
-      ${food.fuente === "ia" ? '<div class="ai-ribbon">🤖 Ficha generada por IA, respaldada por PubMed</div>' : ""}
       <div class="food-card-head">
         <span class="food-emoji">${food.emoji}</span>
         <div class="food-title">
