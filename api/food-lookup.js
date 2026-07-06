@@ -10,17 +10,8 @@
 // Usa la API gratuita de Google Gemini; la clave vive solo en el servidor (GEMINI_API_KEY).
 
 import { callGemini, extraerJSON } from "./_lib/gemini.js";
-import { buscarPMIDs, obtenerMetadatos, obtenerAbstract } from "./_lib/pubmed.js";
 import { obtenerAlimentoComunidad, guardarAlimentoComunidad } from "./_lib/store.js";
-
-const PLAN_SCHEMA = {
-  type: "object",
-  properties: {
-    foodEn: { type: "string" },
-    query: { type: "string" }
-  },
-  required: ["foodEn", "query"]
-};
+import { buscarEvidenciaPubMed, formatearEstudiosParaPrompt } from "./_lib/evidencia-pubmed.js";
 
 const SUSTITUTO_SCHEMA = {
   type: "object",
@@ -65,7 +56,6 @@ const FICHA_SCHEMA = {
 // Plantilla literal de ejemplo: Gemini no siempre respeta los nombres de campo
 // del response_format, así que reforzamos con un ejemplo JSON explícito en el
 // propio texto del prompt (además del schema, que se manda como refuerzo extra).
-const PLAN_EJEMPLO = `{"foodEn":"<nombre del alimento en inglés>","query":"<consulta de PubMed en inglés>"}`;
 const FICHA_EJEMPLO = `{"nombre":"","categoria":"","emoji":"","rating":"A|B|C|D|E","kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"motivo":"","sustitutos":[{"nombre":"","emoji":"","mejor":true,"kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"porque":""}]}`;
 
 function normalizarId(alimento) {
@@ -103,31 +93,9 @@ export default async function handler(req, res) {
       return res.status(200).json(guardado);
     }
 
-    // 1) Consulta de búsqueda en inglés para PubMed
-    const plan = extraerJSON(await callGemini(apiKey, {
-      input: `Traduces alimentos al inglés y generas consultas de búsqueda para PubMed sobre sus efectos en la salud.
-
-Alimento: "${alimento}". Genera una query de PubMed en inglés (con operadores AND/OR si procede) para encontrar estudios sobre sus efectos nutricionales o en la salud cardiovascular/metabólica.
-
-Responde ÚNICAMENTE con un objeto JSON, sin texto adicional ni bloques de código markdown, usando EXACTAMENTE estos nombres de clave (no los traduzcas ni los cambies): ${PLAN_EJEMPLO}`,
-      responseSchema: PLAN_SCHEMA
-    }));
-
-    if (!plan.query) {
-      throw new Error("La IA no generó una consulta de búsqueda válida para PubMed.");
-    }
-
-    const pmids = await buscarPMIDs(plan.query, 5);
-    const metadatos = await obtenerMetadatos(pmids);
-    const conAbstract = await Promise.all(
-      metadatos.slice(0, 4).map(async m => ({ ...m, abstract: await obtenerAbstract(m.pmid) }))
-    );
-
-    const estudiosTexto = conAbstract.length
-      ? conAbstract.map((e, i) =>
-          `[${i + 1}] ${e.titulo} (${e.revista}, ${e.anio}) — PMID ${e.pmid}\nResumen: ${e.abstract || "no disponible"}`
-        ).join("\n\n")
-      : "No se encontraron estudios relevantes en PubMed para este alimento.";
+    // 1) Consulta de búsqueda en inglés para PubMed + descarga de resúmenes
+    const conAbstract = await buscarEvidenciaPubMed(apiKey, alimento);
+    const estudiosTexto = formatearEstudiosParaPrompt(conAbstract);
 
     // 2) Ficha nutricional redactada por la IA, citando los estudios reales encontrados
     const fichaTexto = await callGemini(apiKey, {
