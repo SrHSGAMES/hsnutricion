@@ -458,6 +458,25 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   margin: 14px 0;
   color: var(--ink-soft);
 }
+.food-motivo-principal.clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.leer-mas-toggle {
+  display: block;
+  background: none;
+  border: none;
+  padding: 0 0 10px;
+  margin-top: -8px;
+  color: var(--green-700);
+  font-weight: 700;
+  font-size: .82rem;
+  cursor: pointer;
+}
+.leer-mas-toggle:hover { text-decoration: underline; }
 
 .macro-table { width: 100%; margin: 14px 0; }
 .macro-row { margin-bottom: 8px; }

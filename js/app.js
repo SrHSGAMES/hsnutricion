@@ -122,8 +122,26 @@
         </div>
         <span class="badge badge-${food.rating}" title="Calificación nutricional">${food.rating}</span>
       </div>
-      <p class="food-motivo">${food.motivo}</p>
+      <p class="food-motivo food-motivo-principal clamped">${food.motivo}</p>
+      <button class="leer-mas-toggle" type="button" hidden>Leer más</button>
     `;
+
+    // El texto de descripción se trunca a 3 líneas por defecto (como en WhatsApp)
+    // y solo mostramos el botón "Leer más" si de verdad hace falta, comprobando
+    // en el siguiente frame si el texto real ocupa más de lo que cabe truncado.
+    const motivoP = card.querySelector(".food-motivo-principal");
+    const leerMasBtn = card.querySelector(".leer-mas-toggle");
+    requestAnimationFrame(() => {
+      if (motivoP.scrollHeight > motivoP.clientHeight + 2) {
+        leerMasBtn.hidden = false;
+      }
+    });
+    leerMasBtn.addEventListener("click", () => {
+      const expandido = motivoP.classList.toggle("expandido");
+      motivoP.classList.toggle("clamped", !expandido);
+      leerMasBtn.textContent = expandido ? "Leer menos" : "Leer más";
+    });
+
     card.appendChild(crearTablaMacros(food));
 
     if (conSustitutos && food.sustitutos.length) {
@@ -152,6 +170,13 @@
       }
     }
     return card;
+  }
+
+  // Un alimento puede traer estudios de dos formas: "estudios" (fijo, en los
+  // alimentos base de data.js) o "__estudios" (añadido en runtime a los
+  // alimentos de la comunidad al fusionarlos). Devuelve el que corresponda.
+  function estudiosDe(food) {
+    return food.__estudios || food.estudios || null;
   }
 
   function animarBarras(root) {
@@ -215,7 +240,8 @@
         return;
       }
       lista.forEach((food, i) => {
-        const card = crearTarjetaAlimento(food, food.__estudios ? { estudios: food.__estudios } : {});
+        const estudios = estudiosDe(food);
+        const card = crearTarjetaAlimento(food, estudios ? { estudios } : {});
         card.style.animationDelay = Math.min(i * 0.04, 0.4) + "s";
         guiaGrid.appendChild(card);
       });
@@ -264,13 +290,18 @@
   /* ================= Contador hero ================= */
   seguro("contador-hero", () => {
     const statFoods = document.getElementById("statFoods");
-    const total = FOODS.length;
+    const inicio = Date.now();
     let n = 0;
-    const step = Math.max(1, Math.round(total / 30));
+    // Lee FOODS.length en cada paso (no un total fijo al empezar): así, si los
+    // alimentos de la comunidad llegan mientras cuenta (o justo después), el
+    // número final ya los incluye en vez de quedarse congelado en el valor
+    // que había antes de que terminara esa petición.
     const iv = setInterval(() => {
-      n += step;
-      if (n >= total) { n = total; clearInterval(iv); }
+      const total = FOODS.length;
+      const step = Math.max(1, Math.round(total / 30));
+      n = Math.min(n + step, total);
       statFoods.textContent = n;
+      if (n >= total && Date.now() - inicio > 2500) clearInterval(iv);
     }, 30);
   });
 
@@ -317,7 +348,8 @@
       resultsSection.hidden = false;
       resultsCount.textContent = `${alimentos.length} alimento${alimentos.length > 1 ? "s" : ""} detectado${alimentos.length > 1 ? "s" : ""}`;
       alimentos.forEach((food, i) => {
-        const card = crearTarjetaAlimento(food);
+        const estudios = estudiosDe(food);
+        const card = crearTarjetaAlimento(food, estudios ? { estudios } : {});
         card.style.animationDelay = (i * 0.06) + "s";
         resultsGrid.appendChild(card);
       });
