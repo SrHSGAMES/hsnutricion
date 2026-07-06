@@ -11,7 +11,37 @@ const FOODS = [
     emoji: "🧈",
     rating: "D",
     kcal: 717, carbs: 0.1, azucares: 0.1, proteinas: 0.9, grasas: 81, grasasSat: 51, fibra: 0, sodio: 11,
-    motivo: "Muy alta en grasas saturadas (51 g/100 g), lo que a largo plazo se asocia a peor perfil de colesterol LDL.",
+    motivo: "La mantequilla se clasifica con una 'D' principalmente por su muy alto contenido calórico y su elevado porcentaje de grasas saturadas, que representan más del 60% de sus grasas totales (51 g por cada 100 g). El consumo excesivo de estas grasas se ha asociado con un aumento de los niveles de colesterol LDL ('malo'), un factor de riesgo conocido para enfermedades cardiovasculares [3, 4]. Además, su densidad nutricional es baja, con aportes mínimos de proteínas y fibra. Por estas razones, se recomienda moderar su ingesta y priorizar la sustitución por alternativas de origen vegetal con perfiles de grasas más saludables para favorecer la salud cardiometabólica [1].",
+    estudios: [
+        {
+            "pmid": "37968628",
+            "titulo": "Substitution of animal-based with plant-based foods on cardiometabolic health and all-cause mortality: a systematic review and meta-analysis of prospective studies.",
+            "revista": "BMC medicine",
+            "anio": "2023",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37968628/"
+        },
+        {
+            "pmid": "35299247",
+            "titulo": "Associations Between Dietary Patterns and Incident Type 2 Diabetes: Prospective Cohort Study of 120,343 UK Biobank Participants.",
+            "revista": "Diabetes care",
+            "anio": "2022",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35299247/"
+        },
+        {
+            "pmid": "29511019",
+            "titulo": "Randomised trial of coconut oil, olive oil or butter on blood lipids and other cardiovascular risk factors in healthy men and women.",
+            "revista": "BMJ open",
+            "anio": "2018",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29511019/"
+        },
+        {
+            "pmid": "9180239",
+            "titulo": "Butter, margarine and serum lipoproteins.",
+            "revista": "Atherosclerosis",
+            "anio": "1997",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9180239/"
+        }
+    ],
     sustitutos: [
       {
         nombre: "AOVE (aceite de oliva virgen extra)",
@@ -37,7 +67,37 @@ const FOODS = [
     emoji: "🧂",
     rating: "C",
     kcal: 717, carbs: 1, azucares: 1, proteinas: 0.2, grasas: 80, grasasSat: 25, fibra: 0, sodio: 60,
-    motivo: "Mejor que la mantequilla en grasas saturadas, pero algunas variantes económicas contienen aceites parcialmente hidrogenados (grasas trans).",
+    motivo: "La margarina convencional es un alimento muy calórico y rico en grasas, lo que requiere un consumo moderado para evitar un exceso en la ingesta energética. Contiene una cantidad significativa de grasas saturadas y, en sus formulaciones tradicionales, ha sido una fuente importante de grasas trans [2]. Estas grasas trans son conocidas por elevar el colesterol y aumentar el riesgo cardiovascular, justificando precaución en su consumo [2]. Además, su aporte de proteínas, fibra o micronutrientes esenciales es muy bajo, lo que la convierte principalmente en una fuente de energía densa. Por estas razones, se le asigna una calificación C, recomendando su uso ocasional y en pequeñas cantidades.",
+    estudios: [
+        {
+            "pmid": "27071971",
+            "titulo": "Re-evaluation of the traditional diet-heart hypothesis: analysis of recovered data from Minnesota Coronary Experiment (1968-73).",
+            "revista": "BMJ (Clinical research ed.)",
+            "anio": "2016",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/27071971/"
+        },
+        {
+            "pmid": "9430386",
+            "titulo": "Trans fatty acids and cardiovascular risk.",
+            "revista": "Prostaglandins, leukotrienes, and essential fatty acids",
+            "anio": "1997",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9430386/"
+        },
+        {
+            "pmid": "12975030",
+            "titulo": "Nutrition therapy for dyslipidemia.",
+            "revista": "Current diabetes reports",
+            "anio": "2003",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/12975030/"
+        },
+        {
+            "pmid": "9322581",
+            "titulo": "Health effects of trans fatty acids.",
+            "revista": "The American journal of clinical nutrition",
+            "anio": "1997",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/9322581/"
+        }
+    ],
     sustitutos: [
       {
         nombre: "AOVE (aceite de oliva virgen extra)",
@@ -61,7 +121,37 @@ const FOODS = [
     emoji: "🌻",
     rating: "B",
     kcal: 884, carbs: 0, azucares: 0, proteinas: 0, grasas: 100, grasasSat: 11, fibra: 0, sodio: 0,
-    motivo: "Grasa mayoritariamente insaturada, pero muy rica en omega-6 y pobre en antioxidantes frente al aceite de oliva.",
+    motivo: "El aceite de girasol es una fuente concentrada de energía, compuesto principalmente por grasas insaturadas, incluyendo una elevada proporción de ácidos grasos poliinsaturados omega-6. También es una buena fuente de vitamina E, un antioxidante que contribuye a la protección celular. Estas grasas, cuando se consumen en sustitución de las grasas saturadas, son beneficiosas para la salud cardiovascular. No obstante, su alta densidad calórica y el predominio de omega-6, en comparación con otras grasas saludables, justifican su calificación 'B', lo que implica consumirlo con moderación y en el contexto de una dieta equilibrada.",
+    estudios: [
+        {
+            "pmid": "34924350",
+            "titulo": "Mustard oil and cardiovascular health: Why the controversy?",
+            "revista": "Journal of clinical lipidology",
+            "anio": "2022",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/34924350/"
+        },
+        {
+            "pmid": "31521398",
+            "titulo": "Mediterranean diet: The role of long-chain ω-3 fatty acids in fish; polyphenols in fruits, vegetables, cereals, coffee, tea, cacao and wine; probiotics and vitamins in prevention of stroke, age-related cognitive decline, and Alzheimer disease.",
+            "revista": "Revue neurologique",
+            "anio": "2019",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31521398/"
+        },
+        {
+            "pmid": "33127255",
+            "titulo": "The effects of Canola oil on cardiovascular risk factors: A systematic review and meta-analysis with dose-response analysis of controlled clinical trials.",
+            "revista": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+            "anio": "2020",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33127255/"
+        },
+        {
+            "pmid": "38890092",
+            "titulo": "Lutein, zeaxanthin, and meso-zeaxanthin supplementation attenuates inflammatory cytokines and markers of oxidative cardiovascular processes in humans.",
+            "revista": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+            "anio": "2024",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38890092/"
+        }
+    ],
     sustitutos: [
       {
         nombre: "AOVE (aceite de oliva virgen extra)",
@@ -79,7 +169,37 @@ const FOODS = [
     emoji: "🫒",
     rating: "A",
     kcal: 884, carbs: 0, azucares: 0, proteinas: 0, grasas: 100, grasasSat: 14, fibra: 0, sodio: 0,
-    motivo: "Referencia de grasa saludable: rico en ácido oleico y polifenoles. Úsalo con moderación por su densidad calórica, pero es la mejor grasa de referencia.",
+    motivo: "El Aceite de Oliva Virgen Extra (AOVE) recibe una calificación 'A' por su sobresaliente perfil nutricional como grasa saludable, siendo un pilar fundamental de la dieta Mediterránea. Aunque es un alimento rico en calorías y grasa (100g por 100g), destaca por su bajo contenido en grasas saturadas (solo 14g) y su elevada concentración de grasas monoinsaturadas. Además, es una fuente importante de compuestos bioactivos como polifenoles y vitamina E, conocidos por sus propiedades antioxidantes y antiinflamatorias. La evidencia científica asocia la incorporación del AOVE en patrones alimentarios como la dieta Mediterránea con importantes beneficios para la salud cardiovascular, el control del colesterol y la prevención de enfermedades crónicas [1, 2, 3]. Su consumo moderado y habitual es clave para una alimentación equilibrada.",
+    estudios: [
+        {
+            "pmid": "36479477",
+            "titulo": "Modern vision of the Mediterranean diet.",
+            "revista": "Journal of preventive medicine and hygiene",
+            "anio": "2022",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36479477/"
+        },
+        {
+            "pmid": "37432307",
+            "titulo": "The Effects of the Mediterranean Diet on Health and Gut Microbiota.",
+            "revista": "Nutrients",
+            "anio": "2023",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37432307/"
+        },
+        {
+            "pmid": "25940230",
+            "titulo": "Benefits of the Mediterranean Diet: Insights From the PREDIMED Study.",
+            "revista": "Progress in cardiovascular diseases",
+            "anio": "2015",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25940230/"
+        },
+        {
+            "pmid": "40087038",
+            "titulo": "Mediterranean diet: Why a new pyramid? An updated representation of the traditional Mediterranean diet by the Italian Society of Human Nutrition (SINU).",
+            "revista": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+            "anio": "2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40087038/"
+        }
+    ],
     sustitutos: []
   },
   {
@@ -90,7 +210,37 @@ const FOODS = [
     emoji: "🍞",
     rating: "C",
     kcal: 265, carbs: 49, azucares: 4, proteinas: 9, grasas: 3.2, grasasSat: 0.7, fibra: 2.7, sodio: 490,
-    motivo: "Harina refinada con poca fibra: eleva la glucosa en sangre más rápido y sacia menos.",
+    motivo: "El pan blanco obtiene una calificación C debido a su perfil nutricional menos óptimo. Es un alimento rico en carbohidratos refinados, lo que le confiere un alto índice glucémico, provocando picos rápidos de azúcar en sangre [3]. Además, su bajo contenido en fibra (2.7 g por 100 g) lo hace menos saciante en comparación con opciones integrales, y su aporte de sodio (490 mg por 100 g) es considerable. Un consumo frecuente y elevado de pan blanco podría relacionarse con un mayor riesgo de sobrepeso y obesidad [2], por lo que se recomienda un consumo moderado y priorizar alternativas con mayor contenido de fibra.",
+    estudios: [
+        {
+            "pmid": "30958719",
+            "titulo": "Meta-Analysis of Randomized Controlled Trials of Red Meat Consumption in Comparison With Various Comparison Diets on Cardiovascular Risk Factors.",
+            "revista": "Circulation",
+            "anio": "2019",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/30958719/"
+        },
+        {
+            "pmid": "26148919",
+            "titulo": "Relationship between bread and obesity.",
+            "revista": "The British journal of nutrition",
+            "anio": "2015",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/26148919/"
+        },
+        {
+            "pmid": "14714013",
+            "titulo": "[Glycaemic index].",
+            "revista": "Tidsskrift for den Norske laegeforening : tidsskrift for praktisk medicin, ny raekke",
+            "anio": "2003",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/14714013/"
+        },
+        {
+            "pmid": "38892603",
+            "titulo": "Understanding the Impact of Different Doses of Reducose(®) Mulberry Leaf Extract on Blood Glucose and Insulin Responses after Eating a Complex Meal: Results from a Double-Blind, Randomised, Crossover Trial.",
+            "revista": "Nutrients",
+            "anio": "2024",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38892603/"
+        }
+    ],
     sustitutos: [
       {
         nombre: "Pan integral / de masa madre",
@@ -108,7 +258,37 @@ const FOODS = [
     emoji: "🌾",
     rating: "A",
     kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
-    motivo: "Buena fuente de fibra e hidratos de absorción lenta. Opción de referencia frente al pan blanco.",
+    motivo: "El pan integral merece una calificación 'A' por su excepcional aporte de fibra dietética, con 7 gramos por cada 100g. Este alto contenido de fibra es crucial para la salud digestiva, contribuye a una mayor saciedad y ayuda a mantener estables los niveles de glucosa en sangre. Además, su perfil nutricional es muy favorable al ser bajo en azúcares y grasas saturadas, mientras que aporta carbohidratos complejos y una cantidad significativa de proteínas. Integrar el pan integral en tu alimentación es una estrategia efectiva para mejorar la salud general y contribuir a la prevención de enfermedades crónicas, como el síndrome metabólico [1].",
+    estudios: [
+        {
+            "pmid": "29480368",
+            "titulo": "The Global Epidemic of the Metabolic Syndrome.",
+            "revista": "Current hypertension reports",
+            "anio": "2018",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29480368/"
+        },
+        {
+            "pmid": "27886704",
+            "titulo": "Position of the Academy of Nutrition and Dietetics: Vegetarian Diets.",
+            "revista": "Journal of the Academy of Nutrition and Dietetics",
+            "anio": "2016",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/27886704/"
+        },
+        {
+            "pmid": "29496410",
+            "titulo": "Plant-based diets and cardiovascular health.",
+            "revista": "Trends in cardiovascular medicine",
+            "anio": "2018",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/29496410/"
+        },
+        {
+            "pmid": "25447615",
+            "titulo": "The Mediterranean diet, its components, and cardiovascular disease.",
+            "revista": "The American journal of medicine",
+            "anio": "2015",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/25447615/"
+        }
+    ],
     sustitutos: []
   },
   {
