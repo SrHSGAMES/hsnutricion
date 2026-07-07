@@ -57,7 +57,7 @@ const FICHA_SCHEMA = {
 // de inventar variantes (p. ej. "Carnes y aves" en vez de "Cárnicos").
 const CATEGORIAS_CONOCIDAS = [
   "Grasas", "Cereales", "Dulces", "Lácteos", "Salsas", "Bebidas", "Bebidas vegetales", "Snacks",
-  "Cárnicos", "Proteínas", "Frutas", "Verduras y Hortalizas", "Frutos Secos",
+  "Cárnicos", "Proteínas", "Proteína vegetal", "Frutas", "Verduras y Hortalizas", "Frutos Secos",
   "Untables", "Condimentos y Aditivos", "Platos Preparados", "Suplemento Alimenticio"
 ];
 
