@@ -35,6 +35,31 @@
     return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   }
 
+  // Da formato consistente a los nombres de alimentos (vengan de data.js o de
+  // la IA): "Primera Letra De Cada Palabra En Mayúscula" salvo conectores
+  // (de, la, el...), y todo el contenido entre paréntesis en minúsculas.
+  // Preserva siglas ya escritas en mayúsculas (p. ej. "AOVE").
+  const CONECTORES_MINUSCULA = new Set([
+    "de", "del", "la", "el", "los", "las", "y", "e", "o", "u",
+    "en", "a", "al", "con", "sin", "por", "para", "un", "una", "unos", "unas"
+  ]);
+  function formatearNombre(nombre) {
+    if (!nombre) return nombre;
+    const idxParen = nombre.indexOf("(");
+    const principal = (idxParen === -1 ? nombre : nombre.slice(0, idxParen)).trim();
+    const parentesis = (idxParen === -1 ? "" : nombre.slice(idxParen)).toLowerCase();
+
+    const resultado = principal.split(" ").filter(Boolean).map((palabra, i) => {
+      const esSigla = palabra.length >= 2 && palabra === palabra.toUpperCase() && palabra !== palabra.toLowerCase();
+      if (esSigla) return palabra;
+      const min = palabra.toLowerCase();
+      if (i > 0 && CONECTORES_MINUSCULA.has(min)) return min;
+      return min.charAt(0).toUpperCase() + min.slice(1);
+    }).join(" ");
+
+    return parentesis ? `${resultado} ${parentesis}` : resultado;
+  }
+
   /* ================= Render de tarjetas ================= */
   function crearBarraMacro(clave, valor) {
     const max = ESCALAS[clave] || 100;
@@ -68,7 +93,7 @@
     el.innerHTML = `
       <div class="sub-head">
         <span class="food-emoji">${sub.emoji}</span>
-        <strong>${sub.nombre}</strong>
+        <strong>${formatearNombre(sub.nombre)}</strong>
         ${sub.mejor ? '<span class="sub-best">Mejor opción</span>' : ""}
       </div>
       <p class="sub-porque">${sub.porque}</p>
@@ -117,7 +142,7 @@
       <div class="food-card-head">
         <span class="food-emoji">${food.emoji}</span>
         <div class="food-title">
-          <h4>${food.nombre}</h4>
+          <h4>${formatearNombre(food.nombre)}</h4>
           <span class="food-cat">${food.categoria}</span>
         </div>
         <span class="badge badge-${food.rating}" title="Calificación nutricional">${food.rating}</span>
