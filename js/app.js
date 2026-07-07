@@ -143,7 +143,7 @@
         <span class="food-emoji">${food.emoji}</span>
         <div class="food-title">
           <h4>${formatearNombre(food.nombre)}</h4>
-          <span class="food-cat">${food.categoria}</span>
+          <span class="food-cat">${food.categorias.join(" · ")}</span>
         </div>
         <span class="badge badge-${food.rating}" title="Calificación nutricional">${food.rating}</span>
       </div>
@@ -244,7 +244,7 @@
 
     function actualizarCategorias() {
       const valorActual = filtroCategoria.value;
-      const categorias = [...new Set(FOODS.map(f => f.categoria))].sort();
+      const categorias = [...new Set(FOODS.flatMap(f => f.categorias))].sort();
       filtroCategoria.innerHTML = '<option value="">Todas las categorías</option>' +
         categorias.map(c => `<option value="${c}">${c}</option>`).join("");
       filtroCategoria.value = categorias.includes(valorActual) ? valorActual : "";
@@ -256,7 +256,7 @@
       const rating = filtroRating.value;
       const lista = FOODS.filter(f =>
         (!q || normalizar(f.nombre).includes(q)) &&
-        (!cat || f.categoria === cat) &&
+        (!cat || f.categorias.includes(cat)) &&
         (!rating || f.rating === rating)
       );
       guiaGrid.innerHTML = "";

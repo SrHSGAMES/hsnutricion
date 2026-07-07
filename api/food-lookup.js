@@ -36,7 +36,7 @@ const FICHA_SCHEMA = {
   type: "object",
   properties: {
     nombre: { type: "string" },
-    categoria: { type: "string" },
+    categorias: { type: "array", items: { type: "string" }, minItems: 1, maxItems: 3 },
     emoji: { type: "string" },
     rating: { type: "string", enum: ["A", "B", "C", "D", "E"] },
     kcal: { type: "number" },
@@ -50,13 +50,21 @@ const FICHA_SCHEMA = {
     motivo: { type: "string" },
     sustitutos: { type: "array", items: SUSTITUTO_SCHEMA }
   },
-  required: ["nombre", "categoria", "emoji", "rating", "kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio", "motivo", "sustitutos"]
+  required: ["nombre", "categorias", "emoji", "rating", "kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio", "motivo", "sustitutos"]
 };
+
+// Categorías ya usadas en la guía, para que la IA reutilice las mismas en vez
+// de inventar variantes (p. ej. "Carnes y aves" en vez de "Cárnicos").
+const CATEGORIAS_CONOCIDAS = [
+  "Grasas", "Cereales", "Dulces", "Lácteos", "Salsas", "Bebidas", "Bebidas vegetales", "Snacks",
+  "Cárnicos", "Proteínas", "Frutas", "Verduras y Hortalizas", "Frutos Secos",
+  "Untables", "Condimentos y Aditivos", "Platos Preparados", "Suplemento Alimenticio"
+];
 
 // Plantilla literal de ejemplo: Gemini no siempre respeta los nombres de campo
 // del response_format, así que reforzamos con un ejemplo JSON explícito en el
 // propio texto del prompt (además del schema, que se manda como refuerzo extra).
-const FICHA_EJEMPLO = `{"nombre":"","categoria":"","emoji":"","rating":"A|B|C|D|E","kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"motivo":"","sustitutos":[{"nombre":"","emoji":"","mejor":true,"kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"porque":""}]}`;
+const FICHA_EJEMPLO = `{"nombre":"","categorias":[""],"emoji":"","rating":"A|B|C|D|E","kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"motivo":"","sustitutos":[{"nombre":"","emoji":"","mejor":true,"kcal":0,"carbs":0,"azucares":0,"proteinas":0,"grasas":0,"grasasSat":0,"fibra":0,"sodio":0,"porque":""}]}`;
 
 function normalizarId(alimento) {
   return "ia_" + alimento
@@ -100,6 +108,8 @@ export default async function handler(req, res) {
     // 2) Ficha nutricional redactada por la IA, citando los estudios reales encontrados
     const fichaTexto = await callGemini(apiKey, {
       input: `Eres un dietista-nutricionista. Los valores nutricionales son de referencia por 100 g, basados en tablas de composición de alimentos estándar. El campo "motivo" debe justificar la calificación citando los estudios recibidos entre corchetes (p.ej. [1]) cuando sea pertinente. Propón 1-2 sustitutos reales más saludables; si el alimento ya es una opción muy saludable, "sustitutos" puede ir vacío []. Si el alimento es una grasa para cocinar o untar, considera recomendar AOVE (aceite de oliva virgen extra) como mejor opción cuando aplique, explicando el porqué.
+
+El campo "categorias" es una lista de 1 a 3 categorías. Reutiliza estas categorías ya existentes en la guía siempre que el alimento encaje en ellas, en vez de inventar nombres nuevos parecidos: ${CATEGORIAS_CONOCIDAS.join(", ")}. Si el alimento encaja genuinamente en más de una (p. ej. el aguacate es a la vez "Grasas" y "Frutas"), inclúyelas todas. Solo propón una categoría nueva (breve, en español, con mayúscula inicial) si ninguna de la lista anterior encaja de verdad.
 
 Alimento a analizar: "${alimento}".
 
