@@ -279,11 +279,20 @@
       <p class="receta-meta">⏱️ ${receta.tiempo} · 🍽️ ${receta.raciones} ración${receta.raciones > 1 ? "es" : ""}</p>
       <p class="receta-desc">${receta.descripcion}</p>
       <p class="food-motivo">${receta.motivo}</p>
-      <h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>
     `;
-    body.appendChild(crearListaIngredientes(receta));
+
+    // Ingredientes y elaboración van en dos columnas, para aprovechar mejor
+    // el ancho de la tarjeta en vez de apilarlo todo en una única columna.
+    const columnas = document.createElement("div");
+    columnas.className = "receta-columnas";
+
+    const colIngredientes = document.createElement("div");
+    colIngredientes.innerHTML = `<h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>`;
+    colIngredientes.appendChild(crearListaIngredientes(receta));
+    columnas.appendChild(colIngredientes);
 
     if (receta.pasos && receta.pasos.length) {
+      const colElaboracion = document.createElement("div");
       const pasosTitulo = document.createElement("h4");
       pasosTitulo.textContent = "Elaboración";
       const ol = document.createElement("ol");
@@ -293,9 +302,11 @@
         li.textContent = paso;
         ol.appendChild(li);
       });
-      body.appendChild(pasosTitulo);
-      body.appendChild(ol);
+      colElaboracion.appendChild(pasosTitulo);
+      colElaboracion.appendChild(ol);
+      columnas.appendChild(colElaboracion);
     }
+    body.appendChild(columnas);
 
     const macrosTitulo = document.createElement("h4");
     macrosTitulo.textContent = `Información nutricional (receta completa${receta.raciones > 1 ? ", " + receta.raciones + " raciones" : ""})`;

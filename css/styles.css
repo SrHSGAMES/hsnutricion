@@ -424,7 +424,7 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 .receta-foto {
   position: static;
   width: 100%;
-  height: 300px;
+  aspect-ratio: 16 / 9;
   display: grid;
   place-items: center;
   background:
@@ -437,17 +437,29 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   letter-spacing: .08em;
   filter: drop-shadow(0 10px 18px rgba(15, 67, 37, .18));
 }
-.receta-foto img { width: 100%; height: 100%; object-fit: cover; }
+/* object-fit: contain (no cover) para que la imagen se vea siempre completa,
+   sin recortes, sea cual sea su proporción original. */
+.receta-foto img { width: 100%; height: 100%; object-fit: contain; }
 .receta-body { padding: 26px 28px 28px; }
 
-@media (max-width: 760px) {
-  .receta-foto { height: 200px; }
-}
 .receta-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
 .receta-head h3 { font-size: 1.3rem; font-weight: 600; }
 .receta-meta { font-size: .85rem; color: var(--ink-faint); margin-bottom: 12px; }
 .receta-desc { font-size: .98rem; }
 .receta-body h4 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; margin: 22px 0 10px; }
+
+/* Ingredientes (columna estrecha) y elaboración (columna ancha), lado a lado. */
+.receta-columnas {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(280px, 1.7fr);
+  gap: 12px 32px;
+  align-items: start;
+}
+.receta-columnas h4:first-child,
+.receta-columnas > div > h4 { margin-top: 0; }
+@media (max-width: 640px) {
+  .receta-columnas { grid-template-columns: 1fr; }
+}
 .receta-hint { font-family: var(--font-body); font-weight: 400; font-size: .78rem; color: var(--ink-faint); }
 
 .receta-ingredientes { display: flex; flex-direction: column; gap: 8px; }
