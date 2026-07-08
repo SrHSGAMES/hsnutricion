@@ -405,25 +405,30 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 
 /* ---------- Recetas saludables ---------- */
 .recetas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 28px;
 }
 .receta-card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
   animation: cardIn .5s ease both;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 .receta-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
 .receta-foto {
-  position: relative;
-  height: 220px;
+  position: sticky;
+  top: 20px;
+  flex: 0 0 320px;
+  height: 320px;
   display: grid;
   place-items: center;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
   background:
     radial-gradient(circle at 25% 20%, var(--lime) 0%, transparent 55%),
     linear-gradient(135deg, var(--green-100), var(--green-50) 60%, #fff);
@@ -434,7 +439,17 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   letter-spacing: .08em;
   filter: drop-shadow(0 10px 18px rgba(15, 67, 37, .18));
 }
-.receta-body { padding: 26px 28px 28px; }
+.receta-body { flex: 1; min-width: 0; padding: 26px 28px 28px; }
+
+@media (max-width: 760px) {
+  .receta-card { flex-direction: column; }
+  .receta-foto {
+    position: static;
+    flex-basis: auto;
+    height: 200px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+}
 .receta-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
 .receta-head h3 { font-size: 1.3rem; font-weight: 600; }
 .receta-meta { font-size: .85rem; color: var(--ink-faint); margin-bottom: 12px; }
