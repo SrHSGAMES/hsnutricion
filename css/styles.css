@@ -545,6 +545,9 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 
 .modal-ficha { max-width: 520px; padding: 0; background: transparent; box-shadow: none; }
 .modal-ficha .modal-close { top: -14px; right: -14px; background: #fff; box-shadow: var(--shadow-md); z-index: 2; }
+/* La ficha puede ser más alta que la pantalla (estudios de PubMed incluidos),
+   así que el propio contenido —no el modal entero— es lo que hace scroll. */
+.modal-ficha #fichaModalContenido { max-height: calc(100vh - 40px); overflow-y: auto; }
 .modal-ficha #fichaModalContenido .food-card { box-shadow: var(--shadow-lg); }
 
 /* ---------- Food card ---------- */
