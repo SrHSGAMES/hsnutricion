@@ -56,5 +56,28 @@ const RECETAS = [
       "Añade las hojas de albahaca fresca troceadas y remueve un par de minutos más.",
       "Escurre la pasta, mézclala con la salsa y sirve. Si quieres, termina con un poco de queso curado rallado — opcional, con moderación."
     ]
+  },
+  {
+    id: "bowl_arroz_aguacate_tomate",
+    nombre: "Bowl Vegetal de Arroz Integral, Aguacate y Tomate",
+    emojiPortada: "🥑🍚🍅",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "Un bowl 100% vegetal, sin ningún ingrediente de origen animal: carbohidrato complejo del arroz integral, grasa monoinsaturada del aguacate y antioxidantes del tomate fresco, en un plato tan sencillo como saciante.",
+    motivo: "Todos los ingredientes de este bowl son de origen vegetal y ya forman parte de nuestra guía con calificación A: el arroz integral aporta fibra y un índice glucémico bajo frente al arroz blanco; el aguacate y el AOVE cubren la grasa saludable que da saciedad; y el tomate fresco suma licopeno, un antioxidante ligado a la salud cardiovascular. Ni rastro de sal añadida — la albahaca fresca y el propio AOVE ya aportan todo el sabor que necesita.",
+    ingredientes: [
+      { foodId: "arroz_integral", cantidad: 150 },
+      { foodId: "aguacate", cantidad: 80 },
+      { foodId: "ia_tomate", cantidad: 150 },
+      { foodId: "aove", cantidad: 8 },
+      { foodId: "ia_albahaca", cantidad: 5 }
+    ],
+    pasos: [
+      "Cuece el arroz integral según las instrucciones del envase (unos 20-25 min) y déjalo templar unos minutos.",
+      "Mientras tanto, trocea el tomate y el aguacate en dados.",
+      "Sirve el arroz de base en un bowl y coloca encima el tomate y el aguacate.",
+      "Termina con un chorrito de AOVE y unas hojas de albahaca fresca troceadas."
+    ]
   }
 ];
