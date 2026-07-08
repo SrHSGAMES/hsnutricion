@@ -10,6 +10,7 @@ const RECETAS = [
   {
     id: "tostada_aguacate_huevo",
     nombre: "Tostada de Aguacate con Huevo",
+    imagen: "img/recetas/tostada-aguacate.jpg",
     emojiPortada: "🥑🍞🥚",
     rating: "A",
     tiempo: "10 min",

@@ -254,7 +254,20 @@
 
     const foto = document.createElement("div");
     foto.className = "receta-foto";
-    foto.innerHTML = `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`;
+    if (receta.imagen) {
+      const img = document.createElement("img");
+      img.src = receta.imagen;
+      img.alt = receta.nombre;
+      img.loading = "lazy";
+      // Si la foto no existe o falla al cargar, mostramos el emoji de
+      // respaldo en su lugar en vez de dejar un hueco roto.
+      img.addEventListener("error", () => {
+        foto.innerHTML = `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`;
+      });
+      foto.appendChild(img);
+    } else {
+      foto.innerHTML = `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`;
+    }
 
     const body = document.createElement("div");
     body.className = "receta-body";
