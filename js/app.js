@@ -253,6 +253,7 @@
   function crearTarjetaReceta(receta) {
     const card = document.createElement("article");
     card.className = "receta-card";
+    card.id = receta.id;
 
     const foto = document.createElement("div");
     foto.className = "receta-foto";
@@ -278,7 +279,7 @@
         <h3>${receta.nombre}</h3>
         <span class="badge badge-${receta.rating}" title="Calificación nutricional de la receta">${receta.rating}</span>
       </div>
-      <p class="receta-meta">⏱️ ${receta.tiempo} · 🍽️ ${receta.raciones} ración${receta.raciones > 1 ? "es" : ""}</p>
+      <p class="receta-meta">⏱️ ${receta.tiempo} · 🍽️ ${receta.raciones} ${receta.raciones > 1 ? "raciones" : "ración"}</p>
       <p class="receta-desc">${receta.descripcion}</p>
       <p class="food-motivo">${receta.motivo}</p>
     `;
@@ -424,9 +425,53 @@
     }
     renderRecetas();
 
+    // Si se llega con un enlace directo a una receta concreta (p.ej. desde el
+    // teaser del índice), la mostramos centrada en pantalla.
+    if (location.hash) {
+      const destino = document.getElementById(location.hash.slice(1));
+      if (destino) destino.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
     // Cuando lleguen alimentos nuevos de la comunidad, volvemos a renderizar
     // por si alguna receta usaba un ingrediente que aún no se había cargado.
     window.__refrescarRecetas = renderRecetas;
+  });
+
+  /* ================= Recetas saludables: teaser en el índice ================= */
+  seguro("recetas-teaser", () => {
+    const grid = document.getElementById("recetasTeaserGrid");
+
+    RECETAS.forEach((receta, i) => {
+      const a = document.createElement("a");
+      a.className = "receta-teaser-card";
+      a.href = `recetas.html#${receta.id}`;
+      a.style.animationDelay = Math.min(i * 0.06, 0.3) + "s";
+
+      const foto = document.createElement("div");
+      foto.className = "receta-teaser-foto";
+      if (receta.imagen) {
+        const img = document.createElement("img");
+        img.src = receta.imagen;
+        img.alt = receta.nombre;
+        img.loading = "lazy";
+        img.addEventListener("error", () => {
+          img.remove();
+          foto.insertAdjacentHTML("afterbegin", `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`);
+        });
+        foto.appendChild(img);
+      } else {
+        foto.innerHTML = `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`;
+      }
+      foto.insertAdjacentHTML("beforeend", `<span class="badge badge-${receta.rating} receta-teaser-badge" title="Calificación nutricional">${receta.rating}</span>`);
+
+      const info = document.createElement("div");
+      info.className = "receta-teaser-info";
+      info.innerHTML = `<h3>${receta.nombre}</h3><span class="receta-meta">⏱️ ${receta.tiempo}</span>`;
+
+      a.appendChild(foto);
+      a.appendChild(info);
+      grid.appendChild(a);
+    });
   });
 
   /* ================= Ficha de un ingrediente en modal ================= */

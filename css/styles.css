@@ -419,6 +419,7 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   animation: cardIn .5s ease both;
   display: flex;
   flex-direction: column;
+  scroll-margin-top: 90px;
 }
 .receta-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
 .receta-foto {
@@ -461,6 +462,44 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   .receta-columnas { grid-template-columns: 1fr; }
 }
 .receta-hint { font-family: var(--font-body); font-weight: 400; font-size: .78rem; color: var(--ink-faint); }
+
+/* ---------- Recetas: teaser en el índice (enlaza a recetas.html) ---------- */
+.recetas-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 22px;
+}
+.receta-teaser-card {
+  display: block;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: inherit;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  animation: cardIn .5s ease both;
+}
+.receta-teaser-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
+.receta-teaser-foto {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 25% 20%, var(--lime) 0%, transparent 55%),
+    linear-gradient(135deg, var(--green-100), var(--green-50) 60%, #fff);
+  overflow: hidden;
+}
+.receta-teaser-foto img { width: 100%; height: 100%; object-fit: cover; }
+.receta-teaser-foto .receta-foto-emoji { font-size: 2.6rem; }
+.receta-teaser-badge { position: absolute; top: 10px; right: 10px; }
+.receta-teaser-info { padding: 14px 16px 16px; }
+.receta-teaser-info h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 4px; }
+.receta-teaser-info .receta-meta { font-size: .82rem; color: var(--ink-faint); margin: 0; }
+.recetas-teaser-cta { text-align: center; margin-top: 28px; }
 
 .receta-ingredientes { display: flex; flex-direction: column; gap: 8px; }
 .receta-ingredientes li {
