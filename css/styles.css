@@ -403,6 +403,80 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   gap: 22px;
 }
 
+/* ---------- Recetas saludables ---------- */
+.recetas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+  gap: 28px;
+}
+.receta-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  animation: cardIn .5s ease both;
+}
+.receta-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
+.receta-foto {
+  position: relative;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 25% 20%, var(--lime) 0%, transparent 55%),
+    linear-gradient(135deg, var(--green-100), var(--green-50) 60%, #fff);
+  overflow: hidden;
+}
+.receta-foto-emoji {
+  font-size: 4.4rem;
+  letter-spacing: .08em;
+  filter: drop-shadow(0 10px 18px rgba(15, 67, 37, .18));
+}
+.receta-body { padding: 26px 28px 28px; }
+.receta-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 6px; }
+.receta-head h3 { font-size: 1.3rem; font-weight: 600; }
+.receta-meta { font-size: .85rem; color: var(--ink-faint); margin-bottom: 12px; }
+.receta-desc { font-size: .98rem; }
+.receta-body h4 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; margin: 22px 0 10px; }
+.receta-hint { font-family: var(--font-body); font-weight: 400; font-size: .78rem; color: var(--ink-faint); }
+
+.receta-ingredientes { display: flex; flex-direction: column; gap: 8px; }
+.receta-ingredientes li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--paper-tint);
+}
+.ingrediente-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 600;
+  font-size: .92rem;
+  color: var(--green-700);
+  cursor: pointer;
+  text-align: left;
+}
+.ingrediente-link .food-emoji { width: 30px; height: 30px; font-size: 1.05rem; background: #fff; border-radius: 9px; }
+.ingrediente-link:hover { text-decoration: underline; }
+.ingrediente-cantidad { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
+.ingrediente-pendiente { font-size: .9rem; color: var(--ink-faint); font-style: italic; }
+
+.receta-pasos { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
+.receta-pasos li { font-size: .94rem; color: var(--ink-soft); line-height: 1.55; padding-left: 4px; }
+
+.modal-ficha { max-width: 520px; padding: 0; background: transparent; box-shadow: none; }
+.modal-ficha .modal-close { top: -14px; right: -14px; background: #fff; box-shadow: var(--shadow-md); z-index: 2; }
+.modal-ficha #fichaModalContenido .food-card { box-shadow: var(--shadow-lg); }
+
 /* ---------- Food card ---------- */
 .food-card {
   background: var(--paper);

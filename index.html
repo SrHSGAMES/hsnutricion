@@ -28,6 +28,7 @@
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#analizar">Analizar alimentos</a>
       <a href="#alimentos">Guía de alimentos</a>
+      <a href="#recetas">Recetas Saludables</a>
       <a href="#sobre">Sobre HSNutrición</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -211,6 +212,16 @@
     </div>
   </section>
 
+  <!-- RECETAS SALUDABLES -->
+  <section class="section section-tinted" id="recetas">
+    <div class="container">
+      <h2 class="section-title reveal">Recetas Saludables</h2>
+      <p class="section-sub reveal">Aquí no documentamos de todo, como en la guía de alimentos — seleccionamos. Solo entran recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, pensadas para mejorar tu salud y tu esperanza de vida con cada plato.</p>
+
+      <div class="recetas-grid" id="recetasGrid"></div>
+    </div>
+  </section>
+
   <!-- SOBRE -->
   <section class="section section-tinted" id="sobre">
     <div class="container about-grid">
@@ -276,7 +287,16 @@
   </div>
 </div>
 
+<!-- MODAL FICHA DE INGREDIENTE -->
+<div class="modal-overlay" id="fichaModalOverlay" hidden>
+  <div class="modal modal-ficha" role="dialog" aria-modal="true">
+    <button class="modal-close" id="fichaModalClose" aria-label="Cerrar">✕</button>
+    <div id="fichaModalContenido"></div>
+  </div>
+</div>
+
 <script src="js/data.js"></script>
+<script src="js/recetas.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

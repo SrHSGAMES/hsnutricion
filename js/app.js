@@ -204,6 +204,109 @@
     return food.__estudios || food.estudios || null;
   }
 
+  /* ================= Recetas saludables ================= */
+  const MACROS_SUMABLES = ["kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio"];
+
+  // Suma los macros de cada ingrediente (proporcional a su cantidad en gramos)
+  // para obtener el total de la receta completa. Si un ingrediente aún no se
+  // ha resuelto (p.ej. un alimento de la comunidad que todavía está cargando),
+  // se omite su aporte y se marca la receta como "incompleta" para no mostrar
+  // un total engañoso.
+  function calcularMacrosReceta(receta) {
+    const totales = {};
+    MACROS_SUMABLES.forEach(k => { totales[k] = 0; });
+    let completo = true;
+    receta.ingredientes.forEach(ing => {
+      const food = FOODS.find(f => f.id === ing.foodId);
+      if (!food) { completo = false; return; }
+      const factor = ing.cantidad / 100;
+      MACROS_SUMABLES.forEach(k => { totales[k] += (food[k] || 0) * factor; });
+    });
+    MACROS_SUMABLES.forEach(k => { totales[k] = Math.round(totales[k] * 10) / 10; });
+    return { totales, completo };
+  }
+
+  function crearListaIngredientes(receta) {
+    const ul = document.createElement("ul");
+    ul.className = "receta-ingredientes";
+    receta.ingredientes.forEach(ing => {
+      const food = FOODS.find(f => f.id === ing.foodId);
+      const li = document.createElement("li");
+      if (food) {
+        li.innerHTML = `<button type="button" class="ingrediente-link" data-food-id="${food.id}">
+            <span class="food-emoji">${food.emoji}</span> ${formatearNombre(food.nombre)}
+          </button>
+          <span class="ingrediente-cantidad">${ing.cantidad} g</span>`;
+      } else {
+        // Todavía no ha llegado de /api/community-foods: se muestra sin enlace,
+        // window.__refrescarRecetas() lo completará en cuanto esté disponible.
+        li.innerHTML = `<span class="ingrediente-pendiente">${ing.foodId} (cargando…)</span>
+          <span class="ingrediente-cantidad">${ing.cantidad} g</span>`;
+      }
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
+  function crearTarjetaReceta(receta) {
+    const card = document.createElement("article");
+    card.className = "receta-card";
+
+    const foto = document.createElement("div");
+    foto.className = "receta-foto";
+    foto.innerHTML = `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`;
+
+    const body = document.createElement("div");
+    body.className = "receta-body";
+    body.innerHTML = `
+      <div class="receta-head">
+        <h3>${receta.nombre}</h3>
+        <span class="badge badge-${receta.rating}" title="Calificación nutricional de la receta">${receta.rating}</span>
+      </div>
+      <p class="receta-meta">⏱️ ${receta.tiempo} · 🍽️ ${receta.raciones} ración${receta.raciones > 1 ? "es" : ""}</p>
+      <p class="receta-desc">${receta.descripcion}</p>
+      <p class="food-motivo">${receta.motivo}</p>
+      <h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>
+    `;
+    body.appendChild(crearListaIngredientes(receta));
+
+    if (receta.pasos && receta.pasos.length) {
+      const pasosTitulo = document.createElement("h4");
+      pasosTitulo.textContent = "Elaboración";
+      const ol = document.createElement("ol");
+      ol.className = "receta-pasos";
+      receta.pasos.forEach(paso => {
+        const li = document.createElement("li");
+        li.textContent = paso;
+        ol.appendChild(li);
+      });
+      body.appendChild(pasosTitulo);
+      body.appendChild(ol);
+    }
+
+    const macrosTitulo = document.createElement("h4");
+    macrosTitulo.textContent = `Información nutricional (receta completa${receta.raciones > 1 ? ", " + receta.raciones + " raciones" : ""})`;
+    body.appendChild(macrosTitulo);
+
+    const { totales, completo } = calcularMacrosReceta(receta);
+    const tablaMacros = document.createElement("div");
+    tablaMacros.className = "macro-table";
+    ["kcal", "carbs", "proteinas", "grasas", "fibra"].forEach(clave => {
+      tablaMacros.appendChild(crearBarraMacro(clave, totales[clave]));
+    });
+    const extra = document.createElement("p");
+    extra.className = "food-motivo";
+    extra.style.marginTop = "0";
+    extra.innerHTML = `De las grasas, <b>${totales.grasasSat} g</b> son saturadas · de los carbohidratos, <b>${totales.azucares} g</b> son azúcares · sodio: <b>${totales.sodio} mg</b>${!completo ? ' <span style="color:var(--ink-faint)">(recalculando…)</span>' : ""}`;
+    tablaMacros.appendChild(extra);
+    body.appendChild(tablaMacros);
+
+    card.appendChild(foto);
+    card.appendChild(body);
+    animarBarras(tablaMacros);
+    return card;
+  }
+
   function animarBarras(root) {
     root.querySelectorAll(".macro-fill").forEach(el => {
       const pct = el.dataset.pct;
@@ -281,6 +384,52 @@
     window.__refrescarGuia = () => { actualizarCategorias(); renderGuia(); };
   });
 
+  /* ================= Recetas saludables: render ================= */
+  seguro("recetas", () => {
+    const recetasGrid = document.getElementById("recetasGrid");
+
+    function renderRecetas() {
+      recetasGrid.innerHTML = "";
+      RECETAS.forEach((receta, i) => {
+        const card = crearTarjetaReceta(receta);
+        card.style.animationDelay = Math.min(i * 0.06, 0.3) + "s";
+        recetasGrid.appendChild(card);
+      });
+    }
+    renderRecetas();
+
+    // Cuando lleguen alimentos nuevos de la comunidad, volvemos a renderizar
+    // por si alguna receta usaba un ingrediente que aún no se había cargado.
+    window.__refrescarRecetas = renderRecetas;
+  });
+
+  /* ================= Ficha de un ingrediente en modal ================= */
+  seguro("modal-ficha-ingrediente", () => {
+    const overlay = document.getElementById("fichaModalOverlay");
+    const contenido = document.getElementById("fichaModalContenido");
+
+    function abrirFicha(foodId) {
+      const food = FOODS.find(f => f.id === foodId);
+      if (!food) return;
+      contenido.innerHTML = "";
+      const estudios = estudiosDe(food);
+      const card = crearTarjetaAlimento(food, estudios ? { estudios } : {});
+      contenido.appendChild(card);
+      animarBarras(contenido);
+      overlay.hidden = false;
+    }
+    function cerrarFicha() { overlay.hidden = true; }
+
+    // Delegación de eventos: las tarjetas de receta se crean dinámicamente,
+    // así que escuchamos el clic en un contenedor estable en vez de en cada botón.
+    document.addEventListener("click", e => {
+      const btn = e.target.closest(".ingrediente-link");
+      if (btn) abrirFicha(btn.dataset.foodId);
+    });
+    document.getElementById("fichaModalClose").addEventListener("click", cerrarFicha);
+    overlay.addEventListener("click", e => { if (e.target === overlay) cerrarFicha(); });
+  });
+
   /* ================= Alimentos generados por la comunidad ================= */
   // Carga los alimentos que la IA ya generó para otras personas y los añade a
   // FOODS/INDICE_ALIAS, para que la guía y la detección por texto/imagen los
@@ -305,6 +454,7 @@
         if (nuevos > 0) {
           INDICE_ALIAS.sort((a, b) => b.alias.length - a.alias.length);
           if (typeof window.__refrescarGuia === "function") window.__refrescarGuia();
+          if (typeof window.__refrescarRecetas === "function") window.__refrescarRecetas();
           const statFoods = document.getElementById("statFoods");
           if (statFoods) statFoods.textContent = FOODS.length;
         }
@@ -550,6 +700,7 @@
           });
           INDICE_ALIAS.sort((a, b) => b.alias.length - a.alias.length);
           if (typeof window.__refrescarGuia === "function") window.__refrescarGuia();
+          if (typeof window.__refrescarRecetas === "function") window.__refrescarRecetas();
           const statFoods = document.getElementById("statFoods");
           if (statFoods) statFoods.textContent = FOODS.length;
         }
