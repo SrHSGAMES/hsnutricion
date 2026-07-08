@@ -22,11 +22,13 @@ const RECETAS = [
       { foodId: "aguacate", cantidad: 100 },
       { foodId: "huevo", cantidad: 60 },
       { foodId: "aove", cantidad: 5 },
-      { foodId: "ia_sal", cantidad: 1 }
+      // Opcional: incluso la sal baja en sodio conviene usarla con
+      // moderación, así que la marcamos como añadido opcional, no esencial.
+      { foodId: "ia_sal_baja_en_sodio", cantidad: 1, opcional: true }
     ],
     pasos: [
       "Tuesta dos rebanadas de pan integral hasta que estén doradas y crujientes.",
-      "Machaca el aguacate con un tenedor en un bol y sazona con la pizca de sal.",
+      "Machaca el aguacate con un tenedor en un bol. Si quieres, sazona con una pizca opcional de sal baja en sodio — con moderación.",
       "Cocina el huevo a la plancha, escalfado o poché, al gusto — evita frituras con exceso de aceite.",
       "Unta el aguacate machacado sobre las tostadas, coloca el huevo encima y termina con un chorrito de AOVE."
     ]

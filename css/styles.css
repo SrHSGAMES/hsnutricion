@@ -488,6 +488,17 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 .ingrediente-link .food-emoji { width: 30px; height: 30px; font-size: 1.05rem; background: #fff; border-radius: 9px; }
 .ingrediente-link:hover { text-decoration: underline; }
 .ingrediente-cantidad { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
+.ingrediente-opcional { border: 1px dashed var(--line); background: transparent; }
+.ingrediente-opcional-tag {
+  font-size: .68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: var(--rating-C);
+  background: color-mix(in srgb, var(--rating-C) 14%, transparent);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
 .ingrediente-pendiente { font-size: .9rem; color: var(--ink-faint); font-style: italic; }
 
 .receta-pasos { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }

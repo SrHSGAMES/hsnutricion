@@ -232,9 +232,11 @@
     receta.ingredientes.forEach(ing => {
       const food = FOODS.find(f => f.id === ing.foodId);
       const li = document.createElement("li");
+      if (ing.opcional) li.classList.add("ingrediente-opcional");
       if (food) {
         li.innerHTML = `<button type="button" class="ingrediente-link" data-food-id="${food.id}">
             <span class="food-emoji">${food.emoji}</span> ${formatearNombre(food.nombre)}
+            ${ing.opcional ? '<span class="ingrediente-opcional-tag">Opcional</span>' : ""}
           </button>
           <span class="ingrediente-cantidad">${ing.cantidad} g</span>`;
       } else {
