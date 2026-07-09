@@ -60,6 +60,7 @@ const RECETAS = [
   {
     id: "bowl_arroz_aguacate_tomate",
     nombre: "Bowl Vegetal de Arroz Integral, Aguacate y Tomate",
+    imagen: "img/recetas/Bowl-Vegetal-ArrozIntegral-Aguacate-Tomate.jpg",
     emojiPortada: "🥑🍚🍅",
     rating: "A",
     tiempo: "15 min",
@@ -83,6 +84,7 @@ const RECETAS = [
   {
     id: "katsu_curry_vegano",
     nombre: "Katsu Curry Vegano",
+    imagen: "img/recetas/Katsu-Curry-Vegano.jpg",
     emojiPortada: "🍛🍚⬜",
     rating: "A",
     tiempo: "1 h",
