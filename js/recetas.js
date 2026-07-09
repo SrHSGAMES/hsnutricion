@@ -79,5 +79,41 @@ const RECETAS = [
       "Sirve el arroz de base en un bowl y coloca encima el tomate y el aguacate.",
       "Termina con un chorrito de AOVE y unas hojas de albahaca fresca troceadas."
     ]
+  },
+  {
+    id: "katsu_curry_vegano",
+    nombre: "Katsu Curry Vegano",
+    emojiPortada: "🍛🍚⬜",
+    rating: "A",
+    tiempo: "1 h",
+    raciones: 2,
+    descripcion: "Una versión 100% vegetal del clásico katsu curry japonés: verduras de raíz, un curry cremoso hecho con roux casero y tofu rebozado y cocinado al aire (no frito) — sin ningún ingrediente de origen animal.",
+    motivo: "El katsu curry tradicional se sirve con carne empanada y frita en abundante aceite. Aquí la proteína es tofu, rebozado con bebida de soja en vez de huevo y cocinado en air fryer o con muy poco aceite, así que se mantiene crujiente sin freír. La salsa se hace en casa con verduras, curry y un roux de harina integral y margarina vegetal, en vez de tabletas de curry comerciales, que suelen llevar aceite de palma y mucho sodio — así controlamos ambos. El arroz integral aporta la fibra que le falta al arroz blanco habitual del katsu. La margarina vegetal es el único ingrediente que conviene usar con moderación por su grasa saturada; el resto son todo verduras, legumbres y cereales integrales.",
+    ingredientes: [
+      { foodId: "ia_cebolla", cantidad: 150 },
+      { foodId: "ia_patata_cocida", cantidad: 400 },
+      { foodId: "ia_zanahoria", cantidad: 160 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 500 },
+      { foodId: "ia_margarina_vegetal_sin_grasas_trans", cantidad: 40 },
+      { foodId: "ia_curry_en_polvo", cantidad: 15 },
+      { foodId: "ia_harina_de_trigo_integral", cantidad: 25 },
+      { foodId: "arroz_integral", cantidad: 560 },
+      { foodId: "ia_tofu", cantidad: 400 },
+      { foodId: "ia_bebida_de_soja_sin_azucar", cantidad: 30 },
+      { foodId: "ia_pan_rallado_integral", cantidad: 50 }
+    ],
+    pasos: [
+      "Corta la cebolla, las patatas y las zanahorias en trozos y sofríelos en una olla con un poco de AOVE y un par de dientes de ajo picados, a fuego medio.",
+      "Añade el tomate triturado y pimienta recién molida, y deja que se cocine todo junto unos minutos.",
+      "Cubre con el caldo de verduras y deja cocer a fuego medio, removiendo de vez en cuando, hasta que las verduras estén tiernas.",
+      "Mientras tanto, prepara el roux: en una sartén aparte, derrite la margarina vegetal y ve incorporando el curry en polvo y la harina de trigo integral, añadiendo poco a poco caldo de la olla hasta conseguir una crema espesa y sin grumos.",
+      "Vierte el roux en la olla y remueve hasta que la salsa quede homogénea.",
+      "Cuece el arroz integral aparte, con la cantidad de agua que indique el envase.",
+      "Para la proteína, corta el tofu en cubos y pásalo primero por bebida de soja y después por pan rallado integral — si prefieres una versión sin gluten, puedes usar harina de garbanzos en su lugar.",
+      "Cocina el tofu rebozado en air fryer o en una sartén con un poco de AOVE, hasta que quede dorado y crujiente por fuera.",
+      "Sirve el arroz integral en un plato hondo, coloca el tofu encima y termina con la salsa de curry y verduras."
+    ]
   }
 ];
