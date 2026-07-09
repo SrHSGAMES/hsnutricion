@@ -91,7 +91,7 @@ const RECETAS = [
     motivo: "El katsu curry tradicional se sirve con carne empanada y frita en abundante aceite. Aquí la proteína es tofu, rebozado con bebida de soja en vez de huevo y cocinado en air fryer o con muy poco aceite, así que se mantiene crujiente sin freír. La salsa se hace en casa con verduras, curry y un roux de harina integral y margarina vegetal, en vez de tabletas de curry comerciales, que suelen llevar aceite de palma y mucho sodio — así controlamos ambos. El arroz integral aporta la fibra que le falta al arroz blanco habitual del katsu. La margarina vegetal es el único ingrediente que conviene usar con moderación por su grasa saturada; el resto son todo verduras, legumbres y cereales integrales.",
     ingredientes: [
       { foodId: "ia_cebolla", cantidad: 150 },
-      { foodId: "ia_patata_cocida", cantidad: 400 },
+      { foodId: "ia_patata", cantidad: 400 },
       { foodId: "ia_zanahoria", cantidad: 160 },
       { foodId: "aove", cantidad: 20 },
       { foodId: "ia_tomate", cantidad: 200 },
