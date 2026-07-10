@@ -117,5 +117,35 @@ const RECETAS = [
       "Cocina el tofu rebozado en air fryer o en una sartén con un poco de AOVE, hasta que quede dorado y crujiente por fuera.",
       "Sirve el arroz integral en un plato hondo, coloca el tofu encima y termina con la salsa de curry y verduras."
     ]
+  },
+  {
+    id: "tortitas_platano_avena",
+    nombre: "Tortitas de Plátano y Avena",
+    emojiPortada: "🍌🥞🌾",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "Un desayuno hecho puré con la batidora: plátano, avena, huevo y una mezcla de semillas que aportan fibra, proteína y grasas saludables — sin azúcar añadido y sin harinas refinadas.",
+    motivo: "El plátano maduro aporta todo el dulzor que necesita la receta, así que no hace falta azúcar añadido. La avena sustituye a la harina blanca de unas tortitas convencionales, sumando fibra y un índice glucémico más bajo. El huevo y la mezcla de semillas —lino, chía, sésamo y pipas de calabaza— convierten un desayuno típicamente solo de carbohidratos en un plato con proteína completa, grasas omega-3 y minerales como magnesio y zinc. Cocinadas en una sartén con poco AOVE, no con mantequilla, se mantienen ligeras sin perder ese punto crujiente por fuera y tierno por dentro.",
+    ingredientes: [
+      { foodId: "ia_platano", cantidad: 120 },
+      { foodId: "avena", cantidad: 75 },
+      { foodId: "huevo", cantidad: 60 },
+      { foodId: "ia_bebida_de_avena", cantidad: 50 },
+      { foodId: "ia_canela", cantidad: 1 },
+      { foodId: "ia_semillas_de_lino", cantidad: 5 },
+      { foodId: "ia_semillas_de_chia", cantidad: 5 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 5 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 5 },
+      { foodId: "aove", cantidad: 5 }
+    ],
+    pasos: [
+      "Bate el plátano, la avena (o los copos de avena, si no tienes harina de avena ya hecha), el huevo, la bebida de avena y la canela hasta conseguir una masa homogénea.",
+      "Añade las semillas de lino, chía y sésamo, y las pipas de calabaza, y mezcla bien.",
+      "Calienta una sartén con un poco de AOVE a fuego medio.",
+      "Vierte la mitad de la masa en la sartén y espera a que la tortita se despegue sola del fondo antes de darle la vuelta.",
+      "Cuando se despegue también por el otro lado, retírala del fuego. Repite con el resto de la masa.",
+      "Sirve con un topping opcional al gusto, como crema de cacahuete 100% natural o fruta fresca."
+    ]
   }
 ];
