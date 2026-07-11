@@ -121,6 +121,7 @@ const RECETAS = [
   {
     id: "tortitas_platano_avena",
     nombre: "Tortitas de Plátano y Avena",
+    imagen: "img/recetas/Tortitas-Plátano-y-Avena.jpg",
     emojiPortada: "🍌🥞🌾",
     rating: "A",
     tiempo: "15 min",
