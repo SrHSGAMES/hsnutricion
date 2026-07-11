@@ -441,10 +441,10 @@
   seguro("recetas-teaser", () => {
     const grid = document.getElementById("recetasTeaserGrid");
 
-    // Solo un adelanto: la lista completa vive en recetas.html, así el
-    // índice no se satura a medida que se añaden más recetas.
-    const TEASER_MAX = 4;
-    RECETAS.slice(0, TEASER_MAX).forEach((receta, i) => {
+    // La ficha completa de cada receta vive en recetas.html; aquí, igual que
+    // en la guía de alimentos, el panel tiene scroll propio en vez de un
+    // límite fijo, así que no hace falta recortar la lista aquí.
+    RECETAS.forEach((receta, i) => {
       const a = document.createElement("a");
       a.className = "receta-teaser-card";
       a.href = `recetas.html#${receta.id}`;

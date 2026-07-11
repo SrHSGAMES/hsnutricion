@@ -477,6 +477,12 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 22px;
+  /* Como en la guía de alimentos: altura fija (~8 tarjetas) con scroll
+     propio, en vez de ir creciendo sin límite con cada receta nueva. */
+  max-height: 640px;
+  overflow-y: auto;
+  padding: 4px 10px 4px 4px;
+  scroll-behavior: smooth;
 }
 .receta-teaser-card {
   display: block;
