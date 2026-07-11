@@ -441,7 +441,10 @@
   seguro("recetas-teaser", () => {
     const grid = document.getElementById("recetasTeaserGrid");
 
-    RECETAS.forEach((receta, i) => {
+    // Solo un adelanto: la lista completa vive en recetas.html, así el
+    // índice no se satura a medida que se añaden más recetas.
+    const TEASER_MAX = 4;
+    RECETAS.slice(0, TEASER_MAX).forEach((receta, i) => {
       const a = document.createElement("a");
       a.className = "receta-teaser-card";
       a.href = `recetas.html#${receta.id}`;
