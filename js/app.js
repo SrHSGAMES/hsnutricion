@@ -388,7 +388,7 @@
         (!q || normalizar(f.nombre).includes(q)) &&
         (!cat || f.categorias.includes(cat)) &&
         (!rating || f.rating === rating)
-      );
+      ).sort((a, b) => formatearNombre(a.nombre).localeCompare(formatearNombre(b.nombre), "es", { sensitivity: "base" }));
       guiaGrid.innerHTML = "";
       if (!lista.length) {
         guiaGrid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--ink-faint)">No se han encontrado alimentos con ese filtro.</p>';
