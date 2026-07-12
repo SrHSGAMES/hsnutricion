@@ -148,5 +148,29 @@ const RECETAS = [
       "Cuando se despegue también por el otro lado, retírala del fuego. Repite con el resto de la masa.",
       "Sirve con un topping opcional al gusto, como crema de cacahuete 100% natural o fruta fresca."
     ]
+  },
+  {
+    id: "gachas_de_avena",
+    nombre: "Gachas de Avena",
+    emojiPortada: "🥣🌾🌱",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "Un desayuno calentito y sin prisas: avena cocida con bebida de avena, rematada con una mezcla de semillas ricas en omega-3, fibra y minerales.",
+    motivo: "La avena aporta carbohidratos de absorción lenta y betaglucanos, una fibra soluble asociada a la mejora del perfil de colesterol. Cocerla con bebida de avena en vez de leche entera o nata mantiene la receta ligera y apta para quien evita lácteos, y el agua ayuda a dar la textura justa sin sumar calorías de más. La mezcla de semillas —lino, chía, sésamo y pipas de calabaza— convierte unas gachas corrientes en un desayuno con grasas omega-3, proteína vegetal y minerales como magnesio y zinc, sin necesidad de azúcar añadido.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 75 },
+      { foodId: "ia_bebida_de_avena", cantidad: 300 },
+      { foodId: "ia_semillas_de_lino", cantidad: 5 },
+      { foodId: "ia_semillas_de_chia", cantidad: 5 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 5 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 5 }
+    ],
+    pasos: [
+      "Pon los copos de avena en un bol o sartén junto con la bebida de avena y 200 ml de agua.",
+      "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
+      "Añade las semillas de lino, chía y sésamo, y las pipas de calabaza, y remueve bien.",
+      "Sirve con fruta fresca como topping opcional."
+    ]
   }
 ];
