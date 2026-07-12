@@ -161,13 +161,14 @@ const RECETAS = [
     ingredientes: [
       { foodId: "avena", cantidad: 75 },
       { foodId: "ia_bebida_de_avena", cantidad: 300 },
+      { foodId: "ia_agua", cantidad: 200 },
       { foodId: "ia_semillas_de_lino", cantidad: 5 },
       { foodId: "ia_semillas_de_chia", cantidad: 5 },
       { foodId: "ia_semillas_de_sesamo", cantidad: 5 },
       { foodId: "ia_pipas_de_calabaza", cantidad: 5 }
     ],
     pasos: [
-      "Pon los copos de avena en un bol o sartén junto con la bebida de avena y 200 ml de agua.",
+      "Pon los copos de avena en un bol o sartén junto con la bebida de avena y el agua.",
       "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
       "Añade las semillas de lino, chía y sésamo, y las pipas de calabaza, y remueve bien.",
       "Sirve con fruta fresca como topping opcional."
