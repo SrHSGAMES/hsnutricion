@@ -142,7 +142,7 @@ const RECETAS = [
     ],
     pasos: [
       "Bate el plátano, la avena (o los copos de avena, si no tienes harina de avena ya hecha), el huevo, la bebida de avena y la canela hasta conseguir una masa homogénea.",
-      "Añade las semillas de lino, chía y sésamo, y las pipas de calabaza, y mezcla bien.",
+      "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas a la masa, mezclando bien.",
       "Calienta una sartén con un poco de AOVE a fuego medio.",
       "Vierte la mitad de la masa en la sartén y espera a que la tortita se despegue sola del fondo antes de darle la vuelta.",
       "Cuando se despegue también por el otro lado, retírala del fuego. Repite con el resto de la masa.",
@@ -170,7 +170,7 @@ const RECETAS = [
     pasos: [
       "Pon los copos de avena en un bol o sartén junto con la bebida de avena y el agua.",
       "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
-      "Añade las semillas de lino, chía y sésamo, y las pipas de calabaza, y remueve bien.",
+      "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas, removiendo bien.",
       "Sirve con fruta fresca como topping opcional."
     ]
   }
