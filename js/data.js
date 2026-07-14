@@ -299,7 +299,37 @@ const FOODS = [
     emoji: "🍚",
     rating: "C",
     kcal: 130, carbs: 28, azucares: 0.1, proteinas: 2.7, grasas: 0.3, grasasSat: 0.1, fibra: 0.4, sodio: 1,
-    motivo: "Índice glucémico alto y muy poca fibra al haber perdido el salvado.",
+    motivo: "El arroz blanco cocido obtiene una calificación C debido a que, al ser un cereal refinado, pierde la mayor parte de su fibra (aportando apenas 0.4 g por 100 g) y micronutrientes, lo que resulta en un aporte mayoritario de carbohidratos de rápida asimilación. Su consumo habitual y aislado puede elevar rápidamente la glucemia, a diferencia de las opciones integrales cuyo consumo se asocia con una reducción del riesgo de enfermedades cardiovasculares [3] y diabetes [4]. No obstante, representa un alimento básico muy importante para la nutrición global [2] y su respuesta glucémica se puede mejorar significativamente mediante su enfriamiento previo al consumo, proceso que aumenta el almidón resistente [1]. Por ello, se considera una opción neutra que se aconseja combinar con verduras, grasas saludables y proteínas para equilibrar el plato.",
+    estudios: [
+      {
+        "pmid": "26693746",
+        "titulo": "Effect of cooling of cooked white rice on resistant starch content and glycemic response.",
+        "revista": "Asia Pacific journal of clinical nutrition",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26693746/"
+      },
+      {
+        "pmid": "31619630",
+        "titulo": "Rice: Importance for Global Nutrition.",
+        "revista": "Journal of nutritional science and vitaminology",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31619630/"
+      },
+      {
+        "pmid": "27301975",
+        "titulo": "Whole grain consumption and risk of cardiovascular disease, cancer, and all cause and cause specific mortality: systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27301975/"
+      },
+      {
+        "pmid": "21617109",
+        "titulo": "Globalization of diabetes: the role of diet, lifestyle, and genes.",
+        "revista": "Diabetes care",
+        "anio": "2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21617109/"
+      }
+    ],
     sustitutos: [
       {
         nombre: "Arroz integral (cocido)",
@@ -323,7 +353,37 @@ const FOODS = [
     emoji: "🌾",
     rating: "A",
     kcal: 123, carbs: 25.8, azucares: 0.2, proteinas: 2.6, grasas: 1, grasasSat: 0.2, fibra: 1.8, sodio: 4,
-    motivo: "Cereal integral con fibra conservada: buena opción de referencia.",
+    motivo: "El arroz integral cocido recibe la calificación A porque es una fuente excelente de carbohidratos complejos que aporta energía sostenida con un contenido casi nulo de azúcares, sodio y grasas saturadas. Al conservar el grano entero, destaca por su perfil fitoquímico [3] y por ser una fuente de nutrientes esenciales como el magnesio, fósforo, selenio, tiamina y niacina [1]. Además, su consumo regular frente al arroz blanco se asocia con un menor riesgo de desarrollar diabetes tipo 2 [4]. Su aporte de fibra y su densidad nutricional lo consolidan como un alimento básico y muy saludable para el día a día.",
+    estudios: [
+      {
+        "pmid": "31619630",
+        "titulo": "Rice: Importance for Global Nutrition.",
+        "revista": "Journal of nutritional science and vitaminology",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31619630/"
+      },
+      {
+        "pmid": "37521417",
+        "titulo": "Arsenic in brown rice: do the benefits outweigh the risks?",
+        "revista": "Frontiers in nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37521417/"
+      },
+      {
+        "pmid": "29789516",
+        "titulo": "Phytochemical Profile of Brown Rice and Its Nutrigenomic Implications.",
+        "revista": "Antioxidants (Basel, Switzerland)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29789516/"
+      },
+      {
+        "pmid": "36167362",
+        "titulo": "White rice, brown rice and the risk of type 2 diabetes: a systematic review and meta-analysis.",
+        "revista": "BMJ open",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36167362/"
+      }
+    ],
     sustitutos: []
   },
   {
@@ -352,7 +412,37 @@ const FOODS = [
     emoji: "🌾",
     rating: "A",
     kcal: 124, carbs: 25, azucares: 0.8, proteinas: 5.3, grasas: 1.1, grasasSat: 0.2, fibra: 3.9, sodio: 3,
-    motivo: "Buena densidad de fibra y nutrientes conservados del grano completo.",
+    motivo: "La pasta integral cocida merece la calificación A gracias a su excelente perfil nutricional, aportando energía de forma saludable mediante carbohidratos complejos con un contenido mínimo de grasas y sodio. Destaca especialmente por su aporte de fibra (3.9 g por 100 g) y proteínas, nutrientes esenciales para la salud digestiva y la regulación del tránsito intestinal. Además, se ha demostrado científicamente que el consumo de pasta integral ayuda a reducir el apetito de manera aguda [4]. Todo esto la convierte en una opción idónea, altamente saciante y nutritiva para incorporar de forma habitual en nuestra dieta.",
+    estudios: [
+      {
+        "pmid": "37628038",
+        "titulo": "Algae Incorporation and Nutritional Improvement: The Case of a Whole-Wheat Pasta.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37628038/"
+      },
+      {
+        "pmid": "31162597",
+        "titulo": "Glucose- and Lipid-Related Biomarkers Are Affected in Healthy Obese or Hyperglycemic Adults Consuming a Whole-Grain Pasta Enriched in Prebiotics and Probiotics: A 12-Week Randomized Controlled Trial.",
+        "revista": "The Journal of nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31162597/"
+      },
+      {
+        "pmid": "30888310",
+        "titulo": "Ingredient bundles and recipe tastings in food pantries: a pilot study to increase the selection of healthy foods.",
+        "revista": "Public health nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30888310/"
+      },
+      {
+        "pmid": "26863235",
+        "titulo": "Whole-grain pasta reduces appetite and meal-induced thermogenesis acutely: a pilot study.",
+        "revista": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26863235/"
+      }
+    ],
     sustitutos: []
   },
   {
@@ -363,7 +453,37 @@ const FOODS = [
     emoji: "🍬",
     rating: "E",
     kcal: 387, carbs: 100, azucares: 100, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 0,
-    motivo: "Calorías vacías: 100% azúcares simples sin ningún micronutriente ni fibra que module su absorción.",
+    motivo: "El azúcar blanco recibe la calificación E debido a que está compuesto en su totalidad por hidratos de carbono simples, aportando una alta densidad energética (387 kcal por 100 g) sin ningún valor nutricional añadido como fibra, proteínas o grasas. Su consumo excesivo favorece el desarrollo de procesos inflamatorios sistémicos [2] y está fuertemente vinculado con el aumento de patologías cardiovasculares, obesidad y diabetes [3]. Además, la ingesta elevada de azúcares se asocia directamente con el desarrollo de hígado graso no alcohólico [4]. Por estas razones, y considerando también el impacto de los azúcares añadidos en el desarrollo de la obesidad y otras afecciones crónicas [1], se recomienda evitar o reducir drásticamente su consumo.",
+    estudios: [
+      {
+        "pmid": "35064240",
+        "titulo": "The role of sugar-sweetened beverages in the global epidemics of obesity and chronic diseases.",
+        "revista": "Nature reviews. Endocrinology",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35064240/"
+      },
+      {
+        "pmid": "36119103",
+        "titulo": "Excessive intake of sugar: An accomplice of inflammation.",
+        "revista": "Frontiers in immunology",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36119103/"
+      },
+      {
+        "pmid": "26746178",
+        "titulo": "Dietary and Policy Priorities for Cardiovascular Disease, Diabetes, and Obesity: A Comprehensive Review.",
+        "revista": "Circulation",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26746178/"
+      },
+      {
+        "pmid": "29408694",
+        "titulo": "Fructose and sugar: A major mediator of non-alcoholic fatty liver disease.",
+        "revista": "Journal of hepatology",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29408694/"
+      }
+    ],
     sustitutos: [
       {
         nombre: "Eritritol o estevia",
