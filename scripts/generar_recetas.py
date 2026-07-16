@@ -11,6 +11,7 @@ import datetime
 import json
 import os
 import re
+import subprocess
 import urllib.request
 
 SITE_URL = "https://www.hsnutricion.com"
@@ -169,6 +170,73 @@ def slug(receta_id):
     return receta_id.replace("_", "-")
 
 
+def parse_duration_iso(tiempo):
+    """Convierte "10 min" / "1 h" (tal y como se escriben en recetas.js) al
+    formato de duración ISO 8601 que espera Schema.org (p.ej. "PT10M")."""
+    m = re.search(r"(\d+)\s*h", tiempo)
+    if m:
+        return f"PT{m.group(1)}H"
+    m = re.search(r"(\d+)\s*min", tiempo)
+    if m:
+        return f"PT{m.group(1)}M"
+    return None
+
+
+def fecha_publicacion_git(receta_id):
+    """Fecha real (AAAA-MM-DD) del primer commit que añadió esta receta a
+    recetas.js — se usa tal cual para datePublished, sin inventar fechas."""
+    try:
+        out = subprocess.run(
+            ["git", "log", "--format=%ad", "--date=short", "--reverse",
+             "-S", f'id: "{receta_id}"', "--", RECETAS_JS],
+            cwd=ROOT, capture_output=True, text=True, timeout=15
+        )
+        lineas = [l for l in out.stdout.strip().splitlines() if l]
+        return lineas[0] if lineas else None
+    except Exception:
+        return None
+
+
+def build_recipe_jsonld(receta, foods, totales):
+    ingredientes_txt = []
+    for ing in receta["ingredientes"]:
+        food = foods.get(ing["foodId"])
+        nombre = formatear_nombre(food["nombre"]) if food else ing["foodId"]
+        sufijo = " (opcional)" if ing["opcional"] else ""
+        ingredientes_txt.append(f'{ing["cantidad"]:g} g de {nombre}{sufijo}')
+
+    data = {
+        "@context": "https://schema.org",
+        "@type": "Recipe",
+        "name": receta["nombre"],
+        "description": receta["descripcion"],
+        "recipeYield": f'{receta["raciones"]:g} {"raciones" if receta["raciones"] > 1 else "ración"}',
+        "recipeIngredient": ingredientes_txt,
+        "recipeInstructions": [{"@type": "HowToStep", "text": p} for p in receta["pasos"]],
+        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
+        "nutrition": {
+            "@type": "NutritionInformation",
+            "calories": f'{totales["kcal"]:g} kcal',
+            "carbohydrateContent": f'{totales["carbs"]:g} g',
+            "proteinContent": f'{totales["proteinas"]:g} g',
+            "fatContent": f'{totales["grasas"]:g} g',
+            "saturatedFatContent": f'{totales["grasasSat"]:g} g',
+            "sugarContent": f'{totales["azucares"]:g} g',
+            "fiberContent": f'{totales["fibra"]:g} g',
+            "sodiumContent": f'{totales["sodio"]:g} mg',
+        },
+    }
+    if receta["imagen"]:
+        data["image"] = [f'{SITE_URL}/{receta["imagen"]}']
+    duracion = parse_duration_iso(receta["tiempo"])
+    if duracion:
+        data["totalTime"] = duracion
+    fecha = fecha_publicacion_git(receta["id"])
+    if fecha:
+        data["datePublished"] = fecha
+    return data
+
+
 def render_ingrediente(ing, foods):
     food = foods.get(ing["foodId"])
     li_class = ' class="ingrediente-opcional"' if ing["opcional"] else ""
@@ -212,6 +280,9 @@ def render_pagina(receta, foods):
     og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/recetas/tostada-aguacate.jpg'
     page_url = f'{SITE_URL}/receta-{slug(receta["id"])}.html'
 
+    jsonld = json.dumps(build_recipe_jsonld(receta, foods, totales), ensure_ascii=False, indent=2)
+    jsonld = jsonld.replace("</", "<\\/")  # por si algún texto contuviera "</script>" literal
+
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -230,6 +301,9 @@ def render_pagina(receta, foods):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<script type="application/ld+json">
+{jsonld}
+</script>
 </head>
 <body>
 
