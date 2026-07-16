@@ -13,12 +13,12 @@ import os
 import re
 import urllib.request
 
-SITE_URL = "https://hsnutricion.vercel.app"
+SITE_URL = "https://hsnutricion.com"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_JS = os.path.join(ROOT, "js", "data.js")
 RECETAS_JS = os.path.join(ROOT, "js", "recetas.js")
-COMMUNITY_URL = "https://hsnutricion.vercel.app/api/community-foods"
+COMMUNITY_URL = f"{SITE_URL}/api/community-foods"
 
 MACRO_KEYS = ["kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio"]
 ESCALAS = {"kcal": 900, "carbs": 100, "proteinas": 40, "grasas": 100, "fibra": 12}
@@ -209,8 +209,8 @@ def render_pagina(receta, foods):
     macros_html = "\n".join(render_macro_row(k, totales[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     incompleto_txt = ' <span style="color:var(--ink-faint)">(recalculando…)</span>' if not completo else ""
 
-    og_image = f'https://hsnutricion.vercel.app/{receta["imagen"]}' if receta["imagen"] else "https://hsnutricion.vercel.app/img/recetas/tostada-aguacate.jpg"
-    page_url = f'https://hsnutricion.vercel.app/receta-{slug(receta["id"])}.html'
+    og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/recetas/tostada-aguacate.jpg'
+    page_url = f'{SITE_URL}/receta-{slug(receta["id"])}.html'
 
     return f'''<!DOCTYPE html>
 <html lang="es">

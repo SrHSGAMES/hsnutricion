@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://hsnutricion.vercel.app/sitemap.xml
+Sitemap: https://hsnutricion.com/sitemap.xml
