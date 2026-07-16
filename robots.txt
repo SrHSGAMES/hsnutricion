@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://hsnutricion.com/sitemap.xml
+Sitemap: https://www.hsnutricion.com/sitemap.xml

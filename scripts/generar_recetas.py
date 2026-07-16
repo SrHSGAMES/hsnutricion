@@ -13,7 +13,7 @@ import os
 import re
 import urllib.request
 
-SITE_URL = "https://hsnutricion.com"
+SITE_URL = "https://www.hsnutricion.com"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_JS = os.path.join(ROOT, "js", "data.js")
