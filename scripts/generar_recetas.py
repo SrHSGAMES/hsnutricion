@@ -1,0 +1,374 @@
+# -*- coding: utf-8 -*-
+"""Genera una página HTML estática por receta (receta-<id-con-guiones>.html)
+a partir de js/data.js y js/recetas.js, para que cada receta tenga su propia
+URL indexable por buscadores (en vez de vivir solo dentro de una SPA).
+
+Uso: py scripts/generar_recetas.py
+Requiere conexión a internet (consulta /api/community-foods en producción
+para resolver ingredientes generados por la IA, p.ej. "ia_tomate").
+"""
+import json
+import os
+import re
+import urllib.request
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATA_JS = os.path.join(ROOT, "js", "data.js")
+RECETAS_JS = os.path.join(ROOT, "js", "recetas.js")
+COMMUNITY_URL = "https://hsnutricion.vercel.app/api/community-foods"
+
+MACRO_KEYS = ["kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio"]
+ESCALAS = {"kcal": 900, "carbs": 100, "proteinas": 40, "grasas": 100, "fibra": 12}
+ETIQUETAS = {"kcal": "Calorías", "carbs": "Carbohidratos", "proteinas": "Proteínas", "grasas": "Grasas", "fibra": "Fibra"}
+CONECTORES = {"de", "del", "la", "el", "los", "las", "y", "e", "o", "u", "en", "a", "al", "con", "sin", "por", "para", "un", "una", "unos", "unas"}
+
+
+def formatear_nombre(nombre):
+    idx = nombre.find("(")
+    principal = (nombre[:idx] if idx != -1 else nombre).strip()
+    parentesis = (nombre[idx:] if idx != -1 else "").lower()
+    palabras = []
+    for i, palabra in enumerate(p for p in principal.split(" ") if p):
+        es_sigla = len(palabra) >= 2 and palabra == palabra.upper() and palabra != palabra.lower()
+        if es_sigla:
+            palabras.append(palabra)
+        else:
+            low = palabra.lower()
+            palabras.append(low if (i > 0 and low in CONECTORES) else low[0].upper() + low[1:])
+    resultado = " ".join(palabras)
+    return f"{resultado} {parentesis}" if parentesis else resultado
+
+
+def _chunk_between_ids(text, start_marker="const FOODS = [", end_marker="\n];"):
+    start = text.index(start_marker) + len(start_marker)
+    end = text.index(end_marker, start)
+    body = text[start:end]
+    ids = [m.start() for m in re.finditer(r'\bid: "', body)]
+    ids.append(len(body))
+    return [body[ids[i]:ids[i + 1]] for i in range(len(ids) - 1)]
+
+
+def parse_foods(path):
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    foods = {}
+    for chunk in _chunk_between_ids(text):
+        food_id = re.search(r'id: "([^"]+)"', chunk).group(1)
+        nombre = re.search(r'nombre: "((?:[^"\\]|\\.)*)"', chunk).group(1)
+        emoji = re.search(r'emoji: "([^"]*)"', chunk).group(1)
+        rating = re.search(r'rating: "([A-E])"', chunk).group(1)
+        macros = {}
+        for key in MACRO_KEYS:
+            m = re.search(rf'\b{key}: (-?[\d.]+)', chunk)
+            macros[key] = float(m.group(1)) if m else 0.0
+        foods[food_id] = {"id": food_id, "nombre": nombre, "emoji": emoji, "rating": rating, **macros}
+    return foods
+
+
+def fetch_community_foods():
+    req = urllib.request.Request(COMMUNITY_URL, headers={"User-Agent": "hsnutricion-build"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = json.loads(resp.read().decode("utf-8"))
+    out = {}
+    for item in data.get("alimentos", []):
+        f = item.get("food") or {}
+        if not f.get("id"):
+            continue
+        macros = {k: float(f.get(k) or 0) for k in MACRO_KEYS}
+        out[f["id"]] = {"id": f["id"], "nombre": f.get("nombre", f["id"]), "emoji": f.get("emoji", "🍽️"), "rating": f.get("rating", "?"), **macros}
+    return out
+
+
+def _extract_str(chunk, key, required=True):
+    m = re.search(rf'{key}: "((?:[^"\\]|\\.)*)"', chunk)
+    if m:
+        return m.group(1).replace('\\"', '"')
+    if required:
+        raise ValueError(f"No se encontró {key} en: {chunk[:80]}")
+    return None
+
+
+def parse_recetas(path):
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
+    start = text.index("const RECETAS = [") + len("const RECETAS = [")
+    end = text.rindex("];")
+    body = text[start:end]
+
+    # Divide por objetos de receta de nivel superior (contando llaves).
+    recetas = []
+    depth = 0
+    obj_start = None
+    for i, ch in enumerate(body):
+        if ch == "{":
+            if depth == 0:
+                obj_start = i
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and obj_start is not None:
+                recetas.append(body[obj_start:i + 1])
+                obj_start = None
+
+    out = []
+    for chunk in recetas:
+        receta_id = _extract_str(chunk, "id")
+        ingredientes_block = re.search(r"ingredientes: \[(.*?)\n\s*\],", chunk, re.S).group(1)
+        ingredientes = []
+        for im in re.finditer(r'\{\s*foodId: "([^"]+)", cantidad: ([\d.]+)(, opcional: true)?\s*\}', ingredientes_block):
+            ingredientes.append({"foodId": im.group(1), "cantidad": float(im.group(2)), "opcional": bool(im.group(3))})
+
+        pasos_block = re.search(r"pasos: \[(.*?)\n\s*\]", chunk, re.S).group(1)
+        pasos = [m.group(1).replace('\\"', '"') for m in re.finditer(r'"((?:[^"\\]|\\.)*)"', pasos_block)]
+
+        out.append({
+            "id": receta_id,
+            "nombre": _extract_str(chunk, "nombre"),
+            "imagen": _extract_str(chunk, "imagen", required=False),
+            "emojiPortada": _extract_str(chunk, "emojiPortada"),
+            "rating": _extract_str(chunk, "rating"),
+            "tiempo": _extract_str(chunk, "tiempo"),
+            "raciones": int(re.search(r"raciones: (\d+)", chunk).group(1)),
+            "descripcion": _extract_str(chunk, "descripcion"),
+            "motivo": _extract_str(chunk, "motivo"),
+            "ingredientes": ingredientes,
+            "pasos": pasos,
+        })
+    return out
+
+
+def calcular_macros(receta, foods):
+    totales = {k: 0.0 for k in MACRO_KEYS}
+    completo = True
+    for ing in receta["ingredientes"]:
+        food = foods.get(ing["foodId"])
+        if not food:
+            completo = False
+            continue
+        factor = ing["cantidad"] / 100
+        for k in MACRO_KEYS:
+            totales[k] += food[k] * factor
+    for k in MACRO_KEYS:
+        totales[k] = round(totales[k] * 10) / 10
+    return totales, completo
+
+
+def pct(clave, valor):
+    maximo = ESCALAS.get(clave, 100)
+    return max(2, min(100, (valor / maximo) * 100))
+
+
+def esc(s):
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+def slug(receta_id):
+    return receta_id.replace("_", "-")
+
+
+def render_ingrediente(ing, foods):
+    food = foods.get(ing["foodId"])
+    li_class = ' class="ingrediente-opcional"' if ing["opcional"] else ""
+    if food:
+        opcional_tag = '<span class="ingrediente-opcional-tag">Opcional</span>' if ing["opcional"] else ""
+        return f'''      <li{li_class}>
+        <button type="button" class="ingrediente-link" data-food-id="{esc(food["id"])}">
+          <span class="food-emoji">{food["emoji"]}</span> {esc(formatear_nombre(food["nombre"]))}
+          {opcional_tag}
+        </button>
+        <span class="ingrediente-cantidad">{ing["cantidad"]:g} g</span>
+      </li>'''
+    return f'''      <li{li_class}>
+        <span class="ingrediente-pendiente">{esc(ing["foodId"])} (cargando…)</span>
+        <span class="ingrediente-cantidad">{ing["cantidad"]:g} g</span>
+      </li>'''
+
+
+def render_macro_row(clave, valor):
+    unidad = "kcal" if clave == "kcal" else "g"
+    return f'''      <div class="macro-row">
+        <div class="macro-row-head"><b>{ETIQUETAS[clave]}</b><span>{valor:g} {unidad}</span></div>
+        <div class="macro-track"><div class="macro-fill fill-{clave}" style="width:{pct(clave, valor):.1f}%"></div></div>
+      </div>'''
+
+
+def render_pagina(receta, foods):
+    totales, completo = calcular_macros(receta, foods)
+    raciones_txt = f'{receta["raciones"]} {"raciones" if receta["raciones"] > 1 else "ración"}'
+
+    if receta["imagen"]:
+        foto_html = f'<img src="{esc(receta["imagen"])}" alt="{esc(receta["nombre"])}" loading="lazy">'
+    else:
+        foto_html = f'<span class="receta-foto-emoji">{receta["emojiPortada"]}</span>'
+
+    ingredientes_html = "\n".join(render_ingrediente(i, foods) for i in receta["ingredientes"])
+    pasos_html = "\n".join(f'      <li>{esc(p)}</li>' for p in receta["pasos"])
+    macros_html = "\n".join(render_macro_row(k, totales[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
+    incompleto_txt = ' <span style="color:var(--ink-faint)">(recalculando…)</span>' if not completo else ""
+
+    og_image = f'https://hsnutricion.vercel.app/{receta["imagen"]}' if receta["imagen"] else "https://hsnutricion.vercel.app/img/recetas/tostada-aguacate.jpg"
+    page_url = f'https://hsnutricion.vercel.app/receta-{slug(receta["id"])}.html'
+
+    return f'''<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{esc(receta["nombre"])} — Receta Saludable | HSNutrición</title>
+<meta name="description" content="{esc(receta["descripcion"])}">
+<link rel="canonical" href="{page_url}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="{esc(receta["nombre"])} — HSNutrición">
+<meta property="og:description" content="{esc(receta["descripcion"])}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:url" content="{page_url}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <span class="blob blob-1"></span>
+  <span class="blob blob-2"></span>
+  <span class="blob blob-3"></span>
+</div>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">🥗</span>
+      <span class="brand-name">HS<span>Nutrición</span></span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="index.html#analizar">Analizar alimentos</a>
+      <a href="index.html#alimentos">Guía de alimentos</a>
+      <a href="index.html#recetas">Recetas Saludables</a>
+      <a href="index.html#sobre">Sobre HSNutrición</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn-icon" id="btnSettings" title="Cómo funciona la IA" aria-label="Cómo funciona la IA">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19.14 12.94a7.14 7.14 0 0 0 .06-.94 7.14 7.14 0 0 0-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.59.24-1.13.56-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.65 8.84a.5.5 0 0 0 .12.64l2.03 1.58c-.04.31-.06.62-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.14.24.42.32.6.22l2.39-.96c.5.38 1.04.7 1.63.94l.36 2.54c.05.24.26.42.5.42h3.84c.24 0 .45-.18.5-.42l.36-2.54c.59-.24 1.13-.56 1.63-.94l2.39.96c.24.1.46 0 .6-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7Z"/></svg>
+      </button>
+      <a href="index.html#analizar" class="btn btn-primary btn-sm">Analizar ahora</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <p class="reveal receta-breadcrumb"><a href="recetas.html">← Todas las recetas</a></p>
+
+      <div class="recetas-grid">
+        <article class="receta-card" id="{esc(receta["id"])}">
+          <div class="receta-foto">{foto_html}</div>
+          <div class="receta-body">
+            <div class="receta-head">
+              <h1>{esc(receta["nombre"])}</h1>
+              <span class="badge badge-{receta["rating"]}" title="Calificación nutricional de la receta">{receta["rating"]}</span>
+            </div>
+            <p class="receta-meta">⏱️ {esc(receta["tiempo"])} · 🍽️ {raciones_txt}</p>
+            <p class="receta-desc">{esc(receta["descripcion"])}</p>
+            <p class="food-motivo">{esc(receta["motivo"])}</p>
+
+            <div class="receta-columnas">
+              <div>
+                <h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>
+                <ul class="receta-ingredientes">
+{ingredientes_html}
+                </ul>
+              </div>
+              <div>
+                <h4>Elaboración</h4>
+                <ol class="receta-pasos">
+{pasos_html}
+                </ol>
+              </div>
+            </div>
+
+            <h4>Información nutricional (receta completa{", " + str(receta["raciones"]) + " raciones" if receta["raciones"] > 1 else ""})</h4>
+            <div class="macro-table">
+{macros_html}
+              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{totales["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{totales["azucares"]:g} g</b> son azúcares · sodio: <b>{totales["sodio"]:g} mg</b>{incompleto_txt}</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="brand">
+      <span class="brand-mark">🥗</span>
+      <span class="brand-name">HS<span>Nutrición</span></span>
+    </div>
+    <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico.</p>
+  </div>
+</footer>
+
+<!-- MODAL INFO IA -->
+<div class="modal-overlay" id="modalOverlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+    <h3 id="modalTitle">🔬 Cómo funciona la IA de HSNutrición</h3>
+    <p><strong>Análisis de imagen:</strong> tu foto se envía a una función segura de nuestro servidor, que la analiza con un modelo de visión y detecta los alimentos. La imagen no se almacena.</p>
+    <p><strong>Búsqueda con evidencia científica:</strong> cuando buscas un alimento que no está en nuestra guía, HSNutrición consulta PubMed (la base de datos de estudios biomédicos de EE. UU.) y pide a la IA que redacte la ficha nutricional citando esos estudios reales.</p>
+    <p class="modal-hint">Ninguna de estas funciones necesita que introduzcas una clave propia: usamos el nivel gratuito de Google Gemini, y la clave vive únicamente en el servidor del sitio, nunca en tu navegador.</p>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="modalOk">Entendido</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL FICHA DE INGREDIENTE -->
+<div class="modal-overlay" id="fichaModalOverlay" hidden>
+  <div class="modal modal-ficha" role="dialog" aria-modal="true">
+    <button class="modal-close" id="fichaModalClose" aria-label="Cerrar">✕</button>
+    <div id="fichaModalContenido"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/recetas.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
+'''
+
+
+def main():
+    foods = parse_foods(DATA_JS)
+    print(f"Alimentos base: {len(foods)}")
+    try:
+        comunidad = fetch_community_foods()
+        print(f"Alimentos de la comunidad: {len(comunidad)}")
+        foods.update(comunidad)
+    except Exception as e:
+        print(f"AVISO: no se pudieron cargar los alimentos de la comunidad ({e}). Algunos ingredientes pueden faltar.")
+
+    recetas = parse_recetas(RECETAS_JS)
+    print(f"Recetas: {len(recetas)}")
+
+    for receta in recetas:
+        html = render_pagina(receta, foods)
+        filename = f'receta-{slug(receta["id"])}.html'
+        path = os.path.join(ROOT, filename)
+        with open(path, "w", encoding="utf-8") as f:
+            f.write(html)
+        faltantes = [i["foodId"] for i in receta["ingredientes"] if i["foodId"] not in foods]
+        estado = f"FALTAN: {faltantes}" if faltantes else "OK"
+        print(f"  {filename} — {estado}")
+
+
+if __name__ == "__main__":
+    main()
