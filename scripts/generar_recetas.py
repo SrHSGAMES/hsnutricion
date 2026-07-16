@@ -7,10 +7,13 @@ Uso: py scripts/generar_recetas.py
 Requiere conexión a internet (consulta /api/community-foods en producción
 para resolver ingredientes generados por la IA, p.ej. "ia_tomate").
 """
+import datetime
 import json
 import os
 import re
 import urllib.request
+
+SITE_URL = "https://hsnutricion.vercel.app"
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_JS = os.path.join(ROOT, "js", "data.js")
@@ -346,6 +349,30 @@ def render_pagina(receta, foods):
 '''
 
 
+def render_sitemap(recetas):
+    hoy = datetime.date.today().isoformat()
+    urls = [
+        {"loc": f"{SITE_URL}/", "prioridad": "1.0"},
+        {"loc": f"{SITE_URL}/recetas.html", "prioridad": "0.8"},
+    ]
+    for receta in recetas:
+        urls.append({"loc": f'{SITE_URL}/receta-{slug(receta["id"])}.html', "prioridad": "0.7"})
+
+    entradas = "\n".join(
+        f'  <url>\n'
+        f'    <loc>{u["loc"]}</loc>\n'
+        f'    <lastmod>{hoy}</lastmod>\n'
+        f'    <priority>{u["prioridad"]}</priority>\n'
+        f'  </url>'
+        for u in urls
+    )
+    return f'''<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{entradas}
+</urlset>
+'''
+
+
 def main():
     foods = parse_foods(DATA_JS)
     print(f"Alimentos base: {len(foods)}")
@@ -368,6 +395,11 @@ def main():
         faltantes = [i["foodId"] for i in receta["ingredientes"] if i["foodId"] not in foods]
         estado = f"FALTAN: {faltantes}" if faltantes else "OK"
         print(f"  {filename} — {estado}")
+
+    sitemap_path = os.path.join(ROOT, "sitemap.xml")
+    with open(sitemap_path, "w", encoding="utf-8") as f:
+        f.write(render_sitemap(recetas))
+    print(f"  sitemap.xml — {len(recetas) + 2} URLs")
 
 
 if __name__ == "__main__":
