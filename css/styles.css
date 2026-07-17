@@ -168,7 +168,9 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
   font-size: 1.25rem;
 }
 .brand-mark {
-  font-size: 1.5rem;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
   display: inline-block;
   animation: sway 5s ease-in-out infinite;
 }

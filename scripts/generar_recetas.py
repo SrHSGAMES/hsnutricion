@@ -277,7 +277,7 @@ def render_pagina(receta, foods):
     macros_html = "\n".join(render_macro_row(k, totales[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     incompleto_txt = ' <span style="color:var(--ink-faint)">(recalculando…)</span>' if not completo else ""
 
-    og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/recetas/tostada-aguacate.jpg'
+    og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/banner-hsnutricion.jpg'
     page_url = f'{SITE_URL}/receta-{slug(receta["id"])}.html'
 
     jsonld = json.dumps(build_recipe_jsonld(receta, foods, totales), ensure_ascii=False, indent=2)
@@ -297,7 +297,7 @@ def render_pagina(receta, foods):
 <meta property="og:image" content="{og_image}">
 <meta property="og:url" content="{page_url}">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥗</text></svg>">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
@@ -316,7 +316,7 @@ def render_pagina(receta, foods):
 <header class="site-header" id="top">
   <div class="container header-inner">
     <a href="index.html" class="brand">
-      <span class="brand-mark">🥗</span>
+      <img class="brand-mark" src="img/favicon.png" alt="" width="26" height="26">
       <span class="brand-name">HS<span>Nutrición</span></span>
     </a>
     <nav class="main-nav" id="mainNav">
@@ -386,7 +386,7 @@ def render_pagina(receta, foods):
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="brand">
-      <span class="brand-mark">🥗</span>
+      <img class="brand-mark" src="img/favicon.png" alt="" width="26" height="26">
       <span class="brand-name">HS<span>Nutrición</span></span>
     </div>
     <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico.</p>
