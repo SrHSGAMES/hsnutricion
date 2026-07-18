@@ -56,7 +56,9 @@ button { font-family: inherit; cursor: pointer; }
 input, select, textarea { font-family: inherit; }
 
 .container {
-  width: min(1180px, 92%);
+  /* Más estrecho que el viewport a propósito: deja hueco fijo en los
+     laterales en pantallas anchas, reservado para futuros anuncios. */
+  width: min(1040px, 92%);
   margin-inline: auto;
 }
 
@@ -166,10 +168,13 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.25rem;
+  /* Separación mínima garantizada frente al menú, aunque el flex
+     space-between del header deje poco hueco en anchos intermedios. */
+  margin-right: 36px;
 }
 .brand-mark {
-  width: 26px;
-  height: 26px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
   display: inline-block;
   animation: sway 5s ease-in-out infinite;

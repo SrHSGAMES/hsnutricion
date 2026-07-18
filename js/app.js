@@ -428,6 +428,17 @@
     });
   });
 
+  // El logo del header enlaza a "#top" en el índice; forzamos el scroll al
+  // inicio explícitamente (en vez de depender solo del salto de ancla nativo,
+  // que con la cabecera fija a veces no se nota si ya estaba cerca del tope).
+  seguro("logo-scroll-arriba", () => {
+    const brand = document.querySelector('a.brand[href="#top"]');
+    if (!brand) return;
+    brand.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  });
+
   /* ================= Pestañas del analizador ================= */
   let analyzerStatus;
   seguro("pestanas-analizador", () => {
