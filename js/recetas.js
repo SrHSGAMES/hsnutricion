@@ -173,5 +173,33 @@ const RECETAS = [
       "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas, removiendo bien.",
       "Sirve con fruta fresca como topping opcional."
     ]
+  },
+  {
+    id: "crumbl_cookies_saludables",
+    nombre: "Crumbl Cookies Saludables",
+    emojiPortada: "🍪🌴🍫",
+    rating: "B",
+    tiempo: "35 min",
+    raciones: 8,
+    descripcion: "La versión sana de las galletas gigantes que arrasan en redes: sin azúcar añadido —el dulzor viene solo de los dátiles—, con harina integral y chocolate negro. Mismo gusto, perfil nutricional muy distinto.",
+    motivo: "Las Crumbl originales llevan harina blanca, mantequilla y una mezcla de azúcar blanco y moreno que puede superar los 30 g de azúcar añadido por galleta, más coberturas extra que disparan aún más esa cifra. Aquí el dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre sin más; la harina integral suma fibra frente a la blanca; y el chocolate negro ≥85% aporta antioxidantes con mucha menos azúcar que unas pepitas de chocolate con leche. La margarina vegetal sin grasas trans mantiene la textura blanda característica de estas galletas — es el ingrediente a disfrutar con moderación, como en cualquier repostería.",
+    ingredientes: [
+      { foodId: "ia_harina_de_trigo_integral", cantidad: 220 },
+      { foodId: "ia_datiles", cantidad: 150 },
+      { foodId: "ia_margarina_vegetal_sin_grasas_trans", cantidad: 80 },
+      { foodId: "huevo", cantidad: 60 },
+      { foodId: "chocolate_negro", cantidad: 100 }
+    ],
+    pasos: [
+      "Precalienta el horno a 180 °C y prepara una bandeja con papel de horno.",
+      "Deshuesa los dátiles y ponlos en remojo con agua caliente 10 minutos para ablandarlos; escúrrelos y tritúralos hasta conseguir una pasta homogénea.",
+      "Bate la margarina vegetal con la pasta de dátiles hasta integrarlas bien.",
+      "Añade el huevo y mezcla de nuevo.",
+      "Incorpora la harina integral (con una pizca de levadura química, no bicarbonato — necesita un ácido que esta masa no tiene) poco a poco, hasta formar una masa consistente pero blanda.",
+      "Añade el chocolate negro troceado y repártelo por toda la masa con una espátula.",
+      "Forma 8 bolas grandes (unos 75 g cada una), colócalas separadas en la bandeja y aplástalas ligeramente.",
+      "Hornea 12-14 minutos, hasta que los bordes estén dorados y el centro siga blando — así se consigue la textura tierna característica de las Crumbl.",
+      "Deja templar sobre la bandeja unos minutos antes de moverlas: se terminan de asentar fuera del horno."
+    ]
   }
 ];

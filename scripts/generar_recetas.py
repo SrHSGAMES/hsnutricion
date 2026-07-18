@@ -8,6 +8,7 @@ Requiere conexión a internet (consulta /api/community-foods en producción
 para resolver ingredientes generados por la IA, p.ej. "ia_tomate").
 """
 import datetime
+import glob
 import json
 import os
 import re
@@ -514,10 +515,18 @@ def main():
         estado = f"FALTAN: {faltantes}" if faltantes else "OK"
         print(f"  {filename} — {estado}")
 
+    # Las páginas de sustitutos las genera un script aparte (generar_sustitutos.py);
+    # se detectan aquí por archivo para que el sitemap quede completo sin importar
+    # qué script se ejecute último ni en qué orden.
+    urls_sustitutos = [
+        {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.6"}
+        for p in sorted(glob.glob(os.path.join(ROOT, "sustituto-*.html")))
+    ]
+
     sitemap_path = os.path.join(ROOT, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
-        f.write(render_sitemap(recetas))
-    print(f"  sitemap.xml — {len(recetas) + 2} URLs")
+        f.write(render_sitemap(recetas, extra_urls=urls_sustitutos))
+    print(f"  sitemap.xml — {len(recetas) + 2 + len(urls_sustitutos)} URLs")
 
 
 if __name__ == "__main__":
