@@ -465,7 +465,7 @@ def render_pagina(receta, foods, todas_recetas):
 '''
 
 
-def render_sitemap(recetas):
+def render_sitemap(recetas, extra_urls=None):
     hoy = datetime.date.today().isoformat()
     urls = [
         {"loc": f"{SITE_URL}/", "prioridad": "1.0"},
@@ -473,6 +473,8 @@ def render_sitemap(recetas):
     ]
     for receta in recetas:
         urls.append({"loc": f'{SITE_URL}/receta-{slug(receta["id"])}.html', "prioridad": "0.7"})
+    if extra_urls:
+        urls.extend(extra_urls)
 
     entradas = "\n".join(
         f'  <url>\n'

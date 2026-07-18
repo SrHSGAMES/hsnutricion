@@ -16,7 +16,7 @@ import sys
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ESCALAS, ETIQUETAS,
     formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
-    parse_recetas,
+    parse_recetas, render_sitemap,
 )
 
 
@@ -387,9 +387,11 @@ def main():
     objetivo_ids = sys.argv[1:] if len(sys.argv) > 1 else None
 
     generadas = 0
+    urls_sustitutos = []
     for food_id, food in foods.items():
         if not food.get("sustitutos"):
             continue
+        urls_sustitutos.append({"loc": f'{SITE_URL}/sustituto-{slug(food_id)}.html', "prioridad": "0.6"})
         if objetivo_ids and food_id not in objetivo_ids:
             continue
         html = render_pagina(food, foods, todas_recetas)
@@ -401,6 +403,14 @@ def main():
         generadas += 1
 
     print(f"Total generadas: {generadas}")
+
+    # El sitemap solo se actualiza en una pasada completa (sin filtro por id),
+    # para no truncarlo a un subconjunto cuando se prueba con un alimento suelto.
+    if not objetivo_ids:
+        sitemap_path = os.path.join(ROOT, "sitemap.xml")
+        with open(sitemap_path, "w", encoding="utf-8") as f:
+            f.write(render_sitemap(todas_recetas, extra_urls=urls_sustitutos))
+        print(f"  sitemap.xml actualizado con {len(urls_sustitutos)} páginas de sustitutos")
 
 
 if __name__ == "__main__":

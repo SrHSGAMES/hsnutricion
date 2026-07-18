@@ -173,6 +173,17 @@
       const subCont = document.createElement("div");
       subCont.className = "substitutes";
       food.sustitutos.forEach(s => subCont.appendChild(crearSustituto(s)));
+      // Solo los alimentos base tienen su página "sustituto-<id>.html" generada
+      // (scripts/generar_sustitutos.py); los de la comunidad (ia_*) no, así que
+      // el enlace solo se muestra cuando de verdad existe esa página.
+      if (!food.id.startsWith("ia_")) {
+        const verMas = document.createElement("a");
+        verMas.className = "btn btn-primary btn-sm";
+        verMas.style.marginTop = "10px";
+        verMas.href = `sustituto-${food.id.replace(/_/g, "-")}.html`;
+        verMas.textContent = "Ver comparativa completa →";
+        subCont.appendChild(verMas);
+      }
       const etiqueta = `Ver sustituto${food.sustitutos.length > 1 ? "s" : ""} recomendado${food.sustitutos.length > 1 ? "s" : ""}`;
       card.appendChild(crearDesplegable(etiqueta, subCont));
     } else if (conSustitutos) {
