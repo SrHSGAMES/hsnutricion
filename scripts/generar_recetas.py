@@ -263,7 +263,37 @@ def render_macro_row(clave, valor):
       </div>'''
 
 
-def render_pagina(receta, foods):
+def elegir_relacionadas(receta, todas_recetas, n=3):
+    """Prioriza otras recetas que comparten ingredientes (misma comunidad de
+    sabores/dieta); si no hay suficientes, completa con el resto en orden."""
+    propios = {i["foodId"] for i in receta["ingredientes"]}
+    otras = [r for r in todas_recetas if r["id"] != receta["id"]]
+
+    def puntuacion(r):
+        return len(propios & {i["foodId"] for i in r["ingredientes"]})
+
+    otras.sort(key=puntuacion, reverse=True)
+    return otras[:n]
+
+
+def render_receta_teaser(receta):
+    if receta["imagen"]:
+        foto_html = f'<img src="{esc(receta["imagen"])}" alt="{esc(receta["nombre"])}" loading="lazy">'
+    else:
+        foto_html = f'<span class="receta-foto-emoji">{receta["emojiPortada"]}</span>'
+    return f'''      <a class="receta-teaser-card" href="receta-{slug(receta["id"])}.html">
+        <div class="receta-teaser-foto">
+          {foto_html}
+          <span class="badge badge-{receta["rating"]} receta-teaser-badge" title="Calificación nutricional">{receta["rating"]}</span>
+        </div>
+        <div class="receta-teaser-info">
+          <h3>{esc(receta["nombre"])}</h3>
+          <span class="receta-meta">⏱️ {esc(receta["tiempo"])}</span>
+        </div>
+      </a>'''
+
+
+def render_pagina(receta, foods, todas_recetas):
     totales, completo = calcular_macros(receta, foods)
     raciones_txt = f'{receta["raciones"]} {"raciones" if receta["raciones"] > 1 else "ración"}'
 
@@ -282,6 +312,9 @@ def render_pagina(receta, foods):
 
     jsonld = json.dumps(build_recipe_jsonld(receta, foods, totales), ensure_ascii=False, indent=2)
     jsonld = jsonld.replace("</", "<\\/")  # por si algún texto contuviera "</script>" literal
+
+    relacionadas = elegir_relacionadas(receta, todas_recetas)
+    relacionadas_html = "\n".join(render_receta_teaser(r) for r in relacionadas)
 
     return f'''<!DOCTYPE html>
 <html lang="es">
@@ -381,6 +414,15 @@ def render_pagina(receta, foods):
       </div>
     </div>
   </section>
+
+  <section class="section section-tinted">
+    <div class="container">
+      <h2 class="section-title reveal">Recetas relacionadas</h2>
+      <div class="recetas-teaser-grid">
+{relacionadas_html}
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
@@ -461,7 +503,7 @@ def main():
     print(f"Recetas: {len(recetas)}")
 
     for receta in recetas:
-        html = render_pagina(receta, foods)
+        html = render_pagina(receta, foods, recetas)
         filename = f'receta-{slug(receta["id"])}.html'
         path = os.path.join(ROOT, filename)
         with open(path, "w", encoding="utf-8") as f:
