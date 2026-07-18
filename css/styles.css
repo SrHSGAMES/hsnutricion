@@ -715,6 +715,23 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 .sub-macros span { background: #fff; border: 1px solid var(--green-100); padding: 4px 9px; border-radius: 999px; color: var(--ink-soft); }
 .sub-macros b { color: var(--green-700); }
 
+/* ---------- Tabla comparativa (páginas de sustitutos) ---------- */
+.tabla-comparativa {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: .88rem;
+}
+.tabla-comparativa th, .tabla-comparativa td {
+  padding: 8px 10px;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+}
+.tabla-comparativa th:first-child, .tabla-comparativa td:first-child { text-align: left; color: var(--ink-faint); }
+.tabla-comparativa thead th { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.tabla-comparativa tbody tr:last-child td { border-bottom: none; }
+.tabla-comparativa tbody tr:hover { background: var(--paper-tint); }
+
 /* ---------- Búsqueda con IA + PubMed ---------- */
 .ai-lookup {
   max-width: 780px;
