@@ -206,7 +206,7 @@ const RECETAS = [
   },
   {
     id: "gachas_de_avena_dulce",
-    nombre: "Gachas de Avena Dulce",
+    nombre: "Gachas Dulces de Avena",
     emojiPortada: "🥣🫜🍌",
     rating: "B",
     tiempo: "15 min",
@@ -231,7 +231,7 @@ const RECETAS = [
       "Pon los copos de avena en un bol o sartén junto con la bebida de avena y 200 g de agua (reserva los 150 g restantes para el paso 4).",
       "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
       "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas a la avena, removiendo bien.",
-      "Pela la remolacha y tritúrala junto con los dátiles deshuesados y los 150 g de agua reservados, hasta conseguir una crema fina.",
+      "Lava bien la remolacha y tritúrala (con piel) junto con los dátiles deshuesados y los 150 g de agua reservados, hasta conseguir una crema fina.",
       "Añade la crema de remolacha y dátiles al bol de avena y mezcla bien.",
       "Corta el plátano en rodajas y repártelo por encima.",
       "Añade la miel por encima.",
