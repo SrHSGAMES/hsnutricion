@@ -208,6 +208,7 @@ const RECETAS = [
   {
     id: "gachas_de_avena_dulce",
     nombre: "Gachas Dulces de Avena",
+    imagen: "img/recetas/Gachas-Dulces-de-Avena.jpg",
     emojiPortada: "🥣🫜🍌",
     rating: "B",
     tiempo: "15 min",
