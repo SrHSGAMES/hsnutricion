@@ -178,6 +178,7 @@ const RECETAS = [
   {
     id: "crumbl_cookies_saludables",
     nombre: "Crumbl Cookies Saludables",
+    imagen: "img/recetas/Crumbl-Cookies.jpg",
     emojiPortada: "🍪🌴🍫",
     rating: "B",
     tiempo: "35 min",
