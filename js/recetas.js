@@ -183,6 +183,7 @@ const RECETAS = [
     rating: "B",
     tiempo: "35 min",
     raciones: 8,
+    mostrarPorRacion: true,
     descripcion: "La versión sana de las galletas gigantes que arrasan en redes: sin azúcar añadido —el dulzor viene solo de los dátiles—, con harina integral y chocolate negro. Mismo gusto, perfil nutricional muy distinto.",
     motivo: "Las Crumbl originales llevan harina blanca, mantequilla y una mezcla de azúcar blanco y moreno que puede superar los 30 g de azúcar añadido por galleta, más coberturas extra que disparan aún más esa cifra. Aquí el dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre sin más; la harina integral suma fibra frente a la blanca; y el chocolate negro ≥85% aporta antioxidantes con mucha menos azúcar que unas pepitas de chocolate con leche. La margarina vegetal sin grasas trans mantiene la textura blanda característica de estas galletas — es el ingrediente a disfrutar con moderación, como en cualquier repostería.",
     ingredientes: [

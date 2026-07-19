@@ -134,6 +134,7 @@ def parse_recetas(path):
             "rating": _extract_str(chunk, "rating"),
             "tiempo": _extract_str(chunk, "tiempo"),
             "raciones": int(re.search(r"raciones: (\d+)", chunk).group(1)),
+            "mostrarPorRacion": bool(re.search(r"mostrarPorRacion: true", chunk)),
             "descripcion": _extract_str(chunk, "descripcion"),
             "motivo": _extract_str(chunk, "motivo"),
             "ingredientes": ingredientes,
@@ -308,6 +309,17 @@ def render_pagina(receta, foods, todas_recetas):
     macros_html = "\n".join(render_macro_row(k, totales[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     incompleto_txt = ' <span style="color:var(--ink-faint)">(recalculando…)</span>' if not completo else ""
 
+    por_racion_html = ""
+    if receta["mostrarPorRacion"] and receta["raciones"] > 1:
+        por_racion = {k: round(totales[k] / receta["raciones"], 1) for k in MACRO_KEYS}
+        macros_racion_html = "\n".join(render_macro_row(k, por_racion[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
+        por_racion_html = f'''
+            <h4>Información nutricional (por ración)</h4>
+            <div class="macro-table">
+{macros_racion_html}
+              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{por_racion["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{por_racion["azucares"]:g} g</b> son azúcares · sodio: <b>{por_racion["sodio"]:g} mg</b></p>
+            </div>'''
+
     og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/banner-hsnutricion.jpg'
     page_url = f'{SITE_URL}/receta-{slug(receta["id"])}.html'
 
@@ -409,7 +421,7 @@ def render_pagina(receta, foods, todas_recetas):
             <div class="macro-table">
 {macros_html}
               <p class="food-motivo" style="margin-top:0">De las grasas, <b>{totales["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{totales["azucares"]:g} g</b> son azúcares · sodio: <b>{totales["sodio"]:g} mg</b>{incompleto_txt}</p>
-            </div>
+            </div>{por_racion_html}
           </div>
         </article>
       </div>
