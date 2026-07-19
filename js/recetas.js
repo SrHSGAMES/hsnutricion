@@ -238,5 +238,32 @@ const RECETAS = [
       "Añade la miel por encima.",
       "Espolvorea canela al gusto (opcional)."
     ]
+  },
+  {
+    id: "crepes_caseros",
+    nombre: "Crepes Caseros",
+    emojiPortada: "🥞🌾🫒",
+    rating: "A",
+    tiempo: "30 min",
+    raciones: 10,
+    mostrarPorRacion: true,
+    descripcion: "La versión integral y sin lácteos de los crepes clásicos: harina de avena en vez de harina blanca, bebida de soja en vez de leche, y AOVE en vez de mantequilla. Una base neutra y nutritiva que sirve igual para relleno dulce o salado.",
+    motivo: "Esta versión sustituye la harina blanca por harina de avena integral, rica en fibra soluble (betaglucanos) que ayuda a moderar la respuesta glucémica; la leche entera por bebida de soja sin azúcares añadidos, que aporta proteína vegetal completa sin la grasa saturada ni el colesterol de la leche animal; y la mantequilla por AOVE, aportando grasa mayoritariamente monoinsaturada en vez de saturada. Al no llevar azúcar ni sal añadidos en la masa, el perfil final depende por completo del relleno que elijas, dulce o salado.",
+    ingredientes: [
+      { foodId: "ia_harina_de_avena_integral", cantidad: 250 },
+      { foodId: "huevo", cantidad: 150 },
+      { foodId: "ia_bebida_de_soja", cantidad: 500 },
+      { foodId: "aove", cantidad: 40 }
+    ],
+    pasos: [
+      "Bate los huevos en un bol grande.",
+      "Añade la bebida de soja poco a poco, sin dejar de batir.",
+      "Incorpora la harina de avena integral tamizada, mezclando hasta que no queden grumos, y deja reposar la masa 15 minutos.",
+      "Añade el AOVE a la masa y remueve para integrarlo.",
+      "Calienta una sartén antiadherente a fuego medio y engrásala con un poco de AOVE.",
+      "Vierte un cucharón de masa, reparte bien por toda la sartén con movimientos circulares y cuece 1-2 minutos por cada lado, hasta que se dore.",
+      "Repite con el resto de la masa, engrasando ligeramente la sartén entre crepe y crepe.",
+      "Rellena o cubre al gusto: dulce (fruta, chocolate negro, crema de cacahuete) o salado (verduras, queso, pollo)."
+    ]
   }
 ];
