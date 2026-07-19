@@ -243,6 +243,7 @@ const RECETAS = [
   {
     id: "crepes_caseros",
     nombre: "Crepes Caseros",
+    imagen: "img/recetas/Crepes-Caseros.jpg",
     emojiPortada: "🥞🌾🫒",
     rating: "A",
     tiempo: "30 min",
