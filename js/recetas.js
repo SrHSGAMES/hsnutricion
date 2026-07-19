@@ -202,5 +202,39 @@ const RECETAS = [
       "Hornea 12-14 minutos, hasta que los bordes estén dorados y el centro siga blando — así se consigue la textura tierna característica de las Crumbl.",
       "Deja templar sobre la bandeja unos minutos antes de moverlas: se terminan de asentar fuera del horno."
     ]
+  },
+  {
+    id: "gachas_de_avena_dulce",
+    nombre: "Gachas de Avena Dulce",
+    emojiPortada: "🥣🫜🍌",
+    rating: "B",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "Una versión más golosa y colorida de las gachas clásicas: remolacha y dátiles triturados aportan un dulzor natural intenso, rematada con plátano y un toque de miel. Un desayuno muy completo y saciante.",
+    motivo: "Esta versión suma remolacha y dátiles triturados a la base de avena, lo que aporta un dulzor natural muy marcado junto con fibra, folato y nitratos dietéticos —estos últimos relacionados con una mejor función vascular—, además de betalaínas antioxidantes propias del color de la remolacha. El plátano en rodajas y la miel por encima suman más azúcares, naturales en el caso del plátano y libres en el de la miel, así que aunque sigue siendo un desayuno muy nutritivo y saciante gracias a sus más de 25 g de fibra, conviene tenerlo en cuenta si se está vigilando el azúcar total del día. La canela, opcional, no aporta calorías relevantes y se ha asociado además a una mejor regulación de la glucemia.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 75 },
+      { foodId: "ia_bebida_de_avena", cantidad: 300 },
+      { foodId: "ia_agua", cantidad: 350 },
+      { foodId: "ia_semillas_de_lino", cantidad: 5 },
+      { foodId: "ia_semillas_de_chia", cantidad: 5 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 5 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 5 },
+      { foodId: "remolacha", cantidad: 100 },
+      { foodId: "ia_platano", cantidad: 120 },
+      { foodId: "ia_datiles", cantidad: 60 },
+      { foodId: "miel", cantidad: 20 },
+      { foodId: "ia_canela", cantidad: 1, opcional: true }
+    ],
+    pasos: [
+      "Pon los copos de avena en un bol o sartén junto con la bebida de avena y 200 g de agua (reserva los 150 g restantes para el paso 4).",
+      "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
+      "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas a la avena, removiendo bien.",
+      "Pela la remolacha y tritúrala junto con los dátiles deshuesados y los 150 g de agua reservados, hasta conseguir una crema fina.",
+      "Añade la crema de remolacha y dátiles al bol de avena y mezcla bien.",
+      "Corta el plátano en rodajas y repártelo por encima.",
+      "Añade la miel por encima.",
+      "Espolvorea canela al gusto (opcional)."
+    ]
   }
 ];

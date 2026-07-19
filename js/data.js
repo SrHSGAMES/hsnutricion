@@ -981,6 +981,17 @@ const FOODS = [
         porque: "Aporta el efecto estimulante de la cafeína sin azúcar ni calorías añadidas."
       }
     ]
+  },
+  {
+    id: "remolacha",
+    nombre: "Remolacha",
+    aliases: ["remolacha", "remolachas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🫜",
+    rating: "A",
+    kcal: 43, carbs: 9.6, azucares: 6.8, proteinas: 1.6, grasas: 0.2, grasasSat: 0.03, fibra: 2.8, sodio: 78,
+    motivo: "Raíz muy baja en calorías y rica en fibra, con un contenido natural de nitratos dietéticos asociado a la mejora de la función vascular y la presión arterial, y de betalaínas —los pigmentos responsables de su color— con capacidad antioxidante. Su azúcar es propio de la hortaliza, no añadido, y va acompañado de fibra que modera su absorción.",
+    sustitutos: []
   }
 ];
 
