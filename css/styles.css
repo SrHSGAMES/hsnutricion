@@ -485,6 +485,34 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
 }
 .receta-hint { font-family: var(--font-body); font-weight: 400; font-size: .78rem; color: var(--ink-faint); }
 
+/* ---------- Recetas: preguntas frecuentes (acordeón nativo, sin JS) ---------- */
+.receta-faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+}
+.receta-faq details:first-of-type { border-top: 1px solid var(--line); }
+.receta-faq summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.receta-faq summary::-webkit-details-marker { display: none; }
+.receta-faq summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+.receta-faq details[open] summary::after { transform: rotate(45deg); }
+.receta-faq details p { margin: 10px 0 0; font-size: .94rem; }
+
 /* ---------- Recetas: tarjetas-teaser (índice y galería de recetas.html) ---------- */
 .recetas-teaser-grid {
   display: grid;

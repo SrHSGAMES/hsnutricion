@@ -31,6 +31,11 @@ const RECETAS = [
       "Machaca el aguacate con un tenedor en un bol. Si quieres, sazona con una pizca opcional de sal baja en sodio — con moderación.",
       "Cocina el huevo a la plancha, escalfado o poché, al gusto — evita frituras con exceso de aceite.",
       "Unta el aguacate machacado sobre las tostadas, coloca el huevo encima y termina con un chorrito de AOVE."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para vegetarianos?", respuesta: "Sí, es apta para vegetarianos porque lleva huevo pero ningún otro producto animal. No es apta para veganos por el huevo." },
+      { pregunta: "¿Es apta para personas con intolerancia al gluten?", respuesta: "No tal cual: el pan integral de trigo contiene gluten. Puedes sustituirlo por pan integral sin gluten certificado sin que cambie el resto de la receta." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "El aguacate machacado se oxida y pierde color en poco tiempo, así que lo ideal es prepararlo justo antes de comer. Puedes adelantar el huevo cocinado y tostar el pan en el momento." }
     ]
   },
   {
@@ -55,6 +60,11 @@ const RECETAS = [
       "Mientras tanto, trocea el tomate y sofríelo a fuego medio con un diente de ajo picado y el AOVE, removiendo hasta que se deshaga en una salsa espesa (10-12 min).",
       "Añade las hojas de albahaca fresca troceadas y remueve un par de minutos más.",
       "Escurre la pasta, mézclala con la salsa y sirve. Si quieres, termina con un poco de queso curado rallado — opcional, con moderación."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, si no añades el queso curado opcional. Sin él, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes ya no llevan gluten." },
+      { pregunta: "¿Cuánto aguanta en la nevera?", respuesta: "2-3 días en un recipiente hermético. Recalienta con un chorrito de agua para que la salsa no se seque." }
     ]
   },
   {
@@ -79,6 +89,11 @@ const RECETAS = [
       "Mientras tanto, trocea el tomate y el aguacate en dados.",
       "Sirve el arroz de base en un bowl y coloca encima el tomate y el aguacate.",
       "Termina con un chorrito de AOVE y unas hojas de albahaca fresca troceadas."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana y sin gluten?", respuesta: "Sí a ambas: todos los ingredientes son vegetales y el arroz integral no contiene gluten." },
+      { pregunta: "¿Se puede comer frío, tipo tartera?", respuesta: "Sí, funciona igual de bien templado o frío, así que es una buena opción para preparar con antelación y llevar de tartera." },
+      { pregunta: "¿Cuánto dura en la nevera?", respuesta: "El arroz cocido aguanta 2-3 días en un recipiente hermético; añade el aguacate justo antes de comer para que no se oxide." }
     ]
   },
   {
@@ -116,6 +131,11 @@ const RECETAS = [
       "Para la proteína, corta el tofu en cubos y pásalo primero por bebida de soja y después por pan rallado integral — si prefieres una versión sin gluten, puedes usar harina de garbanzos en su lugar.",
       "Cocina el tofu rebozado en air fryer o en una sartén con un poco de AOVE, hasta que quede dorado y crujiente por fuera.",
       "Sirve el arroz integral en un plato hondo, coloca el tofu encima y termina con la salsa de curry y verduras."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta 100% vegana?", respuesta: "Sí, ningún ingrediente es de origen animal: la proteína es tofu y la salsa se hace con verduras y caldo vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "El roux lleva harina de trigo integral y el rebozado del tofu, pan rallado integral; ambos se pueden sustituir por harina de garbanzo y pan rallado sin gluten, tal y como se indica en el paso 7." },
+      { pregunta: "¿Se puede congelar?", respuesta: "La salsa de curry con verduras se congela muy bien hasta 2-3 meses. El tofu rebozado es mejor prepararlo fresco para que se mantenga crujiente." }
     ]
   },
   {
@@ -147,6 +167,11 @@ const RECETAS = [
       "Vierte la mitad de la masa en la sartén y espera a que la tortita se despegue sola del fondo antes de darle la vuelta.",
       "Cuando se despegue también por el otro lado, retírala del fuego. Repite con el resto de la masa.",
       "Sirve con un topping opcional al gusto, como crema de cacahuete 100% natural o fruta fresca."
+    ],
+    faqs: [
+      { pregunta: "¿Son aptas para vegetarianos?", respuesta: "Sí, llevan huevo pero ningún otro producto animal. No son aptas para veganos por el huevo." },
+      { pregunta: "¿Se pueden hacer sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero suele haber contaminación cruzada en su procesado; usa copos de avena certificados sin gluten si lo necesitas." },
+      { pregunta: "¿Puedo sustituir el huevo para hacerlas veganas?", respuesta: "Puedes probar con una cucharada de semillas de lino molidas mezcladas con 3 cucharadas de agua (deja reposar 5 minutos), aunque no hemos probado esta variante en la receta." }
     ]
   },
   {
@@ -173,6 +198,11 @@ const RECETAS = [
       "Cuece la mezcla unos 8 minutos —al microondas o a fuego medio en una sartén, removiendo de vez en cuando— hasta que espese.",
       "Tritura las semillas de lino, chía y sésamo, y las pipas de calabaza —con un molinillo o mortero— y añádelas, removiendo bien.",
       "Sirve con fruta fresca como topping opcional."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Se puede preparar la noche antes (overnight oats)?", respuesta: "Sí, puedes dejar los copos de avena en remojo con la bebida de avena en la nevera toda la noche, sin necesidad de cocerlos al día siguiente." }
     ]
   },
   {
@@ -203,6 +233,11 @@ const RECETAS = [
       "Forma 8 bolas grandes (unos 75 g cada una), colócalas separadas en la bandeja y aplástalas ligeramente.",
       "Hornea 12-14 minutos, hasta que los bordes estén dorados y el centro siga blando — así se consigue la textura tierna característica de las Crumbl.",
       "Deja templar sobre la bandeja unos minutos antes de moverlas: se terminan de asentar fuera del horno."
+    ],
+    faqs: [
+      { pregunta: "¿Son aptas para veganos?", respuesta: "No, llevan huevo. Si quieres probar una versión vegana, puedes sustituirlo por una cucharada de semillas de lino molidas con 3 cucharadas de agua, aunque no está testado en esta receta." },
+      { pregunta: "¿Se pueden hacer sin gluten?", respuesta: "La harina de trigo integral contiene gluten. Sustitúyela por una mezcla de harinas sin gluten (avena certificada, arroz o almendra); puede que necesites ajustar ligeramente la cantidad de líquido." },
+      { pregunta: "¿Se puede congelar la masa?", respuesta: "Sí, forma las bolas de masa y congélalas; hornea directamente desde congelado añadiendo 2-3 minutos más al tiempo de horneado." }
     ]
   },
   {
@@ -238,6 +273,11 @@ const RECETAS = [
       "Corta el plátano en rodajas y repártelo por encima.",
       "Añade la miel por encima.",
       "Espolvorea canela al gusto (opcional)."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "No estrictamente, por la miel. Para una versión vegana, sustitúyela por sirope de agave o por dátiles extra triturados con la crema de remolacha." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo preparar la crema de remolacha y dátiles con antelación?", respuesta: "Sí, se conserva 2-3 días en la nevera en un bote hermético; solo tendrás que mezclarla con la avena recién hecha." }
     ]
   },
   {
@@ -266,6 +306,11 @@ const RECETAS = [
       "Vierte un cucharón de masa, reparte bien por toda la sartén con movimientos circulares y cuece 1-2 minutos por cada lado, hasta que se dore.",
       "Repite con el resto de la masa, engrasando ligeramente la sartén entre crepe y crepe.",
       "Rellena o cubre al gusto: dulce (fruta, chocolate negro, crema de cacahuete) o salado (verduras, queso, pollo)."
+    ],
+    faqs: [
+      { pregunta: "¿Son aptos para veganos?", respuesta: "No, llevan huevo. Puedes probar a sustituirlo por una mezcla de harina de garbanzo con agua, aunque cambiará ligeramente la textura y el sabor." },
+      { pregunta: "¿Son aptos sin gluten?", respuesta: "La harina de avena no contiene gluten de forma natural, pero elige una certificada sin gluten si hay sensibilidad, por la posible contaminación cruzada en su procesado." },
+      { pregunta: "¿Se pueden conservar hechos con antelación?", respuesta: "Sí, apílalos con papel vegetal entre cada crepe y guárdalos en la nevera 2-3 días, o congélalos hasta 1 mes." }
     ]
   }
 ];

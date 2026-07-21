@@ -126,6 +126,18 @@ def parse_recetas(path):
         pasos_block = re.search(r"pasos: \[(.*?)\n\s*\]", chunk, re.S).group(1)
         pasos = [m.group(1).replace('\\"', '"') for m in re.finditer(r'"((?:[^"\\]|\\.)*)"', pasos_block)]
 
+        faqs = []
+        faqs_match = re.search(r"faqs: \[(.*?)\n\s*\]", chunk, re.S)
+        if faqs_match:
+            for fm in re.finditer(
+                r'\{\s*pregunta: "((?:[^"\\]|\\.)*)",\s*respuesta: "((?:[^"\\]|\\.)*)"\s*\}',
+                faqs_match.group(1), re.S
+            ):
+                faqs.append({
+                    "pregunta": fm.group(1).replace('\\"', '"'),
+                    "respuesta": fm.group(2).replace('\\"', '"'),
+                })
+
         out.append({
             "id": receta_id,
             "nombre": _extract_str(chunk, "nombre"),
@@ -139,6 +151,7 @@ def parse_recetas(path):
             "motivo": _extract_str(chunk, "motivo"),
             "ingredientes": ingredientes,
             "pasos": pasos,
+            "faqs": faqs,
         })
     return out
 
@@ -239,6 +252,42 @@ def build_recipe_jsonld(receta, foods, totales):
     return data
 
 
+def construir_faqs(receta, totales):
+    """Primera FAQ calculada a partir de los macros reales (para que no quede
+    desactualizada si se ajusta la receta), seguida de las FAQ escritas a mano
+    en recetas.js."""
+    if receta["mostrarPorRacion"] and receta["raciones"] > 1:
+        por_racion_kcal = round(totales["kcal"] / receta["raciones"], 1)
+        respuesta_cal = (
+            f'Toda la receta de {receta["nombre"]} tiene {totales["kcal"]:g} kcal repartidas en '
+            f'{receta["raciones"]} raciones, es decir, unas {por_racion_kcal:g} kcal por ración.'
+        )
+    else:
+        raciones_txt = f'{receta["raciones"]} raciones' if receta["raciones"] > 1 else "1 ración"
+        respuesta_cal = f'Esta receta tiene {totales["kcal"]:g} kcal en total ({raciones_txt}).'
+
+    faq_calorias = {
+        "pregunta": f'¿Cuántas calorías tiene la receta de {receta["nombre"]}?',
+        "respuesta": respuesta_cal,
+    }
+    return [faq_calorias] + receta["faqs"]
+
+
+def build_faq_jsonld(faqs):
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": faq["pregunta"],
+                "acceptedAnswer": {"@type": "Answer", "text": faq["respuesta"]},
+            }
+            for faq in faqs
+        ],
+    }
+
+
 def render_ingrediente(ing, foods):
     food = foods.get(ing["foodId"])
     li_class = ' class="ingrediente-opcional"' if ing["opcional"] else ""
@@ -320,6 +369,16 @@ def render_pagina(receta, foods, todas_recetas):
               <p class="food-motivo" style="margin-top:0">De las grasas, <b>{por_racion["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{por_racion["azucares"]:g} g</b> son azúcares · sodio: <b>{por_racion["sodio"]:g} mg</b></p>
             </div>'''
 
+    faqs = construir_faqs(receta, totales)
+    faq_html = "\n".join(
+        f'''      <details>
+        <summary>{esc(faq["pregunta"])}</summary>
+        <p>{esc(faq["respuesta"])}</p>
+      </details>'''
+        for faq in faqs
+    )
+    faq_jsonld = json.dumps(build_faq_jsonld(faqs), ensure_ascii=False, indent=2).replace("</", "<\\/")
+
     og_image = f'{SITE_URL}/{receta["imagen"]}' if receta["imagen"] else f'{SITE_URL}/img/banner-hsnutricion.jpg'
     page_url = f'{SITE_URL}/receta-{slug(receta["id"])}.html'
 
@@ -349,6 +408,9 @@ def render_pagina(receta, foods, todas_recetas):
 <link rel="stylesheet" href="css/styles.css">
 <script type="application/ld+json">
 {jsonld}
+</script>
+<script type="application/ld+json">
+{faq_jsonld}
 </script>
 </head>
 <body>
@@ -422,6 +484,11 @@ def render_pagina(receta, foods, todas_recetas):
 {macros_html}
               <p class="food-motivo" style="margin-top:0">De las grasas, <b>{totales["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{totales["azucares"]:g} g</b> son azúcares · sodio: <b>{totales["sodio"]:g} mg</b>{incompleto_txt}</p>
             </div>{por_racion_html}
+
+            <h4>Preguntas frecuentes</h4>
+            <div class="receta-faq">
+{faq_html}
+            </div>
           </div>
         </article>
       </div>
