@@ -312,5 +312,34 @@ const RECETAS = [
       { pregunta: "¿Son aptos sin gluten?", respuesta: "La harina de avena no contiene gluten de forma natural, pero elige una certificada sin gluten si hay sensibilidad, por la posible contaminación cruzada en su procesado." },
       { pregunta: "¿Se pueden conservar hechos con antelación?", respuesta: "Sí, apílalos con papel vegetal entre cada crepe y guárdalos en la nevera 2-3 días, o congélalos hasta 1 mes." }
     ]
+  },
+  {
+    id: "gachas_de_avena_proteicas",
+    nombre: "Gachas de Avena Proteicas",
+    emojiPortada: "🥣💪🥜",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "La versión con más proteína de nuestras gachas: bebida de soja, yogur natural, crema de cacahuete y pipas de calabaza suman más de 35 g de proteína en un único bol, sin recurrir a proteína en polvo.",
+    motivo: "Esta variante prioriza la proteína usando solo alimentos reales: la bebida de soja aporta más proteína que otras bebidas vegetales; el yogur natural suma cremosidad, probióticos y otros 10 g de proteína; y la crema de cacahuete junto con las pipas de calabaza completan el perfil con proteína vegetal, grasas saludables y minerales como magnesio y zinc. El resultado son más de 35 g de proteína en un desayuno, sin necesidad de suplementos.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 60 },
+      { foodId: "ia_bebida_de_soja", cantidad: 250 },
+      { foodId: "yogur_natural", cantidad: 100 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 15 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 10 },
+      { foodId: "ia_canela", cantidad: 1, opcional: true }
+    ],
+    pasos: [
+      "Cuece la avena con la bebida de soja a fuego medio 5-6 minutos, removiendo, hasta que espese.",
+      "Retira del fuego, añade la canela y deja templar un par de minutos.",
+      "Incorpora el yogur natural, removiendo hasta que quede cremoso.",
+      "Sirve con la crema de cacahuete y las pipas de calabaza por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "No, lleva yogur natural (lácteo). Para una versión vegana, sustitúyelo por yogur de soja o de coco sin azúcares añadidos, aunque la proteína total bajará algo." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo sustituir la crema de cacahuete si tengo alergia a los frutos secos?", respuesta: "Sí, puedes usar tahini (crema de sésamo) o simplemente omitirla y añadir un poco más de pipas de calabaza para compensar parte de la proteína." }
+    ]
   }
 ];
