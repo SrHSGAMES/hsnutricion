@@ -992,6 +992,39 @@ const FOODS = [
     kcal: 43, carbs: 9.6, azucares: 6.8, proteinas: 1.6, grasas: 0.2, grasasSat: 0.03, fibra: 2.8, sodio: 78,
     motivo: "Raíz muy baja en calorías y rica en fibra, con un contenido natural de nitratos dietéticos asociado a la mejora de la función vascular y la presión arterial, y de betalaínas —los pigmentos responsables de su color— con capacidad antioxidante. Su azúcar es propio de la hortaliza, no añadido, y va acompañado de fibra que modera su absorción.",
     sustitutos: []
+  },
+  {
+    id: "arandanos",
+    nombre: "Arándanos",
+    aliases: ["arandanos", "arándano", "arandano"],
+    categorias: ["Frutas"],
+    emoji: "🫐",
+    rating: "A",
+    kcal: 57, carbs: 14.5, azucares: 10, proteinas: 0.7, grasas: 0.3, grasasSat: 0.03, fibra: 2.4, sodio: 1,
+    motivo: "Una de las frutas con mayor densidad de antocianinas, los polifenoles responsables de su color y de buena parte de su capacidad antioxidante, asociada a beneficios cardiovasculares y cognitivos. Su azúcar es propio de la fruta, no añadido, y viene acompañado de fibra que ayuda a moderar su absorción.",
+    sustitutos: []
+  },
+  {
+    id: "fresas",
+    nombre: "Fresas",
+    aliases: ["fresas", "fresa", "frutillas"],
+    categorias: ["Frutas"],
+    emoji: "🍓",
+    rating: "A",
+    kcal: 32, carbs: 7.7, azucares: 4.9, proteinas: 0.7, grasas: 0.3, grasasSat: 0.02, fibra: 2, sodio: 1,
+    motivo: "Muy baja en calorías y azúcar para tratarse de una fruta, con un aporte destacado de vitamina C y polifenoles antioxidantes. Su dulzor natural, junto a la fibra que aporta, la convierte en una alternativa excelente a postres y toppings con azúcar añadido.",
+    sustitutos: []
+  },
+  {
+    id: "frambuesas",
+    nombre: "Frambuesas",
+    aliases: ["frambuesas", "frambuesa"],
+    categorias: ["Frutas"],
+    emoji: "🍒",
+    rating: "A",
+    kcal: 52, carbs: 11.9, azucares: 4.4, proteinas: 1.2, grasas: 0.7, grasasSat: 0.02, fibra: 6.5, sodio: 1,
+    motivo: "Destaca por su altísimo contenido en fibra para ser una fruta (6.5 g/100 g), muy por encima de otros frutos rojos, lo que modera aún más la absorción de su ya bajo contenido en azúcar. Aporta también vitamina C y antioxidantes de la familia de los elagitaninos.",
+    sustitutos: []
   }
 ];
 

@@ -341,5 +341,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Puedo sustituir la crema de cacahuete si tengo alergia a los frutos secos?", respuesta: "Sí, puedes usar tahini (crema de sésamo) o simplemente omitirla y añadir un poco más de pipas de calabaza para compensar parte de la proteína." }
     ]
+  },
+  {
+    id: "gachas_de_avena_frutos_rojos",
+    nombre: "Gachas de Avena con Frutos Rojos",
+    emojiPortada: "🥣🫐🍓",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "Una versión antioxidante de las gachas clásicas: arándanos, fresas y frambuesas aportan todo el dulzor, sin azúcar añadido, junto a semillas de chía para completar el clásico dúo con frutos rojos.",
+    motivo: "Esta variante prioriza la fibra y los antioxidantes por encima de todo: los arándanos destacan por sus antocianinas, las fresas por su vitamina C, y las frambuesas por un contenido en fibra excepcionalmente alto para ser una fruta. Al machacar parte de la fruta en una compota rápida y dejar el resto entera, se consigue dulzor y textura sin necesidad de miel ni dátiles, a diferencia de las Gachas Dulces. Las semillas de chía, además de sumar omega-3, son el acompañante clásico de los frutos rojos.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 75 },
+      { foodId: "ia_bebida_de_avena", cantidad: 300 },
+      { foodId: "ia_agua", cantidad: 150 },
+      { foodId: "arandanos", cantidad: 50 },
+      { foodId: "fresas", cantidad: 50 },
+      { foodId: "frambuesas", cantidad: 50 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 }
+    ],
+    pasos: [
+      "Cuece la avena con la bebida de avena y el agua, 8 minutos a fuego medio, removiendo.",
+      "Mientras tanto, machaca la mitad de los arándanos, las fresas y las frambuesas con un tenedor hasta conseguir una especie de compota rápida.",
+      "Retira la avena del fuego e incorpora la compota de frutos rojos, removiendo bien.",
+      "Sirve con el resto de la fruta entera o troceada por encima, y espolvorea las semillas de chía."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo usar fruta congelada en vez de fresca?", respuesta: "Sí, los frutos rojos congelados funcionan igual de bien e incluso facilitan machacar la compota; solo tardarán un poco más en atemperarse." }
+    ]
   }
 ];
