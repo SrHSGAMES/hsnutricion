@@ -316,6 +316,7 @@ const RECETAS = [
   {
     id: "gachas_de_avena_proteicas",
     nombre: "Gachas de Avena Proteicas",
+    imagen: "img/recetas/Gachas-de-Avena-Proteicas.jpg",
     emojiPortada: "🥣💪🥜",
     rating: "A",
     tiempo: "15 min",
@@ -375,6 +376,7 @@ const RECETAS = [
   {
     id: "gachas_de_avena_chocolate",
     nombre: "Gachas de Avena al Chocolate",
+    imagen: "img/recetas/Gachas-de-Avena-al-Chocolate.jpg",
     emojiPortada: "🥣🍫🍌",
     rating: "B",
     tiempo: "15 min",
