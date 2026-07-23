@@ -371,5 +371,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Puedo usar fruta congelada en vez de fresca?", respuesta: "Sí, los frutos rojos congelados funcionan igual de bien e incluso facilitan machacar la compota; solo tardarán un poco más en atemperarse." }
     ]
+  },
+  {
+    id: "gachas_de_avena_chocolate",
+    nombre: "Gachas de Avena al Chocolate",
+    emojiPortada: "🥣🍫🍌",
+    rating: "B",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "La versión chocolatera de las gachas clásicas: cacao puro sin azúcar, plátano, crema de cacahuete y unos trocitos de chocolate negro. Sabor a golosina, sin azúcar añadido.",
+    motivo: "El cacao puro en polvo aporta todo el sabor a chocolate sin nada de azúcar añadido, y con una cantidad de fibra excepcional. El plátano machacado endulza la mezcla de forma natural, sin necesidad de azúcar ni miel. La crema de cacahuete y el chocolate negro por encima son el toque más indulgente de la receta —por eso la calificamos con B, igual que las Crumbl Cookies o las Gachas Dulces—, pero siguen siendo comida real: nada de chocolate con leche ni cacaos solubles azucarados.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 75 },
+      { foodId: "ia_bebida_de_avena", cantidad: 300 },
+      { foodId: "ia_agua", cantidad: 100 },
+      { foodId: "cacao_puro", cantidad: 15 },
+      { foodId: "ia_platano", cantidad: 60 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 15 },
+      { foodId: "chocolate_negro", cantidad: 15 }
+    ],
+    pasos: [
+      "Cuece la avena con la bebida de avena y el agua, 6-7 minutos a fuego medio, removiendo.",
+      "Añade el cacao en polvo y remueve hasta que se disuelva bien.",
+      "Machaca la mitad del plátano e incorpóralo a la avena para endulzarla; corta el resto en rodajas.",
+      "Sirve con el plátano en rodajas, la crema de cacahuete y el chocolate negro troceado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo sustituir la crema de cacahuete si tengo alergia a los frutos secos?", respuesta: "Sí, puedes usar tahini (crema de sésamo) o simplemente omitirla; el sabor a chocolate seguirá estando presente por el cacao puro." }
+    ]
   }
 ];

@@ -1025,6 +1025,17 @@ const FOODS = [
     kcal: 52, carbs: 11.9, azucares: 4.4, proteinas: 1.2, grasas: 0.7, grasasSat: 0.02, fibra: 6.5, sodio: 1,
     motivo: "Destaca por su altísimo contenido en fibra para ser una fruta (6.5 g/100 g), muy por encima de otros frutos rojos, lo que modera aún más la absorción de su ya bajo contenido en azúcar. Aporta también vitamina C y antioxidantes de la familia de los elagitaninos.",
     sustitutos: []
+  },
+  {
+    id: "cacao_puro",
+    nombre: "Cacao puro en polvo",
+    aliases: ["cacao puro", "cacao en polvo", "cacao puro en polvo", "cacao desgrasado"],
+    categorias: ["Dulces"],
+    emoji: "🍫",
+    rating: "A",
+    kcal: 228, carbs: 58, azucares: 1.8, proteinas: 19.6, grasas: 13.7, grasasSat: 8.1, fibra: 33, sodio: 21,
+    motivo: "Sin azúcar añadido (a diferencia de los cacaos solubles comerciales) y con una cantidad de fibra excepcional para cualquier alimento, no solo para un dulce. Es muy rico en flavonoides, unos antioxidantes asociados a la salud cardiovascular, y aporta hierro y magnesio en cantidades destacables.",
+    sustitutos: []
   }
 ];
 
