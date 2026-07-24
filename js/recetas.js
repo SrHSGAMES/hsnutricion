@@ -346,6 +346,7 @@ const RECETAS = [
   {
     id: "gachas_de_avena_frutos_rojos",
     nombre: "Gachas de Avena con Frutos Rojos",
+    imagen: "img/recetas/Gachas-de-Avena-con-Frutos-Rojos.jpg",
     emojiPortada: "🥣🫐🍓",
     rating: "A",
     tiempo: "15 min",
