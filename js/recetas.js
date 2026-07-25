@@ -404,5 +404,34 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Puedo sustituir la crema de cacahuete si tengo alergia a los frutos secos?", respuesta: "Sí, puedes usar tahini (crema de sésamo) o simplemente omitirla; el sabor a chocolate seguirá estando presente por el cacao puro." }
     ]
+  },
+  {
+    id: "gachas_de_avena_overnight",
+    nombre: "Gachas de Avena Overnight",
+    emojiPortada: "🥣🌙🍌",
+    rating: "A",
+    tiempo: "5 min + reposo",
+    raciones: 1,
+    descripcion: "La versión sin cocinar de las gachas: se prepara la noche antes en un bote con tapa y reposa en la nevera, sin fuego ni microondas. Ideal para dejar lista la noche antes y llevar al trabajo.",
+    motivo: "Aquí la textura no la da la cocción, sino las semillas de chía: en contacto con el líquido durante varias horas forman un gel que espesa la mezcla igual que lo haría el calor. El yogur natural aporta la cremosidad y la proteína extra que en la versión caliente pone la cocción, y el plátano se añade en el momento de comer para que no pierda textura. El resultado es un desayuno tan nutritivo como las gachas clásicas, pero listo para llevar sin pasar por la cocina por la mañana.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 60 },
+      { foodId: "ia_bebida_de_avena", cantidad: 200 },
+      { foodId: "yogur_natural", cantidad: 100 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 },
+      { foodId: "ia_platano", cantidad: 60 },
+      { foodId: "ia_canela", cantidad: 1, opcional: true }
+    ],
+    pasos: [
+      "En un bote o tarro con tapa, mezcla la avena, la bebida de avena, el yogur natural y las semillas de chía.",
+      "Añade la canela si quieres, y remueve bien.",
+      "Tapa y deja reposar en la nevera toda la noche (mínimo 6-8 horas).",
+      "Por la mañana, remueve y corta el plátano en rodajas por encima antes de servir, frío, directo de la nevera."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "No, lleva yogur natural (lácteo). Para una versión vegana, sustitúyelo por yogur de soja o de coco sin azúcares añadidos." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Cuánto tiempo se puede guardar en la nevera ya preparada?", respuesta: "Hasta 3-4 días en un bote con tapa hermética; el plátano es mejor añadirlo justo antes de comer para que no se oxide." }
+    ]
   }
 ];
