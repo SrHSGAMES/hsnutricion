@@ -493,5 +493,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Puedo usar cacao en polvo azucarado en vez de cacao puro?", respuesta: "No te lo recomendamos: el cacao soluble azucarado (tipo Cola Cao) añade azúcar libre innecesario. Con cacao puro sin azúcar y el dulzor del plátano es más que suficiente." }
     ]
+  },
+  {
+    id: "overnight_oats_frutos_rojos",
+    nombre: "Overnight Oats con Frutos Rojos",
+    emojiPortada: "🥣🌙🫐",
+    rating: "A",
+    tiempo: "5 min + reposo",
+    raciones: 1,
+    descripcion: "La versión sin cocinar de las gachas con frutos rojos: arándanos, fresas y frambuesas machacados en frío la noche antes, con yogur natural y chía para conseguir una textura cremosa sin pasar por el fuego.",
+    motivo: "Al igual que en la versión caliente, el dulzor viene entero de la fruta —sin miel ni dátiles—, y las semillas de chía espesan la mezcla durante la noche en la nevera. El yogur natural suma la cremosidad que aquí no aporta la cocción, además de proteína extra. El resultado combina la fibra y los antioxidantes de los frutos rojos (antocianinas, vitamina C) con la comodidad de tenerlo listo de un día para otro.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 60 },
+      { foodId: "ia_bebida_de_avena", cantidad: 200 },
+      { foodId: "yogur_natural", cantidad: 100 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 },
+      { foodId: "arandanos", cantidad: 50 },
+      { foodId: "fresas", cantidad: 50 },
+      { foodId: "frambuesas", cantidad: 50 }
+    ],
+    pasos: [
+      "En un bote con tapa, machaca la mitad de los arándanos, las fresas y las frambuesas con un tenedor.",
+      "Mézclalos con la avena, la bebida de avena, el yogur natural y las semillas de chía.",
+      "Tapa y deja reposar en la nevera toda la noche (mínimo 6-8 horas).",
+      "Por la mañana, remueve y sirve con el resto de la fruta entera o troceada por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "No, lleva yogur natural (lácteo). Para una versión vegana, sustitúyelo por yogur de soja o de coco sin azúcares añadidos." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo usar fruta congelada en vez de fresca?", respuesta: "Sí, funciona igual de bien; si la añades directamente congelada sobre la mezcla ya reposada, incluso ayuda a mantenerla más fría por la mañana." }
+    ]
   }
 ];
