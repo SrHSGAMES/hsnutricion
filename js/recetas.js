@@ -433,5 +433,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Cuánto tiempo se puede guardar en la nevera ya preparada?", respuesta: "Hasta 3-4 días en un bote con tapa hermética; el plátano es mejor añadirlo justo antes de comer para que no se oxide." }
     ]
+  },
+  {
+    id: "overnight_oats_proteicos",
+    nombre: "Overnight Oats Proteicos",
+    emojiPortada: "🥣🌙💪",
+    rating: "A",
+    tiempo: "5 min + reposo",
+    raciones: 1,
+    descripcion: "La versión sin cocinar y con más proteína de nuestra avena: yogur natural, crema de cacahuete y pipas de calabaza suman más de 35 g de proteína, lista de la noche a la mañana sin encender el fuego.",
+    motivo: "Igual que en la versión caliente, aquí la proteína viene entera de comida real: la bebida de soja aporta más proteína que otras bebidas vegetales, el yogur natural suma otros 10 g y cremosidad, y la crema de cacahuete junto con las pipas de calabaza completan el perfil con proteína vegetal y grasas saludables. Las semillas de chía, además de sumar omega-3, son las que espesan la mezcla en la nevera sin necesidad de cocción.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 60 },
+      { foodId: "ia_bebida_de_soja", cantidad: 200 },
+      { foodId: "yogur_natural", cantidad: 100 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 15 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 10 },
+      { foodId: "ia_canela", cantidad: 1, opcional: true }
+    ],
+    pasos: [
+      "En un bote o tarro con tapa, mezcla la avena, la bebida de soja, el yogur natural y las semillas de chía.",
+      "Añade la canela si quieres, y remueve bien.",
+      "Tapa y deja reposar en la nevera toda la noche (mínimo 6-8 horas).",
+      "Por la mañana, remueve y sirve con la crema de cacahuete y las pipas de calabaza por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "No, lleva yogur natural (lácteo). Para una versión vegana, sustitúyelo por yogur de soja o de coco sin azúcares añadidos, aunque la proteína total bajará algo." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Cuánto tiempo se puede guardar en la nevera ya preparada?", respuesta: "Hasta 3-4 días en un bote con tapa hermética; añade la crema de cacahuete y las pipas de calabaza justo antes de comer para que mantengan su textura." }
+    ]
   }
 ];
