@@ -463,5 +463,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Cuánto tiempo se puede guardar en la nevera ya preparada?", respuesta: "Hasta 3-4 días en un bote con tapa hermética; añade la crema de cacahuete y las pipas de calabaza justo antes de comer para que mantengan su textura." }
     ]
+  },
+  {
+    id: "overnight_oats_chocolate",
+    nombre: "Overnight Oats de Chocolate",
+    emojiPortada: "🥣🌙🍫",
+    rating: "B",
+    tiempo: "5 min + reposo",
+    raciones: 1,
+    descripcion: "La versión sin cocinar de las gachas al chocolate: cacao puro, plátano y semillas de chía se mezclan en frío la noche antes, sin necesidad de derretir ni cocinar nada.",
+    motivo: "El cacao puro se disuelve perfectamente en frío con un poco de remover, así que no hace falta calor para conseguir el sabor a chocolate. El plátano machacado endulza toda la mezcla de forma natural, y las semillas de chía son las que espesan la avena durante la noche en la nevera. La crema de cacahuete y el chocolate negro por encima son el toque más indulgente —por eso la calificamos con B, igual que la versión caliente—, pero sigue siendo cacao puro sin azúcar y chocolate ≥85%, no un cacao soluble azucarado.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 60 },
+      { foodId: "ia_bebida_de_avena", cantidad: 200 },
+      { foodId: "cacao_puro", cantidad: 15 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 },
+      { foodId: "ia_platano", cantidad: 60 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 15 },
+      { foodId: "chocolate_negro", cantidad: 15 }
+    ],
+    pasos: [
+      "En un bote con tapa, machaca el plátano y mézclalo con la avena, la bebida de avena, el cacao en polvo y las semillas de chía.",
+      "Remueve bien hasta que el cacao se disuelva sin grumos.",
+      "Tapa y deja reposar en la nevera toda la noche (mínimo 6-8 horas).",
+      "Por la mañana, remueve y sirve con la crema de cacahuete y el chocolate negro troceado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Puedo usar cacao en polvo azucarado en vez de cacao puro?", respuesta: "No te lo recomendamos: el cacao soluble azucarado (tipo Cola Cao) añade azúcar libre innecesario. Con cacao puro sin azúcar y el dulzor del plátano es más que suficiente." }
+    ]
   }
 ];
