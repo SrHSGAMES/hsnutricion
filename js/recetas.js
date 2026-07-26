@@ -595,5 +595,37 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La harina de trigo integral contiene gluten. Sustitúyela por una mezcla de harinas sin gluten para pizza (arroz, maíz, trigo sarraceno); la fermentación y el amasado pueden variar algo." },
       { pregunta: "¿Puedo añadir queso?", respuesta: "Sí, un poco de mozzarella (unos 75 g para toda la pizza) le da el toque más clásico, aunque subirá la grasa saturada de forma notable — con moderación." }
     ]
+  },
+  {
+    id: "poke_bowl_salmon",
+    nombre: "Poke Bowl de Salmón",
+    emojiPortada: "🍚🐟🥑",
+    rating: "A",
+    tiempo: "20 min",
+    raciones: 1,
+    descripcion: "Un bowl completo estilo poke hawaiano: salmón sellado, arroz integral, edamame y verduras frescas, con un toque de salsa de soja baja en sodio y sésamo. Proteína, fibra y grasas saludables en un solo plato.",
+    motivo: "Este bowl combina el salmón, rico en omega-3, con arroz integral (más fibra que el blanco) y edamame, una legumbre con una cantidad de proteína inusualmente alta para ser una verdura. El pepino y la zanahoria aportan frescura y volumen con muy pocas calorías, y el aguacate suma grasa monoinsaturada. Usamos salsa de soja baja en sodio y en poca cantidad, ya que es uno de los condimentos más concentrados en sodio que existen — así conseguimos el sabor umami característico sin disparar el sodio del plato.",
+    ingredientes: [
+      { foodId: "salmon", cantidad: 120 },
+      { foodId: "arroz_integral", cantidad: 150 },
+      { foodId: "aguacate", cantidad: 60 },
+      { foodId: "ia_zanahoria", cantidad: 40 },
+      { foodId: "edamame", cantidad: 60 },
+      { foodId: "pepino", cantidad: 50 },
+      { foodId: "salsa_soja_baja_sodio", cantidad: 10 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 5 }
+    ],
+    pasos: [
+      "Cuece el arroz integral según las instrucciones del envase y déjalo templar.",
+      "Marca el salmón en una sartén muy caliente sin aceite, 1-2 minutos por cada lado, para que quede dorado por fuera y jugoso por dentro (estilo poke sellado).",
+      "Corta el pepino y el aguacate en dados, y la zanahoria en juliana.",
+      "Sirve el arroz de base en un bowl y coloca encima el salmón, el edamame, el pepino, el aguacate y la zanahoria en secciones separadas.",
+      "Riega con la salsa de soja baja en sodio y espolvorea las semillas de sésamo."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar salmón crudo en vez de sellarlo?", respuesta: "Solo si es salmón etiquetado específicamente como apto para consumo crudo (congelado previamente para eliminar parásitos, según la normativa). Sellarlo brevemente en la sartén, como en esta receta, es la opción más segura para prepararlo en casa." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La salsa de soja tradicional suele contener trigo; busca una versión sin gluten (tamari) si lo necesitas. El resto de ingredientes no llevan gluten." },
+      { pregunta: "¿Puedo sustituir el salmón por otra proteína?", respuesta: "Sí, el tofu o el pollo a la plancha funcionan igual de bien si prefieres no comer pescado." }
+    ]
   }
 ];

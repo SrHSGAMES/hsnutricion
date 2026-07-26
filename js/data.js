@@ -1058,6 +1058,39 @@ const FOODS = [
     kcal: 325, carbs: 41, azucares: 0, proteinas: 40, grasas: 7.6, grasasSat: 1.5, fibra: 27, sodio: 51,
     motivo: "Se usa en cantidades tan pequeñas (unos pocos gramos por receta) que su aporte real de calorías y nutrientes es insignificante frente al resto de ingredientes; su función aquí es fermentar la masa, no nutrir.",
     sustitutos: []
+  },
+  {
+    id: "edamame",
+    nombre: "Edamame",
+    aliases: ["edamame", "soja verde", "habas de soja"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫛",
+    rating: "A",
+    kcal: 121, carbs: 10, azucares: 2.2, proteinas: 12, grasas: 5, grasasSat: 0.6, fibra: 5, sodio: 6,
+    motivo: "Legumbre inmadura muy rica en proteína vegetal completa para tratarse de una verdura, además de fibra y ácido fólico. Su perfil de grasas es mayoritariamente insaturado.",
+    sustitutos: []
+  },
+  {
+    id: "pepino",
+    nombre: "Pepino",
+    aliases: ["pepino", "pepinos"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥒",
+    rating: "A",
+    kcal: 15, carbs: 3.6, azucares: 1.7, proteinas: 0.7, grasas: 0.1, grasasSat: 0.02, fibra: 0.5, sodio: 2,
+    motivo: "Prácticamente solo agua, con muy pocas calorías y carbohidratos: aporta frescura y volumen sin apenas impacto calórico. Contiene también pequeñas cantidades de vitamina K.",
+    sustitutos: []
+  },
+  {
+    id: "salsa_soja_baja_sodio",
+    nombre: "Salsa de soja (baja en sodio)",
+    aliases: ["salsa de soja baja en sodio", "salsa soja light", "soja baja en sodio"],
+    categorias: ["Salsas"],
+    emoji: "🍶",
+    rating: "B",
+    kcal: 53, carbs: 4.9, azucares: 0.4, proteinas: 8, grasas: 0.1, grasasSat: 0, fibra: 0.8, sodio: 3300,
+    motivo: "Incluso en su versión \"baja en sodio\", la salsa de soja sigue siendo uno de los condimentos más concentrados en sodio que existen, así que un poco da mucho sabor: se usa en cantidades pequeñas (una cucharada aporta ya un tercio de su sodio por 100 g). Preferible siempre a la versión normal, que puede duplicar esa cifra.",
+    sustitutos: []
   }
 ];
 
