@@ -408,6 +408,7 @@ const RECETAS = [
   {
     id: "gachas_de_avena_overnight",
     nombre: "Gachas de Avena Overnight",
+    imagen: "img/recetas/Overnight-Oats.jpg",
     emojiPortada: "🥣🌙🍌",
     rating: "A",
     tiempo: "5 min + reposo",
@@ -437,6 +438,7 @@ const RECETAS = [
   {
     id: "overnight_oats_proteicos",
     nombre: "Overnight Oats Proteicos",
+    imagen: "img/recetas/Overnight-Oats-Proteicos.jpg",
     emojiPortada: "🥣🌙💪",
     rating: "A",
     tiempo: "5 min + reposo",
@@ -467,6 +469,7 @@ const RECETAS = [
   {
     id: "overnight_oats_chocolate",
     nombre: "Overnight Oats de Chocolate",
+    imagen: "img/recetas/Overnight-Oats-Chocolate.jpg",
     emojiPortada: "🥣🌙🍫",
     rating: "B",
     tiempo: "5 min + reposo",
@@ -497,6 +500,7 @@ const RECETAS = [
   {
     id: "overnight_oats_frutos_rojos",
     nombre: "Overnight Oats con Frutos Rojos",
+    imagen: "img/recetas/Overnight-Oats-Frutos-Rojos.jpg",
     emojiPortada: "🥣🌙🫐",
     rating: "A",
     tiempo: "5 min + reposo",
@@ -527,6 +531,7 @@ const RECETAS = [
   {
     id: "hamburguesa_garbanzos",
     nombre: "Hamburguesa Saludable de Garbanzos",
+    imagen: "img/recetas/Hamburguesa-Saludable.jpg",
     emojiPortada: "🍔🫘🥑",
     rating: "A",
     tiempo: "25 min",
@@ -561,6 +566,7 @@ const RECETAS = [
   {
     id: "pizza_saludable",
     nombre: "Pizza Saludable",
+    imagen: "img/recetas/Pizza-Casera-Saludable.jpg",
     emojiPortada: "🍕🌾🍅",
     rating: "A",
     tiempo: "1 h 30 min",
