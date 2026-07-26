@@ -1047,6 +1047,17 @@ const FOODS = [
     kcal: 15, carbs: 2.9, azucares: 1.2, proteinas: 1.4, grasas: 0.2, grasasSat: 0.03, fibra: 1.3, sodio: 8,
     motivo: "Prácticamente solo agua y fibra, con muy pocas calorías: aporta volumen y textura crujiente sin apenas impacto calórico. Suma también folato y vitamina K.",
     sustitutos: []
+  },
+  {
+    id: "levadura_panaderia",
+    nombre: "Levadura de panadería",
+    aliases: ["levadura de panaderia", "levadura fresca", "levadura seca de panaderia", "levadura de pan"],
+    categorias: ["Cereales"],
+    emoji: "🍞",
+    rating: "A",
+    kcal: 325, carbs: 41, azucares: 0, proteinas: 40, grasas: 7.6, grasasSat: 1.5, fibra: 27, sodio: 51,
+    motivo: "Se usa en cantidades tan pequeñas (unos pocos gramos por receta) que su aporte real de calorías y nutrientes es insignificante frente al resto de ingredientes; su función aquí es fermentar la masa, no nutrir.",
+    sustitutos: []
   }
 ];
 

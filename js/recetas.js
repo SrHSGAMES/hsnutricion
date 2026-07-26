@@ -557,5 +557,37 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "El pan integral y el pan rallado integral contienen gluten. Sustitúyelos por sus versiones sin gluten certificadas; el resto de ingredientes ya no llevan gluten." },
       { pregunta: "¿Se pueden congelar las hamburguesas de garbanzos?", respuesta: "Sí, forma las hamburguesas crudas y congélalas entre papel vegetal; cocínalas directamente desde congeladas añadiendo 1-2 minutos más por cada lado." }
     ]
+  },
+  {
+    id: "pizza_saludable",
+    nombre: "Pizza Saludable",
+    emojiPortada: "🍕🌾🍅",
+    rating: "A",
+    tiempo: "1 h 30 min",
+    raciones: 2,
+    descripcion: "La versión integral de la pizza clásica: masa de harina integral fermentada en casa, con tomate y albahaca fresca, sin queso — estilo pizza marinara napolitana. Menos de 4 g de grasa saturada en toda la pizza.",
+    motivo: "Esta pizza cambia la masa refinada por harina de trigo integral, mucho más rica en fibra, y se hornea con tomate fresco en vez de una salsa comercial con azúcares añadidos. Al no llevar queso, evita la grasa saturada que suele dominar el perfil nutricional de una pizza normal — en este formato sin queso, estilo marinara napolitana, apenas hay grasa saturada en el plato. Si prefieres una versión con queso, puedes añadir mozzarella con moderación, teniendo en cuenta que subirá bastante esa cifra.",
+    ingredientes: [
+      { foodId: "ia_harina_de_trigo_integral", cantidad: 250 },
+      { foodId: "levadura_panaderia", cantidad: 5 },
+      { foodId: "ia_agua", cantidad: 150 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "ia_albahaca", cantidad: 5 }
+    ],
+    pasos: [
+      "Disuelve la levadura en el agua templada y deja reposar 5 minutos.",
+      "Mezcla la harina integral con el agua con levadura y el AOVE; amasa hasta conseguir una masa lisa y elástica (unos 8-10 min).",
+      "Forma una bola, tápala y deja fermentar en un lugar cálido 1 hora, hasta que doble su volumen.",
+      "Precalienta el horno a 220°C.",
+      "Estira la masa sobre una bandeja con papel de horno y reparte el tomate triturado con un chorrito de AOVE.",
+      "Hornea 12-15 minutos, hasta que los bordes estén dorados.",
+      "Termina con hojas de albahaca fresca antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La harina de trigo integral contiene gluten. Sustitúyela por una mezcla de harinas sin gluten para pizza (arroz, maíz, trigo sarraceno); la fermentación y el amasado pueden variar algo." },
+      { pregunta: "¿Puedo añadir queso?", respuesta: "Sí, un poco de mozzarella (unos 75 g para toda la pizza) le da el toque más clásico, aunque subirá la grasa saturada de forma notable — con moderación." }
+    ]
   }
 ];
