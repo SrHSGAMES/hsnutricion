@@ -523,5 +523,39 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Puedo usar fruta congelada en vez de fresca?", respuesta: "Sí, funciona igual de bien; si la añades directamente congelada sobre la mezcla ya reposada, incluso ayuda a mantenerla más fría por la mañana." }
     ]
+  },
+  {
+    id: "hamburguesa_garbanzos",
+    nombre: "Hamburguesa Saludable de Garbanzos",
+    emojiPortada: "🍔🫘🥑",
+    rating: "A",
+    tiempo: "25 min",
+    raciones: 1,
+    descripcion: "La versión 100% vegetal de la hamburguesa clásica: una hamburguesa casera de garbanzos, pan integral y aguacate en vez de mayonesa. Sin carne, sin salsas ultraprocesadas y con una cantidad de fibra excepcional.",
+    motivo: "Esta hamburguesa cambia la carne por garbanzos cocidos, una legumbre rica en proteína vegetal que deja el plato completo con casi 26 g de fibra, muy por encima de cualquier hamburguesa con carne. El pan integral suma más fibra frente al pan blanco habitual, y el aguacate machacado hace de \"mayonesa saludable\", aportando grasa monoinsaturada en vez de la grasa de una salsa comercial. El queso curado queda como topping opcional, a disfrutar con moderación como en cualquier otra receta.",
+    ingredientes: [
+      { foodId: "pan_integral", cantidad: 80 },
+      { foodId: "ia_garbanzos", cantidad: 180 },
+      { foodId: "ia_cebolla", cantidad: 30 },
+      { foodId: "ia_pan_rallado_integral", cantidad: 20 },
+      { foodId: "aove", cantidad: 10 },
+      { foodId: "aguacate", cantidad: 50 },
+      { foodId: "ia_tomate", cantidad: 40 },
+      { foodId: "lechuga", cantidad: 20 },
+      { foodId: "queso_curado", cantidad: 15, opcional: true }
+    ],
+    pasos: [
+      "Escurre y aplasta los garbanzos con un tenedor o batidora hasta conseguir una pasta gruesa (deja algunos trozos enteros para dar textura).",
+      "Mezcla con la cebolla picada muy fina, el pan rallado integral y pimienta al gusto.",
+      "Forma una hamburguesa con la mezcla y déjala reposar 10 minutos en la nevera para que compacte.",
+      "Cocínala en una sartén con el AOVE a fuego medio, 3-4 minutos por cada lado, hasta que esté dorada.",
+      "Machaca el aguacate con un tenedor y tuesta ligeramente el pan integral.",
+      "Monta: pan, aguacate machacado, la hamburguesa de garbanzos, tomate y lechuga. Añade el queso curado si quieres, opcional."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, si no añades el queso curado opcional. Sin él, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "El pan integral y el pan rallado integral contienen gluten. Sustitúyelos por sus versiones sin gluten certificadas; el resto de ingredientes ya no llevan gluten." },
+      { pregunta: "¿Se pueden congelar las hamburguesas de garbanzos?", respuesta: "Sí, forma las hamburguesas crudas y congélalas entre papel vegetal; cocínalas directamente desde congeladas añadiendo 1-2 minutos más por cada lado." }
+    ]
   }
 ];

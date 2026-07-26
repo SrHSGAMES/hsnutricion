@@ -1036,6 +1036,17 @@ const FOODS = [
     kcal: 228, carbs: 58, azucares: 1.8, proteinas: 19.6, grasas: 13.7, grasasSat: 8.1, fibra: 33, sodio: 21,
     motivo: "Sin azúcar añadido (a diferencia de los cacaos solubles comerciales) y con una cantidad de fibra excepcional para cualquier alimento, no solo para un dulce. Es muy rico en flavonoides, unos antioxidantes asociados a la salud cardiovascular, y aporta hierro y magnesio en cantidades destacables.",
     sustitutos: []
+  },
+  {
+    id: "lechuga",
+    nombre: "Lechuga",
+    aliases: ["lechuga", "lechuga romana", "lechuga iceberg"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 15, carbs: 2.9, azucares: 1.2, proteinas: 1.4, grasas: 0.2, grasasSat: 0.03, fibra: 1.3, sodio: 8,
+    motivo: "Prácticamente solo agua y fibra, con muy pocas calorías: aporta volumen y textura crujiente sin apenas impacto calórico. Suma también folato y vitamina K.",
+    sustitutos: []
   }
 ];
 
