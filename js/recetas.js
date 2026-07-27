@@ -627,5 +627,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La salsa de soja tradicional suele contener trigo; busca una versión sin gluten (tamari) si lo necesitas. El resto de ingredientes no llevan gluten." },
       { pregunta: "¿Puedo sustituir el salmón por otra proteína?", respuesta: "Sí, el tofu o el pollo a la plancha funcionan igual de bien si prefieres no comer pescado." }
     ]
+  },
+  {
+    id: "bolitas_energeticas",
+    nombre: "Bolitas Energéticas",
+    emojiPortada: "🌴🥜🍫",
+    rating: "B",
+    tiempo: "20 min + reposo",
+    raciones: 12,
+    mostrarPorRacion: true,
+    descripcion: "El snack sin horno de moda: dátiles, avena, crema de cacahuete y cacao puro triturados juntos y formados en bolitas. Sin azúcar añadido, listo en 20 minutos y aguanta toda la semana en la nevera.",
+    motivo: "El dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre. La avena y las pipas de calabaza dan cuerpo y proteína vegetal, la crema de cacahuete aporta grasas saludables, y las semillas de chía suman omega-3. Al llevar bastante dátil por bolita, la calificamos con B, igual criterio que con las Crumbl Cookies — sigue siendo un snack de comida real, para disfrutar con moderación.",
+    ingredientes: [
+      { foodId: "ia_datiles", cantidad: 150 },
+      { foodId: "avena", cantidad: 100 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 60 },
+      { foodId: "cacao_puro", cantidad: 20 },
+      { foodId: "ia_semillas_de_chia", cantidad: 15 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 20 }
+    ],
+    pasos: [
+      "Deshuesa los dátiles y ponlos en remojo con agua caliente 10 minutos para ablandarlos; escúrrelos.",
+      "Tritura los dátiles junto con la avena, la crema de cacahuete, el cacao en polvo, las semillas de chía y las pipas de calabaza en un robot de cocina, hasta conseguir una pasta homogénea y pegajosa.",
+      "Forma 12 bolitas iguales con las manos (puedes humedecerlas un poco para que no se peguen).",
+      "Guarda en la nevera al menos 30 minutos antes de comer, para que compacten. Se conservan hasta una semana en un recipiente hermético."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Cuánto tiempo se conservan?", respuesta: "Hasta una semana en la nevera en un recipiente hermético, o hasta 2-3 meses congeladas." }
+    ]
   }
 ];
