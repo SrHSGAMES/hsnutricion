@@ -599,6 +599,7 @@ const RECETAS = [
   {
     id: "poke_bowl_salmon",
     nombre: "Poke Bowl de Salmón",
+    imagen: "img/recetas/Poke-Bowl-de-Salmón.jpg",
     emojiPortada: "🍚🐟🥑",
     rating: "A",
     tiempo: "20 min",
@@ -631,6 +632,7 @@ const RECETAS = [
   {
     id: "bolitas_energeticas",
     nombre: "Bolitas Energéticas",
+    imagen: "img/recetas/Bolitas-Energéticas.jpg",
     emojiPortada: "🌴🥜🍫",
     rating: "B",
     tiempo: "20 min + reposo",
@@ -661,6 +663,7 @@ const RECETAS = [
   {
     id: "te_matcha_casero",
     nombre: "Té Matcha Casero",
+    imagen: "img/recetas/Te-Matcha-Casero.jpg",
     emojiPortada: "🍵🌿🥛",
     rating: "A",
     tiempo: "10 min",
@@ -722,6 +725,7 @@ const RECETAS = [
   {
     id: "brownie_saludable",
     nombre: "Brownie Saludable",
+    imagen: "img/recetas/Brownie-Saludable.jpg",
     emojiPortada: "🍫🍠🌾",
     rating: "B",
     tiempo: "45 min",
@@ -756,6 +760,7 @@ const RECETAS = [
   {
     id: "wrap_tofu_saludable",
     nombre: "Wrap de Tofu Saludable",
+    imagen: "img/recetas/Wrap-de-Tofu.jpg",
     emojiPortada: "🌾🫘🥑",
     rating: "A",
     tiempo: "15 min",
@@ -789,6 +794,7 @@ const RECETAS = [
   {
     id: "tacos_saludables",
     nombre: "Tacos Saludables",
+    imagen: "img/recetas/Tacos-Saludables.jpg",
     emojiPortada: "🌮🥑🌿",
     rating: "A",
     tiempo: "20 min",
@@ -823,6 +829,7 @@ const RECETAS = [
   {
     id: "crema_de_verduras",
     nombre: "Crema de Verduras",
+    imagen: "img/recetas/Crema-de-Verduras.jpg",
     emojiPortada: "🥣🥕🍠",
     rating: "A",
     tiempo: "40 min",
