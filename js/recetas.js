@@ -718,5 +718,39 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "El kataifi está hecho de harina de trigo, así que contiene gluten. No hemos encontrado una alternativa sin gluten que reproduzca bien su textura; si lo necesitas, puedes probar con copos de maíz sin azúcar troceados, aunque el resultado cambiará." },
       { pregunta: "¿Cuánto tiempo se conserva?", respuesta: "Hasta 2 semanas en la nevera en un recipiente hermético; el chocolate puede blanquear un poco por el frío, pero sigue siendo seguro comerlo." }
     ]
+  },
+  {
+    id: "brownie_saludable",
+    nombre: "Brownie Saludable",
+    emojiPortada: "🍫🍠🌾",
+    rating: "B",
+    tiempo: "45 min",
+    raciones: 9,
+    mostrarPorRacion: true,
+    descripcion: "El brownie de siempre, pero con boniato en vez de harina y mantequilla en cantidad, y dátiles como único endulzante. Jugoso por dentro, sin azúcar añadido.",
+    motivo: "El boniato triturado sustituye a gran parte de la harina y la grasa de un brownie normal, aportando humedad, fibra y betacarotenos, sin apenas grasa saturada propia. El dulzor viene entero de los dátiles, que suman fibra junto a su azúcar natural en vez de azúcar libre sin más. El cacao puro y el chocolate negro ≥85% dan el sabor característico con mucha menos azúcar que un brownie con chocolate con leche. Sigue siendo un postre con bastante dátil y chocolate por porción —por eso lo calificamos con B, igual criterio que las Crumbl Cookies—, pero con un perfil muy superior al de un brownie normal.",
+    ingredientes: [
+      { foodId: "ia_boniato", cantidad: 200 },
+      { foodId: "cacao_puro", cantidad: 40 },
+      { foodId: "ia_datiles", cantidad: 100 },
+      { foodId: "huevo", cantidad: 60 },
+      { foodId: "ia_harina_de_avena_integral", cantidad: 60 },
+      { foodId: "chocolate_negro", cantidad: 50 }
+    ],
+    pasos: [
+      "Precalienta el horno a 180°C y forra un molde cuadrado con papel de horno.",
+      "Cuece el boniato (con piel o pelado) hasta que esté muy tierno, unos 15-20 minutos al vapor o hervido; escúrrelo y hazlo puré.",
+      "Deshuesa los dátiles y ponlos en remojo con agua caliente 10 minutos para ablandarlos; escúrrelos y tritúralos hasta conseguir una pasta.",
+      "Mezcla el puré de boniato con la pasta de dátiles, el huevo y el cacao en polvo hasta conseguir una masa homogénea.",
+      "Incorpora la harina de avena integral y una pizca de levadura química, y mezcla bien.",
+      "Añade el chocolate negro troceado y repártelo por toda la masa.",
+      "Vierte la masa en el molde y hornea 20-25 minutos, hasta que al pinchar con un palillo salga con algunas migas húmedas (para que quede jugoso, no seco).",
+      "Deja enfriar por completo antes de cortar en 9 porciones."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para vegetarianos?", respuesta: "Sí, lleva huevo pero ningún otro producto animal. No es apta para veganos por el huevo." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La harina de avena no contiene gluten de forma natural, pero elige una certificada sin gluten si hay sensibilidad, por la posible contaminación cruzada en su procesado." },
+      { pregunta: "¿Se puede congelar?", respuesta: "Sí, corta las porciones y congélalas por separado; se conservan hasta 2-3 meses. Descongela a temperatura ambiente o unos segundos en el microondas." }
+    ]
   }
 ];
