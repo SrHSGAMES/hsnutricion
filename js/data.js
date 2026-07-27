@@ -1124,6 +1124,39 @@ const FOODS = [
     kcal: 356, carbs: 58, azucares: 2, proteinas: 9, grasas: 9, grasasSat: 2, fibra: 2, sodio: 540,
     motivo: "Es esencialmente harina de trigo en hebras muy finas, similar a la pasta filo: no aporta nada nutricionalmente destacable por sí sola, y concentra bastante sodio propio de la masa. Su papel aquí es dar textura crujiente, no nutrir; se usa en poca cantidad y siempre tostada con muy poco aceite en vez de la mantequilla abundante habitual.",
     sustitutos: []
+  },
+  {
+    id: "tortilla_maiz",
+    nombre: "Tortilla de maíz",
+    aliases: ["tortilla de maiz", "tortillas de maiz", "tortita de maiz"],
+    categorias: ["Cereales"],
+    emoji: "🌽",
+    rating: "A",
+    kcal: 218, carbs: 44.6, azucares: 0.9, proteinas: 5.7, grasas: 2.9, grasasSat: 0.4, fibra: 6.4, sodio: 15,
+    motivo: "Al ser de maíz entero nixtamalizado y no de trigo refinado, no contiene gluten de forma natural y aporta más fibra que una tortilla de trigo blanca. Es también mucho más baja en sodio que la mayoría de panes y tortillas de trigo comerciales.",
+    sustitutos: []
+  },
+  {
+    id: "lima",
+    nombre: "Lima",
+    aliases: ["lima", "limas", "zumo de lima"],
+    categorias: ["Frutas"],
+    emoji: "🍋",
+    rating: "A",
+    kcal: 30, carbs: 10.5, azucares: 1.7, proteinas: 0.7, grasas: 0.2, grasasSat: 0.02, fibra: 2.8, sodio: 2,
+    motivo: "Muy baja en calorías, aporta un aporte notable de vitamina C y compuestos ácidos que realzan el sabor de un plato sin necesidad de añadir sal ni azúcar.",
+    sustitutos: []
+  },
+  {
+    id: "cilantro",
+    nombre: "Cilantro",
+    aliases: ["cilantro", "culantro"],
+    categorias: ["Condimentos y Aditivos", "Verduras y Hortalizas"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 23, carbs: 3.7, azucares: 0.9, proteinas: 2.1, grasas: 0.5, grasasSat: 0.01, fibra: 2.8, sodio: 46,
+    motivo: "Hierba aromática muy baja en calorías, con vitaminas A, C y K, y compuestos antioxidantes. Se usa en cantidades pequeñas como toque final de sabor, no como fuente relevante de nutrientes.",
+    sustitutos: []
   }
 ];
 

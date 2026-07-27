@@ -785,5 +785,39 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Las tortitas de avena están hechas de avena, que no contiene gluten de forma natural, pero conviene comprobar que estén certificadas sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Se puede preparar con antelación?", respuesta: "El tofu se puede cocinar con antelación, pero monta las tortitas justo antes de comer para que no pierdan el punto crujiente." }
     ]
+  },
+  {
+    id: "tacos_saludables",
+    nombre: "Tacos Saludables",
+    emojiPortada: "🌮🥑🌿",
+    rating: "A",
+    tiempo: "20 min",
+    raciones: 1,
+    descripcion: "Tacos con tortilla de maíz (sin gluten de forma natural), tofu dorado, guacamole rápido y pico de gallo fresco. Sin salsas ultraprocesadas ni queso fundido en exceso.",
+    motivo: "La tortilla de maíz aporta más fibra y menos sodio que una tortilla de trigo comercial, y no contiene gluten de forma natural. El tofu dorado con especias sustituye a la carne, y el pico de gallo (tomate, cebolla y cilantro frescos) y el aguacate machacado con lima aportan todo el sabor sin necesidad de salsas envasadas ni sal añadida.",
+    ingredientes: [
+      { foodId: "tortilla_maiz", cantidad: 60 },
+      { foodId: "ia_tofu", cantidad: 120 },
+      { foodId: "aove", cantidad: 5 },
+      { foodId: "aguacate", cantidad: 50 },
+      { foodId: "ia_tomate", cantidad: 50 },
+      { foodId: "ia_cebolla", cantidad: 20 },
+      { foodId: "lechuga", cantidad: 20 },
+      { foodId: "lima", cantidad: 15 },
+      { foodId: "cilantro", cantidad: 5 }
+    ],
+    pasos: [
+      "Escurre el tofu y córtalo en dados; cocínalo en una sartén con el AOVE hasta que quede dorado por fuera (unos 5-6 minutos), sazonado con especias al gusto (comino, pimentón, sin sal añadida).",
+      "Machaca el aguacate con un tenedor y mézclalo con un chorrito de zumo de lima.",
+      "Trocea el tomate y la cebolla en dados pequeños para hacer un pico de gallo rápido; añade el cilantro picado.",
+      "Calienta las tortillas de maíz ligeramente en una sartén seca o directamente sobre la llama, unos segundos por cada lado.",
+      "Rellena cada tortilla con el tofu, el aguacate machacado, el pico de gallo y la lechuga.",
+      "Termina con un chorrito extra de lima antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, la tortilla de maíz no contiene gluten de forma natural, a diferencia de la de trigo; el resto de ingredientes tampoco llevan." },
+      { pregunta: "¿Cuántos tacos salen con esta cantidad?", respuesta: "Con 60 g de tortilla de maíz salen unos 3 tacos pequeños; ajusta la cantidad según el tamaño de tortilla que uses." }
+    ]
   }
 ];
