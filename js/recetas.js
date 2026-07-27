@@ -819,5 +819,39 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, la tortilla de maíz no contiene gluten de forma natural, a diferencia de la de trigo; el resto de ingredientes tampoco llevan." },
       { pregunta: "¿Cuántos tacos salen con esta cantidad?", respuesta: "Con 60 g de tortilla de maíz salen unos 3 tacos pequeños; ajusta la cantidad según el tamaño de tortilla que uses." }
     ]
+  },
+  {
+    id: "crema_de_verduras",
+    nombre: "Crema de Verduras",
+    emojiPortada: "🥣🥕🍠",
+    rating: "A",
+    tiempo: "40 min",
+    raciones: 2,
+    descripcion: "Un plato de cuchara ligero y reconfortante: boniato, zanahoria, calabacín y puerro, con jengibre, cúrcuma y pimienta negra. Sin nata ni patata blanca, con toda la cremosidad de las propias verduras.",
+    motivo: "El boniato aporta la cremosidad que en una crema de verduras normal suele venir de la nata o la patata blanca, con más fibra y un índice glucémico más bajo. El jengibre y la cúrcuma suman compuestos antiinflamatorios, y la pimienta negra no es un capricho: su piperina multiplica la absorción de la curcumina de la cúrcuma, así que juntas funcionan mucho mejor que por separado. Nada de sal añadida — el caldo de verduras, el puerro y las especias ya aportan todo el sabor que necesita.",
+    ingredientes: [
+      { foodId: "ia_boniato", cantidad: 200 },
+      { foodId: "ia_zanahoria", cantidad: 100 },
+      { foodId: "calabacin", cantidad: 150 },
+      { foodId: "puerro", cantidad: 80 },
+      { foodId: "ia_cebolla", cantidad: 50 },
+      { foodId: "ia_jengibre", cantidad: 10 },
+      { foodId: "curcuma", cantidad: 3 },
+      { foodId: "pimienta_negra", cantidad: 1 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 500 },
+      { foodId: "aove", cantidad: 15 }
+    ],
+    pasos: [
+      "Pela y trocea el boniato, la zanahoria, el calabacín, el puerro y la cebolla.",
+      "Sofríe la cebolla, el puerro, el jengibre rallado y la cúrcuma en una olla con el AOVE a fuego medio, hasta que la cebolla esté blanda (5 minutos).",
+      "Añade el resto de las verduras y el caldo de verduras, y deja cocer a fuego medio 20-25 minutos, hasta que todas las verduras estén muy tiernas.",
+      "Tritura todo con la batidora hasta conseguir una crema fina y homogénea.",
+      "Ajusta el punto con más caldo si la quieres más ligera, añade la pimienta negra y sirve caliente."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten; solo comprueba que el caldo de verduras que uses no tenga trazas si tienes celiaquía." },
+      { pregunta: "¿Por qué lleva pimienta negra junto con la cúrcuma?", respuesta: "Porque la piperina de la pimienta negra multiplica la absorción de la curcumina, el compuesto activo de la cúrcuma — juntas funcionan mucho mejor que por separado." }
+    ]
   }
 ];

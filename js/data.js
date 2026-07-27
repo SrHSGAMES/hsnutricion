@@ -1157,6 +1157,50 @@ const FOODS = [
     kcal: 23, carbs: 3.7, azucares: 0.9, proteinas: 2.1, grasas: 0.5, grasasSat: 0.01, fibra: 2.8, sodio: 46,
     motivo: "Hierba aromática muy baja en calorías, con vitaminas A, C y K, y compuestos antioxidantes. Se usa en cantidades pequeñas como toque final de sabor, no como fuente relevante de nutrientes.",
     sustitutos: []
+  },
+  {
+    id: "calabacin",
+    nombre: "Calabacín",
+    aliases: ["calabacin", "calabacines"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥒",
+    rating: "A",
+    kcal: 17, carbs: 3.1, azucares: 2.5, proteinas: 1.2, grasas: 0.3, grasasSat: 0.1, fibra: 1, sodio: 8,
+    motivo: "Hortaliza muy baja en calorías, compuesta mayoritariamente por agua, con un aporte destacable de vitamina C y potasio. Aporta volumen y textura a guisos y cremas sin apenas impacto calórico.",
+    sustitutos: []
+  },
+  {
+    id: "puerro",
+    nombre: "Puerro",
+    aliases: ["puerro", "puerros"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🧅",
+    rating: "A",
+    kcal: 61, carbs: 14.2, azucares: 3.9, proteinas: 1.5, grasas: 0.3, grasasSat: 0.04, fibra: 1.8, sodio: 20,
+    motivo: "De la misma familia que la cebolla y el ajo, aporta compuestos organosulfurados y flavonoides con propiedades antioxidantes, junto con vitamina K y folato. Da mucho sabor de base a sofritos, caldos y cremas.",
+    sustitutos: []
+  },
+  {
+    id: "curcuma",
+    nombre: "Cúrcuma",
+    aliases: ["curcuma", "cúrcuma en polvo"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌕",
+    rating: "A",
+    kcal: 312, carbs: 67, azucares: 3.2, proteinas: 9.7, grasas: 3.3, grasasSat: 2.1, fibra: 23, sodio: 27,
+    motivo: "Debe su color y buena parte de sus propiedades a la curcumina, un compuesto con potencial antiinflamatorio y antioxidante ampliamente estudiado. Su absorción mejora notablemente cuando se combina con pimienta negra, por la piperina que esta contiene. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
+    sustitutos: []
+  },
+  {
+    id: "pimienta_negra",
+    nombre: "Pimienta negra",
+    aliases: ["pimienta negra", "pimienta molida", "pimienta"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌶️",
+    rating: "A",
+    kcal: 251, carbs: 64, azucares: 0.6, proteinas: 10, grasas: 3.3, grasasSat: 1.4, fibra: 25, sodio: 20,
+    motivo: "Aporta piperina, un compuesto que potencia notablemente la absorción de la curcumina de la cúrcuma y de otros compuestos bioactivos. Se usa en cantidades tan pequeñas que su aporte nutricional real es insignificante frente a su función de realzar sabor y absorción de otros ingredientes.",
+    sustitutos: []
   }
 ];
 
