@@ -657,5 +657,33 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "La avena no contiene gluten de forma natural, pero conviene comprarla certificada sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
       { pregunta: "¿Cuánto tiempo se conservan?", respuesta: "Hasta una semana en la nevera en un recipiente hermético, o hasta 2-3 meses congeladas." }
     ]
+  },
+  {
+    id: "te_matcha_casero",
+    nombre: "Té Matcha Casero",
+    emojiPortada: "🍵🌿🥛",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "El matcha latte que arrasa en redes, hecho en casa: matcha en polvo batido con bebida de avena, sin los azúcares añadidos habituales de la versión de cafetería.",
+    motivo: "El matcha se elabora con la hoja de té entera molida, así que concentra muchos más antioxidantes (catequinas) y cafeína que una infusión de té verde normal. Al prepararlo en casa controlamos el dulzor por completo: la miel queda como opcional y en poca cantidad, muy lejos de los siropes azucarados que suelen llevar los matcha latte comerciales.",
+    ingredientes: [
+      { foodId: "matcha", cantidad: 2 },
+      { foodId: "ia_bebida_de_avena", cantidad: 250 },
+      { foodId: "ia_aroma_de_vainilla", cantidad: 1 },
+      { foodId: "miel", cantidad: 10, opcional: true }
+    ],
+    pasos: [
+      "Tamiza el matcha en un bol para evitar grumos.",
+      "Añade un poco de bebida de avena caliente (no hirviendo) y bate enérgicamente con un batidor de bambú o unas varillas, hasta conseguir una crema espumosa sin grumos.",
+      "Añade la vainilla y la miel si quieres, y remueve.",
+      "Llena un vaso con hielo y vierte el resto de la bebida de avena.",
+      "Añade la mezcla de matcha por encima y remueve antes de beber."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, si no añades la miel opcional (o la sustituyes por sirope de agave). Sin ella, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Lleva cafeína?", respuesta: "Sí, el matcha es rico en cafeína —más que una infusión de té verde normal, aunque menos que un café—; si eres sensible a la cafeína, empieza con menos cantidad." },
+      { pregunta: "¿Puedo tomarlo caliente en vez de frío?", respuesta: "Sí, simplemente sirve la bebida de avena caliente en vez de con hielo, sin cambiar el resto de la receta." }
+    ]
   }
 ];

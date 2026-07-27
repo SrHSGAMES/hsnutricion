@@ -1091,6 +1091,17 @@ const FOODS = [
     kcal: 53, carbs: 4.9, azucares: 0.4, proteinas: 8, grasas: 0.1, grasasSat: 0, fibra: 0.8, sodio: 3300,
     motivo: "Incluso en su versión \"baja en sodio\", la salsa de soja sigue siendo uno de los condimentos más concentrados en sodio que existen, así que un poco da mucho sabor: se usa en cantidades pequeñas (una cucharada aporta ya un tercio de su sodio por 100 g). Preferible siempre a la versión normal, que puede duplicar esa cifra.",
     sustitutos: []
+  },
+  {
+    id: "matcha",
+    nombre: "Matcha en polvo",
+    aliases: ["matcha", "te matcha", "té matcha en polvo"],
+    categorias: ["Bebidas"],
+    emoji: "🍵",
+    rating: "A",
+    kcal: 324, carbs: 39, azucares: 0, proteinas: 30, grasas: 5, grasasSat: 1, fibra: 38, sodio: 6,
+    motivo: "Al tomarse la hoja de té entera molida, el matcha concentra mucha más cafeína y antioxidantes (catequinas, especialmente EGCG) que un té verde infusionado normal. Se usa en cantidades muy pequeñas (1-2 g por taza), así que su aporte calórico real en la bebida es mínimo.",
+    sustitutos: []
   }
 ];
 
