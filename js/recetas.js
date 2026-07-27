@@ -685,5 +685,38 @@ const RECETAS = [
       { pregunta: "¿Lleva cafeína?", respuesta: "Sí, el matcha es rico en cafeína —más que una infusión de té verde normal, aunque menos que un café—; si eres sensible a la cafeína, empieza con menos cantidad." },
       { pregunta: "¿Puedo tomarlo caliente en vez de frío?", respuesta: "Sí, simplemente sirve la bebida de avena caliente en vez de con hielo, sin cambiar el resto de la receta." }
     ]
+  },
+  {
+    id: "chocolate_de_dubai",
+    nombre: "Chocolate de Dubái",
+    emojiPortada: "🍫🥜🌿",
+    rating: "B",
+    tiempo: "1 h (con reposo)",
+    raciones: 8,
+    mostrarPorRacion: true,
+    descripcion: "La versión casera del chocolate viral con pistacho y kataifi crujiente: chocolate negro ≥85% en vez de chocolate con leche, y una crema de pistacho sin azúcar añadido en vez de pasta de pistacho comercial.",
+    motivo: "El chocolate negro sustituye al chocolate con leche de la receta original, aportando antioxidantes y mucha menos azúcar. La crema de relleno se hace triturando pistachos enteros con un poco de dátil para el dulzor, en vez de una pasta de pistacho comercial que suele llevar azúcar y aceite de palma. El kataifi se tuesta con un chorrito de AOVE en vez de la mantequilla abundante habitual. Sigue siendo un chocolate con bastante grasa —por eso lo calificamos con B, igual que las Crumbl Cookies—, pero muy por encima del original en calidad de ingredientes.",
+    ingredientes: [
+      { foodId: "chocolate_negro", cantidad: 150 },
+      { foodId: "pistachos", cantidad: 80 },
+      { foodId: "kataifi", cantidad: 40 },
+      { foodId: "aove", cantidad: 10 },
+      { foodId: "ia_datiles", cantidad: 20 }
+    ],
+    pasos: [
+      "Tuesta el kataifi troceado en una sartén con el AOVE a fuego medio, removiendo, hasta que quede dorado y crujiente (unos 5 minutos). Deja enfriar.",
+      "Tritura los pistachos junto con los dátiles hasta conseguir una pasta gruesa.",
+      "Mezcla la pasta de pistacho con el kataifi tostado ya frío.",
+      "Funde el chocolate negro al baño María o en el microondas en intervalos cortos, removiendo entre cada uno.",
+      "Vierte la mitad del chocolate fundido en moldes de barrita (o uno grande) y reparte bien por las paredes; deja enfriar en la nevera 5 minutos hasta que solidifique.",
+      "Rellena con la mezcla de pistacho y kataifi, dejando un margen en el borde.",
+      "Cubre con el resto del chocolate fundido, sellando bien los bordes.",
+      "Deja enfriar en la nevera al menos 30 minutos antes de desmoldar y cortar en 8 porciones."
+    ],
+    faqs: [
+      { pregunta: "¿Es apta para veganos?", respuesta: "Sí, todos los ingredientes son de origen vegetal, siempre que uses un chocolate negro sin leche añadida (la mayoría de los ≥85% cacao ya lo son)." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "El kataifi está hecho de harina de trigo, así que contiene gluten. No hemos encontrado una alternativa sin gluten que reproduzca bien su textura; si lo necesitas, puedes probar con copos de maíz sin azúcar troceados, aunque el resultado cambiará." },
+      { pregunta: "¿Cuánto tiempo se conserva?", respuesta: "Hasta 2 semanas en la nevera en un recipiente hermético; el chocolate puede blanquear un poco por el frío, pero sigue siendo seguro comerlo." }
+    ]
   }
 ];

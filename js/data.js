@@ -1102,6 +1102,28 @@ const FOODS = [
     kcal: 324, carbs: 39, azucares: 0, proteinas: 30, grasas: 5, grasasSat: 1, fibra: 38, sodio: 6,
     motivo: "Al tomarse la hoja de té entera molida, el matcha concentra mucha más cafeína y antioxidantes (catequinas, especialmente EGCG) que un té verde infusionado normal. Se usa en cantidades muy pequeñas (1-2 g por taza), así que su aporte calórico real en la bebida es mínimo.",
     sustitutos: []
+  },
+  {
+    id: "pistachos",
+    nombre: "Pistachos",
+    aliases: ["pistachos", "pistacho"],
+    categorias: ["Frutos Secos"],
+    emoji: "🥜",
+    rating: "A",
+    kcal: 560, carbs: 28, azucares: 7.7, proteinas: 20, grasas: 45, grasasSat: 5.4, fibra: 10, sodio: 1,
+    motivo: "Fruto seco con un perfil graso mayoritariamente insaturado, buena fuente de proteína vegetal y fibra, y uno de los frutos secos con más potasio y luteína (un antioxidante). Como cualquier fruto seco, es denso en calorías, así que conviene medir la ración.",
+    sustitutos: []
+  },
+  {
+    id: "kataifi",
+    nombre: "Kataifi (pasta filo en hebras)",
+    aliases: ["kataifi", "kadayif", "cabello de angel pasta filo"],
+    categorias: ["Cereales"],
+    emoji: "🍜",
+    rating: "B",
+    kcal: 356, carbs: 58, azucares: 2, proteinas: 9, grasas: 9, grasasSat: 2, fibra: 2, sodio: 540,
+    motivo: "Es esencialmente harina de trigo en hebras muy finas, similar a la pasta filo: no aporta nada nutricionalmente destacable por sí sola, y concentra bastante sodio propio de la masa. Su papel aquí es dar textura crujiente, no nutrir; se usa en poca cantidad y siempre tostada con muy poco aceite en vez de la mantequilla abundante habitual.",
+    sustitutos: []
   }
 ];
 
