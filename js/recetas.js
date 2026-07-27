@@ -752,5 +752,38 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La harina de avena no contiene gluten de forma natural, pero elige una certificada sin gluten si hay sensibilidad, por la posible contaminación cruzada en su procesado." },
       { pregunta: "¿Se puede congelar?", respuesta: "Sí, corta las porciones y congélalas por separado; se conservan hasta 2-3 meses. Descongela a temperatura ambiente o unos segundos en el microondas." }
     ]
+  },
+  {
+    id: "wrap_tofu_saludable",
+    nombre: "Wrap de Tofu Saludable",
+    emojiPortada: "🌾🫘🥑",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 1,
+    descripcion: "La versión vegetal y sin gluten (opcional) del wrap de siempre: tofu dorado, alubias, aguacate y verduras frescas sobre tortitas de avena crujientes, en vez de una tortilla de trigo blanda.",
+    motivo: "El tofu aporta proteína vegetal completa con muy poca grasa saturada, y las alubias suman todavía más proteína junto a una cantidad de fibra excepcional. El aguacate machacado hace de \"mayonesa saludable\", y el tomate, el pimiento y la cebolla aportan frescura y antioxidantes. Las tortitas de avena están calificadas B en tu guía por ser un producto horneado, pero el resto del plato compensa de sobra: el conjunto sale con más de 23 g de fibra y muy poca grasa saturada.",
+    ingredientes: [
+      { foodId: "ia_tortitas_de_avena", cantidad: 30 },
+      { foodId: "ia_tofu", cantidad: 120 },
+      { foodId: "aove", cantidad: 5 },
+      { foodId: "ia_alubias", cantidad: 60 },
+      { foodId: "aguacate", cantidad: 50 },
+      { foodId: "ia_tomate", cantidad: 40 },
+      { foodId: "lechuga", cantidad: 20 },
+      { foodId: "ia_pimiento_rojo", cantidad: 30 },
+      { foodId: "ia_cebolla", cantidad: 20 }
+    ],
+    pasos: [
+      "Escurre el tofu y córtalo en dados; cocínalo en una sartén con el AOVE hasta que quede dorado por fuera (unos 5-6 minutos), sazonado con especias al gusto.",
+      "Machaca el aguacate con un tenedor.",
+      "Reparte el aguacate machacado sobre las tortitas de avena.",
+      "Añade el tofu, las alubias, el tomate, el pimiento, la cebolla y la lechuga por encima de cada tortita.",
+      "Sirve enseguida, para que las tortitas se mantengan crujientes."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Las tortitas de avena están hechas de avena, que no contiene gluten de forma natural, pero conviene comprobar que estén certificadas sin gluten si hay sensibilidad, por la contaminación cruzada habitual en su procesado." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "El tofu se puede cocinar con antelación, pero monta las tortitas justo antes de comer para que no pierdan el punto crujiente." }
+    ]
   }
 ];
