@@ -860,5 +860,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten; solo comprueba que el caldo de verduras que uses no tenga trazas si tienes celiaquía." },
       { pregunta: "¿Por qué lleva pimienta negra junto con la cúrcuma?", respuesta: "Porque la piperina de la pimienta negra multiplica la absorción de la curcumina, el compuesto activo de la cúrcuma — juntas funcionan mucho mejor que por separado." }
     ]
+  },
+  {
+    id: "hummus_casero",
+    nombre: "Hummus Casero",
+    emojiPortada: "🫘🍋🌰",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 6,
+    descripcion: "El clásico dip de garbanzos hecho en casa: garbanzos, tahini, limón, ajo y comino, sin conservantes ni aceites de baja calidad. Perfecto para untar o acompañar verduras crudas.",
+    motivo: "El tahini (sésamo molido) aporta grasas mayoritariamente insaturadas, calcio y proteína vegetal, y junto con los garbanzos suma una cantidad de fibra excepcional para un simple dip. El limón y el comino dan todo el sabor sin necesidad de sal añadida. Es mucho más denso en nutrientes que un hummus comercial, que suele llevar aceites de girasol refinados y conservantes.",
+    ingredientes: [
+      { foodId: "ia_garbanzos", cantidad: 300 },
+      { foodId: "tahini", cantidad: 40 },
+      { foodId: "aove", cantidad: 30 },
+      { foodId: "limon", cantidad: 20 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "comino", cantidad: 2 }
+    ],
+    pasos: [
+      "Escurre los garbanzos, reservando un poco del líquido de cocción.",
+      "Tritura los garbanzos junto con el tahini, el AOVE, el zumo de limón, el ajo y el comino en un robot de cocina o batidora potente.",
+      "Añade un poco del líquido reservado de los garbanzos (o agua) poco a poco, hasta conseguir la textura cremosa deseada.",
+      "Prueba y ajusta de limón o comino al gusto.",
+      "Sirve con un chorrito de AOVE por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten." },
+      { pregunta: "¿Cuánto tiempo se conserva?", respuesta: "Hasta 4-5 días en la nevera en un recipiente hermético, con un chorrito de AOVE por encima para que no se seque la superficie." }
+    ]
   }
 ];

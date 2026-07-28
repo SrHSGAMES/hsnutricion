@@ -1201,6 +1201,39 @@ const FOODS = [
     kcal: 251, carbs: 64, azucares: 0.6, proteinas: 10, grasas: 3.3, grasasSat: 1.4, fibra: 25, sodio: 20,
     motivo: "Aporta piperina, un compuesto que potencia notablemente la absorción de la curcumina de la cúrcuma y de otros compuestos bioactivos. Se usa en cantidades tan pequeñas que su aporte nutricional real es insignificante frente a su función de realzar sabor y absorción de otros ingredientes.",
     sustitutos: []
+  },
+  {
+    id: "tahini",
+    nombre: "Tahini (pasta de sésamo)",
+    aliases: ["tahini", "pasta de sesamo", "tahina"],
+    categorias: ["Untables"],
+    emoji: "🌰",
+    rating: "B",
+    kcal: 595, carbs: 18, azucares: 0.5, proteinas: 17, grasas: 54, grasasSat: 7.5, fibra: 9.3, sodio: 115,
+    motivo: "Al ser semillas de sésamo molidas sin nada añadido, aporta grasas mayoritariamente insaturadas, proteína vegetal y minerales como calcio y hierro. Es denso en calorías como cualquier fruto seco o semilla en pasta, así que conviene medir la cantidad.",
+    sustitutos: []
+  },
+  {
+    id: "limon",
+    nombre: "Limón",
+    aliases: ["limon", "limones", "zumo de limon"],
+    categorias: ["Frutas"],
+    emoji: "🍋",
+    rating: "A",
+    kcal: 29, carbs: 9.3, azucares: 2.5, proteinas: 1.1, grasas: 0.3, grasasSat: 0.03, fibra: 2.8, sodio: 2,
+    motivo: "Muy bajo en calorías, con un aporte notable de vitamina C. Su acidez realza el sabor de un plato sin necesidad de añadir sal.",
+    sustitutos: []
+  },
+  {
+    id: "comino",
+    nombre: "Comino",
+    aliases: ["comino", "comino molido"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 375, carbs: 44, azucares: 2.3, proteinas: 18, grasas: 22, grasasSat: 1.5, fibra: 11, sodio: 168,
+    motivo: "Especia con compuestos bioactivos (cuminaldehído) estudiados por su posible efecto beneficioso sobre la digestión y el control de la glucemia. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
+    sustitutos: []
   }
 ];
 
