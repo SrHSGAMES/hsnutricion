@@ -961,5 +961,38 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten de forma natural." },
       { pregunta: "¿Se puede congelar?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales." }
     ]
+  },
+  {
+    id: "falafel_al_horno",
+    nombre: "Falafel al Horno",
+    emojiPortada: "🧆🌿🫘",
+    rating: "A",
+    tiempo: "45 min",
+    raciones: 12,
+    mostrarPorRacion: true,
+    descripcion: "El clásico de garbanzos, cilantro y comino, pero al horno en vez de frito. Exterior dorado y crujiente con muchísima menos grasa que la versión tradicional.",
+    motivo: "Freír el falafel en abundante aceite prácticamente duplica su contenido en grasa; aquí se hornea con solo un pincelado de AOVE, así que se mantiene el exterior crujiente característico sin ese aporte extra. Los garbanzos y la harina de garbanzo aportan proteína vegetal y una cantidad de fibra excepcional para tratarse de un aperitivo, y el cilantro y el comino dan todo el sabor sin necesidad de sal añadida.",
+    ingredientes: [
+      { foodId: "ia_garbanzos", cantidad: 300 },
+      { foodId: "ia_cebolla", cantidad: 60 },
+      { foodId: "ia_ajo", cantidad: 8 },
+      { foodId: "cilantro", cantidad: 15 },
+      { foodId: "comino", cantidad: 3 },
+      { foodId: "ia_harina_de_garbanzo", cantidad: 40 },
+      { foodId: "aove", cantidad: 20 }
+    ],
+    pasos: [
+      "Escurre bien los garbanzos y sécalos con papel de cocina.",
+      "Tritura los garbanzos junto con la cebolla, el ajo, el cilantro y el comino en un robot de cocina, hasta conseguir una pasta con textura (no del todo lisa).",
+      "Incorpora la harina de garbanzo poco a poco, mezclando bien, hasta que la masa se pueda moldear sin pegarse a las manos.",
+      "Precalienta el horno a 200°C y forra una bandeja con papel de horno.",
+      "Forma 12 bolitas con las manos, aplánalas ligeramente y colócalas en la bandeja.",
+      "Pincélalas con el AOVE y hornea 25-30 minutos, dándoles la vuelta a mitad de cocción, hasta que estén doradas y crujientes por fuera."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, tanto los garbanzos como la harina de garbanzo no contienen gluten de forma natural." },
+      { pregunta: "¿Por qué al horno y no fritos?", respuesta: "Freír el falafel en abundante aceite prácticamente duplica su contenido en grasa; horneándolo con solo un pincelado de AOVE se consigue un exterior crujiente sin ese aporte extra de grasa." }
+    ]
   }
 ];
