@@ -864,6 +864,7 @@ const RECETAS = [
   {
     id: "hummus_casero",
     nombre: "Hummus Casero",
+    imagen: "img/recetas/Hummus-Casero.jpg",
     emojiPortada: "🫘🍋🌰",
     rating: "A",
     tiempo: "10 min",
@@ -894,6 +895,7 @@ const RECETAS = [
   {
     id: "lentejas_estofadas",
     nombre: "Lentejas Estofadas",
+    imagen: "img/recetas/Lentejas-Estofadas.jpg",
     emojiPortada: "🫘🥕🍅",
     rating: "A",
     tiempo: "1 h",
@@ -929,6 +931,7 @@ const RECETAS = [
   {
     id: "dal_de_lentejas",
     nombre: "Dal de Lentejas",
+    imagen: "img/recetas/Dal-de-Lentejas.jpg",
     emojiPortada: "🫘🌿🍅",
     rating: "A",
     tiempo: "50 min",
@@ -965,6 +968,7 @@ const RECETAS = [
   {
     id: "falafel_al_horno",
     nombre: "Falafel al Horno",
+    imagen: "img/recetas/Falafel-al-Horno.jpg",
     emojiPortada: "🧆🌿🫘",
     rating: "A",
     tiempo: "45 min",
