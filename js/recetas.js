@@ -925,5 +925,41 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten de forma natural; solo comprueba que el caldo de verduras que uses no tenga trazas si tienes celiaquía." },
       { pregunta: "¿Se puede congelar?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales." }
     ]
+  },
+  {
+    id: "dal_de_lentejas",
+    nombre: "Dal de Lentejas",
+    emojiPortada: "🫘🌿🍅",
+    rating: "A",
+    tiempo: "50 min",
+    raciones: 4,
+    descripcion: "El curry indio de lentejas de toda la vida: jengibre, cúrcuma, comino y curry en polvo, sin leche de coco para mantener la grasa saturada al mínimo. Más de 55 g de proteína vegetal en la olla completa.",
+    motivo: "Las especias son las protagonistas: la cúrcuma y la pimienta que suele acompañarla en otros platos, el jengibre y el comino aportan compuestos antiinflamatorios además de todo el sabor característico del dal. Al prescindir de la leche de coco —habitual en esta receta pero muy rica en grasa saturada—, el plato queda con menos de 3 g de grasa saturada en toda la olla, sin perder cremosidad gracias a cómo las lentejas se deshacen ligeramente durante la cocción.",
+    ingredientes: [
+      { foodId: "ia_lentejas", cantidad: 200 },
+      { foodId: "ia_cebolla", cantidad: 80 },
+      { foodId: "ia_ajo", cantidad: 8 },
+      { foodId: "ia_jengibre", cantidad: 10 },
+      { foodId: "curcuma", cantidad: 3 },
+      { foodId: "comino", cantidad: 2 },
+      { foodId: "ia_curry_en_polvo", cantidad: 5 },
+      { foodId: "ia_tomate", cantidad: 150 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 500 },
+      { foodId: "cilantro", cantidad: 5 }
+    ],
+    pasos: [
+      "Pica la cebolla, el ajo y el jengibre finamente.",
+      "Sofríe la cebolla, el ajo, el jengibre, la cúrcuma, el comino y el curry en polvo en una olla con el AOVE a fuego medio, hasta que la cebolla esté blanda (5 minutos).",
+      "Añade el tomate troceado y cocina 3-4 minutos más.",
+      "Incorpora las lentejas y el caldo de verduras.",
+      "Deja cocer a fuego medio-bajo, sin tapar, 30-35 minutos, removiendo de vez en cuando, hasta que las lentejas estén tiernas y la salsa haya espesado.",
+      "Sirve caliente con cilantro fresco picado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten de forma natural." },
+      { pregunta: "¿Se puede congelar?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales." }
+    ]
   }
 ];
