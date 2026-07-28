@@ -1234,6 +1234,28 @@ const FOODS = [
     kcal: 375, carbs: 44, azucares: 2.3, proteinas: 18, grasas: 22, grasasSat: 1.5, fibra: 11, sodio: 168,
     motivo: "Especia con compuestos bioactivos (cuminaldehído) estudiados por su posible efecto beneficioso sobre la digestión y el control de la glucemia. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
     sustitutos: []
+  },
+  {
+    id: "laurel",
+    nombre: "Laurel",
+    aliases: ["laurel", "hojas de laurel", "hoja de laurel"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 313, carbs: 75, azucares: 0, proteinas: 7.6, grasas: 8.4, grasasSat: 2.3, fibra: 26, sodio: 23,
+    motivo: "Se usa entera (1-2 hojas) solo para aromatizar durante la cocción y luego se retira, así que su aporte nutricional real en el plato es prácticamente nulo.",
+    sustitutos: []
+  },
+  {
+    id: "pimenton",
+    nombre: "Pimentón",
+    aliases: ["pimenton", "pimentón dulce", "pimentón de la vera", "paprika"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌶️",
+    rating: "A",
+    kcal: 282, carbs: 54, azucares: 10, proteinas: 14, grasas: 13, grasasSat: 2, fibra: 35, sodio: 68,
+    motivo: "Elaborado a partir de pimientos secos y molidos, conserva buena parte de los carotenoides y la capsantina responsables de su color, con capacidad antioxidante. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
+    sustitutos: []
   }
 ];
 

@@ -890,5 +890,40 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten." },
       { pregunta: "¿Cuánto tiempo se conserva?", respuesta: "Hasta 4-5 días en la nevera en un recipiente hermético, con un chorrito de AOVE por encima para que no se seque la superficie." }
     ]
+  },
+  {
+    id: "lentejas_estofadas",
+    nombre: "Lentejas Estofadas",
+    emojiPortada: "🫘🥕🍅",
+    rating: "A",
+    tiempo: "1 h",
+    raciones: 4,
+    descripcion: "El guiso de lentejas de toda la vida: sofrito de verduras, pimentón y laurel, cociendo despacio hasta que las lentejas quedan tiernas. Un plato de cuchara con más de 70 g de proteína vegetal en la olla completa.",
+    motivo: "Las lentejas son de las legumbres con mejor perfil de proteína y fibra combinadas, y aquí se cuecen junto a un sofrito real de cebolla, ajo, pimiento y tomate, sin sobres de sopa ni caldos concentrados con exceso de sodio. El pimentón aporta sabor y carotenoides antioxidantes, y el laurel se retira antes de servir —su función es aromatizar durante la cocción, no nutrir—. Nada de sal añadida: el caldo de verduras y el sofrito ya dan todo el sabor que necesita.",
+    ingredientes: [
+      { foodId: "ia_lentejas", cantidad: 250 },
+      { foodId: "ia_cebolla", cantidad: 100 },
+      { foodId: "ia_zanahoria", cantidad: 100 },
+      { foodId: "ia_pimiento_rojo", cantidad: 80 },
+      { foodId: "ia_tomate", cantidad: 150 },
+      { foodId: "ia_ajo", cantidad: 10 },
+      { foodId: "laurel", cantidad: 1 },
+      { foodId: "pimenton", cantidad: 5 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 800 }
+    ],
+    pasos: [
+      "Pela y trocea la cebolla, la zanahoria, el pimiento y el ajo.",
+      "Sofríe la cebolla, el ajo y el pimiento en una olla con el AOVE a fuego medio, hasta que estén blandos (8-10 minutos).",
+      "Añade el tomate troceado y el pimentón, y remueve un par de minutos.",
+      "Incorpora las lentejas, la zanahoria, el laurel y el caldo de verduras.",
+      "Deja cocer a fuego medio-bajo, tapado, 35-40 minutos, removiendo de vez en cuando, hasta que las lentejas estén tiernas.",
+      "Retira las hojas de laurel antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, ningún ingrediente contiene gluten de forma natural; solo comprueba que el caldo de verduras que uses no tenga trazas si tienes celiaquía." },
+      { pregunta: "¿Se puede congelar?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales." }
+    ]
   }
 ];
