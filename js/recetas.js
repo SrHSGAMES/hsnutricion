@@ -1028,5 +1028,40 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." },
       { pregunta: "¿Cuánto tiempo se conserva el pesto ya hecho?", respuesta: "Hasta 4-5 días en la nevera en un bote hermético, con un poco de AOVE por encima para que no se oxide; también se puede congelar en cubitos hasta 3 meses." }
     ]
+  },
+  {
+    id: "pasta_integral_bolonesa",
+    nombre: "Pasta Integral a la Boloñesa Saludable",
+    emojiPortada: "🍝🫘🍅",
+    rating: "A",
+    tiempo: "45 min",
+    raciones: 2,
+    descripcion: "La boloñesa de siempre, pero 100% vegetal: soja texturizada en vez de carne picada, con el sofrito clásico de cebolla, zanahoria y apio. Más de 87 g de proteína y 45 g de fibra en el plato completo.",
+    motivo: "La soja texturizada se obtiene de harina de soja desgrasada, así que aporta muchísima proteína vegetal completa y fibra con muy poca grasa, muy por encima de lo que aportaría la carne picada que sustituye. El sofrito de cebolla, zanahoria y apio es la base clásica de cualquier boloñesa, y el orégano y el ajo dan todo el sabor sin necesidad de sal añadida.",
+    ingredientes: [
+      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "soja_texturizada", cantidad: 120 },
+      { foodId: "ia_cebolla", cantidad: 80 },
+      { foodId: "ia_zanahoria", cantidad: 60 },
+      { foodId: "apio", cantidad: 60 },
+      { foodId: "ia_tomate", cantidad: 300 },
+      { foodId: "ia_ajo", cantidad: 8 },
+      { foodId: "oregano", cantidad: 3 },
+      { foodId: "aove", cantidad: 15 }
+    ],
+    pasos: [
+      "Pica finamente la cebolla, la zanahoria, el apio y el ajo.",
+      "Rehidrata la soja texturizada en agua caliente o caldo durante 10 minutos; escúrrela bien apretando con las manos para quitar el exceso de líquido.",
+      "Sofríe la cebolla, la zanahoria, el apio y el ajo en una sartén grande con el AOVE a fuego medio, hasta que estén blandos (8-10 minutos).",
+      "Añade la soja texturizada escurrida y cocina unos minutos, removiendo.",
+      "Incorpora el tomate troceado y el orégano, y deja cocer a fuego medio-bajo 20-25 minutos, removiendo de vez en cuando, hasta que la salsa espese.",
+      "Mientras tanto, cuece la pasta integral según las instrucciones del envase.",
+      "Escurre la pasta y mézclala con la salsa boloñesa, o sírvela con la salsa por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten, y algunas marcas de soja texturizada también pueden llevarlo. Comprueba la etiqueta de la soja texturizada y sustituye la pasta por una versión sin gluten si lo necesitas." },
+      { pregunta: "¿Se puede congelar la salsa?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales, separada de la pasta (que es mejor cocer fresca cada vez)." }
+    ]
   }
 ];

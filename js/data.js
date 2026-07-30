@@ -1256,6 +1256,39 @@ const FOODS = [
     kcal: 282, carbs: 54, azucares: 10, proteinas: 14, grasas: 13, grasasSat: 2, fibra: 35, sodio: 68,
     motivo: "Elaborado a partir de pimientos secos y molidos, conserva buena parte de los carotenoides y la capsantina responsables de su color, con capacidad antioxidante. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
     sustitutos: []
+  },
+  {
+    id: "soja_texturizada",
+    nombre: "Soja texturizada (deshidratada)",
+    aliases: ["soja texturizada", "proteina de soja texturizada", "tvp"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 337, carbs: 30, azucares: 8, proteinas: 52, grasas: 1, grasasSat: 0.1, fibra: 18, sodio: 8,
+    motivo: "Se obtiene de la harina de soja desgrasada, así que concentra muchísima proteína vegetal completa y fibra con muy poca grasa. Se vende deshidratada y se rehidrata en agua o caldo antes de cocinarla, absorbiendo el sabor del plato al que se añade.",
+    sustitutos: []
+  },
+  {
+    id: "apio",
+    nombre: "Apio",
+    aliases: ["apio", "apios"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 16, carbs: 3, azucares: 1.8, proteinas: 0.7, grasas: 0.2, grasasSat: 0.04, fibra: 1.6, sodio: 80,
+    motivo: "Hortaliza muy baja en calorías, compuesta mayoritariamente por agua. Es uno de los tres ingredientes clásicos del sofrito base (junto con cebolla y zanahoria) en muchas cocinas, aportando un sabor característico.",
+    sustitutos: []
+  },
+  {
+    id: "oregano",
+    nombre: "Orégano",
+    aliases: ["oregano", "oregano seco"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 265, carbs: 69, azucares: 4.1, proteinas: 9, grasas: 4.3, grasasSat: 1.6, fibra: 42.5, sodio: 25,
+    motivo: "Hierba aromática con compuestos fenólicos (como el carvacrol) de capacidad antioxidante. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
+    sustitutos: []
   }
 ];
 
