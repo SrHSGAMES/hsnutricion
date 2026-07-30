@@ -1094,5 +1094,40 @@ const RECETAS = [
       { pregunta: "¿Es una receta con nata?", respuesta: "No, y no debería llevarla nunca: la carbonara tradicional italiana nunca lleva nata, la cremosidad viene solo del huevo y el queso." },
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." }
     ]
+  },
+  {
+    id: "pasta_integral_setas_espinacas",
+    nombre: "Pasta Integral con Setas y Espinacas",
+    emojiPortada: "🍝🍄🥬",
+    rating: "A",
+    tiempo: "30 min",
+    raciones: 2,
+    descripcion: "Pasta integral con una salsa cremosa de setas y espinacas, con yogur natural en vez de nata y un toque de nuez moscada. Cremosidad real sin la grasa saturada de una salsa de nata.",
+    motivo: "El yogur natural aporta la misma cremosidad que la nata en una salsa clásica de setas y espinacas, con muchísima menos grasa saturada y sin el aporte calórico extra. Las setas suman betaglucanos y las espinacas hierro, folato y luteína, dos verduras de hoja que rara vez protagonizan un plato de pasta. La nuez moscada es el maridaje clásico de las salsas cremosas con verdura de hoja verde, y se usa en una pizca tan pequeña que su aporte nutricional real es insignificante.",
+    ingredientes: [
+      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "setas", cantidad: 200 },
+      { foodId: "espinacas", cantidad: 150 },
+      { foodId: "yogur_natural", cantidad: 150 },
+      { foodId: "ia_cebolla", cantidad: 60 },
+      { foodId: "ia_ajo", cantidad: 8 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "nuez_moscada", cantidad: 1 },
+      { foodId: "queso_curado", cantidad: 20, opcional: true }
+    ],
+    pasos: [
+      "Limpia y lamina las setas. Trocea la cebolla y pica el ajo.",
+      "Sofríe la cebolla y el ajo en una sartén grande con el AOVE a fuego medio, hasta que estén blandos.",
+      "Añade las setas y cocina a fuego medio-alto hasta que suelten su agua y se doren (8-10 minutos).",
+      "Incorpora las espinacas y cocina 2-3 minutos más, hasta que se reduzcan.",
+      "Baja el fuego, añade el yogur natural y la nuez moscada, y remueve hasta conseguir una salsa cremosa. No dejes que hierva fuerte, para que el yogur no se corte.",
+      "Mientras tanto, cuece la pasta integral según las instrucciones del envase.",
+      "Escurre la pasta y mézclala con la salsa. Sirve con el queso curado rallado por encima, si quieres."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, si sustituyes el yogur natural por uno de soja o coco sin azúcares añadidos y no añades el queso curado opcional." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." },
+      { pregunta: "¿Por qué se usa yogur natural en vez de nata?", respuesta: "Aporta la misma cremosidad con muchísima menos grasa saturada y sin el aporte calórico extra de la nata; solo hay que evitar que hierva fuerte para que no se corte." }
+    ]
   }
 ];

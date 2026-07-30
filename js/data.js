@@ -1289,6 +1289,39 @@ const FOODS = [
     kcal: 265, carbs: 69, azucares: 4.1, proteinas: 9, grasas: 4.3, grasasSat: 1.6, fibra: 42.5, sodio: 25,
     motivo: "Hierba aromática con compuestos fenólicos (como el carvacrol) de capacidad antioxidante. Se usa en cantidades muy pequeñas, así que su aporte calórico real en un plato es insignificante.",
     sustitutos: []
+  },
+  {
+    id: "setas",
+    nombre: "Setas",
+    aliases: ["setas", "champiñones", "champinones", "champiñon"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🍄",
+    rating: "A",
+    kcal: 22, carbs: 3.3, azucares: 2, proteinas: 3.1, grasas: 0.3, grasasSat: 0.05, fibra: 1, sodio: 5,
+    motivo: "Muy bajas en calorías, con un perfil de aminoácidos poco habitual entre las verduras y compuestos como los betaglucanos, con posible efecto beneficioso sobre el sistema inmunitario. Aportan también vitaminas del grupo B y minerales como el selenio.",
+    sustitutos: []
+  },
+  {
+    id: "espinacas",
+    nombre: "Espinacas",
+    aliases: ["espinacas", "espinaca"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 23, carbs: 3.6, azucares: 0.4, proteinas: 2.9, grasas: 0.4, grasasSat: 0.06, fibra: 2.2, sodio: 79,
+    motivo: "Verdura de hoja verde muy densa en nutrientes para su escaso aporte calórico: hierro, folato y vitaminas A y K en cantidades destacables, además de luteína, un antioxidante relacionado con la salud ocular.",
+    sustitutos: []
+  },
+  {
+    id: "nuez_moscada",
+    nombre: "Nuez moscada",
+    aliases: ["nuez moscada", "nuez moscada molida"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌰",
+    rating: "A",
+    kcal: 525, carbs: 49, azucares: 28, proteinas: 5.8, grasas: 36, grasasSat: 26, fibra: 21, sodio: 16,
+    motivo: "Se usa siempre en cantidades mínimas (una pizca), así que su aporte nutricional real en un plato es insignificante; su función aquí es aromatizar salsas cremosas con verduras de hoja verde, un maridaje clásico.",
+    sustitutos: []
   }
 ];
 
