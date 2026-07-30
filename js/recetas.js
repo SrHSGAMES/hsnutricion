@@ -1063,5 +1063,36 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten, y algunas marcas de soja texturizada también pueden llevarlo. Comprueba la etiqueta de la soja texturizada y sustituye la pasta por una versión sin gluten si lo necesitas." },
       { pregunta: "¿Se puede congelar la salsa?", respuesta: "Sí, se congela muy bien hasta 3 meses en porciones individuales, separada de la pasta (que es mejor cocer fresca cada vez)." }
     ]
+  },
+  {
+    id: "pasta_integral_carbonara",
+    nombre: "Pasta Integral Carbonara Saludable",
+    emojiPortada: "🍝🥚🧀",
+    rating: "C",
+    tiempo: "25 min",
+    raciones: 2,
+    descripcion: "La carbonara italiana real, sin nata (nunca la lleva), con pechuga de pollo en vez de panceta o guanciale para bajar la grasa saturada.",
+    motivo: "Esta carbonara sustituye la panceta o el guanciale tradicionales por pechuga de pollo, mucho más magra, y prescinde de la nata que muchas versiones caseras añaden por error —la carbonara italiana real nunca lleva nata—. Aun así, la calificamos con C: entre el huevo, el queso curado y el propio pollo, el plato concentra bastante colesterol y grasa saturada, y no lleva ninguna verdura que equilibre el conjunto. Es una opción razonable de vez en cuando, pero no de las recetas más ligeras de la guía.",
+    ingredientes: [
+      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "huevo", cantidad: 150 },
+      { foodId: "queso_curado", cantidad: 40 },
+      { foodId: "ia_pechuga_de_pollo", cantidad: 150 },
+      { foodId: "pimienta_negra", cantidad: 2 },
+      { foodId: "aove", cantidad: 10 }
+    ],
+    pasos: [
+      "Cuece la pasta integral según las instrucciones del envase, hasta que esté al dente.",
+      "Mientras tanto, corta la pechuga de pollo en tiras finas y cocínala en una sartén con el AOVE a fuego medio-alto, hasta que quede dorada y crujiente por fuera.",
+      "Bate los huevos en un bol junto con el queso curado rallado y la pimienta negra.",
+      "Escurre la pasta, reservando un poco del agua de cocción, y añádela a la sartén con el pollo, fuera del fuego.",
+      "Vierte la mezcla de huevo y queso sobre la pasta caliente, removiendo rápido y sin volver a poner al fuego directo, para que el huevo cuaje suave y cremoso sin hacerse en trozos (usa un poco del agua reservada si hace falta para aligerar la salsa).",
+      "Sirve enseguida con más pimienta negra al gusto."
+    ],
+    faqs: [
+      { pregunta: "¿Por qué lleva pollo en vez de panceta o beicon?", respuesta: "Para mantener la grasa saturada bajo control: el pollo aporta la misma sensación crujiente con muchísima menos grasa que el guanciale o el beicon tradicionales." },
+      { pregunta: "¿Es una receta con nata?", respuesta: "No, y no debería llevarla nunca: la carbonara tradicional italiana nunca lleva nata, la cremosidad viene solo del huevo y el queso." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." }
+    ]
   }
 ];
