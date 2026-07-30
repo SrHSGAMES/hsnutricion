@@ -998,5 +998,35 @@ const RECETAS = [
       { pregunta: "¿Es apta sin gluten?", respuesta: "Sí, tanto los garbanzos como la harina de garbanzo no contienen gluten de forma natural." },
       { pregunta: "¿Por qué al horno y no fritos?", respuesta: "Freír el falafel en abundante aceite prácticamente duplica su contenido en grasa; horneándolo con solo un pincelado de AOVE se consigue un exterior crujiente sin ese aporte extra de grasa." }
     ]
+  },
+  {
+    id: "pasta_integral_pesto",
+    nombre: "Pasta Integral al Pesto Casero",
+    emojiPortada: "🍝🌿🌰",
+    rating: "A",
+    tiempo: "20 min",
+    raciones: 2,
+    descripcion: "Pasta integral con un pesto genuino de albahaca, almendras, ajo y AOVE, sin los aceites de girasol refinados ni conservantes del pesto envasado.",
+    motivo: "El pesto casero se hace solo con albahaca fresca, un fruto seco (aquí almendras, en vez de los piñones tradicionales, más caros y con un perfil nutricional similar), ajo y AOVE, así que toda la grasa es mayoritariamente insaturada, muy distinta de los aceites refinados que suelen llevar los pestos comerciales. La pasta integral aporta mucha más fibra que la blanca. El queso curado queda como toque opcional, con moderación.",
+    ingredientes: [
+      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "ia_albahaca", cantidad: 40 },
+      { foodId: "ia_almendras", cantidad: 30 },
+      { foodId: "aove", cantidad: 40 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "queso_curado", cantidad: 20, opcional: true }
+    ],
+    pasos: [
+      "Cuece la pasta integral según las instrucciones del envase, hasta que esté al dente.",
+      "Mientras tanto, tritura la albahaca, las almendras, el ajo y el AOVE en un robot de cocina o batidora, hasta conseguir una pasta homogénea (puedes dejar algo de textura).",
+      "Añade el queso curado rallado al pesto si quieres, y mezcla bien.",
+      "Escurre la pasta, reservando un poco del agua de cocción.",
+      "Mezcla la pasta con el pesto, añadiendo un poco del agua reservada si queda muy espeso, hasta que quede bien integrado."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, si no añades el queso curado opcional. Sin él, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." },
+      { pregunta: "¿Cuánto tiempo se conserva el pesto ya hecho?", respuesta: "Hasta 4-5 días en la nevera en un bote hermético, con un poco de AOVE por encima para que no se oxide; también se puede congelar en cubitos hasta 3 meses." }
+    ]
   }
 ];
