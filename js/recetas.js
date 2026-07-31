@@ -1188,5 +1188,35 @@ const RECETAS = [
       { pregunta: "¿Se puede preparar con antelación?", respuesta: "Es mejor cortar la manzana y la pera justo antes de comer, ya que se oxidan y oscurecen rápido; puedes rociarlas con un poco de zumo de limón si necesitas adelantar el trabajo." },
       { pregunta: "¿Por qué lleva canela?", respuesta: "Es el maridaje clásico con manzana y pera, y se ha asociado además con una mejora en la regulación de la glucemia." }
     ]
+  },
+  {
+    id: "bowl_energetico_platano_datiles",
+    nombre: "Bowl Energético de Plátano, Dátiles y Frutos Secos",
+    emojiPortada: "🍌🌴🥜",
+    rating: "B",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "Un bowl pensado para antes o después de entrenar: plátano, dátiles, crema de cacahuete, almendras y pipas de calabaza sobre una base de yogur de soja. Energía concentrada, sin azúcar añadido.",
+    motivo: "El plátano y los dátiles aportan carbohidratos de rápida disponibilidad junto con fibra, ideales para reponer energía. Las almendras y las pipas de calabaza suman grasas saludables, proteína vegetal y minerales como magnesio y zinc, y la crema de cacahuete completa el perfil de grasas insaturadas. Al llevar bastante dátil y plátano, concentra un azúcar natural notable —por eso lo calificamos con B, igual criterio que con las Gachas Dulces—, así que es mejor reservarlo para momentos de mayor gasto energético.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 150 },
+      { foodId: "ia_platano", cantidad: 100 },
+      { foodId: "ia_datiles", cantidad: 40 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 20 },
+      { foodId: "ia_almendras", cantidad: 15 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 10 }
+    ],
+    pasos: [
+      "Vierte el yogur de soja en la base de un bowl.",
+      "Corta el plátano en rodajas.",
+      "Deshuesa los dátiles y trocéalos.",
+      "Reparte el plátano, los dátiles, las almendras y las pipas de calabaza sobre el yogur de soja.",
+      "Termina con un chorrito de crema de cacahuete por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Cuándo es mejor tomarlo?", respuesta: "Por su aporte calórico y de carbohidratos, es ideal antes o después de entrenar, cuando el cuerpo aprovecha mejor esa energía." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "El plátano se oxida rápido una vez cortado, así que es mejor montarlo justo antes de comer." }
+    ]
   }
 ];
