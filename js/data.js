@@ -1322,6 +1322,17 @@ const FOODS = [
     kcal: 525, carbs: 49, azucares: 28, proteinas: 5.8, grasas: 36, grasasSat: 26, fibra: 21, sodio: 16,
     motivo: "Se usa siempre en cantidades mínimas (una pizca), así que su aporte nutricional real en un plato es insignificante; su función aquí es aromatizar salsas cremosas con verduras de hoja verde, un maridaje clásico.",
     sustitutos: []
+  },
+  {
+    id: "yogur_soja",
+    nombre: "Yogur de soja",
+    aliases: ["yogur de soja", "yogur soja sin azucar", "yogur vegetal de soja"],
+    categorias: ["Bebidas"],
+    emoji: "🥛",
+    rating: "A",
+    kcal: 51, carbs: 3.4, azucares: 2.8, proteinas: 3.9, grasas: 2.1, grasasSat: 0.3, fibra: 0.5, sodio: 40,
+    motivo: "Alternativa vegetal al yogur natural, elaborada a partir de bebida de soja fermentada. Aporta proteína vegetal completa y probióticos, con menos grasa saturada que un yogur de leche entera. Elige siempre la versión sin azúcares añadidos.",
+    sustitutos: []
   }
 ];
 

@@ -1129,5 +1129,35 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "La pasta integral de trigo contiene gluten. Sustitúyela por pasta sin gluten (de arroz, maíz o legumbres); el resto de ingredientes no llevan gluten." },
       { pregunta: "¿Por qué se usa yogur natural en vez de nata?", respuesta: "Aporta la misma cremosidad con muchísima menos grasa saturada y sin el aporte calórico extra de la nata; solo hay que evitar que hierva fuerte para que no se corte." }
     ]
+  },
+  {
+    id: "bowl_frutos_rojos",
+    nombre: "Bowl de Frutos Rojos",
+    emojiPortada: "🫐🍓🍇",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "Un bowl de fruta sobre una base de yogur de soja: arándanos, fresas, frambuesas y granada, todo antioxidantes. Sin azúcar añadido.",
+    motivo: "Los arándanos, las fresas, las frambuesas y la granada comparten un perfil rico en polifenoles y antioxidantes, cada una con su propio matiz (antocianinas, vitamina C, elagitaninos...). El yogur de soja da consistencia y cuerpo al bowl, aportando proteína vegetal y probióticos, y las semillas de chía suman omega-3 y el crujiente característico de estos bowls.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 150 },
+      { foodId: "arandanos", cantidad: 80 },
+      { foodId: "fresas", cantidad: 80 },
+      { foodId: "frambuesas", cantidad: 80 },
+      { foodId: "ia_granada", cantidad: 60 },
+      { foodId: "ia_semillas_de_chia", cantidad: 10 }
+    ],
+    pasos: [
+      "Vierte el yogur de soja en la base de un bowl.",
+      "Lava bien los arándanos, las fresas y las frambuesas. Corta las fresas por la mitad.",
+      "Desgrana la granada para sacar los arilos.",
+      "Reparte toda la fruta sobre el yogur de soja.",
+      "Espolvorea las semillas de chía por encima antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "La granada y las semillas de chía se pueden preparar con antelación, pero es mejor cortar las fresas y montar el bowl justo antes de comer para que la fruta no se oxide." },
+      { pregunta: "¿Puedo usar fruta congelada?", respuesta: "Los arándanos y las frambuesas funcionan bien congelados y descongelados, pero la fresa y la granada es mejor tomarlas frescas para que no pierdan textura." }
+    ]
   }
 ];
