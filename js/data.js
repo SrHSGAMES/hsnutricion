@@ -1344,6 +1344,39 @@ const FOODS = [
     kcal: 52, carbs: 13.8, azucares: 10.4, proteinas: 0.3, grasas: 0.2, grasasSat: 0.03, fibra: 2.4, sodio: 1,
     motivo: "Fruta con un contenido notable de fibra soluble (pectina), que ayuda a moderar la absorción de su propio azúcar. Su piel concentra buena parte de los polifenoles antioxidantes, así que conviene comerla sin pelar cuando sea posible.",
     sustitutos: []
+  },
+  {
+    id: "mango",
+    nombre: "Mango",
+    aliases: ["mango", "mangos"],
+    categorias: ["Frutas"],
+    emoji: "🥭",
+    rating: "A",
+    kcal: 60, carbs: 15, azucares: 13.7, proteinas: 0.8, grasas: 0.4, grasasSat: 0.1, fibra: 1.6, sodio: 1,
+    motivo: "Fruta con un aporte destacable de vitamina C y betacarotenos (precursores de vitamina A), además de polifenoles antioxidantes. Su azúcar es propio de la fruta, no añadido.",
+    sustitutos: []
+  },
+  {
+    id: "pina",
+    nombre: "Piña",
+    aliases: ["piña", "pina", "pinas"],
+    categorias: ["Frutas"],
+    emoji: "🍍",
+    rating: "A",
+    kcal: 50, carbs: 13.1, azucares: 9.9, proteinas: 0.5, grasas: 0.1, grasasSat: 0.01, fibra: 1.4, sodio: 1,
+    motivo: "Rica en vitamina C y en bromelina, una enzima con posibles propiedades antiinflamatorias y digestivas. Baja en calorías para su dulzor característico.",
+    sustitutos: []
+  },
+  {
+    id: "papaya",
+    nombre: "Papaya",
+    aliases: ["papaya", "papayas", "lechosa"],
+    categorias: ["Frutas"],
+    emoji: "🍈",
+    rating: "A",
+    kcal: 43, carbs: 10.8, azucares: 7.8, proteinas: 0.5, grasas: 0.3, grasasSat: 0.1, fibra: 1.7, sodio: 8,
+    motivo: "Muy rica en vitamina C y betacarotenos, y contiene papaína, una enzima digestiva característica de esta fruta. Baja en calorías y muy jugosa.",
+    sustitutos: []
   }
 ];
 

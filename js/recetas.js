@@ -1218,5 +1218,33 @@ const RECETAS = [
       { pregunta: "¿Cuándo es mejor tomarlo?", respuesta: "Por su aporte calórico y de carbohidratos, es ideal antes o después de entrenar, cuando el cuerpo aprovecha mejor esa energía." },
       { pregunta: "¿Se puede preparar con antelación?", respuesta: "El plátano se oxida rápido una vez cortado, así que es mejor montarlo justo antes de comer." }
     ]
+  },
+  {
+    id: "bowl_tropical_mango_pina_papaya",
+    nombre: "Bowl Tropical de Mango, Piña y Papaya",
+    emojiPortada: "🥭🍍🍈",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "Un bowl de fruta tropical sobre base de yogur de soja: mango, piña y papaya, con un chorrito de lima. Sin azúcar añadido y con muy poca grasa saturada.",
+    motivo: "El mango, la piña y la papaya comparten un perfil rico en vitamina C y antioxidantes, cada una aportando además algo propio: betacarotenos el mango, bromelina la piña, y papaína la papaya, dos enzimas con propiedades digestivas. La lima realza el dulzor de la fruta sin necesidad de azúcar añadido, y el yogur de soja da consistencia al bowl con proteína vegetal.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 150 },
+      { foodId: "mango", cantidad: 100 },
+      { foodId: "pina", cantidad: 100 },
+      { foodId: "papaya", cantidad: 100 },
+      { foodId: "lima", cantidad: 10 }
+    ],
+    pasos: [
+      "Vierte el yogur de soja en la base de un bowl.",
+      "Pela y corta el mango, la piña y la papaya en dados.",
+      "Reparte toda la fruta sobre el yogur de soja.",
+      "Termina con un chorrito de zumo de lima."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "El mango y la piña aguantan bien un par de días en la nevera ya cortados; la papaya y la lima es mejor añadirlas justo antes de servir." },
+      { pregunta: "¿Por qué lleva lima?", respuesta: "Su acidez realza el dulzor de la fruta tropical sin necesidad de añadir azúcar." }
+    ]
   }
 ];
