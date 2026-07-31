@@ -1159,5 +1159,34 @@ const RECETAS = [
       { pregunta: "¿Se puede preparar con antelación?", respuesta: "La granada y las semillas de chía se pueden preparar con antelación, pero es mejor cortar las fresas y montar el bowl justo antes de comer para que la fruta no se oxide." },
       { pregunta: "¿Puedo usar fruta congelada?", respuesta: "Los arándanos y las frambuesas funcionan bien congelados y descongelados, pero la fresa y la granada es mejor tomarlas frescas para que no pierdan textura." }
     ]
+  },
+  {
+    id: "bowl_manzana_pera_granada",
+    nombre: "Bowl Otoñal de Manzana, Pera y Granada",
+    emojiPortada: "🍎🍐🍇",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 1,
+    descripcion: "Un bowl de fruta de temporada fría sobre una base de yogur de soja: manzana, pera y granada, con un toque de canela. Sin azúcar añadido.",
+    motivo: "La manzana y la pera aportan fibra soluble (pectina) que modera la absorción de su propio azúcar, y la granada suma polifenoles antioxidantes con un matiz distinto al resto de la fruta. La canela es el maridaje clásico con manzana y pera, y se ha asociado además con una mejora en la regulación de la glucemia. El yogur de soja da consistencia al bowl con proteína vegetal y probióticos.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 150 },
+      { foodId: "manzana", cantidad: 100 },
+      { foodId: "ia_pera", cantidad: 100 },
+      { foodId: "ia_granada", cantidad: 60 },
+      { foodId: "ia_canela", cantidad: 1 }
+    ],
+    pasos: [
+      "Vierte el yogur de soja en la base de un bowl.",
+      "Lava la manzana y la pera, y córtalas en dados, dejando la piel si quieres más fibra.",
+      "Desgrana la granada para sacar los arilos.",
+      "Reparte la manzana, la pera y los arilos de granada sobre el yogur de soja.",
+      "Espolvorea la canela por encima antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, todos los ingredientes son de origen vegetal." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "Es mejor cortar la manzana y la pera justo antes de comer, ya que se oxidan y oscurecen rápido; puedes rociarlas con un poco de zumo de limón si necesitas adelantar el trabajo." },
+      { pregunta: "¿Por qué lleva canela?", respuesta: "Es el maridaje clásico con manzana y pera, y se ha asociado además con una mejora en la regulación de la glucemia." }
+    ]
   }
 ];

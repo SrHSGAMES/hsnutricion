@@ -1333,6 +1333,17 @@ const FOODS = [
     kcal: 51, carbs: 3.4, azucares: 2.8, proteinas: 3.9, grasas: 2.1, grasasSat: 0.3, fibra: 0.5, sodio: 40,
     motivo: "Alternativa vegetal al yogur natural, elaborada a partir de bebida de soja fermentada. Aporta proteína vegetal completa y probióticos, con menos grasa saturada que un yogur de leche entera. Elige siempre la versión sin azúcares añadidos.",
     sustitutos: []
+  },
+  {
+    id: "manzana",
+    nombre: "Manzana",
+    aliases: ["manzana", "manzanas"],
+    categorias: ["Frutas"],
+    emoji: "🍎",
+    rating: "A",
+    kcal: 52, carbs: 13.8, azucares: 10.4, proteinas: 0.3, grasas: 0.2, grasasSat: 0.03, fibra: 2.4, sodio: 1,
+    motivo: "Fruta con un contenido notable de fibra soluble (pectina), que ayuda a moderar la absorción de su propio azúcar. Su piel concentra buena parte de los polifenoles antioxidantes, así que conviene comerla sin pelar cuando sea posible.",
+    sustitutos: []
   }
 ];
 
