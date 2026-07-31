@@ -336,7 +336,26 @@
   /* ================= Recetas saludables: galería completa en recetas.html ================= */
   seguro("recetas", () => {
     const grid = document.getElementById("recetasGrid");
-    RECETAS.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
+    const buscador = document.getElementById("buscadorRecetas");
+    const filtroCategoria = document.getElementById("filtroCategoriaRecetas");
+    const filtroRating = document.getElementById("filtroRatingRecetas");
+    const sinResultados = document.getElementById("recetasSinResultados");
+
+    function renderRecetas() {
+      const q = normalizar(buscador.value);
+      const cat = filtroCategoria.value;
+      const rating = filtroRating.value;
+      const lista = RECETAS.filter(r =>
+        (!q || normalizar(r.nombre).includes(q)) &&
+        (!cat || (r.etiquetas || []).includes(cat)) &&
+        (!rating || r.rating === rating)
+      ).sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" }));
+      grid.innerHTML = "";
+      sinResultados.hidden = lista.length > 0;
+      lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
+    }
+    [buscador, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderRecetas));
+    renderRecetas();
   });
 
   /* ================= Recetas saludables: teaser en el índice ================= */

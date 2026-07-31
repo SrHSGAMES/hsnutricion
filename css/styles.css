@@ -346,7 +346,7 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 .panel-label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
-textarea, #buscadorGuia {
+textarea, #buscadorGuia, #buscadorRecetas {
   width: 100%;
   border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
@@ -356,7 +356,7 @@ textarea, #buscadorGuia {
   transition: border-color .2s ease, box-shadow .2s ease;
   color: var(--ink);
 }
-textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
+textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form input:focus {
   outline: none;
   border-color: var(--green-400);
   box-shadow: 0 0 0 4px var(--green-100);
@@ -829,6 +829,7 @@ textarea:focus, #buscadorGuia:focus, .ai-lookup-form input:focus {
   color: var(--ink);
   background: #fff;
 }
+.recetas-sin-resultados { text-align: center; color: var(--ink-faint); }
 
 /* ---------- About ---------- */
 .about-grid {

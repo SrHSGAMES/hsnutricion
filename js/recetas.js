@@ -15,6 +15,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegetariano"],
     descripcion: "Un desayuno o snack rápido que combina grasas saludables, proteína de calidad y fibra en un solo plato — sencillo, saciante y con base científica.",
     motivo: "Reúne tres pilares de una alimentación saludable en un solo plato: la grasa monoinsaturada del aguacate y el AOVE, que ayuda a mejorar el perfil de colesterol; la proteína completa del huevo; y la fibra del pan integral, que ralentiza la absorción de los carbohidratos y aumenta la saciedad. Es exactamente el tipo de sustitución que buscamos en HSNutrición: cambia una tostada con mantequilla y mermelada por un plato igual de cómodo pero con un perfil nutricional muy superior.",
     ingredientes: [
@@ -46,6 +47,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "20 min",
     raciones: 2,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El clásico italiano reinventado: pasta integral con una salsa de tomate fresco rica en licopeno, ajo y albahaca, y un chorrito de AOVE en vez de mantequilla o nata.",
     motivo: "Tres cambios simples convierten un plato de pasta corriente en uno realmente saludable: la pasta integral aporta mucha más fibra y un índice glucémico más bajo que la blanca; la salsa se hace con tomate fresco en vez de salsas envasadas con azúcares añadidos, aprovechando el licopeno del tomate, un antioxidante asociado a la salud cardiovascular; y la grasa viene del AOVE, no de mantequilla ni nata. Nada de sal añadida: la albahaca fresca y el ajo ya aportan todo el sabor que necesita. El queso rallado queda como toque opcional, con moderación por su grasa saturada.",
     ingredientes: [
@@ -75,6 +77,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "Un bowl 100% vegetal, sin ningún ingrediente de origen animal: carbohidrato complejo del arroz integral, grasa monoinsaturada del aguacate y antioxidantes del tomate fresco, en un plato tan sencillo como saciante.",
     motivo: "Todos los ingredientes de este bowl son de origen vegetal y ya forman parte de nuestra guía con calificación A: el arroz integral aporta fibra y un índice glucémico bajo frente al arroz blanco; el aguacate y el AOVE cubren la grasa saludable que da saciedad; y el tomate fresco suma licopeno, un antioxidante ligado a la salud cardiovascular. Ni rastro de sal añadida — la albahaca fresca y el propio AOVE ya aportan todo el sabor que necesita.",
     ingredientes: [
@@ -104,6 +107,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "1 h",
     raciones: 2,
+    etiquetas: ["vegano", "proteico"],
     descripcion: "Una versión 100% vegetal del clásico katsu curry japonés: verduras de raíz, un curry cremoso hecho con roux casero y tofu rebozado y cocinado al aire (no frito) — sin ningún ingrediente de origen animal.",
     motivo: "El katsu curry tradicional se sirve con carne empanada y frita en abundante aceite. Aquí la proteína es tofu, rebozado con bebida de soja en vez de huevo y cocinado en air fryer o con muy poco aceite, así que se mantiene crujiente sin freír. La salsa se hace en casa con verduras, curry y un roux de harina integral y margarina vegetal, en vez de tabletas de curry comerciales, que suelen llevar aceite de palma y mucho sodio — así controlamos ambos. El arroz integral aporta la fibra que le falta al arroz blanco habitual del katsu. La margarina vegetal es el único ingrediente que conviene usar con moderación por su grasa saturada; el resto son todo verduras, legumbres y cereales integrales.",
     ingredientes: [
@@ -146,6 +150,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegetariano", "proteico"],
     descripcion: "Un desayuno hecho puré con la batidora: plátano, avena, huevo y una mezcla de semillas que aportan fibra, proteína y grasas saludables — sin azúcar añadido y sin harinas refinadas.",
     motivo: "El plátano maduro aporta todo el dulzor que necesita la receta, así que no hace falta azúcar añadido. La avena sustituye a la harina blanca de unas tortitas convencionales, sumando fibra y un índice glucémico más bajo. El huevo y la mezcla de semillas —lino, chía, sésamo y pipas de calabaza— convierten un desayuno típicamente solo de carbohidratos en un plato con proteína completa, grasas omega-3 y minerales como magnesio y zinc. Cocinadas en una sartén con poco AOVE, no con mantequilla, se mantienen ligeras sin perder ese punto crujiente por fuera y tierno por dentro.",
     ingredientes: [
@@ -182,6 +187,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "Un desayuno calentito y sin prisas: avena cocida con bebida de avena, rematada con una mezcla de semillas ricas en omega-3, fibra y minerales.",
     motivo: "La avena aporta carbohidratos de absorción lenta y betaglucanos, una fibra soluble asociada a la mejora del perfil de colesterol. Cocerla con bebida de avena en vez de leche entera o nata mantiene la receta ligera y apta para quien evita lácteos, y el agua ayuda a dar la textura justa sin sumar calorías de más. La mezcla de semillas —lino, chía, sésamo y pipas de calabaza— convierte unas gachas corrientes en un desayuno con grasas omega-3, proteína vegetal y minerales como magnesio y zinc, sin necesidad de azúcar añadido.",
     ingredientes: [
@@ -214,6 +220,7 @@ const RECETAS = [
     tiempo: "35 min",
     raciones: 8,
     mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
     descripcion: "La versión sana de las galletas gigantes que arrasan en redes: sin azúcar añadido —el dulzor viene solo de los dátiles—, con harina integral y chocolate negro. Mismo gusto, perfil nutricional muy distinto.",
     motivo: "Las Crumbl originales llevan harina blanca, mantequilla y una mezcla de azúcar blanco y moreno que puede superar los 30 g de azúcar añadido por galleta, más coberturas extra que disparan aún más esa cifra. Aquí el dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre sin más; la harina integral suma fibra frente a la blanca; y el chocolate negro ≥85% aporta antioxidantes con mucha menos azúcar que unas pepitas de chocolate con leche. La margarina vegetal sin grasas trans mantiene la textura blanda característica de estas galletas — es el ingrediente a disfrutar con moderación, como en cualquier repostería.",
     ingredientes: [
@@ -248,6 +255,7 @@ const RECETAS = [
     rating: "B",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegetariano"],
     descripcion: "Una versión más golosa y colorida de las gachas clásicas: remolacha y dátiles triturados aportan un dulzor natural intenso, rematada con plátano y un toque de miel. Un desayuno muy completo y saciante.",
     motivo: "Esta versión suma remolacha y dátiles triturados a la base de avena, lo que aporta un dulzor natural muy marcado junto con fibra, folato y nitratos dietéticos —estos últimos relacionados con una mejor función vascular—, además de betalaínas antioxidantes propias del color de la remolacha. El plátano en rodajas y la miel por encima suman más azúcares, naturales en el caso del plátano y libres en el de la miel, así que aunque sigue siendo un desayuno muy nutritivo y saciante gracias a sus más de 25 g de fibra, conviene tenerlo en cuenta si se está vigilando el azúcar total del día. La canela, opcional, no aporta calorías relevantes y se ha asociado además a una mejor regulación de la glucemia.",
     ingredientes: [
@@ -289,6 +297,7 @@ const RECETAS = [
     tiempo: "30 min",
     raciones: 10,
     mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
     descripcion: "La versión integral y sin lácteos de los crepes clásicos: harina de avena en vez de harina blanca, bebida de soja en vez de leche, y AOVE en vez de mantequilla. Una base neutra y nutritiva que sirve igual para relleno dulce o salado.",
     motivo: "Esta versión sustituye la harina blanca por harina de avena integral, rica en fibra soluble (betaglucanos) que ayuda a moderar la respuesta glucémica; la leche entera por bebida de soja sin azúcares añadidos, que aporta proteína vegetal completa sin la grasa saturada ni el colesterol de la leche animal; y la mantequilla por AOVE, aportando grasa mayoritariamente monoinsaturada en vez de saturada. Al no llevar azúcar ni sal añadidos en la masa, el perfil final depende por completo del relleno que elijas, dulce o salado.",
     ingredientes: [
@@ -321,6 +330,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegetariano", "proteico"],
     descripcion: "La versión con más proteína de nuestras gachas: bebida de soja, yogur natural, crema de cacahuete y pipas de calabaza suman más de 35 g de proteína en un único bol, sin recurrir a proteína en polvo.",
     motivo: "Esta variante prioriza la proteína usando solo alimentos reales: la bebida de soja aporta más proteína que otras bebidas vegetales; el yogur natural suma cremosidad, probióticos y otros 10 g de proteína; y la crema de cacahuete junto con las pipas de calabaza completan el perfil con proteína vegetal, grasas saludables y minerales como magnesio y zinc. El resultado son más de 35 g de proteína en un desayuno, sin necesidad de suplementos.",
     ingredientes: [
@@ -351,6 +361,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "Una versión antioxidante de las gachas clásicas: arándanos, fresas y frambuesas aportan todo el dulzor, sin azúcar añadido, junto a semillas de chía para completar el clásico dúo con frutos rojos.",
     motivo: "Esta variante prioriza la fibra y los antioxidantes por encima de todo: los arándanos destacan por sus antocianinas, las fresas por su vitamina C, y las frambuesas por un contenido en fibra excepcionalmente alto para ser una fruta. Al machacar parte de la fruta en una compota rápida y dejar el resto entera, se consigue dulzor y textura sin necesidad de miel ni dátiles, a diferencia de las Gachas Dulces. Las semillas de chía, además de sumar omega-3, son el acompañante clásico de los frutos rojos.",
     ingredientes: [
@@ -382,6 +393,7 @@ const RECETAS = [
     rating: "B",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "La versión chocolatera de las gachas clásicas: cacao puro sin azúcar, plátano, crema de cacahuete y unos trocitos de chocolate negro. Sabor a golosina, sin azúcar añadido.",
     motivo: "El cacao puro en polvo aporta todo el sabor a chocolate sin nada de azúcar añadido, y con una cantidad de fibra excepcional. El plátano machacado endulza la mezcla de forma natural, sin necesidad de azúcar ni miel. La crema de cacahuete y el chocolate negro por encima son el toque más indulgente de la receta —por eso la calificamos con B, igual que las Crumbl Cookies o las Gachas Dulces—, pero siguen siendo comida real: nada de chocolate con leche ni cacaos solubles azucarados.",
     ingredientes: [
@@ -413,6 +425,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "5 min + reposo",
     raciones: 1,
+    etiquetas: ["vegetariano"],
     descripcion: "La versión sin cocinar de las gachas: se prepara la noche antes en un bote con tapa y reposa en la nevera, sin fuego ni microondas. Ideal para dejar lista la noche antes y llevar al trabajo.",
     motivo: "Aquí la textura no la da la cocción, sino las semillas de chía: en contacto con el líquido durante varias horas forman un gel que espesa la mezcla igual que lo haría el calor. El yogur natural aporta la cremosidad y la proteína extra que en la versión caliente pone la cocción, y el plátano se añade en el momento de comer para que no pierda textura. El resultado es un desayuno tan nutritivo como las gachas clásicas, pero listo para llevar sin pasar por la cocina por la mañana.",
     ingredientes: [
@@ -443,6 +456,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "5 min + reposo",
     raciones: 1,
+    etiquetas: ["vegetariano", "proteico"],
     descripcion: "La versión sin cocinar y con más proteína de nuestra avena: yogur natural, crema de cacahuete y pipas de calabaza suman más de 35 g de proteína, lista de la noche a la mañana sin encender el fuego.",
     motivo: "Igual que en la versión caliente, aquí la proteína viene entera de comida real: la bebida de soja aporta más proteína que otras bebidas vegetales, el yogur natural suma otros 10 g y cremosidad, y la crema de cacahuete junto con las pipas de calabaza completan el perfil con proteína vegetal y grasas saludables. Las semillas de chía, además de sumar omega-3, son las que espesan la mezcla en la nevera sin necesidad de cocción.",
     ingredientes: [
@@ -474,6 +488,7 @@ const RECETAS = [
     rating: "B",
     tiempo: "5 min + reposo",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "La versión sin cocinar de las gachas al chocolate: cacao puro, plátano y semillas de chía se mezclan en frío la noche antes, sin necesidad de derretir ni cocinar nada.",
     motivo: "El cacao puro se disuelve perfectamente en frío con un poco de remover, así que no hace falta calor para conseguir el sabor a chocolate. El plátano machacado endulza toda la mezcla de forma natural, y las semillas de chía son las que espesan la avena durante la noche en la nevera. La crema de cacahuete y el chocolate negro por encima son el toque más indulgente —por eso la calificamos con B, igual que la versión caliente—, pero sigue siendo cacao puro sin azúcar y chocolate ≥85%, no un cacao soluble azucarado.",
     ingredientes: [
@@ -505,6 +520,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "5 min + reposo",
     raciones: 1,
+    etiquetas: ["vegetariano", "proteico"],
     descripcion: "La versión sin cocinar de las gachas con frutos rojos: arándanos, fresas y frambuesas machacados en frío la noche antes, con yogur natural y chía para conseguir una textura cremosa sin pasar por el fuego.",
     motivo: "Al igual que en la versión caliente, el dulzor viene entero de la fruta —sin miel ni dátiles—, y las semillas de chía espesan la mezcla durante la noche en la nevera. El yogur natural suma la cremosidad que aquí no aporta la cocción, además de proteína extra. El resultado combina la fibra y los antioxidantes de los frutos rojos (antocianinas, vitamina C) con la comodidad de tenerlo listo de un día para otro.",
     ingredientes: [
@@ -536,6 +552,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "25 min",
     raciones: 1,
+    etiquetas: ["vegano", "proteico"],
     descripcion: "La versión 100% vegetal de la hamburguesa clásica: una hamburguesa casera de garbanzos, pan integral y aguacate en vez de mayonesa. Sin carne, sin salsas ultraprocesadas y con una cantidad de fibra excepcional.",
     motivo: "Esta hamburguesa cambia la carne por garbanzos cocidos, una legumbre rica en proteína vegetal que deja el plato completo con casi 26 g de fibra, muy por encima de cualquier hamburguesa con carne. El pan integral suma más fibra frente al pan blanco habitual, y el aguacate machacado hace de \"mayonesa saludable\", aportando grasa monoinsaturada en vez de la grasa de una salsa comercial. El queso curado queda como topping opcional, a disfrutar con moderación como en cualquier otra receta.",
     ingredientes: [
@@ -571,6 +588,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "1 h 30 min",
     raciones: 2,
+    etiquetas: ["vegano"],
     descripcion: "La versión integral de la pizza clásica: masa de harina integral fermentada en casa, con tomate y albahaca fresca, sin queso — estilo pizza marinara napolitana. Menos de 4 g de grasa saturada en toda la pizza.",
     motivo: "Esta pizza cambia la masa refinada por harina de trigo integral, mucho más rica en fibra, y se hornea con tomate fresco en vez de una salsa comercial con azúcares añadidos. Al no llevar queso, evita la grasa saturada que suele dominar el perfil nutricional de una pizza normal — en este formato sin queso, estilo marinara napolitana, apenas hay grasa saturada en el plato. Si prefieres una versión con queso, puedes añadir mozzarella con moderación, teniendo en cuenta que subirá bastante esa cifra.",
     ingredientes: [
@@ -604,6 +622,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "20 min",
     raciones: 1,
+    etiquetas: ["proteico"],
     descripcion: "Un bowl completo estilo poke hawaiano: salmón sellado, arroz integral, edamame y verduras frescas, con un toque de salsa de soja baja en sodio y sésamo. Proteína, fibra y grasas saludables en un solo plato.",
     motivo: "Este bowl combina el salmón, rico en omega-3, con arroz integral (más fibra que el blanco) y edamame, una legumbre con una cantidad de proteína inusualmente alta para ser una verdura. El pepino y la zanahoria aportan frescura y volumen con muy pocas calorías, y el aguacate suma grasa monoinsaturada. Usamos salsa de soja baja en sodio y en poca cantidad, ya que es uno de los condimentos más concentrados en sodio que existen — así conseguimos el sabor umami característico sin disparar el sodio del plato.",
     ingredientes: [
@@ -638,6 +657,7 @@ const RECETAS = [
     tiempo: "20 min + reposo",
     raciones: 12,
     mostrarPorRacion: true,
+    etiquetas: ["vegano"],
     descripcion: "El snack sin horno de moda: dátiles, avena, crema de cacahuete y cacao puro triturados juntos y formados en bolitas. Sin azúcar añadido, listo en 20 minutos y aguanta toda la semana en la nevera.",
     motivo: "El dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre. La avena y las pipas de calabaza dan cuerpo y proteína vegetal, la crema de cacahuete aporta grasas saludables, y las semillas de chía suman omega-3. Al llevar bastante dátil por bolita, la calificamos con B, igual criterio que con las Crumbl Cookies — sigue siendo un snack de comida real, para disfrutar con moderación.",
     ingredientes: [
@@ -668,6 +688,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El matcha latte que arrasa en redes, hecho en casa: matcha en polvo batido con bebida de avena, sin los azúcares añadidos habituales de la versión de cafetería.",
     motivo: "El matcha se elabora con la hoja de té entera molida, así que concentra muchos más antioxidantes (catequinas) y cafeína que una infusión de té verde normal. Al prepararlo en casa controlamos el dulzor por completo: la miel queda como opcional y en poca cantidad, muy lejos de los siropes azucarados que suelen llevar los matcha latte comerciales.",
     ingredientes: [
@@ -697,6 +718,7 @@ const RECETAS = [
     tiempo: "1 h (con reposo)",
     raciones: 8,
     mostrarPorRacion: true,
+    etiquetas: ["vegano"],
     descripcion: "La versión casera del chocolate viral con pistacho y kataifi crujiente: chocolate negro ≥85% en vez de chocolate con leche, y una crema de pistacho sin azúcar añadido en vez de pasta de pistacho comercial.",
     motivo: "El chocolate negro sustituye al chocolate con leche de la receta original, aportando antioxidantes y mucha menos azúcar. La crema de relleno se hace triturando pistachos enteros con un poco de dátil para el dulzor, en vez de una pasta de pistacho comercial que suele llevar azúcar y aceite de palma. El kataifi se tuesta con un chorrito de AOVE en vez de la mantequilla abundante habitual. Sigue siendo un chocolate con bastante grasa —por eso lo calificamos con B, igual que las Crumbl Cookies—, pero muy por encima del original en calidad de ingredientes.",
     ingredientes: [
@@ -731,6 +753,7 @@ const RECETAS = [
     tiempo: "45 min",
     raciones: 9,
     mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
     descripcion: "El brownie de siempre, pero con boniato en vez de harina y mantequilla en cantidad, y dátiles como único endulzante. Jugoso por dentro, sin azúcar añadido.",
     motivo: "El boniato triturado sustituye a gran parte de la harina y la grasa de un brownie normal, aportando humedad, fibra y betacarotenos, sin apenas grasa saturada propia. El dulzor viene entero de los dátiles, que suman fibra junto a su azúcar natural en vez de azúcar libre sin más. El cacao puro y el chocolate negro ≥85% dan el sabor característico con mucha menos azúcar que un brownie con chocolate con leche. Sigue siendo un postre con bastante dátil y chocolate por porción —por eso lo calificamos con B, igual criterio que las Crumbl Cookies—, pero con un perfil muy superior al de un brownie normal.",
     ingredientes: [
@@ -765,6 +788,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "15 min",
     raciones: 1,
+    etiquetas: ["vegano", "proteico"],
     descripcion: "La versión vegetal y sin gluten (opcional) del wrap de siempre: tofu dorado, alubias, aguacate y verduras frescas sobre tortitas de avena crujientes, en vez de una tortilla de trigo blanda.",
     motivo: "El tofu aporta proteína vegetal completa con muy poca grasa saturada, y las alubias suman todavía más proteína junto a una cantidad de fibra excepcional. El aguacate machacado hace de \"mayonesa saludable\", y el tomate, el pimiento y la cebolla aportan frescura y antioxidantes. Las tortitas de avena están calificadas B en tu guía por ser un producto horneado, pero el resto del plato compensa de sobra: el conjunto sale con más de 23 g de fibra y muy poca grasa saturada.",
     ingredientes: [
@@ -799,6 +823,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "20 min",
     raciones: 1,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "Tacos con tortilla de maíz (sin gluten de forma natural), tofu dorado, guacamole rápido y pico de gallo fresco. Sin salsas ultraprocesadas ni queso fundido en exceso.",
     motivo: "La tortilla de maíz aporta más fibra y menos sodio que una tortilla de trigo comercial, y no contiene gluten de forma natural. El tofu dorado con especias sustituye a la carne, y el pico de gallo (tomate, cebolla y cilantro frescos) y el aguacate machacado con lima aportan todo el sabor sin necesidad de salsas envasadas ni sal añadida.",
     ingredientes: [
@@ -834,6 +859,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "40 min",
     raciones: 2,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "Un plato de cuchara ligero y reconfortante: boniato, zanahoria, calabacín y puerro, con jengibre, cúrcuma y pimienta negra. Sin nata ni patata blanca, con toda la cremosidad de las propias verduras.",
     motivo: "El boniato aporta la cremosidad que en una crema de verduras normal suele venir de la nata o la patata blanca, con más fibra y un índice glucémico más bajo. El jengibre y la cúrcuma suman compuestos antiinflamatorios, y la pimienta negra no es un capricho: su piperina multiplica la absorción de la curcumina de la cúrcuma, así que juntas funcionan mucho mejor que por separado. Nada de sal añadida — el caldo de verduras, el puerro y las especias ya aportan todo el sabor que necesita.",
     ingredientes: [
@@ -869,6 +895,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 6,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El clásico dip de garbanzos hecho en casa: garbanzos, tahini, limón, ajo y comino, sin conservantes ni aceites de baja calidad. Perfecto para untar o acompañar verduras crudas.",
     motivo: "El tahini (sésamo molido) aporta grasas mayoritariamente insaturadas, calcio y proteína vegetal, y junto con los garbanzos suma una cantidad de fibra excepcional para un simple dip. El limón y el comino dan todo el sabor sin necesidad de sal añadida. Es mucho más denso en nutrientes que un hummus comercial, que suele llevar aceites de girasol refinados y conservantes.",
     ingredientes: [
@@ -900,6 +927,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "1 h",
     raciones: 4,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El guiso de lentejas de toda la vida: sofrito de verduras, pimentón y laurel, cociendo despacio hasta que las lentejas quedan tiernas. Un plato de cuchara con más de 70 g de proteína vegetal en la olla completa.",
     motivo: "Las lentejas son de las legumbres con mejor perfil de proteína y fibra combinadas, y aquí se cuecen junto a un sofrito real de cebolla, ajo, pimiento y tomate, sin sobres de sopa ni caldos concentrados con exceso de sodio. El pimentón aporta sabor y carotenoides antioxidantes, y el laurel se retira antes de servir —su función es aromatizar durante la cocción, no nutrir—. Nada de sal añadida: el caldo de verduras y el sofrito ya dan todo el sabor que necesita.",
     ingredientes: [
@@ -936,6 +964,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "50 min",
     raciones: 4,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El curry indio de lentejas de toda la vida: jengibre, cúrcuma, comino y curry en polvo, sin leche de coco para mantener la grasa saturada al mínimo. Más de 55 g de proteína vegetal en la olla completa.",
     motivo: "Las especias son las protagonistas: la cúrcuma y la pimienta que suele acompañarla en otros platos, el jengibre y el comino aportan compuestos antiinflamatorios además de todo el sabor característico del dal. Al prescindir de la leche de coco —habitual en esta receta pero muy rica en grasa saturada—, el plato queda con menos de 3 g de grasa saturada en toda la olla, sin perder cremosidad gracias a cómo las lentejas se deshacen ligeramente durante la cocción.",
     ingredientes: [
@@ -974,6 +1003,7 @@ const RECETAS = [
     tiempo: "45 min",
     raciones: 12,
     mostrarPorRacion: true,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "El clásico de garbanzos, cilantro y comino, pero al horno en vez de frito. Exterior dorado y crujiente con muchísima menos grasa que la versión tradicional.",
     motivo: "Freír el falafel en abundante aceite prácticamente duplica su contenido en grasa; aquí se hornea con solo un pincelado de AOVE, así que se mantiene el exterior crujiente característico sin ese aporte extra. Los garbanzos y la harina de garbanzo aportan proteína vegetal y una cantidad de fibra excepcional para tratarse de un aperitivo, y el cilantro y el comino dan todo el sabor sin necesidad de sal añadida.",
     ingredientes: [
@@ -1006,6 +1036,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "20 min",
     raciones: 2,
+    etiquetas: ["vegano"],
     descripcion: "Pasta integral con un pesto genuino de albahaca, almendras, ajo y AOVE, sin los aceites de girasol refinados ni conservantes del pesto envasado.",
     motivo: "El pesto casero se hace solo con albahaca fresca, un fruto seco (aquí almendras, en vez de los piñones tradicionales, más caros y con un perfil nutricional similar), ajo y AOVE, así que toda la grasa es mayoritariamente insaturada, muy distinta de los aceites refinados que suelen llevar los pestos comerciales. La pasta integral aporta mucha más fibra que la blanca. El queso curado queda como toque opcional, con moderación.",
     ingredientes: [
@@ -1036,6 +1067,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "45 min",
     raciones: 2,
+    etiquetas: ["vegano", "proteico"],
     descripcion: "La boloñesa de siempre, pero 100% vegetal: soja texturizada en vez de carne picada, con el sofrito clásico de cebolla, zanahoria y apio. Más de 87 g de proteína y 45 g de fibra en el plato completo.",
     motivo: "La soja texturizada se obtiene de harina de soja desgrasada, así que aporta muchísima proteína vegetal completa y fibra con muy poca grasa, muy por encima de lo que aportaría la carne picada que sustituye. El sofrito de cebolla, zanahoria y apio es la base clásica de cualquier boloñesa, y el orégano y el ajo dan todo el sabor sin necesidad de sal añadida.",
     ingredientes: [
@@ -1071,6 +1103,7 @@ const RECETAS = [
     rating: "C",
     tiempo: "25 min",
     raciones: 2,
+    etiquetas: ["proteico"],
     descripcion: "La carbonara italiana real, sin nata (nunca la lleva), con pechuga de pollo en vez de panceta o guanciale para bajar la grasa saturada.",
     motivo: "Esta carbonara sustituye la panceta o el guanciale tradicionales por pechuga de pollo, mucho más magra, y prescinde de la nata que muchas versiones caseras añaden por error —la carbonara italiana real nunca lleva nata—. Aun así, la calificamos con C: entre el huevo, el queso curado y el propio pollo, el plato concentra bastante colesterol y grasa saturada, y no lleva ninguna verdura que equilibre el conjunto. Es una opción razonable de vez en cuando, pero no de las recetas más ligeras de la guía.",
     ingredientes: [
@@ -1102,6 +1135,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "30 min",
     raciones: 2,
+    etiquetas: ["vegetariano", "proteico"],
     descripcion: "Pasta integral con una salsa cremosa de setas y espinacas, con yogur natural en vez de nata y un toque de nuez moscada. Cremosidad real sin la grasa saturada de una salsa de nata.",
     motivo: "El yogur natural aporta la misma cremosidad que la nata en una salsa clásica de setas y espinacas, con muchísima menos grasa saturada y sin el aporte calórico extra. Las setas suman betaglucanos y las espinacas hierro, folato y luteína, dos verduras de hoja que rara vez protagonizan un plato de pasta. La nuez moscada es el maridaje clásico de las salsas cremosas con verdura de hoja verde, y se usa en una pizca tan pequeña que su aporte nutricional real es insignificante.",
     ingredientes: [
@@ -1137,6 +1171,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "Un bowl de fruta sobre una base de yogur de soja: arándanos, fresas, frambuesas y granada, todo antioxidantes. Sin azúcar añadido.",
     motivo: "Los arándanos, las fresas, las frambuesas y la granada comparten un perfil rico en polifenoles y antioxidantes, cada una con su propio matiz (antocianinas, vitamina C, elagitaninos...). El yogur de soja da consistencia y cuerpo al bowl, aportando proteína vegetal y probióticos, y las semillas de chía suman omega-3 y el crujiente característico de estos bowls.",
     ingredientes: [
@@ -1167,6 +1202,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "Un bowl de fruta de temporada fría sobre una base de yogur de soja: manzana, pera y granada, con un toque de canela. Sin azúcar añadido.",
     motivo: "La manzana y la pera aportan fibra soluble (pectina) que modera la absorción de su propio azúcar, y la granada suma polifenoles antioxidantes con un matiz distinto al resto de la fruta. La canela es el maridaje clásico con manzana y pera, y se ha asociado además con una mejora en la regulación de la glucemia. El yogur de soja da consistencia al bowl con proteína vegetal y probióticos.",
     ingredientes: [
@@ -1196,6 +1232,7 @@ const RECETAS = [
     rating: "B",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano"],
     descripcion: "Un bowl pensado para antes o después de entrenar: plátano, dátiles, crema de cacahuete, almendras y pipas de calabaza sobre una base de yogur de soja. Energía concentrada, sin azúcar añadido.",
     motivo: "El plátano y los dátiles aportan carbohidratos de rápida disponibilidad junto con fibra, ideales para reponer energía. Las almendras y las pipas de calabaza suman grasas saludables, proteína vegetal y minerales como magnesio y zinc, y la crema de cacahuete completa el perfil de grasas insaturadas. Al llevar bastante dátil y plátano, concentra un azúcar natural notable —por eso lo calificamos con B, igual criterio que con las Gachas Dulces—, así que es mejor reservarlo para momentos de mayor gasto energético.",
     ingredientes: [
@@ -1226,6 +1263,7 @@ const RECETAS = [
     rating: "A",
     tiempo: "10 min",
     raciones: 1,
+    etiquetas: ["vegano", "bajo-en-calorias"],
     descripcion: "Un bowl de fruta tropical sobre base de yogur de soja: mango, piña y papaya, con un chorrito de lima. Sin azúcar añadido y con muy poca grasa saturada.",
     motivo: "El mango, la piña y la papaya comparten un perfil rico en vitamina C y antioxidantes, cada una aportando además algo propio: betacarotenos el mango, bromelina la piña, y papaína la papaya, dos enzimas con propiedades digestivas. La lima realza el dulzor de la fruta sin necesidad de azúcar añadido, y el yogur de soja da consistencia al bowl con proteína vegetal.",
     ingredientes: [

@@ -59,7 +59,27 @@
       <h2 class="section-title reveal">Recetas Saludables</h2>
       <p class="section-sub reveal">Aquí no documentamos de todo, como en la guía de alimentos — seleccionamos. Solo entran recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, pensadas para mejorar tu salud y tu esperanza de vida con cada plato.</p>
 
+      <div class="filters reveal">
+        <input type="search" id="buscadorRecetas" placeholder="Buscar una receta…">
+        <select id="filtroCategoriaRecetas">
+          <option value="">Todas las categorías</option>
+          <option value="vegano">Vegano</option>
+          <option value="vegetariano">Vegetariano</option>
+          <option value="proteico">Proteico</option>
+          <option value="bajo-en-calorias">Bajo en calorías</option>
+        </select>
+        <select id="filtroRatingRecetas">
+          <option value="">Todas las calificaciones</option>
+          <option value="A">A — Excelente</option>
+          <option value="B">B — Buena</option>
+          <option value="C">C — Moderada</option>
+          <option value="D">D — Mejorable</option>
+          <option value="E">E — Poco recomendable</option>
+        </select>
+      </div>
+
       <div class="recetas-teaser-grid" id="recetasGrid"></div>
+      <p id="recetasSinResultados" class="recetas-sin-resultados" hidden>No se han encontrado recetas con ese filtro.</p>
     </div>
   </section>
 
