@@ -1032,6 +1032,7 @@ const RECETAS = [
   {
     id: "pasta_integral_pesto",
     nombre: "Pasta Integral al Pesto Casero",
+    imagen: "img/recetas/Pasta-Integral-Pesto.jpg",
     emojiPortada: "🍝🌿🌰",
     rating: "A",
     tiempo: "20 min",
@@ -1063,6 +1064,7 @@ const RECETAS = [
   {
     id: "pasta_integral_bolonesa",
     nombre: "Pasta Integral a la Boloñesa Saludable",
+    imagen: "img/recetas/Pasta-Integral-Bolognesa-Saludable.jpg",
     emojiPortada: "🍝🫘🍅",
     rating: "A",
     tiempo: "45 min",
@@ -1099,6 +1101,7 @@ const RECETAS = [
   {
     id: "pasta_integral_carbonara",
     nombre: "Pasta Integral Carbonara Saludable",
+    imagen: "img/recetas/Pasta-Integral-Carbonara.jpg",
     emojiPortada: "🍝🥚🧀",
     rating: "C",
     tiempo: "25 min",
@@ -1131,6 +1134,7 @@ const RECETAS = [
   {
     id: "pasta_integral_setas_espinacas",
     nombre: "Pasta Integral con Setas y Espinacas",
+    imagen: "img/recetas/Pasta-Integral-Setas-y-Espinacas.jpg",
     emojiPortada: "🍝🍄🥬",
     rating: "A",
     tiempo: "30 min",
@@ -1167,6 +1171,7 @@ const RECETAS = [
   {
     id: "bowl_frutos_rojos",
     nombre: "Bowl de Frutos Rojos",
+    imagen: "img/recetas/Bowl-Fruta-Frutos-Rojos.jpg",
     emojiPortada: "🫐🍓🍇",
     rating: "A",
     tiempo: "10 min",
@@ -1198,6 +1203,7 @@ const RECETAS = [
   {
     id: "bowl_manzana_pera_granada",
     nombre: "Bowl Otoñal de Manzana, Pera y Granada",
+    imagen: "img/recetas/Bowl-Frutas-Otoñal.jpg",
     emojiPortada: "🍎🍐🍇",
     rating: "A",
     tiempo: "10 min",
@@ -1228,6 +1234,7 @@ const RECETAS = [
   {
     id: "bowl_energetico_platano_datiles",
     nombre: "Bowl Energético de Plátano, Dátiles y Frutos Secos",
+    imagen: "img/recetas/Bowl-Frutas-Energético.jpg",
     emojiPortada: "🍌🌴🥜",
     rating: "B",
     tiempo: "10 min",
@@ -1259,6 +1266,7 @@ const RECETAS = [
   {
     id: "bowl_tropical_mango_pina_papaya",
     nombre: "Bowl Tropical de Mango, Piña y Papaya",
+    imagen: "img/recetas/Bowl-Frutas-Tropical-Mango.jpg",
     emojiPortada: "🥭🍍🍈",
     rating: "A",
     tiempo: "10 min",
