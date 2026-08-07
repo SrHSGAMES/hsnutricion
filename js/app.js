@@ -621,6 +621,127 @@
     modalOverlay.addEventListener("click", e => { if (e.target === modalOverlay) cerrarModal(); });
   });
 
+  /* ================= Cuenta: registro, inicio de sesión, sesión activa ================= */
+  seguro("auth", () => {
+    const btnAuth = document.getElementById("btnAuth");
+    const authModalOverlay = document.getElementById("authModalOverlay");
+    const authModalClose = document.getElementById("authModalClose");
+    const authViewGuest = document.getElementById("authViewGuest");
+    const authViewUser = document.getElementById("authViewUser");
+    const authUserName = document.getElementById("authUserName");
+    const authLogoutBtn = document.getElementById("authLogoutBtn");
+    const authFormLogin = document.getElementById("authFormLogin");
+    const authFormRegister = document.getElementById("authFormRegister");
+    const authLoginStatus = document.getElementById("authLoginStatus");
+    const authRegisterStatus = document.getElementById("authRegisterStatus");
+
+    let usuarioActual = null;
+
+    function abrirModal() { authModalOverlay.hidden = false; }
+    function cerrarModal() { authModalOverlay.hidden = true; }
+
+    function actualizarUI() {
+      const conectado = Boolean(usuarioActual);
+      authViewGuest.hidden = conectado;
+      authViewUser.hidden = !conectado;
+      if (conectado) {
+        authUserName.textContent = usuarioActual;
+        btnAuth.title = "Tu cuenta";
+        btnAuth.setAttribute("aria-label", "Tu cuenta");
+      } else {
+        btnAuth.title = "Iniciar sesión";
+        btnAuth.setAttribute("aria-label", "Iniciar sesión");
+      }
+    }
+
+    btnAuth.addEventListener("click", abrirModal);
+    authModalClose.addEventListener("click", cerrarModal);
+    authModalOverlay.addEventListener("click", e => { if (e.target === authModalOverlay) cerrarModal(); });
+
+    // Pestañas login/registro, con su propio espacio de nombres (.auth-tab)
+    // para no interferir con las pestañas del analizador (.tab).
+    authModalOverlay.querySelectorAll(".auth-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        authModalOverlay.querySelectorAll(".auth-tab").forEach(t => { t.classList.remove("active"); t.setAttribute("aria-selected", "false"); });
+        authModalOverlay.querySelectorAll(".auth-tab-panel").forEach(p => p.classList.remove("active"));
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+        authModalOverlay.querySelector(`.auth-tab-panel[data-auth-panel="${tab.dataset.authTab}"]`).classList.add("active");
+      });
+    });
+
+    authFormLogin.addEventListener("submit", async e => {
+      e.preventDefault();
+      const username = document.getElementById("loginUsername").value.trim();
+      const password = document.getElementById("loginPassword").value;
+      const btn = document.getElementById("authLoginSubmit");
+      btn.disabled = true;
+      authLoginStatus.textContent = "Entrando...";
+      try {
+        const resp = await fetch("/api/login", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        usuarioActual = data.username;
+        authLoginStatus.textContent = "";
+        authFormLogin.reset();
+        actualizarUI();
+      } catch (err) {
+        authLoginStatus.textContent = err.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    authFormRegister.addEventListener("submit", async e => {
+      e.preventDefault();
+      const username = document.getElementById("registerUsername").value.trim();
+      const email = document.getElementById("registerEmail").value.trim();
+      const password = document.getElementById("registerPassword").value;
+      const btn = document.getElementById("authRegisterSubmit");
+      btn.disabled = true;
+      authRegisterStatus.textContent = "Creando cuenta...";
+      try {
+        const resp = await fetch("/api/register", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ username, email, password })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        usuarioActual = data.username;
+        authRegisterStatus.textContent = "";
+        authFormRegister.reset();
+        actualizarUI();
+      } catch (err) {
+        authRegisterStatus.textContent = err.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    authLogoutBtn.addEventListener("click", async () => {
+      authLogoutBtn.disabled = true;
+      try {
+        await fetch("/api/logout", { method: "POST" });
+      } catch (err) {
+        console.error("[HSNutrición] Error al cerrar sesión:", err);
+      } finally {
+        usuarioActual = null;
+        actualizarUI();
+        authLogoutBtn.disabled = false;
+      }
+    });
+
+    fetch("/api/me")
+      .then(r => (r.ok ? r.json() : { username: null }))
+      .then(({ username }) => { usuarioActual = username; actualizarUI(); })
+      .catch(() => {});
+  });
+
   /* ================= Búsqueda de alimentos con IA + PubMed ================= */
   seguro("busqueda-ia-pubmed", () => {
     const inputAiLookup = document.getElementById("inputAiLookup");

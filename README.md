@@ -16,20 +16,28 @@ local se generan al momento con IA, respaldados por estudios reales de PubMed.
 - `api/community-foods.js` — función serverless: devuelve todos los alimentos
   que la IA ha generado hasta ahora, para que la guía y la detección por
   texto/imagen los reconozcan en cualquier visita.
+- `api/register.js`, `api/login.js`, `api/logout.js`, `api/me.js` — funciones
+  serverless de cuentas de usuario (registro, inicio/cierre de sesión y
+  comprobación de sesión activa), pensadas como base para futuras
+  herramientas personalizadas.
 
 Las funciones usan `GEMINI_API_KEY` (API gratuita de Google Gemini)
 **solo en el servidor**; el navegador nunca ve la clave.
 
-## Alimentos generados por la comunidad (opcional, recomendado)
+## Almacén compartido (Upstash Redis)
 
-Cuando alguien busca un alimento que no está en `js/data.js`, la ficha que
-genera la IA se guarda en un almacén compartido (Upstash Redis, nivel
-gratuito). Así, la siguiente persona que busque ese mismo alimento —o lo
-mencione en un texto o una foto— lo recibe al instante, sin gastar cuota de
-la IA ni esperar. La guía completa también se actualiza para todo el mundo.
+El mismo almacén (Upstash Redis, nivel gratuito) se usa para dos cosas:
 
-Es opcional: sin esto configurado, la búsqueda con IA sigue funcionando
-igual, pero cada persona la repite para sí misma en su propia sesión.
+- **Cuentas de usuario** — el registro y el inicio de sesión (`api/register.js`,
+  `api/login.js`) lo necesitan para funcionar; sin configurarlo, esas dos
+  funciones devuelven un error explícito en vez de fallar en silencio.
+- **Alimentos generados por la comunidad (opcional, recomendado)** — cuando
+  alguien busca un alimento que no está en `js/data.js`, la ficha que genera
+  la IA se guarda aquí. Así, la siguiente persona que busque ese mismo
+  alimento —o lo mencione en un texto o una foto— lo recibe al instante, sin
+  gastar cuota de la IA ni esperar. Esta parte sí es opcional: sin el almacén
+  configurado, la búsqueda con IA sigue funcionando igual, pero cada persona
+  la repite para sí misma en su propia sesión (y el login no funcionará).
 
 **Cómo activarlo (2 minutos, sin salir de Vercel):**
 
@@ -62,9 +70,10 @@ igual, pero cada persona la repite para sí misma en su propia sesión.
    - `GEMINI_MODEL` (opcional) — por defecto `gemini-2.5-flash`.
    - `NCBI_API_KEY` y `NCBI_EMAIL` (opcionales) — para tener más cuota al
      consultar PubMed.
-   - `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN` (opcionales) —
-     para que los alimentos generados por IA se compartan entre todas las
-     visitas (ver sección siguiente).
+   - `UPSTASH_REDIS_REST_URL` y `UPSTASH_REDIS_REST_TOKEN` — necesarias para
+     el registro/inicio de sesión; también permiten que los alimentos
+     generados por IA se compartan entre todas las visitas (ver sección
+     siguiente).
 4. Despliega. La web y las funciones `/api/*` quedan servidas juntas.
 
 ### Con la CLI de Vercel

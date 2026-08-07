@@ -329,8 +329,8 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
   max-width: 780px;
   margin: 0 auto;
 }
-.tabs { display: flex; gap: 6px; padding: 8px; }
-.tab {
+.tabs, .auth-tabs { display: flex; gap: 6px; padding: 8px; }
+.tab, .auth-tab {
   flex: 1;
   padding: 12px 16px;
   border: none;
@@ -340,13 +340,18 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
   color: var(--ink-faint);
   transition: background .25s ease, color .25s ease;
 }
-.tab.active { background: var(--green-50); color: var(--green-700); }
-.tab-panel { display: none; padding: 26px 30px 30px; }
-.tab-panel.active { display: block; animation: fadeIn .4s ease; }
+.tab.active, .auth-tab.active { background: var(--green-50); color: var(--green-700); }
+.tab-panel, .auth-tab-panel { display: none; padding: 26px 30px 30px; }
+.tab-panel.active, .auth-tab-panel.active { display: block; animation: fadeIn .4s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
+/* El modal ya aporta su propio padding (32px), así que las pestañas y el
+   panel de cuenta usan un margen más ajustado que el del analizador. */
+.modal .auth-tabs { padding: 0 0 6px; }
+.modal .auth-tab-panel { padding: 14px 0 0; }
+
 .panel-label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
-textarea, #buscadorGuia, #buscadorRecetas {
+textarea, #buscadorGuia, #buscadorRecetas, .modal input {
   width: 100%;
   border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
@@ -356,7 +361,7 @@ textarea, #buscadorGuia, #buscadorRecetas {
   transition: border-color .2s ease, box-shadow .2s ease;
   color: var(--ink);
 }
-textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form input:focus {
+textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form input:focus, .modal input:focus {
   outline: none;
   border-color: var(--green-400);
   box-shadow: 0 0 0 4px var(--green-100);

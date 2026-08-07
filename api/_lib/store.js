@@ -1,10 +1,14 @@
-// Cliente mínimo para Upstash Redis (REST API), usado para compartir entre
-// todas las visitas los alimentos que la IA genera: así solo se consulta una
-// vez por alimento nuevo, y el resto de personas lo reciben al instante sin
-// gastar cuota de la IA.
+// Cliente mínimo para Upstash Redis (REST API). Se usa para dos cosas:
 //
-// Es opcional: si no se configuran las variables de entorno, la búsqueda con
-// IA sigue funcionando igual que antes, simplemente sin memoria compartida.
+// 1) Compartir entre todas las visitas los alimentos que la IA genera: así
+//    solo se consulta una vez por alimento nuevo, y el resto de personas lo
+//    reciben al instante sin gastar cuota de la IA. Esto es opcional: si no
+//    se configuran las variables de entorno, la búsqueda con IA sigue
+//    funcionando igual, simplemente sin memoria compartida.
+//
+// 2) Guardar las cuentas de usuario (registro/login) y sus sesiones. Esto NO
+//    es opcional: sin el almacén configurado, el registro y el inicio de
+//    sesión fallan con un error explícito (ver api/register.js y api/login.js).
 
 const BASE = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
 const TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
@@ -47,4 +51,29 @@ export async function listarAlimentosComunidad() {
   if (!ids.length) return [];
   const entradas = await Promise.all(ids.map(id => obtenerAlimentoComunidad(id).catch(() => null)));
   return entradas.filter(Boolean);
+}
+
+// --- Cuentas de usuario y sesiones ---
+
+export async function crearUsuario(usernameLower, datos) {
+  const ok = await comando(["SET", `hsn:user:${usernameLower}`, JSON.stringify(datos), "NX"]);
+  return ok === "OK"; // false = el usuario ya existía (atómico, sin condición de carrera)
+}
+
+export async function obtenerUsuario(usernameLower) {
+  const raw = await comando(["GET", `hsn:user:${usernameLower}`]);
+  return raw ? JSON.parse(raw) : null;
+}
+
+export async function guardarSesion(token, datos, ttlSegundos) {
+  await comando(["SET", `hsn:session:${token}`, JSON.stringify(datos), "EX", String(ttlSegundos)]);
+}
+
+export async function obtenerSesion(token) {
+  const raw = await comando(["GET", `hsn:session:${token}`]);
+  return raw ? JSON.parse(raw) : null;
+}
+
+export async function borrarSesion(token) {
+  await comando(["DEL", `hsn:session:${token}`]);
 }
