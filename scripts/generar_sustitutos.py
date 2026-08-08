@@ -306,6 +306,7 @@ def render_pagina(food, todos_los_foods, todas_recetas):
       <a href="index.html#analizar">Analizar alimentos</a>
       <a href="index.html#alimentos">Guía de alimentos</a>
       <a href="index.html#recetas">Recetas Saludables</a>
+      <a href="comunidad.html">Recetas de la Comunidad</a>
       <a href="index.html#sobre">Sobre HSNutrición</a>
       <a href="index.html#contacto">Contacto</a>
     </nav>

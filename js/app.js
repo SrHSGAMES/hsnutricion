@@ -4,6 +4,7 @@
   "use strict";
 
   /* ---------------- Escalas para las barras de macros (valores de referencia altos) ---------------- */
+  const MACRO_KEYS = ["kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio"];
   const ESCALAS = { kcal: 900, carbs: 100, proteinas: 40, grasas: 100, fibra: 12 };
   const ETIQUETAS_MACRO = {
     kcal: "Calorías", carbs: "Carbohidratos", azucares: "  de los cuales azúcares",
@@ -73,7 +74,23 @@
     return wrap;
   }
 
-  function crearTablaMacros(food) {
+  // Suma los macros reales de una lista de ingredientes {foodId, cantidad},
+  // gemela exacta de calcular_macros() en scripts/generar_recetas.py: mismo
+  // factor (cantidad/100) y mismo redondeo a 1 decimal, para que una receta
+  // creada aquí dé los mismos números que si la generara el script Python.
+  function calcularMacrosReceta(ingredientes) {
+    const totales = MACRO_KEYS.reduce((acc, k) => (acc[k] = 0, acc), {});
+    ingredientes.forEach(ing => {
+      const food = FOODS.find(f => f.id === ing.foodId);
+      if (!food) return;
+      const factor = ing.cantidad / 100;
+      MACRO_KEYS.forEach(k => { totales[k] += (food[k] || 0) * factor; });
+    });
+    MACRO_KEYS.forEach(k => { totales[k] = Math.round(totales[k] * 10) / 10; });
+    return totales;
+  }
+
+  function crearTablaMacros(food, { caption = "(por 100 g)" } = {}) {
     const cont = document.createElement("div");
     cont.className = "macro-table";
     ["kcal", "carbs", "proteinas", "grasas", "fibra"].forEach(clave => {
@@ -82,7 +99,7 @@
     const extra = document.createElement("p");
     extra.className = "food-motivo";
     extra.style.marginTop = "0";
-    extra.innerHTML = `De las grasas, <b>${food.grasasSat} g</b> son saturadas · de los carbohidratos, <b>${food.azucares} g</b> son azúcares · sodio: <b>${food.sodio} mg</b> <span style="color:var(--ink-faint)">(por 100 g)</span>`;
+    extra.innerHTML = `De las grasas, <b>${food.grasasSat} g</b> son saturadas · de los carbohidratos, <b>${food.azucares} g</b> son azúcares · sodio: <b>${food.sodio} mg</b> ${caption ? `<span style="color:var(--ink-faint)">${caption}</span>` : ""}`;
     cont.appendChild(extra);
     return cont;
   }
@@ -254,6 +271,46 @@
     a.appendChild(foto);
     a.appendChild(info);
     return a;
+  }
+
+  // Receta de comunidad: sin foto (no hay subida de imágenes en esta
+  // versión), así que la tarjeta es de texto en vez de foto-primero. Abre un
+  // modal de detalle en vez de navegar (no tiene página estática propia: es
+  // contenido dinámico, editable y borrable). Los enlaces reales a las
+  // acciones (detalle/editar/borrar) los rellenan los bloques
+  // "recetas-comunidad" y "constructor-receta" vía window.__*, definidos más
+  // abajo — así esta función no depende de en qué orden se ejecuten.
+  function crearTarjetaRecetaComunidad(receta, i) {
+    const card = document.createElement("article");
+    card.className = "comunidad-card";
+    card.style.animationDelay = Math.min(i * 0.05, 0.3) + "s";
+    const propia = Boolean(window.__usuarioActual) && receta.autorLower === window.__usuarioActual.toLowerCase();
+    card.innerHTML = `
+      <div class="comunidad-card-head">
+        <h3>${receta.nombre}</h3>
+        <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>
+      </div>
+      <p class="comunidad-card-autor">por @${receta.autor}</p>
+      <p class="comunidad-card-desc">${receta.descripcion}</p>
+      <div class="comunidad-card-chips">
+        <span>${receta.macros.kcal} kcal</span>
+        <span>${receta.macros.proteinas} g prot.</span>
+        <span>${receta.ingredientes.length} ingrediente${receta.ingredientes.length > 1 ? "s" : ""}</span>
+      </div>
+      ${propia ? `<div class="comunidad-card-owner-actions">
+        <button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>
+      </div>` : ""}
+    `;
+    card.addEventListener("click", e => {
+      if (e.target.closest("[data-accion]")) return;
+      window.__abrirDetalleComunidad?.(receta);
+    });
+    if (propia) {
+      card.querySelector('[data-accion="editar"]').addEventListener("click", () => window.__abrirBuilderComunidad?.(receta));
+      card.querySelector('[data-accion="borrar"]').addEventListener("click", () => window.__borrarRecetaComunidad?.(receta));
+    }
+    return card;
   }
 
   function animarBarras(root) {
@@ -642,6 +699,10 @@
 
     function actualizarUI() {
       const conectado = Boolean(usuarioActual);
+      // Expuesto para que otros bloques (p.ej. recetas de la comunidad)
+      // sepan quién ha iniciado sesión sin duplicar la llamada a /api/me.
+      window.__usuarioActual = usuarioActual;
+      document.dispatchEvent(new CustomEvent("hsn:auth-cambio", { detail: { usuario: usuarioActual } }));
       authViewGuest.hidden = conectado;
       authViewUser.hidden = !conectado;
       if (conectado) {
@@ -740,6 +801,260 @@
       .then(r => (r.ok ? r.json() : { username: null }))
       .then(({ username }) => { usuarioActual = username; actualizarUI(); })
       .catch(() => {});
+  });
+
+  /* ================= Recetas de la comunidad: listado y detalle ================= */
+  seguro("recetas-comunidad", () => {
+    const grid = document.getElementById("comunidadGrid");
+    if (!grid) return; // solo existe en comunidad.html
+
+    const buscador = document.getElementById("buscadorComunidad");
+    const filtroRating = document.getElementById("filtroRatingComunidad");
+    const sinResultados = document.getElementById("comunidadSinResultados");
+    const detalleOverlay = document.getElementById("comunidadDetalleOverlay");
+    const detalleContenido = document.getElementById("comunidadDetalleContenido");
+    const detalleClose = document.getElementById("comunidadDetalleClose");
+
+    let recetas = [];
+
+    function render() {
+      const q = normalizar(buscador.value);
+      const rating = filtroRating.value;
+      const lista = recetas.filter(r =>
+        (!q || normalizar(r.nombre).includes(q)) &&
+        (!rating || r.rating === rating)
+      ).sort((a, b) => new Date(b.creadoEn) - new Date(a.creadoEn));
+      grid.innerHTML = "";
+      sinResultados.hidden = lista.length > 0;
+      lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaComunidad(receta, i)));
+    }
+
+    function cargar() {
+      return fetch("/api/community-recipes")
+        .then(r => (r.ok ? r.json() : { recetas: [] }))
+        .then(({ recetas: lista }) => { recetas = Array.isArray(lista) ? lista : []; render(); })
+        .catch(() => {});
+    }
+
+    function abrirDetalle(receta) {
+      const raciones = receta.raciones > 1 ? `, ${receta.raciones} raciones` : "";
+      const ingredientesHtml = receta.ingredientes.map(ing => `
+        <li>
+          <button type="button" class="ingrediente-link" data-food-id="${ing.foodId}">
+            <span class="food-emoji">${ing.emoji}</span> ${formatearNombre(ing.nombre)}
+          </button>
+          <span class="ingrediente-cantidad">${ing.cantidad} g</span>
+        </li>`).join("");
+      const pasosHtml = receta.elaboracion.map(p => `<li>${p}</li>`).join("");
+
+      detalleContenido.innerHTML = `
+        <div class="comunidad-card-head">
+          <h3>${receta.nombre}</h3>
+          <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>
+        </div>
+        <p class="comunidad-card-autor">por @${receta.autor}</p>
+        <p class="food-motivo">${receta.descripcion}</p>
+        <div class="receta-columnas">
+          <div>
+            <h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>
+            <ul class="receta-ingredientes">${ingredientesHtml}</ul>
+          </div>
+          <div>
+            <h4>Elaboración</h4>
+            <ol class="receta-pasos">${pasosHtml}</ol>
+          </div>
+        </div>
+        <h4>Información nutricional (receta completa${raciones})</h4>
+        <div id="comunidadDetalleMacros"></div>
+        <p class="food-motivo" style="margin-top:14px"><b>Motivo de la calificación:</b> ${receta.motivo}</p>
+      `;
+      document.getElementById("comunidadDetalleMacros").appendChild(crearTablaMacros(receta.macros, { caption: "" }));
+      animarBarras(detalleContenido);
+      detalleOverlay.hidden = false;
+    }
+    function cerrarDetalle() { detalleOverlay.hidden = true; }
+    detalleClose.addEventListener("click", cerrarDetalle);
+    detalleOverlay.addEventListener("click", e => { if (e.target === detalleOverlay) cerrarDetalle(); });
+
+    async function borrar(receta) {
+      if (!confirm(`¿Eliminar "${receta.nombre}"? Esta acción no se puede deshacer.`)) return;
+      try {
+        const resp = await fetch("/api/community-recipe", {
+          method: "DELETE",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ id: receta.id })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        await cargar();
+      } catch (err) {
+        alert("No se pudo eliminar: " + err.message);
+      }
+    }
+
+    window.__abrirDetalleComunidad = abrirDetalle;
+    window.__borrarRecetaComunidad = borrar;
+    window.__cargarRecetasComunidad = cargar;
+
+    [buscador, filtroRating].forEach(el => el.addEventListener("input", render));
+    document.addEventListener("hsn:auth-cambio", render);
+    cargar();
+  });
+
+  /* ================= Constructor de recetas de la comunidad ================= */
+  seguro("constructor-receta", () => {
+    const overlay = document.getElementById("builderModalOverlay");
+    if (!overlay) return; // solo existe en comunidad.html
+
+    const btnCrear = document.getElementById("btnCrearReceta");
+    const modalClose = document.getElementById("builderModalClose");
+    const titulo = document.getElementById("builderModalTitle");
+    const form = document.getElementById("builderForm");
+    const inputId = document.getElementById("builderId");
+    const inputNombre = document.getElementById("builderNombre");
+    const inputDescripcion = document.getElementById("builderDescripcion");
+    const inputRaciones = document.getElementById("builderRaciones");
+    const inputBusqueda = document.getElementById("builderIngredienteBusqueda");
+    const resultadosEl = document.getElementById("builderIngredienteResultados");
+    const cantidadWrap = document.getElementById("builderCantidadWrap");
+    const candidatoNombreEl = document.getElementById("builderCandidatoNombre");
+    const inputGramos = document.getElementById("builderIngredienteGramos");
+    const btnAnadir = document.getElementById("builderAnadirIngrediente");
+    const listaEl = document.getElementById("builderIngredientesLista");
+    const textareaElaboracion = document.getElementById("builderElaboracion");
+    const previewEl = document.getElementById("builderMacroPreview");
+    const status = document.getElementById("builderStatus");
+    const submitBtn = document.getElementById("builderSubmit");
+
+    let ingredientesElegidos = [];
+    let candidato = null;
+
+    function renderLista() {
+      listaEl.innerHTML = "";
+      ingredientesElegidos.forEach((ing, i) => {
+        const row = document.createElement("div");
+        row.className = "ingrediente-picker-row";
+        row.innerHTML = `<span class="food-emoji">${ing.emoji}</span>
+          <span class="ingrediente-picker-nombre">${formatearNombre(ing.nombre)}</span>
+          <span class="ingrediente-picker-gramos">${ing.cantidad} g</span>
+          <button type="button" class="ingrediente-picker-quitar" aria-label="Quitar">✕</button>`;
+        row.querySelector(".ingrediente-picker-quitar").addEventListener("click", () => {
+          ingredientesElegidos.splice(i, 1);
+          renderLista();
+        });
+        listaEl.appendChild(row);
+      });
+      previewEl.innerHTML = "";
+      if (ingredientesElegidos.length) {
+        previewEl.appendChild(crearTablaMacros(calcularMacrosReceta(ingredientesElegidos), { caption: "(receta completa)" }));
+        animarBarras(previewEl);
+      }
+    }
+
+    function abrirModal(receta) {
+      form.reset();
+      ingredientesElegidos = receta ? receta.ingredientes.map(ing => ({ ...ing })) : [];
+      candidato = null;
+      cantidadWrap.hidden = true;
+      resultadosEl.hidden = true;
+      if (receta) {
+        titulo.textContent = "Editar receta";
+        submitBtn.textContent = "Guardar cambios";
+        inputId.value = receta.id;
+        inputNombre.value = receta.nombre;
+        inputDescripcion.value = receta.descripcion;
+        inputRaciones.value = receta.raciones;
+        textareaElaboracion.value = receta.elaboracion.join("\n");
+      } else {
+        titulo.textContent = "Crear receta";
+        submitBtn.textContent = "Publicar receta";
+        inputId.value = "";
+      }
+      status.textContent = "";
+      renderLista();
+      overlay.hidden = false;
+    }
+    function cerrarModal() { overlay.hidden = true; }
+
+    btnCrear.addEventListener("click", () => {
+      if (!window.__usuarioActual) { document.getElementById("btnAuth").click(); return; }
+      abrirModal(null);
+    });
+    modalClose.addEventListener("click", cerrarModal);
+    overlay.addEventListener("click", e => { if (e.target === overlay) cerrarModal(); });
+
+    inputBusqueda.addEventListener("input", () => {
+      const q = normalizar(inputBusqueda.value);
+      resultadosEl.innerHTML = "";
+      if (!q) { resultadosEl.hidden = true; return; }
+      const coincidencias = FOODS.filter(f => normalizar(f.nombre).includes(q)).slice(0, 8);
+      resultadosEl.hidden = !coincidencias.length;
+      coincidencias.forEach(f => {
+        const item = document.createElement("button");
+        item.type = "button";
+        item.className = "ingrediente-picker-item";
+        item.innerHTML = `<span class="food-emoji">${f.emoji}</span> ${formatearNombre(f.nombre)}`;
+        item.addEventListener("click", () => seleccionarCandidato(f));
+        resultadosEl.appendChild(item);
+      });
+    });
+
+    function seleccionarCandidato(food) {
+      candidato = food;
+      candidatoNombreEl.textContent = `${food.emoji} ${formatearNombre(food.nombre)}`;
+      inputBusqueda.value = "";
+      resultadosEl.hidden = true;
+      cantidadWrap.hidden = false;
+      inputGramos.value = "";
+      inputGramos.focus();
+    }
+
+    function anadirIngrediente() {
+      const gramos = Number(inputGramos.value);
+      if (!candidato || !gramos || gramos <= 0) return;
+      ingredientesElegidos.push({ foodId: candidato.id, nombre: candidato.nombre, emoji: candidato.emoji, cantidad: gramos });
+      candidato = null;
+      cantidadWrap.hidden = true;
+      renderLista();
+    }
+    btnAnadir.addEventListener("click", anadirIngrediente);
+    inputGramos.addEventListener("keydown", e => {
+      if (e.key === "Enter") { e.preventDefault(); anadirIngrediente(); }
+    });
+
+    form.addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!ingredientesElegidos.length) { status.textContent = "Añade al menos un ingrediente."; return; }
+      submitBtn.disabled = true;
+      status.textContent = "Publicando y calificando con IA… puede tardar unos segundos.";
+      const editando = Boolean(inputId.value);
+      try {
+        const cuerpo = {
+          nombre: inputNombre.value.trim(),
+          descripcion: inputDescripcion.value.trim(),
+          raciones: Number(inputRaciones.value) || 1,
+          elaboracion: textareaElaboracion.value.split("\n").map(l => l.trim()).filter(Boolean),
+          ingredientes: ingredientesElegidos,
+          macros: calcularMacrosReceta(ingredientesElegidos)
+        };
+        if (editando) cuerpo.id = inputId.value;
+        const resp = await fetch(editando ? "/api/community-recipe" : "/api/community-recipes", {
+          method: editando ? "PUT" : "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(cuerpo)
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        cerrarModal();
+        await window.__cargarRecetasComunidad?.();
+      } catch (err) {
+        status.textContent = err.message;
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    window.__abrirBuilderComunidad = abrirModal;
   });
 
   /* ================= Búsqueda de alimentos con IA + PubMed ================= */

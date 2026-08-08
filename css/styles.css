@@ -351,7 +351,7 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
 .modal .auth-tab-panel { padding: 14px 0 0; }
 
 .panel-label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
-textarea, #buscadorGuia, #buscadorRecetas, .modal input {
+textarea, #buscadorGuia, #buscadorRecetas, #buscadorComunidad, .modal input {
   width: 100%;
   border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
@@ -361,7 +361,7 @@ textarea, #buscadorGuia, #buscadorRecetas, .modal input {
   transition: border-color .2s ease, box-shadow .2s ease;
   color: var(--ink);
 }
-textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form input:focus, .modal input:focus {
+textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:focus, .ai-lookup-form input:focus, .modal input:focus {
   outline: none;
   border-color: var(--green-400);
   box-shadow: 0 0 0 4px var(--green-100);
@@ -604,9 +604,69 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form inp
 }
 .ingrediente-pendiente { font-size: .9rem; color: var(--ink-faint); font-style: italic; }
 
+/* ---------- Selector de ingredientes (constructor de recetas de comunidad) ---------- */
+.ingrediente-picker { position: relative; }
+.ingrediente-picker-resultados {
+  position: absolute;
+  z-index: 5;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 6px;
+}
+.ingrediente-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 9px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: .92rem;
+  color: var(--ink);
+}
+.ingrediente-picker-item:hover { background: var(--green-50); color: var(--green-700); }
+.ingrediente-picker-cantidad {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+.ingrediente-picker-cantidad span { font-weight: 600; font-size: .9rem; flex: 1; }
+.ingrediente-picker-cantidad input { width: 110px; }
+.ingrediente-picker-lista { display: flex; flex-direction: column; gap: 8px; margin-top: 14px; }
+.ingrediente-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--paper-tint);
+  font-size: .92rem;
+}
+.ingrediente-picker-nombre { flex: 1; }
+.ingrediente-picker-gramos { color: var(--ink-faint); white-space: nowrap; }
+.ingrediente-picker-quitar {
+  background: none;
+  border: none;
+  color: var(--ink-faint);
+  font-size: .85rem;
+  cursor: pointer;
+  padding: 2px 4px;
+}
+.ingrediente-picker-quitar:hover { color: var(--rating-E); }
+
 .receta-pasos { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
 .receta-pasos li { font-size: .94rem; color: var(--ink-soft); line-height: 1.55; padding-left: 4px; }
 
+.modal-wide { max-width: 720px; max-height: calc(100vh - 40px); overflow-y: auto; }
 .modal-ficha { max-width: 520px; padding: 0; background: transparent; box-shadow: none; }
 .modal-ficha .modal-close { top: -14px; right: -14px; background: #fff; box-shadow: var(--shadow-md); z-index: 2; }
 /* La ficha puede ser más alta que la pantalla (estudios de PubMed incluidos),
@@ -835,6 +895,55 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, .ai-lookup-form inp
   background: #fff;
 }
 .recetas-sin-resultados { text-align: center; color: var(--ink-faint); }
+
+/* ---------- Recetas de la comunidad ---------- */
+.comunidad-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.comunidad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+}
+.comunidad-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  animation: cardIn .5s ease both;
+}
+.comunidad-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
+.comunidad-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.comunidad-card-head h3 { font-size: 1.08rem; font-weight: 600; margin: 0; }
+.comunidad-card-autor { font-size: .8rem; color: var(--ink-faint); margin: 4px 0 10px; }
+.comunidad-card-desc {
+  font-size: .9rem;
+  color: var(--ink-soft);
+  margin: 0 0 14px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.comunidad-card-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.comunidad-card-chips span {
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--green-700);
+  background: var(--green-50);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+.comunidad-card-owner-actions { display: flex; gap: 8px; margin-top: 14px; }
 
 /* ---------- About ---------- */
 .about-grid {

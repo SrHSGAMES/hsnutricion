@@ -10,6 +10,8 @@
 //    es opcional: sin el almacén configurado, el registro y el inicio de
 //    sesión fallan con un error explícito (ver api/register.js y api/login.js).
 
+import { leerTokenSesion } from "./cookies.js";
+
 const BASE = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
 const TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
 
@@ -76,4 +78,44 @@ export async function obtenerSesion(token) {
 
 export async function borrarSesion(token) {
   await comando(["DEL", `hsn:session:${token}`]);
+}
+
+// Deduce el usuario que hace la petición a partir de su cookie de sesión, o
+// null si no hay sesión válida. Usado por cualquier endpoint que requiera
+// estar identificado (recetas de la comunidad, y antes solo inline en me.js).
+export async function obtenerUsuarioDeSesion(req) {
+  if (!almacenDisponible()) return null;
+  const token = leerTokenSesion(req);
+  if (!token) return null;
+  const sesion = await obtenerSesion(token);
+  if (!sesion) return null;
+  return obtenerUsuario(sesion.usernameLower);
+}
+
+// --- Recetas de la comunidad ---
+
+export async function guardarRecetaComunidad(id, entrada) {
+  if (!almacenDisponible()) return;
+  await comando(["SET", `hsn:receta:${id}`, JSON.stringify(entrada)]);
+  await comando(["SADD", "hsn:recetas:indice", id]);
+}
+
+export async function obtenerRecetaComunidad(id) {
+  if (!almacenDisponible()) return null;
+  const raw = await comando(["GET", `hsn:receta:${id}`]);
+  return raw ? JSON.parse(raw) : null;
+}
+
+export async function listarRecetasComunidad() {
+  if (!almacenDisponible()) return [];
+  const ids = (await comando(["SMEMBERS", "hsn:recetas:indice"])) || [];
+  if (!ids.length) return [];
+  const entradas = await Promise.all(ids.map(id => obtenerRecetaComunidad(id).catch(() => null)));
+  return entradas.filter(Boolean);
+}
+
+export async function borrarRecetaComunidad(id) {
+  if (!almacenDisponible()) return;
+  await comando(["DEL", `hsn:receta:${id}`]);
+  await comando(["SREM", "hsn:recetas:indice", id]);
 }
