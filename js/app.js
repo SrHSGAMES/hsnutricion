@@ -285,6 +285,9 @@
     card.className = "comunidad-card";
     card.style.animationDelay = Math.min(i * 0.05, 0.3) + "s";
     const propia = Boolean(window.__usuarioActual) && receta.autorLower === window.__usuarioActual.toLowerCase();
+    // El admin puede borrar (moderación) cualquier receta, pero no editarla —
+    // solo el autor conserva esa capacidad (ver api/community-recipe.js).
+    const puedeBorrar = propia || Boolean(window.__esAdmin);
     card.innerHTML = `
       <div class="comunidad-card-head">
         <h3>${receta.nombre}</h3>
@@ -297,9 +300,9 @@
         <span>${receta.macros.proteinas} g prot.</span>
         <span>${receta.ingredientes.length} ingrediente${receta.ingredientes.length > 1 ? "s" : ""}</span>
       </div>
-      ${propia ? `<div class="comunidad-card-owner-actions">
-        <button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>
-        <button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>
+      ${(propia || puedeBorrar) ? `<div class="comunidad-card-owner-actions">
+        ${propia ? '<button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>' : ""}
+        ${puedeBorrar ? '<button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>' : ""}
       </div>` : ""}
     `;
     card.addEventListener("click", e => {
@@ -308,6 +311,8 @@
     });
     if (propia) {
       card.querySelector('[data-accion="editar"]').addEventListener("click", () => window.__abrirBuilderComunidad?.(receta));
+    }
+    if (puedeBorrar) {
       card.querySelector('[data-accion="borrar"]').addEventListener("click", () => window.__borrarRecetaComunidad?.(receta));
     }
     return card;
@@ -693,6 +698,7 @@
     const authRegisterStatus = document.getElementById("authRegisterStatus");
 
     let usuarioActual = null;
+    let esAdminActual = false;
 
     function abrirModal() { authModalOverlay.hidden = false; }
     function cerrarModal() { authModalOverlay.hidden = true; }
@@ -700,9 +706,11 @@
     function actualizarUI() {
       const conectado = Boolean(usuarioActual);
       // Expuesto para que otros bloques (p.ej. recetas de la comunidad)
-      // sepan quién ha iniciado sesión sin duplicar la llamada a /api/me.
+      // sepan quién ha iniciado sesión, y si es admin, sin duplicar la
+      // llamada a /api/me.
       window.__usuarioActual = usuarioActual;
-      document.dispatchEvent(new CustomEvent("hsn:auth-cambio", { detail: { usuario: usuarioActual } }));
+      window.__esAdmin = esAdminActual;
+      document.dispatchEvent(new CustomEvent("hsn:auth-cambio", { detail: { usuario: usuarioActual, esAdmin: esAdminActual } }));
       authViewGuest.hidden = conectado;
       authViewUser.hidden = !conectado;
       if (conectado) {
@@ -747,6 +755,7 @@
         const data = await resp.json();
         if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
         usuarioActual = data.username;
+        esAdminActual = Boolean(data.esAdmin);
         authLoginStatus.textContent = "";
         authFormLogin.reset();
         actualizarUI();
@@ -774,6 +783,7 @@
         const data = await resp.json();
         if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
         usuarioActual = data.username;
+        esAdminActual = Boolean(data.esAdmin);
         authRegisterStatus.textContent = "";
         authFormRegister.reset();
         actualizarUI();
@@ -792,14 +802,15 @@
         console.error("[HSNutrición] Error al cerrar sesión:", err);
       } finally {
         usuarioActual = null;
+        esAdminActual = false;
         actualizarUI();
         authLogoutBtn.disabled = false;
       }
     });
 
     fetch("/api/me")
-      .then(r => (r.ok ? r.json() : { username: null }))
-      .then(({ username }) => { usuarioActual = username; actualizarUI(); })
+      .then(r => (r.ok ? r.json() : { username: null, esAdmin: false }))
+      .then(({ username, esAdmin: admin }) => { usuarioActual = username; esAdminActual = Boolean(admin); actualizarUI(); })
       .catch(() => {});
   });
 

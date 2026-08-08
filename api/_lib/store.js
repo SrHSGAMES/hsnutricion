@@ -80,6 +80,19 @@ export async function borrarSesion(token) {
   await comando(["DEL", `hsn:session:${token}`]);
 }
 
+// Administradores del sitio: lista fija por variable de entorno (no editable
+// desde la propia web), para poder moderar contenido de la comunidad (p.ej.
+// borrar una receta con un nombre inapropiado) sin tocar la base de datos a
+// mano. Comparación insensible a mayúsculas.
+const ADMIN_USERNAMES = (process.env.ADMIN_USERNAMES || "")
+  .split(",")
+  .map(u => u.trim().toLowerCase())
+  .filter(Boolean);
+
+export function esAdmin(usernameLower) {
+  return ADMIN_USERNAMES.includes((usernameLower || "").toLowerCase());
+}
+
 // Deduce el usuario que hace la petición a partir de su cookie de sesión, o
 // null si no hay sesión válida. Usado por cualquier endpoint que requiera
 // estar identificado (recetas de la comunidad, y antes solo inline en me.js).

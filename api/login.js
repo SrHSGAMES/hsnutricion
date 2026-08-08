@@ -1,6 +1,6 @@
 // POST /api/login   body: { username, password }
 
-import { almacenDisponible, obtenerUsuario, guardarSesion } from "./_lib/store.js";
+import { almacenDisponible, obtenerUsuario, guardarSesion, esAdmin } from "./_lib/store.js";
 import { verificarPassword, generarTokenSesion } from "./_lib/auth.js";
 import { serializarCookieSesion } from "./_lib/cookies.js";
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     const token = generarTokenSesion();
     await guardarSesion(token, { usernameLower }, SESION_TTL_SEGUNDOS);
     res.setHeader("Set-Cookie", serializarCookieSesion(req, token, SESION_TTL_SEGUNDOS));
-    res.status(200).json({ username: usuario.username });
+    res.status(200).json({ username: usuario.username, esAdmin: esAdmin(usernameLower) });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

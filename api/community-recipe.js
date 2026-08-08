@@ -4,7 +4,7 @@
 // Editar o borrar una receta de la comunidad. Requiere sesión activa y ser
 // el autor de la receta.
 
-import { almacenDisponible, obtenerRecetaComunidad, guardarRecetaComunidad, borrarRecetaComunidad, obtenerUsuarioDeSesion } from "./_lib/store.js";
+import { almacenDisponible, obtenerRecetaComunidad, guardarRecetaComunidad, borrarRecetaComunidad, obtenerUsuarioDeSesion, esAdmin } from "./_lib/store.js";
 import { validarCamposReceta, calificarReceta } from "./_lib/recetas-comunidad.js";
 
 export default async function handler(req, res) {
@@ -30,13 +30,20 @@ export default async function handler(req, res) {
     if (!existente) {
       return res.status(404).json({ error: "Esa receta ya no existe." });
     }
-    if (existente.autorLower !== usuario.username.toLowerCase()) {
-      return res.status(403).json({ error: "Solo el autor puede modificar esta receta." });
-    }
+    const esAutor = existente.autorLower === usuario.username.toLowerCase();
 
     if (req.method === "DELETE") {
+      // El admin puede borrar (moderación) recetas ajenas, pero no editarlas
+      // — solo el autor conserva la capacidad de modificar el contenido.
+      if (!esAutor && !esAdmin(usuario.username.toLowerCase())) {
+        return res.status(403).json({ error: "Solo el autor puede borrar esta receta." });
+      }
       await borrarRecetaComunidad(id);
       return res.status(200).json({ ok: true });
+    }
+
+    if (!esAutor) {
+      return res.status(403).json({ error: "Solo el autor puede modificar esta receta." });
     }
 
     // PUT: los ingredientes pueden haber cambiado, así que se vuelve a pedir
