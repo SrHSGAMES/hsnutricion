@@ -923,7 +923,8 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
 .comunidad-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
 .comunidad-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
 .comunidad-card-head h3 { font-size: 1.08rem; font-weight: 600; margin: 0; }
-.comunidad-card-autor { font-size: .8rem; color: var(--ink-faint); margin: 4px 0 10px; }
+.comunidad-card-autor { display: block; font-size: .8rem; color: var(--ink-faint); margin: 4px 0 10px; text-decoration: none; width: fit-content; }
+.comunidad-card-autor:hover { color: var(--green-700); text-decoration: underline; }
 .comunidad-card-desc {
   font-size: .9rem;
   color: var(--ink-soft);

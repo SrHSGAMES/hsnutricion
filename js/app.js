@@ -293,7 +293,7 @@
         <h3>${receta.nombre}</h3>
         <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>
       </div>
-      <p class="comunidad-card-autor">por @${receta.autor}</p>
+      <a class="comunidad-card-autor" href="perfil.html?usuario=${encodeURIComponent(receta.autorLower)}">por @${receta.autor}</a>
       <p class="comunidad-card-desc">${receta.descripcion}</p>
       <div class="comunidad-card-chips">
         <span>${receta.macros.kcal} kcal</span>
@@ -306,7 +306,7 @@
       </div>` : ""}
     `;
     card.addEventListener("click", e => {
-      if (e.target.closest("[data-accion]")) return;
+      if (e.target.closest("[data-accion], a")) return;
       window.__abrirDetalleComunidad?.(receta);
     });
     if (puedeModificar) {
@@ -686,10 +686,6 @@
     const btnAuth = document.getElementById("btnAuth");
     const authModalOverlay = document.getElementById("authModalOverlay");
     const authModalClose = document.getElementById("authModalClose");
-    const authViewGuest = document.getElementById("authViewGuest");
-    const authViewUser = document.getElementById("authViewUser");
-    const authUserName = document.getElementById("authUserName");
-    const authLogoutBtn = document.getElementById("authLogoutBtn");
     const authFormLogin = document.getElementById("authFormLogin");
     const authFormRegister = document.getElementById("authFormRegister");
     const authLoginStatus = document.getElementById("authLoginStatus");
@@ -702,26 +698,30 @@
     function cerrarModal() { authModalOverlay.hidden = true; }
 
     function actualizarUI() {
-      const conectado = Boolean(usuarioActual);
-      // Expuesto para que otros bloques (p.ej. recetas de la comunidad)
-      // sepan quién ha iniciado sesión, y si es admin, sin duplicar la
-      // llamada a /api/me.
+      // Expuesto para que otros bloques (p.ej. recetas de la comunidad y el
+      // propio perfil) sepan quién ha iniciado sesión, y si es admin, sin
+      // duplicar la llamada a /api/me.
       window.__usuarioActual = usuarioActual;
       window.__esAdmin = esAdminActual;
       document.dispatchEvent(new CustomEvent("hsn:auth-cambio", { detail: { usuario: usuarioActual, esAdmin: esAdminActual } }));
-      authViewGuest.hidden = conectado;
-      authViewUser.hidden = !conectado;
-      if (conectado) {
-        authUserName.textContent = usuarioActual;
-        btnAuth.title = "Tu cuenta";
-        btnAuth.setAttribute("aria-label", "Tu cuenta");
+      if (usuarioActual) {
+        btnAuth.title = "Tu perfil";
+        btnAuth.setAttribute("aria-label", "Tu perfil");
       } else {
         btnAuth.title = "Iniciar sesión";
         btnAuth.setAttribute("aria-label", "Iniciar sesión");
       }
     }
 
-    btnAuth.addEventListener("click", abrirModal);
+    // Con sesión, el icono lleva directo al perfil; sin sesión, abre el
+    // modal de inicio de sesión/registro.
+    btnAuth.addEventListener("click", () => {
+      if (usuarioActual) {
+        window.location.href = `perfil.html?usuario=${encodeURIComponent(usuarioActual)}`;
+      } else {
+        abrirModal();
+      }
+    });
     authModalClose.addEventListener("click", cerrarModal);
     authModalOverlay.addEventListener("click", e => { if (e.target === authModalOverlay) cerrarModal(); });
 
@@ -792,20 +792,6 @@
       }
     });
 
-    authLogoutBtn.addEventListener("click", async () => {
-      authLogoutBtn.disabled = true;
-      try {
-        await fetch("/api/logout", { method: "POST" });
-      } catch (err) {
-        console.error("[HSNutrición] Error al cerrar sesión:", err);
-      } finally {
-        usuarioActual = null;
-        esAdminActual = false;
-        actualizarUI();
-        authLogoutBtn.disabled = false;
-      }
-    });
-
     fetch("/api/me")
       .then(r => (r.ok ? r.json() : { username: null, esAdmin: false }))
       .then(({ username, esAdmin: admin }) => { usuarioActual = username; esAdminActual = Boolean(admin); actualizarUI(); })
@@ -813,37 +799,17 @@
   });
 
   /* ================= Recetas de la comunidad: listado y detalle ================= */
-  seguro("recetas-comunidad", () => {
-    const grid = document.getElementById("comunidadGrid");
-    if (!grid) return; // solo existe en comunidad.html
-
-    const buscador = document.getElementById("buscadorComunidad");
-    const filtroRating = document.getElementById("filtroRatingComunidad");
-    const sinResultados = document.getElementById("comunidadSinResultados");
+  // Modal de detalle + borrado: compartido entre comunidad.html y
+  // perfil.html (ambas páginas incluyen #comunidadDetalleOverlay). Cada
+  // página registra su propio window.__refrescarListaRecetas para que,
+  // tras borrar, se refresque la lista que corresponda (el grid completo en
+  // comunidad.html, o solo las recetas de ese usuario en perfil.html).
+  seguro("comunidad-detalle", () => {
     const detalleOverlay = document.getElementById("comunidadDetalleOverlay");
+    if (!detalleOverlay) return;
+
     const detalleContenido = document.getElementById("comunidadDetalleContenido");
     const detalleClose = document.getElementById("comunidadDetalleClose");
-
-    let recetas = [];
-
-    function render() {
-      const q = normalizar(buscador.value);
-      const rating = filtroRating.value;
-      const lista = recetas.filter(r =>
-        (!q || normalizar(r.nombre).includes(q)) &&
-        (!rating || r.rating === rating)
-      ).sort((a, b) => new Date(b.creadoEn) - new Date(a.creadoEn));
-      grid.innerHTML = "";
-      sinResultados.hidden = lista.length > 0;
-      lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaComunidad(receta, i)));
-    }
-
-    function cargar() {
-      return fetch("/api/community-recipes")
-        .then(r => (r.ok ? r.json() : { recetas: [] }))
-        .then(({ recetas: lista }) => { recetas = Array.isArray(lista) ? lista : []; render(); })
-        .catch(() => {});
-    }
 
     function abrirDetalle(receta) {
       const raciones = receta.raciones > 1 ? `, ${receta.raciones} raciones` : "";
@@ -861,7 +827,7 @@
           <h3>${receta.nombre}</h3>
           <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>
         </div>
-        <p class="comunidad-card-autor">por @${receta.autor}</p>
+        <a class="comunidad-card-autor" href="perfil.html?usuario=${encodeURIComponent(receta.autorLower)}">por @${receta.autor}</a>
         <p class="food-motivo">${receta.descripcion}</p>
         <div class="receta-columnas">
           <div>
@@ -895,7 +861,7 @@
         });
         const data = await resp.json();
         if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
-        await cargar();
+        await window.__refrescarListaRecetas?.();
       } catch (err) {
         alert("No se pudo eliminar: " + err.message);
       }
@@ -903,11 +869,113 @@
 
     window.__abrirDetalleComunidad = abrirDetalle;
     window.__borrarRecetaComunidad = borrar;
-    window.__cargarRecetasComunidad = cargar;
+  });
+
+  /* ================= Recetas de la comunidad: grid con buscador y filtro ================= */
+  seguro("comunidad-grid", () => {
+    const grid = document.getElementById("comunidadGrid");
+    if (!grid) return; // solo existe en comunidad.html
+
+    const buscador = document.getElementById("buscadorComunidad");
+    const filtroRating = document.getElementById("filtroRatingComunidad");
+    const sinResultados = document.getElementById("comunidadSinResultados");
+
+    let recetas = [];
+
+    function render() {
+      const q = normalizar(buscador.value);
+      const rating = filtroRating.value;
+      const lista = recetas.filter(r =>
+        (!q || normalizar(r.nombre).includes(q)) &&
+        (!rating || r.rating === rating)
+      ).sort((a, b) => new Date(b.creadoEn) - new Date(a.creadoEn));
+      grid.innerHTML = "";
+      sinResultados.hidden = lista.length > 0;
+      lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaComunidad(receta, i)));
+    }
+
+    function cargar() {
+      return fetch("/api/community-recipes")
+        .then(r => (r.ok ? r.json() : { recetas: [] }))
+        .then(({ recetas: lista }) => { recetas = Array.isArray(lista) ? lista : []; render(); })
+        .catch(() => {});
+    }
+
+    window.__refrescarListaRecetas = cargar;
 
     [buscador, filtroRating].forEach(el => el.addEventListener("input", render));
     document.addEventListener("hsn:auth-cambio", render);
     cargar();
+  });
+
+  /* ================= Perfil de usuario: sus recetas publicadas ================= */
+  seguro("perfil", () => {
+    const grid = document.getElementById("perfilGrid");
+    if (!grid) return; // solo existe en perfil.html
+
+    const nombreEl = document.getElementById("perfilNombre");
+    const metaEl = document.getElementById("perfilMeta");
+    const sinResultados = document.getElementById("perfilSinResultados");
+    const btnLogout = document.getElementById("btnCerrarSesionPerfil");
+
+    const usuarioLower = (new URLSearchParams(window.location.search).get("usuario") || "").trim().toLowerCase();
+
+    if (!usuarioLower) {
+      nombreEl.textContent = "Perfil no encontrado";
+      metaEl.textContent = "Falta indicar qué usuario quieres ver.";
+      return;
+    }
+
+    let propias = [];
+
+    function render() {
+      grid.innerHTML = "";
+      const esPropio = Boolean(window.__usuarioActual) && window.__usuarioActual.toLowerCase() === usuarioLower;
+      btnLogout.hidden = !esPropio;
+      sinResultados.hidden = propias.length > 0;
+      if (!propias.length) {
+        sinResultados.textContent = esPropio
+          ? "Aún no has publicado ninguna receta — anímate a crear la primera."
+          : "Esta persona aún no ha publicado ninguna receta.";
+      }
+      propias.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaComunidad(receta, i)));
+    }
+
+    function cargar() {
+      return Promise.all([
+        fetch(`/api/user-profile?usuario=${encodeURIComponent(usuarioLower)}`).then(r => (r.ok ? r.json() : null)).catch(() => null),
+        fetch("/api/community-recipes").then(r => (r.ok ? r.json() : { recetas: [] })).catch(() => ({ recetas: [] }))
+      ]).then(([perfil, { recetas }]) => {
+        if (!perfil) {
+          nombreEl.textContent = "Usuario no encontrado";
+          metaEl.textContent = "Ese nombre de usuario no existe.";
+          return;
+        }
+        document.title = `@${perfil.username} — HSNutrición`;
+        nombreEl.textContent = `@${perfil.username}`;
+        const fecha = new Date(perfil.createdAt).toLocaleDateString("es-ES", { year: "numeric", month: "long" });
+        propias = (Array.isArray(recetas) ? recetas : []).filter(r => r.autorLower === usuarioLower);
+        metaEl.textContent = `Miembro desde ${fecha} · ${propias.length} receta${propias.length === 1 ? "" : "s"} publicada${propias.length === 1 ? "" : "s"}`;
+        render();
+      }).catch(() => {
+        nombreEl.textContent = "Error al cargar el perfil";
+      });
+    }
+
+    window.__refrescarListaRecetas = cargar;
+    document.addEventListener("hsn:auth-cambio", render);
+    cargar();
+
+    btnLogout.addEventListener("click", async () => {
+      btnLogout.disabled = true;
+      try {
+        await fetch("/api/logout", { method: "POST" });
+      } catch (err) {
+        console.error("[HSNutrición] Error al cerrar sesión:", err);
+      } finally {
+        window.location.href = "index.html";
+      }
+    });
   });
 
   /* ================= Constructor de recetas de la comunidad ================= */
@@ -985,10 +1053,14 @@
     }
     function cerrarModal() { overlay.hidden = true; }
 
-    btnCrear.addEventListener("click", () => {
-      if (!window.__usuarioActual) { document.getElementById("btnAuth").click(); return; }
-      abrirModal(null);
-    });
+    // btnCrear no existe en perfil.html (solo se puede editar desde ahí, no
+    // crear una receta nueva) — el resto del bloque sigue funcionando igual.
+    if (btnCrear) {
+      btnCrear.addEventListener("click", () => {
+        if (!window.__usuarioActual) { document.getElementById("btnAuth").click(); return; }
+        abrirModal(null);
+      });
+    }
     modalClose.addEventListener("click", cerrarModal);
     overlay.addEventListener("click", e => { if (e.target === overlay) cerrarModal(); });
 
@@ -1055,7 +1127,7 @@
         const data = await resp.json();
         if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
         cerrarModal();
-        await window.__cargarRecetasComunidad?.();
+        await window.__refrescarListaRecetas?.();
       } catch (err) {
         status.textContent = err.message;
       } finally {

@@ -361,50 +361,39 @@
   </div>
 </div>
 
-<!-- MODAL CUENTA -->
+<!-- MODAL CUENTA (solo invitados: con sesión, el icono lleva directo al perfil) -->
 <div class="modal-overlay" id="authModalOverlay" hidden>
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="authModalTitle">
     <button class="modal-close" id="authModalClose" aria-label="Cerrar">✕</button>
-
-    <div id="authViewGuest">
-      <h3 id="authModalTitle">Tu cuenta en HSNutrición</h3>
-      <div class="auth-tabs" role="tablist">
-        <button class="auth-tab active" data-auth-tab="login" role="tab" aria-selected="true">Iniciar sesión</button>
-        <button class="auth-tab" data-auth-tab="registro" role="tab" aria-selected="false">Crear cuenta</button>
-      </div>
-
-      <form class="auth-tab-panel active" id="authFormLogin" data-auth-panel="login">
-        <label for="loginUsername">Usuario</label>
-        <input type="text" id="loginUsername" autocomplete="username" required maxlength="24">
-        <label for="loginPassword">Contraseña</label>
-        <input type="password" id="loginPassword" autocomplete="current-password" required maxlength="200">
-        <p class="modal-hint" id="authLoginStatus"></p>
-        <div class="modal-actions">
-          <button type="submit" class="btn btn-primary" id="authLoginSubmit">Entrar</button>
-        </div>
-      </form>
-
-      <form class="auth-tab-panel" id="authFormRegister" data-auth-panel="registro">
-        <label for="registerUsername">Usuario</label>
-        <input type="text" id="registerUsername" autocomplete="username" required minlength="3" maxlength="24">
-        <label for="registerEmail">Email (opcional)</label>
-        <input type="email" id="registerEmail" autocomplete="email" maxlength="254">
-        <label for="registerPassword">Contraseña</label>
-        <input type="password" id="registerPassword" autocomplete="new-password" required minlength="8" maxlength="200">
-        <p class="modal-hint" id="authRegisterStatus"></p>
-        <div class="modal-actions">
-          <button type="submit" class="btn btn-primary" id="authRegisterSubmit">Crear cuenta</button>
-        </div>
-      </form>
+    <h3 id="authModalTitle">Tu cuenta en HSNutrición</h3>
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" data-auth-tab="login" role="tab" aria-selected="true">Iniciar sesión</button>
+      <button class="auth-tab" data-auth-tab="registro" role="tab" aria-selected="false">Crear cuenta</button>
     </div>
 
-    <div id="authViewUser" hidden>
-      <h3>Hola, <span id="authUserName"></span> 👋</h3>
-      <p class="modal-hint">Pronto podrás guardar aquí tus preferencias y herramientas personalizadas.</p>
+    <form class="auth-tab-panel active" id="authFormLogin" data-auth-panel="login">
+      <label for="loginUsername">Usuario</label>
+      <input type="text" id="loginUsername" autocomplete="username" required maxlength="24">
+      <label for="loginPassword">Contraseña</label>
+      <input type="password" id="loginPassword" autocomplete="current-password" required maxlength="200">
+      <p class="modal-hint" id="authLoginStatus"></p>
       <div class="modal-actions">
-        <button class="btn btn-ghost" id="authLogoutBtn">Cerrar sesión</button>
+        <button type="submit" class="btn btn-primary" id="authLoginSubmit">Entrar</button>
       </div>
-    </div>
+    </form>
+
+    <form class="auth-tab-panel" id="authFormRegister" data-auth-panel="registro">
+      <label for="registerUsername">Usuario</label>
+      <input type="text" id="registerUsername" autocomplete="username" required minlength="3" maxlength="24">
+      <label for="registerEmail">Email (opcional)</label>
+      <input type="email" id="registerEmail" autocomplete="email" maxlength="254">
+      <label for="registerPassword">Contraseña</label>
+      <input type="password" id="registerPassword" autocomplete="new-password" required minlength="8" maxlength="200">
+      <p class="modal-hint" id="authRegisterStatus"></p>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary" id="authRegisterSubmit">Crear cuenta</button>
+      </div>
+    </form>
   </div>
 </div>
 
