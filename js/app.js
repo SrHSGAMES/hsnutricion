@@ -285,9 +285,9 @@
     card.className = "comunidad-card";
     card.style.animationDelay = Math.min(i * 0.05, 0.3) + "s";
     const propia = Boolean(window.__usuarioActual) && receta.autorLower === window.__usuarioActual.toLowerCase();
-    // El admin puede borrar (moderación) cualquier receta, pero no editarla —
-    // solo el autor conserva esa capacidad (ver api/community-recipe.js).
-    const puedeBorrar = propia || Boolean(window.__esAdmin);
+    // El admin puede editar y borrar cualquier receta (moderación), igual
+    // que el propio autor — ver api/community-recipe.js.
+    const puedeModificar = propia || Boolean(window.__esAdmin);
     card.innerHTML = `
       <div class="comunidad-card-head">
         <h3>${receta.nombre}</h3>
@@ -300,19 +300,17 @@
         <span>${receta.macros.proteinas} g prot.</span>
         <span>${receta.ingredientes.length} ingrediente${receta.ingredientes.length > 1 ? "s" : ""}</span>
       </div>
-      ${(propia || puedeBorrar) ? `<div class="comunidad-card-owner-actions">
-        ${propia ? '<button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>' : ""}
-        ${puedeBorrar ? '<button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>' : ""}
+      ${puedeModificar ? `<div class="comunidad-card-owner-actions">
+        <button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>
+        <button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>
       </div>` : ""}
     `;
     card.addEventListener("click", e => {
       if (e.target.closest("[data-accion]")) return;
       window.__abrirDetalleComunidad?.(receta);
     });
-    if (propia) {
+    if (puedeModificar) {
       card.querySelector('[data-accion="editar"]').addEventListener("click", () => window.__abrirBuilderComunidad?.(receta));
-    }
-    if (puedeBorrar) {
       card.querySelector('[data-accion="borrar"]').addEventListener("click", () => window.__borrarRecetaComunidad?.(receta));
     }
     return card;
