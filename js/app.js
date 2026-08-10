@@ -304,6 +304,7 @@
         <button type="button" class="btn btn-ghost btn-sm" data-accion="editar">Editar</button>
         <button type="button" class="btn btn-ghost btn-sm" data-accion="borrar">Eliminar</button>
       </div>` : ""}
+      ${(!propia && window.__usuarioActual) ? `<button type="button" class="comunidad-card-reportar" data-accion="reportar">⚠ Reportar</button>` : ""}
     `;
     card.addEventListener("click", e => {
       if (e.target.closest("[data-accion], a")) return;
@@ -312,6 +313,10 @@
     if (puedeModificar) {
       card.querySelector('[data-accion="editar"]').addEventListener("click", () => window.__abrirBuilderComunidad?.(receta));
       card.querySelector('[data-accion="borrar"]').addEventListener("click", () => window.__borrarRecetaComunidad?.(receta));
+    }
+    const btnReportar = card.querySelector('[data-accion="reportar"]');
+    if (btnReportar) {
+      btnReportar.addEventListener("click", () => window.__reportarRecetaComunidad?.(receta, btnReportar));
     }
     return card;
   }
@@ -422,6 +427,33 @@
   seguro("recetas-teaser", () => {
     const grid = document.getElementById("recetasTeaserGrid");
     RECETAS.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
+  });
+
+  /* ================= Recetas de la comunidad: teaser en el índice ================= */
+  seguro("comunidad-teaser", () => {
+    const grid = document.getElementById("comunidadTeaserGrid");
+    if (!grid) return; // solo existe en index.html
+    const seccion = document.getElementById("comunidad-teaser");
+
+    let recetas = [];
+
+    function render() {
+      grid.innerHTML = "";
+      recetas.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaComunidad(receta, i)));
+    }
+
+    fetch("/api/community-recipes")
+      .then(r => (r.ok ? r.json() : { recetas: [] }))
+      .then(({ recetas: lista }) => {
+        recetas = (Array.isArray(lista) ? lista : [])
+          .sort((a, b) => new Date(b.creadoEn) - new Date(a.creadoEn))
+          .slice(0, 3);
+        seccion.hidden = recetas.length === 0;
+        render();
+      })
+      .catch(() => {});
+
+    document.addEventListener("hsn:auth-cambio", render);
   });
 
   /* ================= Ficha de un ingrediente en modal ================= */
@@ -867,8 +899,27 @@
       }
     }
 
+    async function reportar(receta, boton) {
+      if (!confirm(`¿Reportar "${receta.nombre}" para que un administrador la revise?`)) return;
+      boton.disabled = true;
+      try {
+        const resp = await fetch("/api/community-recipe", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ id: receta.id })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        boton.textContent = "Reportada ✓";
+      } catch (err) {
+        alert("No se pudo reportar: " + err.message);
+        boton.disabled = false;
+      }
+    }
+
     window.__abrirDetalleComunidad = abrirDetalle;
     window.__borrarRecetaComunidad = borrar;
+    window.__reportarRecetaComunidad = reportar;
   });
 
   /* ================= Recetas de la comunidad: grid con buscador y filtro ================= */
@@ -877,17 +928,31 @@
     if (!grid) return; // solo existe en comunidad.html
 
     const buscador = document.getElementById("buscadorComunidad");
+    const filtroCategoria = document.getElementById("filtroCategoriaComunidad");
     const filtroRating = document.getElementById("filtroRatingComunidad");
+    const filtroReportadasWrap = document.getElementById("filtroReportadasWrap");
+    const filtroReportadas = document.getElementById("filtroReportadasComunidad");
     const sinResultados = document.getElementById("comunidadSinResultados");
 
     let recetas = [];
 
     function render() {
+      // El filtro de reportadas solo se ofrece al admin (los datos de
+      // reportes viajan igualmente para todos, pero no tiene sentido que
+      // nadie más lo use ni lo vea).
+      const esAdminActual = Boolean(window.__esAdmin);
+      filtroReportadasWrap.hidden = !esAdminActual;
+      if (!esAdminActual) filtroReportadas.checked = false;
+
       const q = normalizar(buscador.value);
+      const categoria = filtroCategoria.value;
       const rating = filtroRating.value;
+      const soloReportadas = esAdminActual && filtroReportadas.checked;
       const lista = recetas.filter(r =>
         (!q || normalizar(r.nombre).includes(q)) &&
-        (!rating || r.rating === rating)
+        (!categoria || (r.etiquetas || []).includes(categoria)) &&
+        (!rating || r.rating === rating) &&
+        (!soloReportadas || (r.reportes || []).length > 0)
       ).sort((a, b) => new Date(b.creadoEn) - new Date(a.creadoEn));
       grid.innerHTML = "";
       sinResultados.hidden = lista.length > 0;
@@ -903,7 +968,7 @@
 
     window.__refrescarListaRecetas = cargar;
 
-    [buscador, filtroRating].forEach(el => el.addEventListener("input", render));
+    [buscador, filtroCategoria, filtroRating, filtroReportadas].forEach(el => el.addEventListener("input", render));
     document.addEventListener("hsn:auth-cambio", render);
     cargar();
   });

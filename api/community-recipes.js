@@ -2,8 +2,9 @@
 // POST /api/community-recipes  body: { nombre, descripcion, raciones, elaboracion, ingredientes, macros }
 //
 // Lista o crea recetas de la comunidad. Los macros los calcula el navegador
-// (ver api/_lib/recetas-comunidad.js); la IA solo asigna la calificación A-E
-// y escribe el motivo, igual que ya hace con los alimentos nuevos de la guía.
+// (ver api/_lib/recetas-comunidad.js); la IA solo asigna la calificación A-E,
+// el motivo y las etiquetas (vegano, proteico...), igual que ya hace con los
+// alimentos nuevos de la guía.
 
 import { almacenDisponible, listarRecetasComunidad, guardarRecetaComunidad, obtenerUsuarioDeSesion } from "./_lib/store.js";
 import { validarCamposReceta, calificarReceta } from "./_lib/recetas-comunidad.js";
@@ -54,7 +55,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { rating, motivo } = await calificarReceta(apiKey, campos);
+    const { rating, motivo, etiquetas } = await calificarReceta(apiKey, campos);
 
     const id = `receta_${normalizarSlug(campos.nombre)}_${randomBytes(4).toString("hex")}`;
     const ahora = new Date().toISOString();
@@ -63,6 +64,8 @@ export default async function handler(req, res) {
       ...campos,
       rating,
       motivo,
+      etiquetas,
+      reportes: [],
       autor: usuario.username,
       autorLower: usuario.username.toLowerCase(),
       creadoEn: ahora,

@@ -70,6 +70,13 @@
 
       <div class="filters reveal">
         <input type="search" id="buscadorComunidad" placeholder="Buscar una receta de la comunidad…">
+        <select id="filtroCategoriaComunidad">
+          <option value="">Todas las categorías</option>
+          <option value="vegano">Vegano</option>
+          <option value="vegetariano">Vegetariano</option>
+          <option value="proteico">Proteico</option>
+          <option value="bajo-en-calorias">Bajo en calorías</option>
+        </select>
         <select id="filtroRatingComunidad">
           <option value="">Todas las calificaciones</option>
           <option value="A">A — Excelente</option>
@@ -78,6 +85,9 @@
           <option value="D">D — Mejorable</option>
           <option value="E">E — Poco recomendable</option>
         </select>
+        <label class="filtro-reportadas" id="filtroReportadasWrap" hidden>
+          <input type="checkbox" id="filtroReportadasComunidad"> Solo reportadas
+        </label>
       </div>
 
       <div class="comunidad-grid" id="comunidadGrid"></div>

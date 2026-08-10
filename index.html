@@ -238,6 +238,20 @@
     </div>
   </section>
 
+  <!-- RECETAS DE LA COMUNIDAD (teaser) -->
+  <section class="section" id="comunidad-teaser">
+    <div class="container">
+      <h2 class="section-title reveal">Recetas de la Comunidad</h2>
+      <p class="section-sub reveal">Recetas creadas por otras personas de HSNutrición, con macros calculados a partir de datos reales y una calificación asignada por IA. Publica la tuya y forma parte.</p>
+
+      <div class="comunidad-grid reveal" id="comunidadTeaserGrid"></div>
+
+      <p class="recetas-teaser-cta reveal">
+        <a href="comunidad.html" class="btn btn-primary btn-sm">Ver todas las recetas de la comunidad</a>
+      </p>
+    </div>
+  </section>
+
   <!-- SOBRE -->
   <section class="section section-tinted" id="sobre">
     <div class="container about-grid">
@@ -336,6 +350,65 @@
         <button type="submit" class="btn btn-primary" id="authRegisterSubmit">Crear cuenta</button>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- MODAL FICHA DE INGREDIENTE -->
+<div class="modal-overlay" id="fichaModalOverlay" hidden>
+  <div class="modal modal-ficha" role="dialog" aria-modal="true">
+    <button class="modal-close" id="fichaModalClose" aria-label="Cerrar">✕</button>
+    <div id="fichaModalContenido"></div>
+  </div>
+</div>
+
+<!-- MODAL CONSTRUCTOR DE RECETA (para editar tus propias recetas desde aquí) -->
+<div class="modal-overlay" id="builderModalOverlay" hidden>
+  <div class="modal modal-wide" role="dialog" aria-modal="true" aria-labelledby="builderModalTitle">
+    <button class="modal-close" id="builderModalClose" aria-label="Cerrar">✕</button>
+    <h3 id="builderModalTitle">Crear receta</h3>
+    <form id="builderForm">
+      <input type="hidden" id="builderId" value="">
+
+      <label for="builderNombre">Nombre</label>
+      <input type="text" id="builderNombre" required maxlength="100">
+
+      <label for="builderDescripcion">Descripción</label>
+      <textarea id="builderDescripcion" required maxlength="600" rows="2"></textarea>
+
+      <label for="builderRaciones">Raciones</label>
+      <input type="number" id="builderRaciones" min="1" max="20" value="1" required style="max-width:120px">
+
+      <label>Ingredientes</label>
+      <div class="ingrediente-picker">
+        <input type="text" id="builderIngredienteBusqueda" placeholder="Buscar un alimento…" autocomplete="off">
+        <div class="ingrediente-picker-resultados" id="builderIngredienteResultados" hidden></div>
+      </div>
+      <div class="ingrediente-picker-cantidad" id="builderCantidadWrap" hidden>
+        <span id="builderCandidatoNombre"></span>
+        <input type="number" id="builderIngredienteGramos" placeholder="Gramos" min="1" max="5000">
+        <button type="button" class="btn btn-primary btn-sm" id="builderAnadirIngrediente">Añadir</button>
+      </div>
+      <div class="ingrediente-picker-lista" id="builderIngredientesLista"></div>
+
+      <label for="builderElaboracion">Elaboración <span class="receta-hint">(un paso por línea)</span></label>
+      <textarea id="builderElaboracion" required rows="5"></textarea>
+
+      <h4>Vista previa de macros</h4>
+      <div id="builderMacroPreview"></div>
+
+      <p class="modal-hint" id="builderStatus"></p>
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary" id="builderSubmit">Publicar receta</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- MODAL DETALLE DE RECETA DE COMUNIDAD -->
+<div class="modal-overlay" id="comunidadDetalleOverlay" hidden>
+  <div class="modal modal-wide" role="dialog" aria-modal="true">
+    <button class="modal-close" id="comunidadDetalleClose" aria-label="Cerrar">✕</button>
+    <div id="comunidadDetalleContenido"></div>
   </div>
 </div>
 

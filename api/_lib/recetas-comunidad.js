@@ -6,13 +6,22 @@ import { callGemini, extraerJSON } from "./gemini.js";
 
 export const MACRO_KEYS = ["kcal", "carbs", "azucares", "proteinas", "grasas", "grasasSat", "fibra", "sodio"];
 
+// Mismo vocabulario que usan las etiquetas de las recetas curadas
+// (js/recetas.js), para que el filtro de categorías funcione igual en
+// recetas.html y en comunidad.html.
+const ETIQUETAS_VALIDAS = ["vegano", "vegetariano", "proteico", "bajo-en-calorias"];
+
 const RATING_SCHEMA = {
   type: "object",
   properties: {
     rating: { type: "string", enum: ["A", "B", "C", "D", "E"] },
-    motivo: { type: "string" }
+    motivo: { type: "string" },
+    etiquetas: {
+      type: "array",
+      items: { type: "string", enum: ETIQUETAS_VALIDAS }
+    }
   },
-  required: ["rating", "motivo"]
+  required: ["rating", "motivo", "etiquetas"]
 };
 
 // Los macros los calcula el navegador (a partir de los datos reales de
@@ -56,11 +65,18 @@ export function validarCamposReceta(body) {
 export async function calificarReceta(apiKey, receta) {
   const ingredientesTexto = receta.ingredientes.map(i => `- ${i.nombre}: ${i.cantidad} g`).join("\n");
   const pasosTexto = receta.elaboracion.map((p, i) => `${i + 1}. ${p}`).join("\n");
+  const porRacion = Object.fromEntries(MACRO_KEYS.map(k => [k, Math.round((receta.macros[k] / receta.raciones) * 10) / 10]));
 
   const texto = await callGemini(apiKey, {
     input: `Eres un dietista-nutricionista evaluando una receta enviada por un usuario de una comunidad de nutrición. Los macros ya están calculados correctamente a partir de datos reales por ingrediente: NO los recalcules, solo emite tu juicio.
 
-Evalúa de forma holística, no solo por calorías: considera la calidad de los ingredientes (procesados vs. enteros), el equilibrio de macronutrientes, la presencia o ausencia de verduras/fibra, el contenido de grasas saturadas/colesterol/sodio, y el método de elaboración. Por ejemplo, un plato con calorías moderadas pero mucho colesterol y ninguna verdura (como una carbonara clásica con huevo, queso y pollo) debería calificarse con más severidad (p.ej. C) que uno con calorías similares pero ingredientes íntegros y verdura.
+Evalúa la calificación de forma holística, no solo por calorías: considera la calidad de los ingredientes (procesados vs. enteros), el equilibrio de macronutrientes, la presencia o ausencia de verduras/fibra, el contenido de grasas saturadas/colesterol/sodio, y el método de elaboración. Por ejemplo, un plato con calorías moderadas pero mucho colesterol y ninguna verdura (como una carbonara clásica con huevo, queso y pollo) debería calificarse con más severidad (p.ej. C) que uno con calorías similares pero ingredientes íntegros y verdura.
+
+Además, asigna las etiquetas que correspondan (puede ser ninguna, o varias a la vez), con este criterio exacto:
+- "vegano": ningún ingrediente es de origen animal (ni carne, pescado, huevo, lácteos, miel...).
+- "vegetariano": no lleva carne ni pescado, pero sí puede llevar huevo o lácteos. No la marques si ya es vegana (son excluyentes).
+- "proteico": al menos 25 g de proteína por ración.
+- "bajo-en-calorias": 400 kcal o menos por ración — pero no la marques si el plato es claramente un dulce/postre/snack calórico aunque cumpla ese umbral por ración pequeña (usa criterio, no solo el número).
 
 Receta: "${receta.nombre}"
 Descripción: ${receta.descripcion}
@@ -71,10 +87,15 @@ Elaboración:
 ${pasosTexto}
 
 Macros totales de la receta completa (no por ración): ${MACRO_KEYS.map(k => `${k}: ${receta.macros[k]}`).join(", ")}.
+Macros por ración (total ÷ raciones): ${MACRO_KEYS.map(k => `${k}: ${porRacion[k]}`).join(", ")}.
 
-Responde ÚNICAMENTE con un objeto JSON: {"rating":"A|B|C|D|E","motivo":"..."}. El motivo debe ser breve (1-3 frases), en español, explicando la calificación.`,
+Responde ÚNICAMENTE con un objeto JSON: {"rating":"A|B|C|D|E","motivo":"...","etiquetas":["..."]}. El motivo debe ser breve (1-3 frases), en español, explicando la calificación.`,
     responseSchema: RATING_SCHEMA
   });
 
-  return extraerJSON(texto);
+  const resultado = extraerJSON(texto);
+  const etiquetas = Array.isArray(resultado.etiquetas)
+    ? resultado.etiquetas.filter(e => ETIQUETAS_VALIDAS.includes(e))
+    : [];
+  return { rating: resultado.rating, motivo: resultado.motivo, etiquetas };
 }

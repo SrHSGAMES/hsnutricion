@@ -1,14 +1,16 @@
+// POST   /api/community-recipe   body: { id }   → reportar (cualquier usuario logueado)
 // PUT    /api/community-recipe   body: { id, nombre, descripcion, raciones, elaboracion, ingredientes, macros }
 // DELETE /api/community-recipe   body o query: { id }
 //
-// Editar o borrar una receta de la comunidad. Requiere sesión activa y ser
-// el autor de la receta, o tener permisos de administrador (moderación).
+// Reportar, editar o borrar una receta de la comunidad. Reportar solo
+// requiere sesión activa; editar/borrar requiere además ser el autor, o
+// tener permisos de administrador (moderación).
 
 import { almacenDisponible, obtenerRecetaComunidad, guardarRecetaComunidad, borrarRecetaComunidad, obtenerUsuarioDeSesion, esAdmin } from "./_lib/store.js";
 import { validarCamposReceta, calificarReceta } from "./_lib/recetas-comunidad.js";
 
 export default async function handler(req, res) {
-  if (req.method !== "PUT" && req.method !== "DELETE") {
+  if (req.method !== "POST" && req.method !== "PUT" && req.method !== "DELETE") {
     return res.status(405).json({ error: "Método no permitido." });
   }
   if (!almacenDisponible()) {
@@ -30,6 +32,17 @@ export default async function handler(req, res) {
     if (!existente) {
       return res.status(404).json({ error: "Esa receta ya no existe." });
     }
+
+    if (req.method === "POST") {
+      const usernameLower = usuario.username.toLowerCase();
+      const reportes = Array.isArray(existente.reportes) ? existente.reportes : [];
+      if (!reportes.includes(usernameLower)) {
+        reportes.push(usernameLower);
+        await guardarRecetaComunidad(id, { ...existente, reportes });
+      }
+      return res.status(200).json({ ok: true });
+    }
+
     const esAutor = existente.autorLower === usuario.username.toLowerCase();
     const puedeModificar = esAutor || esAdmin(usuario.username.toLowerCase());
     if (!puedeModificar) {
@@ -42,7 +55,7 @@ export default async function handler(req, res) {
     }
 
     // PUT: los ingredientes pueden haber cambiado, así que se vuelve a pedir
-    // la calificación a la IA en vez de conservar la anterior.
+    // la calificación (y las etiquetas) a la IA en vez de conservar las anteriores.
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return res.status(500).json({ error: "Falta configurar GEMINI_API_KEY en las variables de entorno de Vercel." });
@@ -55,12 +68,13 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: err.message });
     }
 
-    const { rating, motivo } = await calificarReceta(apiKey, campos);
+    const { rating, motivo, etiquetas } = await calificarReceta(apiKey, campos);
     const actualizada = {
       ...existente,
       ...campos,
       rating,
       motivo,
+      etiquetas,
       actualizadoEn: new Date().toISOString()
     };
     await guardarRecetaComunidad(id, actualizada);
