@@ -517,6 +517,7 @@
   /* ================= Contador hero ================= */
   seguro("contador-hero", () => {
     const statFoods = document.getElementById("statFoods");
+    if (!statFoods) return; // solo existe en index.html
     const inicio = Date.now();
     let n = 0;
     // Lee FOODS.length en cada paso (no un total fijo al empezar): así, si los
@@ -980,8 +981,20 @@
 
     const nombreEl = document.getElementById("perfilNombre");
     const metaEl = document.getElementById("perfilMeta");
+    const badgeEl = document.getElementById("perfilBadge");
     const sinResultados = document.getElementById("perfilSinResultados");
     const btnLogout = document.getElementById("btnCerrarSesionPerfil");
+    const btnAjustes = document.getElementById("btnAjustesPerfil");
+    const ajustesCuenta = document.getElementById("ajustesCuenta");
+
+    // Insignia según el número de recetas publicadas — un único escalón, el
+    // más alto alcanzado, para no saturar el perfil con varias a la vez.
+    function insigniaDe(n) {
+      if (n >= 20) return "🏆 Pilar de la comunidad";
+      if (n >= 5) return "⭐ Colaborador activo";
+      if (n >= 1) return "🌱 Primera receta";
+      return null;
+    }
 
     const usuarioLower = (new URLSearchParams(window.location.search).get("usuario") || "").trim().toLowerCase();
 
@@ -997,6 +1010,13 @@
       grid.innerHTML = "";
       const esPropio = Boolean(window.__usuarioActual) && window.__usuarioActual.toLowerCase() === usuarioLower;
       btnLogout.hidden = !esPropio;
+      btnAjustes.hidden = !esPropio;
+      if (!esPropio) ajustesCuenta.hidden = true;
+
+      const insignia = insigniaDe(propias.length);
+      badgeEl.hidden = !insignia;
+      badgeEl.textContent = insignia || "";
+
       sinResultados.hidden = propias.length > 0;
       if (!propias.length) {
         sinResultados.textContent = esPropio
@@ -1039,6 +1059,64 @@
         console.error("[HSNutrición] Error al cerrar sesión:", err);
       } finally {
         window.location.href = "index.html";
+      }
+    });
+
+    btnAjustes.addEventListener("click", () => {
+      ajustesCuenta.hidden = !ajustesCuenta.hidden;
+    });
+
+    const formCambiarPassword = document.getElementById("formCambiarPassword");
+    const cambiarPasswordStatus = document.getElementById("cambiarPasswordStatus");
+    formCambiarPassword.addEventListener("submit", async e => {
+      e.preventDefault();
+      const passwordActual = document.getElementById("passwordActual").value;
+      const passwordNueva = document.getElementById("passwordNueva").value;
+      const btn = formCambiarPassword.querySelector("button[type=submit]");
+      btn.disabled = true;
+      cambiarPasswordStatus.textContent = "Guardando...";
+      try {
+        const resp = await fetch("/api/change-password", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ passwordActual, passwordNueva })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        cambiarPasswordStatus.textContent = "Contraseña actualizada.";
+        formCambiarPassword.reset();
+      } catch (err) {
+        cambiarPasswordStatus.textContent = err.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+
+    const btnMostrarBorrarCuenta = document.getElementById("btnMostrarBorrarCuenta");
+    const formBorrarCuenta = document.getElementById("formBorrarCuenta");
+    const borrarCuentaStatus = document.getElementById("borrarCuentaStatus");
+    btnMostrarBorrarCuenta.addEventListener("click", () => {
+      formBorrarCuenta.hidden = !formBorrarCuenta.hidden;
+    });
+    formBorrarCuenta.addEventListener("submit", async e => {
+      e.preventDefault();
+      if (!confirm("Esta acción no se puede deshacer y borrará también todas tus recetas publicadas. ¿Seguro que quieres continuar?")) return;
+      const password = document.getElementById("passwordBorrar").value;
+      const btn = document.getElementById("btnConfirmarBorrarCuenta");
+      btn.disabled = true;
+      borrarCuentaStatus.textContent = "Borrando...";
+      try {
+        const resp = await fetch("/api/delete-account", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ password })
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || ("respuesta " + resp.status));
+        window.location.href = "index.html";
+      } catch (err) {
+        borrarCuentaStatus.textContent = err.message;
+        btn.disabled = false;
       }
     });
   });

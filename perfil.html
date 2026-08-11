@@ -59,8 +59,44 @@
         <div>
           <h2 class="section-title" id="perfilNombre">Cargando…</h2>
           <p class="section-sub" id="perfilMeta"></p>
+          <span class="perfil-badge" id="perfilBadge" hidden></span>
         </div>
-        <button class="btn btn-ghost" id="btnCerrarSesionPerfil" hidden>Cerrar sesión</button>
+        <div class="perfil-head-actions">
+          <button class="btn btn-ghost btn-sm" id="btnAjustesPerfil" hidden>Ajustes de cuenta</button>
+          <button class="btn btn-ghost btn-sm" id="btnCerrarSesionPerfil" hidden>Cerrar sesión</button>
+        </div>
+      </div>
+
+      <div class="ajustes-cuenta" id="ajustesCuenta" hidden>
+        <h3>Ajustes de cuenta</h3>
+
+        <div class="ajustes-bloque">
+          <h4>Cambiar contraseña</h4>
+          <form id="formCambiarPassword">
+            <label for="passwordActual">Contraseña actual</label>
+            <input type="password" id="passwordActual" autocomplete="current-password" required maxlength="200">
+            <label for="passwordNueva">Contraseña nueva</label>
+            <input type="password" id="passwordNueva" autocomplete="new-password" required minlength="8" maxlength="200">
+            <p class="modal-hint" id="cambiarPasswordStatus"></p>
+            <div class="modal-actions">
+              <button type="submit" class="btn btn-primary btn-sm">Guardar contraseña</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="ajustes-bloque ajustes-peligro">
+          <h4>Borrar cuenta</h4>
+          <p class="modal-hint">Esto borra tu cuenta y todas las recetas de comunidad que hayas publicado. No se puede deshacer.</p>
+          <button type="button" class="btn btn-ghost btn-sm" id="btnMostrarBorrarCuenta">Borrar mi cuenta</button>
+          <form id="formBorrarCuenta" hidden>
+            <label for="passwordBorrar">Confirma tu contraseña</label>
+            <input type="password" id="passwordBorrar" autocomplete="current-password" required maxlength="200">
+            <p class="modal-hint" id="borrarCuentaStatus"></p>
+            <div class="modal-actions">
+              <button type="submit" class="btn btn-peligro btn-sm" id="btnConfirmarBorrarCuenta">Borrar definitivamente</button>
+            </div>
+          </form>
+        </div>
       </div>
 
       <div class="comunidad-grid" id="perfilGrid"></div>

@@ -351,7 +351,7 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
 .modal .auth-tab-panel { padding: 14px 0 0; }
 
 .panel-label { display: block; font-weight: 600; margin-bottom: 10px; color: var(--ink); }
-textarea, #buscadorGuia, #buscadorRecetas, #buscadorComunidad, .modal input {
+textarea, #buscadorGuia, #buscadorRecetas, #buscadorComunidad, .modal input, .ajustes-cuenta input {
   width: 100%;
   border: 1.5px solid var(--line);
   border-radius: var(--radius-sm);
@@ -914,6 +914,33 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
+.perfil-head-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.perfil-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: .8rem;
+  font-weight: 700;
+  color: var(--green-700);
+  background: var(--green-50);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+.ajustes-cuenta {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 30px;
+}
+.ajustes-cuenta h3 { margin: 0 0 4px; font-size: 1.1rem; }
+.ajustes-bloque { padding: 20px 0 0; border-top: 1px solid var(--line); margin-top: 20px; }
+.ajustes-bloque:first-of-type { border-top: none; margin-top: 12px; padding-top: 0; }
+.ajustes-bloque h4 { margin: 0 0 4px; font-size: .95rem; }
+.ajustes-peligro h4 { color: var(--rating-E); }
+.ajustes-cuenta label { display: block; font-weight: 600; margin: 14px 0 8px; font-size: .9rem; }
+.btn-peligro { background: var(--rating-E); color: #fff; }
+.btn-peligro:hover { background: var(--rating-E); opacity: .9; }
+
 .comunidad-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

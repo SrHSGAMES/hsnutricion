@@ -67,6 +67,17 @@ export async function obtenerUsuario(usernameLower) {
   return raw ? JSON.parse(raw) : null;
 }
 
+// Sobrescribe los datos de un usuario ya existente (p.ej. al cambiar la
+// contraseña) — a diferencia de crearUsuario(), no usa NX porque aquí sí
+// queremos sobrescribir.
+export async function actualizarUsuario(usernameLower, datos) {
+  await comando(["SET", `hsn:user:${usernameLower}`, JSON.stringify(datos)]);
+}
+
+export async function borrarUsuario(usernameLower) {
+  await comando(["DEL", `hsn:user:${usernameLower}`]);
+}
+
 export async function guardarSesion(token, datos, ttlSegundos) {
   await comando(["SET", `hsn:session:${token}`, JSON.stringify(datos), "EX", String(ttlSegundos)]);
 }
