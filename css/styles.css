@@ -1054,6 +1054,17 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
 .site-footer { border-top: 1px solid var(--line); padding: 34px 0; background: var(--paper-tint); }
 .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
 .footer-inner p { margin: 0; font-size: .85rem; color: var(--ink-faint); }
+.footer-meta { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.footer-link { font-size: .85rem; color: var(--ink-faint); text-decoration: none; }
+.footer-link:hover { color: var(--green-700); text-decoration: underline; }
+
+/* ---------- Página de privacidad ---------- */
+.legal-content { max-width: 760px; }
+.legal-content h3 { margin: 34px 0 12px; font-size: 1.15rem; }
+.legal-content h3:first-child { margin-top: 0; }
+.legal-content ul { color: var(--ink-soft); line-height: 1.65; padding-left: 22px; margin: 0 0 1em; }
+.legal-content li { margin-bottom: 6px; }
+.legal-content strong { color: var(--ink); }
 
 /* ---------- Modal ---------- */
 .modal-overlay {

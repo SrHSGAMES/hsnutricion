@@ -515,7 +515,10 @@ def render_pagina(receta, foods, todas_recetas):
       <img class="brand-mark" src="img/logo-header.png" alt="" width="33" height="40">
       <span class="brand-name">HS<span>Nutrición</span></span>
     </div>
-    <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico.</p>
+    <div class="footer-meta">
+      <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico.</p>
+      <a href="privacidad.html" class="footer-link">Privacidad</a>
+    </div>
   </div>
 </footer>
 
@@ -590,6 +593,8 @@ def render_sitemap(recetas, extra_urls=None):
     urls = [
         {"loc": f"{SITE_URL}/", "prioridad": "1.0"},
         {"loc": f"{SITE_URL}/recetas.html", "prioridad": "0.8"},
+        {"loc": f"{SITE_URL}/comunidad.html", "prioridad": "0.7"},
+        {"loc": f"{SITE_URL}/privacidad.html", "prioridad": "0.3"},
     ]
     for receta in recetas:
         urls.append({"loc": f'{SITE_URL}/receta-{slug(receta["id"])}.html', "prioridad": "0.7"})
@@ -645,7 +650,7 @@ def main():
     sitemap_path = os.path.join(ROOT, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(render_sitemap(recetas, extra_urls=urls_sustitutos))
-    print(f"  sitemap.xml — {len(recetas) + 2 + len(urls_sustitutos)} URLs")
+    print(f"  sitemap.xml — {len(recetas) + 4 + len(urls_sustitutos)} URLs")
 
 
 if __name__ == "__main__":
