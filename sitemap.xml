@@ -216,81 +216,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.hsnutricion.com/sustituto-aceite-girasol.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-arroz-blanco.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-azucar.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-bacon.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-bebida-energetica.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-cereales-azucarados.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-chocolate-leche.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-crema-cacahuete-azucarada.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-embutido.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-frutos-secos-salados.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-galletas.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-harina-blanca.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-helado.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-ketchup.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-leche-entera.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.hsnutricion.com/sustituto-mantequilla.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
@@ -301,22 +226,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hsnutricion.com/sustituto-mayonesa.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-mermelada.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-miel.html</loc>
-    <lastmod>2026-08-14</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-nata-cocinar.html</loc>
+    <loc>https://www.hsnutricion.com/sustituto-aceite-girasol.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>
@@ -326,22 +236,27 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.hsnutricion.com/sustituto-arroz-blanco.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.hsnutricion.com/sustituto-pasta-blanca.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hsnutricion.com/sustituto-patatas-fritas.html</loc>
+    <loc>https://www.hsnutricion.com/sustituto-azucar.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hsnutricion.com/sustituto-queso-curado.html</loc>
+    <loc>https://www.hsnutricion.com/sustituto-miel.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.hsnutricion.com/sustituto-refresco.html</loc>
+    <loc>https://www.hsnutricion.com/sustituto-leche-entera.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>
@@ -351,7 +266,92 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.hsnutricion.com/sustituto-queso-curado.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-nata-cocinar.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-mayonesa.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-refresco.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.hsnutricion.com/sustituto-zumo-envasado.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-patatas-fritas.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-embutido.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-bacon.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-chocolate-leche.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-galletas.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-cereales-azucarados.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-ketchup.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-crema-cacahuete-azucarada.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-frutos-secos-salados.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-helado.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-harina-blanca.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-mermelada.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-bebida-energetica.html</loc>
     <lastmod>2026-08-14</lastmod>
     <priority>0.6</priority>
   </url>

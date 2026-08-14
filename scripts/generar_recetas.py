@@ -393,6 +393,8 @@ def render_pagina(receta, foods, todas_recetas):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CXWD4NTJ1N"></script>
+<script src="js/analytics.js"></script>
 <title>{esc(receta["nombre"])} — Receta Saludable | HSNutrición</title>
 <meta name="description" content="{esc(receta["descripcion"])}">
 <link rel="canonical" href="{page_url}">
