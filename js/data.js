@@ -1377,6 +1377,17 @@ const FOODS = [
     kcal: 43, carbs: 10.8, azucares: 7.8, proteinas: 0.5, grasas: 0.3, grasasSat: 0.1, fibra: 1.7, sodio: 8,
     motivo: "Muy rica en vitamina C y betacarotenos, y contiene papaína, una enzima digestiva característica de esta fruta. Baja en calorías y muy jugosa.",
     sustitutos: []
+  },
+  {
+    id: "cafe",
+    nombre: "Café solo",
+    aliases: ["cafe", "cafe solo", "cafe negro", "espresso", "cafe americano"],
+    categorias: ["Bebidas"],
+    emoji: "☕",
+    rating: "A",
+    kcal: 1, carbs: 0, azucares: 0, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 2,
+    motivo: "Prácticamente sin calorías ni macronutrientes relevantes. Sin azúcar añadido, aporta antioxidantes (ácido clorogénico) y cafeína, asociada en dosis moderadas a beneficios cognitivos y metabólicos.",
+    sustitutos: []
   }
 ];
 

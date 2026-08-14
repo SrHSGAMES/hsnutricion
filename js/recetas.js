@@ -1292,5 +1292,38 @@ const RECETAS = [
       { pregunta: "¿Se puede preparar con antelación?", respuesta: "El mango y la piña aguantan bien un par de días en la nevera ya cortados; la papaya y la lima es mejor añadirlas justo antes de servir." },
       { pregunta: "¿Por qué lleva lima?", respuesta: "Su acidez realza el dulzor de la fruta tropical sin necesidad de añadir azúcar." }
     ]
+  },
+  {
+    id: "tiramisu_yogur_saludable",
+    nombre: "Tiramisú de Yogur Saludable",
+    emojiPortada: "☕🍰🥄",
+    rating: "A",
+    tiempo: "20 min + reposo",
+    raciones: 4,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
+    descripcion: "La versión viral del tiramisú sin mascarpone ni nata: yogur de soja en vez de la crema clásica, y las Tortitas de Avena de la guía en vez de bizcochos o galletas Biscoff empapados en café. Mucha menos grasa saturada y azúcar que el original.",
+    motivo: "El mascarpone, la nata y las yemas de huevo del tiramisú clásico se sustituyen aquí por yogur de soja, que aporta cremosidad con muchísima menos grasa saturada. Las Tortitas de Avena hacen de base crujiente-esponjosa en vez de bizcochos o galletas industriales, con mucho menos azúcar añadido. El cacao puro suma fibra y antioxidantes, y la miel se usa en una cantidad moderada solo como toque de dulzor — se puede omitir sin problema.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 500 },
+      { foodId: "ia_tortitas_de_avena", cantidad: 80 },
+      { foodId: "cafe", cantidad: 150 },
+      { foodId: "cacao_puro", cantidad: 10 },
+      { foodId: "miel", cantidad: 20, opcional: true }
+    ],
+    pasos: [
+      "Prepara un café solo y déjalo enfriar por completo.",
+      "Trocea las Tortitas de Avena en trozos irregulares y reparte la mitad en la base de un molde o de vasos individuales.",
+      "Moja los trozos con parte del café frío, sin empaparlos en exceso.",
+      "Mezcla el yogur de soja con la miel hasta que quede homogéneo, y vierte la mitad sobre la primera capa.",
+      "Repite una segunda capa de tortitas mojadas en café y yogur con miel.",
+      "Espolvorea el cacao puro por encima justo antes de servir.",
+      "Deja reposar en la nevera al menos 2 horas —mejor de un día para otro— para que las tortitas se ablanden."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Con miel no, solo vegetariana. Para hacerla vegana, sustituye la miel por sirope de agave o simplemente omítela." },
+      { pregunta: "¿Se puede hacer sin gluten?", respuesta: "Depende de las Tortitas de Avena: la avena en sí no tiene gluten, pero puede llevar trazas por contaminación cruzada salvo que compres una marca certificada sin gluten." },
+      { pregunta: "¿Cuánto tiempo se conserva en la nevera?", respuesta: "2-3 días en un recipiente hermético; el sabor mejora si lo dejas reposar de un día para otro." }
+    ]
   }
 ];
