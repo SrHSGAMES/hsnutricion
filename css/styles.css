@@ -749,6 +749,15 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
 }
 .leer-mas-toggle:hover { text-decoration: underline; }
 
+.food-page-link {
+  display: inline-block;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--green-700);
+  margin: -4px 0 10px;
+}
+.food-page-link:hover { text-decoration: underline; }
+
 .macro-table { width: 100%; margin: 14px 0; }
 .macro-row { margin-bottom: 8px; }
 .macro-row-head { display: flex; justify-content: space-between; font-size: .8rem; margin-bottom: 4px; }

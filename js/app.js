@@ -12,6 +12,17 @@
     fibra: "Fibra", sodio: "Sodio"
   };
 
+  // Ids que ya tienen página propia (alimento-<id>.html / sustituto-<id>.html)
+  // en el momento de cargar la página: son los alimentos base de data.js, que
+  // scripts/generar_alimentos.py y generar_sustitutos.py generan a partir de
+  // ese mismo archivo. Los alimentos que la IA resuelve en vivo (antes de que
+  // alguien los "promueva" a data.js) todavía no tienen esas páginas.
+  const IDS_CON_PAGINA_PROPIA = new Set(FOODS.map(f => f.id));
+
+  function slugAlimento(foodId) {
+    return foodId.replace(/^ia_/, "").replace(/_/g, "-");
+  }
+
   /* ================= Detección de alimentos en texto ================= */
   function detectarAlimentos(texto) {
     const norm = normalizar(texto);
@@ -166,6 +177,7 @@
       </div>
       <p class="food-motivo food-motivo-principal clamped">${food.motivo}</p>
       <button class="leer-mas-toggle" type="button" hidden>Leer más</button>
+      ${IDS_CON_PAGINA_PROPIA.has(food.id) ? `<a class="food-page-link" href="alimento-${slugAlimento(food.id)}.html">Ver ficha completa ↗</a>` : ""}
     `;
 
     // El texto de descripción se trunca a 3 líneas por defecto (como en WhatsApp)
@@ -190,14 +202,14 @@
       const subCont = document.createElement("div");
       subCont.className = "substitutes";
       food.sustitutos.forEach(s => subCont.appendChild(crearSustituto(s)));
-      // Solo los alimentos base tienen su página "sustituto-<id>.html" generada
-      // (scripts/generar_sustitutos.py); los de la comunidad (ia_*) no, así que
-      // el enlace solo se muestra cuando de verdad existe esa página.
-      if (!food.id.startsWith("ia_")) {
+      // Solo los alimentos que ya tienen página propia cuentan con su página
+      // "sustituto-<id>.html" generada (scripts/generar_sustitutos.py); el
+      // enlace solo se muestra cuando de verdad existe esa página.
+      if (IDS_CON_PAGINA_PROPIA.has(food.id)) {
         const verMas = document.createElement("a");
         verMas.className = "btn btn-primary btn-sm";
         verMas.style.marginTop = "10px";
-        verMas.href = `sustituto-${food.id.replace(/_/g, "-")}.html`;
+        verMas.href = `sustituto-${slugAlimento(food.id)}.html`;
         verMas.textContent = "Ver comparativa completa →";
         subCont.appendChild(verMas);
       }

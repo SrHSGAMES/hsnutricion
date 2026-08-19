@@ -7,6 +7,7 @@ Uso: py scripts/generar_sustitutos.py            (genera todas)
      py scripts/generar_sustitutos.py mantequilla (genera solo esa, para probar)
 """
 import datetime
+import glob
 import json
 import os
 import re
@@ -452,11 +453,18 @@ def main():
 
     # El sitemap solo se actualiza en una pasada completa (sin filtro por id),
     # para no truncarlo a un subconjunto cuando se prueba con un alimento suelto.
+    # Las páginas de alimentos las genera un script aparte (generar_alimentos.py);
+    # se detectan aquí por archivo para que el sitemap quede completo sin
+    # importar qué script se ejecute último ni en qué orden.
     if not objetivo_ids:
+        urls_alimentos = [
+            {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.5"}
+            for p in sorted(glob.glob(os.path.join(ROOT, "alimento-*.html")))
+        ]
         sitemap_path = os.path.join(ROOT, "sitemap.xml")
         with open(sitemap_path, "w", encoding="utf-8") as f:
-            f.write(render_sitemap(todas_recetas, extra_urls=urls_sustitutos))
-        print(f"  sitemap.xml actualizado con {len(urls_sustitutos)} páginas de sustitutos")
+            f.write(render_sitemap(todas_recetas, extra_urls=urls_sustitutos + urls_alimentos))
+        print(f"  sitemap.xml actualizado con {len(urls_sustitutos)} páginas de sustitutos + {len(urls_alimentos)} de alimentos")
 
 
 if __name__ == "__main__":

@@ -181,8 +181,13 @@ def esc(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
-def slug(receta_id):
-    return receta_id.replace("_", "-")
+def slug(id_):
+    """Convierte un id de receta o de alimento en el slug de su URL. Los
+    alimentos que la IA generó llevan el prefijo "ia_" en su id interno (para
+    no romper las recetas que ya los referencian), pero ese prefijo se quita
+    aquí para que la URL pública quede limpia (p.ej. "ia_tomate" -> "tomate")."""
+    sin_prefijo = id_[3:] if id_.startswith("ia_") else id_
+    return sin_prefijo.replace("_", "-")
 
 
 def parse_duration_iso(tiempo):
@@ -642,18 +647,23 @@ def main():
         estado = f"FALTAN: {faltantes}" if faltantes else "OK"
         print(f"  {filename} — {estado}")
 
-    # Las páginas de sustitutos las genera un script aparte (generar_sustitutos.py);
-    # se detectan aquí por archivo para que el sitemap quede completo sin importar
-    # qué script se ejecute último ni en qué orden.
+    # Las páginas de sustitutos y de alimentos las generan scripts aparte
+    # (generar_sustitutos.py, generar_alimentos.py); se detectan aquí por
+    # archivo para que el sitemap quede completo sin importar qué script se
+    # ejecute último ni en qué orden.
     urls_sustitutos = [
         {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.6"}
         for p in sorted(glob.glob(os.path.join(ROOT, "sustituto-*.html")))
     ]
+    urls_alimentos = [
+        {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.5"}
+        for p in sorted(glob.glob(os.path.join(ROOT, "alimento-*.html")))
+    ]
 
     sitemap_path = os.path.join(ROOT, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
-        f.write(render_sitemap(recetas, extra_urls=urls_sustitutos))
-    print(f"  sitemap.xml — {len(recetas) + 4 + len(urls_sustitutos)} URLs")
+        f.write(render_sitemap(recetas, extra_urls=urls_sustitutos + urls_alimentos))
+    print(f"  sitemap.xml — {len(recetas) + 4 + len(urls_sustitutos) + len(urls_alimentos)} URLs")
 
 
 if __name__ == "__main__":
