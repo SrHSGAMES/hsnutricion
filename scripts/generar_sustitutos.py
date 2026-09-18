@@ -17,7 +17,7 @@ import sys
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ESCALAS, ETIQUETAS,
     formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
-    parse_recetas, render_sitemap,
+    parse_recetas, render_sitemap, render_receta_teaser,
 )
 
 
@@ -195,12 +195,7 @@ def render_sustituto_card(sustituto, original, recetas_relacionadas):
     etiqueta_mejor = '<span class="sub-best">Mejor opción</span>' if sustituto["mejor"] else ""
     recetas_html = ""
     if recetas_relacionadas:
-        items = "\n".join(
-            f'<a class="receta-teaser-card" href="receta-{slug(r["id"])}.html">'
-            f'<div class="receta-teaser-info"><h3>{esc(r["nombre"])}</h3>'
-            f'<span class="receta-meta">⏱️ {esc(r["tiempo"])}</span></div></a>'
-            for r in recetas_relacionadas
-        )
+        items = "\n".join(render_receta_teaser(r) for r in recetas_relacionadas)
         recetas_html = f'''
       <p class="receta-hint" style="margin:14px 0 8px">Recetas que ya usan {esc(formatear_nombre(sustituto["nombre"]))}:</p>
       <div class="recetas-teaser-grid">{items}</div>'''
