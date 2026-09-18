@@ -589,6 +589,7 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
   text-align: left;
 }
 .ingrediente-link .food-emoji { width: 30px; height: 30px; font-size: 1.05rem; background: #fff; border-radius: 9px; }
+a.ingrediente-link { text-decoration: none; }
 .ingrediente-link:hover { text-decoration: underline; }
 .ingrediente-cantidad { font-size: .82rem; color: var(--ink-faint); white-space: nowrap; }
 .ingrediente-opcional { border: 1px dashed var(--line); background: transparent; }

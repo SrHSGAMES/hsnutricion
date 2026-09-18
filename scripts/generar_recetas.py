@@ -298,11 +298,20 @@ def render_ingrediente(ing, foods):
     li_class = ' class="ingrediente-opcional"' if ing["opcional"] else ""
     if food:
         opcional_tag = '<span class="ingrediente-opcional-tag">Opcional</span>' if ing["opcional"] else ""
+        # Los alimentos de la guía (data.js) tienen página propia: enlace real
+        # rastreable por Google; el JS lo intercepta para abrir la ficha en
+        # modal. Los resueltos en vivo por la IA (sin página) siguen siendo botón.
+        if food.get("comunidad"):
+            apertura = f'<button type="button" class="ingrediente-link" data-food-id="{esc(food["id"])}">'
+            cierre = "</button>"
+        else:
+            apertura = f'<a class="ingrediente-link" href="alimento-{slug(food["id"])}.html" data-food-id="{esc(food["id"])}">'
+            cierre = "</a>"
         return f'''      <li{li_class}>
-        <button type="button" class="ingrediente-link" data-food-id="{esc(food["id"])}">
+        {apertura}
           <span class="food-emoji">{food["emoji"]}</span> {esc(formatear_nombre(food["nombre"]))}
           {opcional_tag}
-        </button>
+        {cierre}
         <span class="ingrediente-cantidad">{ing["cantidad"]:g} g</span>
       </li>'''
     return f'''      <li{li_class}>
@@ -630,7 +639,9 @@ def main():
     try:
         comunidad = fetch_community_foods()
         print(f"Alimentos de la comunidad: {len(comunidad)}")
-        foods.update(comunidad)
+        # Los de data.js mandan; solo se añaden los que aún no se han promovido.
+        for fid, f in comunidad.items():
+            foods.setdefault(fid, {**f, "comunidad": True})
     except Exception as e:
         print(f"AVISO: no se pudieron cargar los alimentos de la comunidad ({e}). Algunos ingredientes pueden faltar.")
 

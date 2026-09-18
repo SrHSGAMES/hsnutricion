@@ -489,7 +489,11 @@
     // así que escuchamos el clic en un contenedor estable en vez de en cada botón.
     document.addEventListener("click", e => {
       const btn = e.target.closest(".ingrediente-link");
-      if (btn) abrirFicha(btn.dataset.foodId);
+      if (!btn) return;
+      // Ctrl/Cmd/Shift/clic central: comportamiento normal del enlace (nueva pestaña).
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      abrirFicha(btn.dataset.foodId);
     });
     document.getElementById("fichaModalClose").addEventListener("click", cerrarFicha);
     overlay.addEventListener("click", e => { if (e.target === overlay) cerrarFicha(); });
