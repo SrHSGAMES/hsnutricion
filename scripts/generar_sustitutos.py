@@ -87,6 +87,9 @@ def parse_foods_full(path):
             m = re.search(rf'\b{k}: (-?[\d.]+)', chunk)
             macros[k] = float(m.group(1)) if m else 0.0
 
+        aliases_m = re.search(r"aliases: \[([^\]]*)\]", chunk)
+        aliases = re.findall(r'"([^"]*)"', aliases_m.group(1)) if aliases_m else []
+
         estudios_m = re.search(r"estudios: (\[.*?\n    \])", chunk, re.S)
         estudios = json.loads(estudios_m.group(1)) if estudios_m else []
 
@@ -108,6 +111,7 @@ def parse_foods_full(path):
             "id": food_id,
             "nombre": _extract_str(chunk, "nombre"),
             "categorias": categorias,
+            "aliases": aliases,
             "emoji": _extract_str(chunk, "emoji", required=False) or "🍽️",
             "rating": _extract_str(chunk, "rating"),
             "motivo": _extract_str(chunk, "motivo"),
@@ -126,13 +130,32 @@ def normalizar(s):
     return re.sub(r"\s+", " ", s).strip()
 
 
+def _candidatos_nombre(nombre):
+    """Variantes de un nombre de sustituto que pueden coincidir con un
+    alimento de la guía: el nombre completo, sin el paréntesis, el contenido
+    del paréntesis, y cada alternativa separada por " / " ("A / B").
+    Las mezclas ("A + B", "A con B") no cuentan: no son un único alimento."""
+    if "+" in nombre:
+        return []
+    variantes = [nombre, re.sub(r"\([^)]*\)", "", nombre)]
+    variantes += re.findall(r"\(([^)]*)\)", nombre)
+    for v in list(variantes):
+        variantes += [parte for parte in re.split(r"\s*/\s*", v) if parte]
+    return [normalizar(v) for v in variantes if v.strip()]
+
+
 def emparejar_con_ficha_real(sustituto, todos_los_foods):
-    """Si el nombre del sustituto coincide con un alimento real de la guía
-    (base o comunidad), lo devuelve — para poder enlazar recetas que lo usan."""
-    objetivo = normalizar(sustituto["nombre"])
-    for food in todos_los_foods.values():
-        if normalizar(food["nombre"]) == objetivo:
-            return food
+    """Si el sustituto es un alimento real de la guía (por nombre o alias,
+    exacto tras normalizar), lo devuelve — para enlazar su ficha y las
+    recetas que lo usan."""
+    candidatos = _candidatos_nombre(sustituto["nombre"])
+    if not candidatos:
+        return None
+    for cand in candidatos:
+        for food in todos_los_foods.values():
+            nombres = [food["nombre"]] + list(food.get("aliases", []))
+            if cand in {normalizar(n) for n in nombres}:
+                return food
     return None
 
 
@@ -164,6 +187,7 @@ def render_food_card(food, con_link_categoria=True):
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>{food["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{food["azucares"]:g} g</b> son azúcares · sodio: <b>{food["sodio"]:g} mg</b></p>
       </div>
       {citas_html}
+      {render_enlace_ficha(food)}
     </article>'''
 
 
@@ -191,7 +215,16 @@ def render_tabla_comparativa(original, sustituto):
       </table>'''
 
 
-def render_sustituto_card(sustituto, original, recetas_relacionadas):
+def render_enlace_ficha(food):
+    """Botón a la página propia del alimento (solo si existe: los de la
+    comunidad aún sin promover a data.js no la tienen)."""
+    if not food or food.get("comunidad"):
+        return ""
+    return (f'<a class="btn btn-ghost btn-sm" style="margin-top:14px" '
+            f'href="alimento-{slug(food["id"])}.html">Ver ficha de {esc(formatear_nombre(food["nombre"]))} →</a>')
+
+
+def render_sustituto_card(sustituto, original, recetas_relacionadas, real=None):
     etiqueta_mejor = '<span class="sub-best">Mejor opción</span>' if sustituto["mejor"] else ""
     recetas_html = ""
     if recetas_relacionadas:
@@ -210,6 +243,7 @@ def render_sustituto_card(sustituto, original, recetas_relacionadas):
       </div>
       <p class="food-motivo">{esc(sustituto["porque"])}</p>
       {render_tabla_comparativa(original, sustituto)}
+      {render_enlace_ficha(real)}
       {recetas_html}
     </article>'''
 
@@ -255,7 +289,7 @@ def render_pagina(food, todos_los_foods, todas_recetas):
         recetas_relacionadas = []
         if real:
             recetas_relacionadas = [r for r in todas_recetas if any(i["foodId"] == real["id"] for i in r["ingredientes"])]
-        tarjetas.append(render_sustituto_card(sub, food, recetas_relacionadas))
+        tarjetas.append(render_sustituto_card(sub, food, recetas_relacionadas, real))
     sustitutos_html = "\n".join(tarjetas)
 
     jsonld = json.dumps(build_article_jsonld(food, page_url), ensure_ascii=False, indent=2)
@@ -420,7 +454,7 @@ def main():
         # completos; para el emparejamiento por nombre nos basta con lo que trae.
         for fid, f in comunidad.items():
             if fid not in foods:
-                foods[fid] = {**f, "categorias": [], "motivo": "", "estudios": [], "sustitutos": []}
+                foods[fid] = {**f, "categorias": [], "motivo": "", "estudios": [], "sustitutos": [], "comunidad": True}
     except Exception as e:
         print(f"AVISO: no se pudieron cargar los alimentos de la comunidad ({e}).")
 

@@ -826,7 +826,7 @@ const FOODS = [
   {
     id: "avena",
     nombre: "Avena integral",
-    aliases: ["avena", "copos de avena"],
+    aliases: ["avena", "copos de avena", "copos de avena integrales", "avena integral", "avena integral sin azucar"],
     categorias: ["Cereales"],
     emoji: "🌾",
     rating: "A",
@@ -945,7 +945,7 @@ const FOODS = [
   {
     id: "salmon",
     nombre: "Salmón (pescado azul)",
-    aliases: ["salmon", "pescado azul"],
+    aliases: ["salmon", "pescado azul", "salmon fresco"],
     categorias: ["Proteínas"],
     emoji: "🐟",
     rating: "A",
@@ -2310,7 +2310,7 @@ const FOODS = [
   {
     id: "ia_crema_de_cacahuete",
     nombre: "Crema de cacahuete (100% cacahuete natural)",
-    aliases: ["crema de cacahuete", "crema de cacahuete (100% cacahuete natural)"],
+    aliases: ["crema de cacahuete", "crema de cacahuete (100% cacahuete natural)", "crema de cacahuete 100% natural"],
     categorias: ["Untables"],
     emoji: "🥜",
     rating: "B",
@@ -2641,7 +2641,7 @@ const FOODS = [
   {
     id: "ia_harina_de_trigo_integral",
     nombre: "Harina de trigo integral",
-    aliases: ["harina de trigo integral"],
+    aliases: ["harina de trigo integral", "harina integral"],
     categorias: ["Cereales", "Proteína vegetal"],
     emoji: "🌾",
     rating: "A",
@@ -3197,7 +3197,7 @@ const FOODS = [
   {
     id: "ia_pechuga_de_pollo",
     nombre: "Pechuga de pollo",
-    aliases: ["pechuga de pollo"],
+    aliases: ["pechuga de pollo", "pechuga de pollo a la plancha"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🍗",
     rating: "A",
