@@ -121,7 +121,7 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>0.2 g</b> son saturadas · de los carbohidratos, <b>0.6 g</b> son azúcares · sodio: <b>1 mg</b></p>
       </div>
       
-      <a class="btn btn-ghost btn-sm" style="margin-top:14px" href="alimento-pasta-blanca.html">Ver ficha de Pasta Blanca (cocida) →</a>
+      <a class="btn btn-primary btn-sm" style="margin-top:14px" href="alimento-pasta-blanca.html">Ver ficha de Pasta Blanca (cocida) →</a>
     </article>
 
       <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin:30px 0 14px">Mejores alternativas</h2>
@@ -149,10 +149,12 @@
           <tr><td>Sodio</td><td>1 mg</td><td>3 mg</td></tr>
         </tbody>
       </table>
-      <a class="btn btn-ghost btn-sm" style="margin-top:14px" href="alimento-pasta-integral.html">Ver ficha de Pasta Integral (cocida) →</a>
+      <a class="btn btn-primary btn-sm" style="margin-top:14px" href="alimento-pasta-integral.html">Ver ficha de Pasta Integral (cocida) →</a>
       
       <p class="receta-hint" style="margin:14px 0 8px">Recetas que ya usan Pasta Integral (cocida):</p>
-      <div class="recetas-teaser-grid">      <a class="receta-teaser-card" href="receta-espaguetis-integrales-tomate.html">
+      <div class="recetas-paginadas" data-por-pagina="3">
+      <div class="recetas-teaser-grid">
+      <a class="receta-teaser-card" href="receta-espaguetis-integrales-tomate.html">
         <div class="receta-teaser-foto">
           <img src="img/recetas/spaghetti-integral-tomate-albahaca.jpg" alt="Espaguetis Integrales con Tomate y Albahaca" loading="lazy">
           <span class="badge badge-A receta-teaser-badge" title="Calificación nutricional">A</span>
@@ -182,7 +184,7 @@
           <span class="receta-meta">⏱️ 45 min</span>
         </div>
       </a>
-      <a class="receta-teaser-card" href="receta-pasta-integral-carbonara.html">
+      <a hidden class="receta-teaser-card" href="receta-pasta-integral-carbonara.html">
         <div class="receta-teaser-foto">
           <img src="img/recetas/Pasta-Integral-Carbonara.jpg" alt="Pasta Integral Carbonara Saludable" loading="lazy">
           <span class="badge badge-C receta-teaser-badge" title="Calificación nutricional">C</span>
@@ -192,7 +194,7 @@
           <span class="receta-meta">⏱️ 25 min</span>
         </div>
       </a>
-      <a class="receta-teaser-card" href="receta-pasta-integral-setas-espinacas.html">
+      <a hidden class="receta-teaser-card" href="receta-pasta-integral-setas-espinacas.html">
         <div class="receta-teaser-foto">
           <img src="img/recetas/Pasta-Integral-Setas-y-Espinacas.jpg" alt="Pasta Integral con Setas y Espinacas" loading="lazy">
           <span class="badge badge-A receta-teaser-badge" title="Calificación nutricional">A</span>
@@ -201,7 +203,10 @@
           <h3>Pasta Integral con Setas y Espinacas</h3>
           <span class="receta-meta">⏱️ 30 min</span>
         </div>
-      </a></div>
+      </a>
+      </div>
+      <button type="button" class="btn btn-ghost btn-sm ver-mas-recetas">Ver más recetas</button>
+    </div>
     </article>
     </div>
   </section>

@@ -358,6 +358,27 @@ def render_receta_teaser(receta):
       </a>'''
 
 
+def render_recetas_paginadas(recetas, por_pagina=3, clase_grid="recetas-teaser-grid"):
+    """Rejilla de tarjetas de receta que muestra solo las primeras
+    "por_pagina" y un botón "Ver más recetas" que revela otras tantas cada
+    vez (lo gestiona js/app.js). Todas van en el HTML aunque estén ocultas,
+    así Google sigue viendo todos los enlaces."""
+    tarjetas = []
+    for i, r in enumerate(recetas):
+        html = render_receta_teaser(r)
+        if i >= por_pagina:
+            html = html.replace('<a class="receta-teaser-card"', '<a hidden class="receta-teaser-card"', 1)
+        tarjetas.append(html)
+    boton = ""
+    if len(recetas) > por_pagina:
+        boton = '\n      <button type="button" class="btn btn-ghost btn-sm ver-mas-recetas">Ver más recetas</button>'
+    return f'''<div class="recetas-paginadas" data-por-pagina="{por_pagina}">
+      <div class="{clase_grid}">
+{chr(10).join(tarjetas)}
+      </div>{boton}
+    </div>'''
+
+
 def render_pagina(receta, foods, todas_recetas):
     totales, completo = calcular_macros(receta, foods)
     raciones_txt = f'{receta["raciones"]} {"raciones" if receta["raciones"] > 1 else "ración"}'

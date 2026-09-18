@@ -17,7 +17,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
-    formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser,
+    formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 from generar_sustitutos import (
     parse_foods_full, fecha_publicacion_git as _fecha_publicacion_generica,
@@ -81,14 +81,12 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     recetas_relacionadas = [r for r in todas_recetas if any(i["foodId"] == food["id"] for i in r["ingredientes"])]
     recetas_html = ""
     if recetas_relacionadas:
-        items = "\n".join(render_receta_teaser(r) for r in recetas_relacionadas[:6])
+        items = render_recetas_paginadas(recetas_relacionadas)
         recetas_html = f'''
   <section class="section section-tinted">
     <div class="container">
       <h2 class="section-title reveal">Recetas que usan {esc(nombre_fmt)}</h2>
-      <div class="recetas-teaser-grid">
 {items}
-      </div>
     </div>
   </section>'''
 

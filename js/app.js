@@ -177,7 +177,7 @@
       </div>
       <p class="food-motivo food-motivo-principal clamped">${food.motivo}</p>
       <button class="leer-mas-toggle" type="button" hidden>Leer más</button>
-      ${IDS_CON_PAGINA_PROPIA.has(food.id) ? `<a class="food-page-link" href="alimento-${slugAlimento(food.id)}.html">Ver ficha completa ↗</a>` : ""}
+      ${IDS_CON_PAGINA_PROPIA.has(food.id) ? `<a class="food-page-link" href="alimento-${slugAlimento(food.id)}.html">Ver ficha completa <span aria-hidden="true">→</span></a>` : ""}
     `;
 
     // El texto de descripción se trunca a 3 líneas por defecto (como en WhatsApp)
@@ -350,6 +350,19 @@
       console.error(`[HSNutrición] Fallo en "${nombre}":`, err);
     }
   }
+
+  /* ================= "Ver más recetas" (de 3 en 3) en páginas de alimento y sustituto ================= */
+  seguro("recetas-paginadas", () => {
+    document.addEventListener("click", e => {
+      const btn = e.target.closest(".ver-mas-recetas");
+      if (!btn) return;
+      const cont = btn.closest(".recetas-paginadas");
+      const porPagina = Number(cont.dataset.porPagina) || 3;
+      const ocultas = cont.querySelectorAll(".receta-teaser-card[hidden]");
+      ocultas.forEach((card, i) => { if (i < porPagina) card.hidden = false; });
+      if (ocultas.length <= porPagina) btn.remove();
+    });
+  });
 
   /* ================= Reveal on scroll (va primero: es lo que hace visible el contenido) ================= */
   seguro("reveal-on-scroll", () => {
