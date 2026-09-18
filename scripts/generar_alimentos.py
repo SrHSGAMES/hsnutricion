@@ -81,7 +81,8 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     recetas_relacionadas = [r for r in todas_recetas if any(i["foodId"] == food["id"] for i in r["ingredientes"])]
     recetas_html = ""
     if recetas_relacionadas:
-        items = render_recetas_paginadas(recetas_relacionadas)
+        # La rejilla de esta página tiene 4 columnas: de 4 en 4.
+        items = render_recetas_paginadas(recetas_relacionadas, por_pagina=4)
         recetas_html = f'''
   <section class="section section-tinted">
     <div class="container">

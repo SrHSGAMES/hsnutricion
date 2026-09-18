@@ -773,6 +773,8 @@ a.ingrediente-link { text-decoration: none; }
 .receta-teaser-card[hidden] { display: none; }
 .recetas-paginadas { display: flex; flex-direction: column; align-items: center; gap: 16px; }
 .recetas-paginadas .recetas-teaser-grid { width: 100%; }
+.recetas-paginadas-botones { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.recetas-paginadas-botones .btn[hidden] { display: none; }
 
 .macro-table { width: 100%; margin: 14px 0; }
 .macro-row { margin-bottom: 8px; }

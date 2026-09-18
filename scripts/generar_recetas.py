@@ -371,7 +371,12 @@ def render_recetas_paginadas(recetas, por_pagina=3, clase_grid="recetas-teaser-g
         tarjetas.append(html)
     boton = ""
     if len(recetas) > por_pagina:
-        boton = '\n      <button type="button" class="btn btn-ghost btn-sm ver-mas-recetas">Ver más recetas</button>'
+        boton = (
+            '\n      <div class="recetas-paginadas-botones">'
+            '<button type="button" class="btn btn-ghost btn-sm ver-mas-recetas">Ver más recetas</button>'
+            '<button type="button" class="btn btn-ghost btn-sm ver-menos-recetas" hidden>Ver menos</button>'
+            '</div>'
+        )
     return f'''<div class="recetas-paginadas" data-por-pagina="{por_pagina}">
       <div class="{clase_grid}">
 {chr(10).join(tarjetas)}

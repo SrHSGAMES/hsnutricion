@@ -351,16 +351,28 @@
     }
   }
 
-  /* ================= "Ver más recetas" (de 3 en 3) en páginas de alimento y sustituto ================= */
+  /* ================= "Ver más / Ver menos" recetas en páginas de alimento y sustituto ================= */
+  // Cada clic muestra u oculta un bloque de "data-por-pagina" tarjetas; el
+  // botón "Ver más" desaparece cuando ya se ven todas, y "Ver menos" cuando
+  // solo queda el primer bloque.
   seguro("recetas-paginadas", () => {
-    document.addEventListener("click", e => {
-      const btn = e.target.closest(".ver-mas-recetas");
-      if (!btn) return;
-      const cont = btn.closest(".recetas-paginadas");
+    function actualizar(cont, visibles) {
       const porPagina = Number(cont.dataset.porPagina) || 3;
-      const ocultas = cont.querySelectorAll(".receta-teaser-card[hidden]");
-      ocultas.forEach((card, i) => { if (i < porPagina) card.hidden = false; });
-      if (ocultas.length <= porPagina) btn.remove();
+      const tarjetas = cont.querySelectorAll(".receta-teaser-card");
+      tarjetas.forEach((card, i) => { card.hidden = i >= visibles; });
+      cont.querySelector(".ver-mas-recetas").hidden = visibles >= tarjetas.length;
+      cont.querySelector(".ver-menos-recetas").hidden = visibles <= porPagina;
+    }
+    document.addEventListener("click", e => {
+      const mas = e.target.closest(".ver-mas-recetas");
+      const menos = e.target.closest(".ver-menos-recetas");
+      if (!mas && !menos) return;
+      const cont = (mas || menos).closest(".recetas-paginadas");
+      const porPagina = Number(cont.dataset.porPagina) || 3;
+      const visibles = cont.querySelectorAll(".receta-teaser-card:not([hidden])").length;
+      if (mas) actualizar(cont, visibles + porPagina);
+      // Al bajar se vuelve al bloque anterior (p. ej. 20 visibles -> 16), nunca por debajo del primero.
+      else actualizar(cont, Math.max(porPagina, Math.ceil(visibles / porPagina) * porPagina - porPagina));
     });
   });
 
