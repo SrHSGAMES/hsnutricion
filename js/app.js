@@ -475,6 +475,7 @@
       grid.innerHTML = "";
       sinResultados.hidden = lista.length > 0;
       lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
+      grid.dataset.listo = "1"; // quita el espacio reservado (ver css: #recetasGrid)
     }
     [buscador, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderRecetas));
     renderRecetas();
