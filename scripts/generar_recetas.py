@@ -396,7 +396,9 @@ def render_pagina(receta, foods, todas_recetas):
     raciones_txt = f'{receta["raciones"]} {"raciones" if receta["raciones"] > 1 else "ración"}'
 
     if receta["imagen"]:
-        foto_html = f'<img src="{esc(receta["imagen"])}" alt="{esc(receta["nombre"])}" loading="lazy">'
+        # Es la imagen principal de la página (la que define el LCP): carga
+        # prioritaria, no perezosa. Las medidas evitan cualquier salto de diseño.
+        foto_html = f'<img src="{esc(receta["imagen"])}" alt="{esc(receta["nombre"])}" width="1408" height="768" fetchpriority="high">'
     else:
         foto_html = f'<span class="receta-foto-emoji">{receta["emojiPortada"]}</span>'
 
