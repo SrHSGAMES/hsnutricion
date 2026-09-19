@@ -370,7 +370,11 @@
   // Ejecuta cada bloque de forma aislada: si uno falla (p.ej. por un elemento que
   // no existe tras una caché desincronizada entre HTML y JS), el resto de la
   // página sigue funcionando en vez de quedar completamente en blanco.
-  function seguro(nombre, fn) {
+  // "requiere" son los ids que el bloque necesita para su página: si alguno no
+  // existe (p. ej. el analizador en una receta) se omite en silencio, sin
+  // ensuciar la consola con un error que no es tal.
+  function seguro(nombre, fn, requiere = []) {
+    if (requiere.some(id => !document.getElementById(id))) return;
     try {
       fn();
     } catch (err) {
@@ -460,7 +464,7 @@
     // Otros bloques (p.ej. la carga de alimentos de la comunidad) llaman a
     // esto cuando añaden alimentos nuevos a FOODS, para refrescar la vista.
     window.__refrescarGuia = () => { actualizarCategorias(); renderGuia(); };
-  });
+  }, ["guiaGrid"]);
 
   /* ================= Recetas saludables: galería completa en recetas.html ================= */
   seguro("recetas", () => {
@@ -486,13 +490,13 @@
     }
     [buscador, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderRecetas));
     renderRecetas();
-  });
+  }, ["recetasGrid"]);
 
   /* ================= Recetas saludables: teaser en el índice ================= */
   seguro("recetas-teaser", () => {
     const grid = document.getElementById("recetasTeaserGrid");
     RECETAS.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
-  });
+  }, ["recetasTeaserGrid"]);
 
   /* ================= Recetas de la comunidad: teaser en el índice ================= */
   seguro("comunidad-teaser", () => {
@@ -550,7 +554,7 @@
     });
     document.getElementById("fichaModalClose").addEventListener("click", cerrarFicha);
     overlay.addEventListener("click", e => { if (e.target === overlay) cerrarFicha(); });
-  });
+  }, ["fichaModalOverlay"]);
 
   /* ================= Alimentos generados por la comunidad ================= */
   // Carga los alimentos que la IA ya generó para otras personas y los añade a
@@ -674,7 +678,7 @@
       const alimentos = detectarAlimentos(texto);
       window.__mostrarResultados(alimentos, "el texto");
     });
-  });
+  }, ["resultsGrid"]);
 
   /* ================= Analizador: imagen ================= */
   seguro("analizador-imagen", () => {
@@ -769,7 +773,7 @@
         btnAnalizarImagen.innerHTML = 'Analizar imagen <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M13 5l7 7-7 7-1.41-1.41L16.17 13H4v-2h12.17l-4.58-4.59L13 5z"/></svg>';
       }
     });
-  });
+  }, ["dropzone"]);
 
   /* ================= Modal informativo sobre la IA ================= */
   seguro("modal-info-ia", () => {
@@ -1413,6 +1417,6 @@
 
     btnAiLookup.addEventListener("click", ejecutarBusquedaIA);
     inputAiLookup.addEventListener("keydown", e => { if (e.key === "Enter") ejecutarBusquedaIA(); });
-  });
+  }, ["inputAiLookup"]);
 
 })();
