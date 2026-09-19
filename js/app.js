@@ -163,6 +163,30 @@
     return frag;
   }
 
+  // Saber si el texto de una tarjeta se corta (para mostrar "Leer más")
+  // obliga al navegador a calcular el diseño. Con la guía pintando decenas de
+  // tarjetas, hacerlo al crearlas era lo más caro de la carga; se mide solo
+  // cuando cada tarjeta está a punto de verse (y de una en una, ya visible).
+  const observadorLeerMas = "IntersectionObserver" in window
+    ? new IntersectionObserver(entradas => {
+        entradas.forEach(({ target, isIntersecting }) => {
+          if (!isIntersecting) return;
+          observadorLeerMas.unobserve(target);
+          const boton = target.parentElement && target.parentElement.querySelector(".leer-mas-toggle");
+          if (boton && target.scrollHeight > target.clientHeight + 2) boton.hidden = false;
+        });
+      }, { rootMargin: "300px" })
+    : null;
+  function medirLeerMas(motivoP, boton) {
+    if (observadorLeerMas) {
+      observadorLeerMas.observe(motivoP);
+    } else {
+      requestAnimationFrame(() => {
+        if (motivoP.scrollHeight > motivoP.clientHeight + 2) boton.hidden = false;
+      });
+    }
+  }
+
   function crearTarjetaAlimento(food, { conSustitutos = true, estudios = null } = {}) {
     const card = document.createElement("article");
     card.className = "food-card";
@@ -185,11 +209,7 @@
     // en el siguiente frame si el texto real ocupa más de lo que cabe truncado.
     const motivoP = card.querySelector(".food-motivo-principal");
     const leerMasBtn = card.querySelector(".leer-mas-toggle");
-    requestAnimationFrame(() => {
-      if (motivoP.scrollHeight > motivoP.clientHeight + 2) {
-        leerMasBtn.hidden = false;
-      }
-    });
+    medirLeerMas(motivoP, leerMasBtn);
     leerMasBtn.addEventListener("click", () => {
       const expandido = motivoP.classList.toggle("expandido");
       motivoP.classList.toggle("clamped", !expandido);

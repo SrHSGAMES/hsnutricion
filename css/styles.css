@@ -750,6 +750,9 @@ a.ingrediente-link { text-decoration: none; }
 }
 .leer-mas-toggle:hover { text-decoration: underline; }
 
+/* La guía pinta todas las fichas; el navegador omite el diseño y el pintado de las que están fuera de pantalla. */
+.guia-grid > .food-card { content-visibility: auto; contain-intrinsic-size: auto 510px; }
+
 .food-page-link {
   display: flex;
   align-items: center;
