@@ -163,23 +163,36 @@
     return frag;
   }
 
-  // Saber si el texto de una tarjeta se corta (para mostrar "Leer más")
-  // obliga al navegador a calcular el diseño. Con la guía pintando decenas de
-  // tarjetas, hacerlo al crearlas era lo más caro de la carga; se mide solo
-  // cuando cada tarjeta está a punto de verse (y de una en una, ya visible).
+  // Saber si el texto de una tarjeta se corta ("Leer más") obliga al navegador a
+  // calcular el diseño; hacerlo al crear las 161 fichas de la guía a la vez era
+  // lo más caro de la carga. Se mide solo cuando la tarjeta se acerca a la
+  // pantalla (se observa la propia tarjeta, que siempre tiene caja aunque el
+  // navegador omita el diseño de su interior) y una vez cargadas las tipografías,
+  // para no medir con la fuente provisional (más estrecha, que no se corta igual).
+  const fuentesListas = (document.fonts && document.fonts.load)
+    ? Promise.all([
+        document.fonts.load('400 14px "Plus Jakarta Sans"'),
+        document.fonts.load('600 16px "Fraunces"')
+      ]).catch(() => {})
+    : Promise.resolve();
+  function actualizarLeerMas(motivoP) {
+    const boton = motivoP.parentElement && motivoP.parentElement.querySelector(".leer-mas-toggle");
+    if (!boton || motivoP.classList.contains("expandido")) return;
+    boton.hidden = !(motivoP.scrollHeight > motivoP.clientHeight + 2);
+  }
   const observadorLeerMas = "IntersectionObserver" in window
     ? new IntersectionObserver(entradas => {
         entradas.forEach(({ target, isIntersecting }) => {
           if (!isIntersecting) return;
           observadorLeerMas.unobserve(target);
-          const boton = target.parentElement && target.parentElement.querySelector(".leer-mas-toggle");
-          if (boton && target.scrollHeight > target.clientHeight + 2) boton.hidden = false;
+          const motivoP = target.querySelector(".food-motivo-principal");
+          if (motivoP) fuentesListas.then(() => actualizarLeerMas(motivoP));
         });
       }, { rootMargin: "300px" })
     : null;
   function medirLeerMas(motivoP, boton) {
     if (observadorLeerMas) {
-      observadorLeerMas.observe(motivoP);
+      observadorLeerMas.observe(motivoP.parentElement);
     } else {
       requestAnimationFrame(() => {
         if (motivoP.scrollHeight > motivoP.clientHeight + 2) boton.hidden = false;
