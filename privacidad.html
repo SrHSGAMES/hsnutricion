@@ -61,7 +61,7 @@
   <section class="section" id="privacidad">
     <div class="container">
       <h2 class="section-title reveal" style="text-align:left">Política de Privacidad</h2>
-      <p class="section-sub reveal" style="text-align:left;margin:0 0 30px">Última actualización: agosto de 2026. Esta página explica, sin letra pequeña, qué datos recoge HSNutrición, para qué los usa y cómo puedes acceder a ellos o borrarlos.</p>
+      <p class="section-sub reveal" style="text-align:left;margin:0 0 30px">Última actualización: septiembre de 2026. Esta página explica, sin letra pequeña, qué datos recoge HSNutrición, para qué los usa y cómo puedes acceder a ellos o borrarlos.</p>
 
       <div class="legal-content reveal">
         <h3>Qué datos recogemos</h3>
@@ -70,14 +70,16 @@
           <li><strong>Si creas una cuenta:</strong> un nombre de usuario, un email (opcional) y tu contraseña — la contraseña nunca se guarda tal cual, solo un hash irreversible (scrypt) que ni nosotros podemos leer.</li>
           <li><strong>Si publicas una receta en la comunidad:</strong> el nombre, la descripción, los ingredientes y la elaboración que escribas, asociados a tu usuario y visibles públicamente para cualquiera.</li>
           <li><strong>Si analizas un alimento por texto o foto:</strong> ese texto o esa imagen se envía a un modelo de IA para el análisis. Las fotos no se guardan en ningún momento; se procesan y se descartan.</li>
+          <li><strong>Solo si aceptas las cookies de analítica:</strong> datos de uso agregados y sin nombre (qué páginas se visitan, tipo de dispositivo y navegador, país aproximado, cómo has llegado a la web) mediante Google Analytics. Si las rechazas, no se recoge nada de esto.</li>
         </ul>
-        <p>No usamos cookies de seguimiento ni analítica de terceros, y no hay anuncios en el sitio.</p>
+        <p>No hay anuncios en el sitio y no usamos ninguna cookie publicitaria.</p>
 
         <h3>Para qué los usamos</h3>
         <ul>
           <li>Para que puedas iniciar sesión y mantener tu sesión activa.</li>
           <li>Para mostrar tus recetas de la comunidad junto a tu nombre de usuario.</li>
           <li>Para detectar los alimentos que describes o fotografías y devolverte su información nutricional.</li>
+          <li>Solo si aceptas la analítica: para saber qué contenidos resultan útiles y mejorar la web.</li>
         </ul>
 
         <h3>Con quién los compartimos</h3>
@@ -86,12 +88,18 @@
           <li><strong>Google Gemini</strong> — recibe el texto o la imagen que envías a analizar, únicamente para generar el resultado. No lo usamos para entrenar modelos ni lo conservamos nosotros.</li>
           <li><strong>PubMed / NCBI</strong> (base de datos pública de estudios biomédicos de EE. UU.) — recibe el nombre del alimento que buscas, sin ningún dato personal, para encontrar estudios científicos relacionados.</li>
           <li><strong>Upstash</strong> — aloja la base de datos donde se guardan las cuentas, las sesiones y las recetas de la comunidad.</li>
+          <li><strong>Google Analytics</strong> (Google Ireland Ltd. / Google LLC) — <em>solo si aceptas las cookies de analítica</em>: recibe los datos de uso descritos arriba. Google puede tratarlos en servidores fuera de la Unión Europea, incluido EE. UU.</li>
           <li><strong>Vercel</strong> — aloja el sitio web; como cualquier proveedor de hosting, procesa automáticamente registros técnicos básicos (por ejemplo, la IP de cada visita) para poder servir las páginas.</li>
         </ul>
         <p>No vendemos ni cedemos tus datos a nadie con fines publicitarios.</p>
 
-        <h3>Cookies</h3>
-        <p>Usamos una única cookie, <code>hsn_session</code>, estrictamente necesaria para mantener tu sesión iniciada. No es una cookie de seguimiento ni de publicidad, por lo que no requiere un banner de consentimiento — simplemente hace posible que la web recuerde que has iniciado sesión mientras navegas.</p>
+        <h3 id="cookies">Cookies</h3>
+        <p>Usamos dos tipos de cookies y de almacenamiento del navegador:</p>
+        <ul>
+          <li><strong>Imprescindibles (no necesitan tu permiso):</strong> <code>hsn_session</code> mantiene tu sesión iniciada si tienes cuenta, y <code>hsn_cookies</code> (en el almacenamiento local de tu navegador) recuerda si has aceptado o rechazado las cookies de analítica, para no volver a preguntártelo.</li>
+          <li><strong>De analítica (solo si las aceptas):</strong> <code>_ga</code> y <code>_ga_JHY1PHMCWD</code>, de Google Analytics. Sirven para distinguir visitas y medir el uso de la web de forma agregada; caducan a los 2 años como máximo. No se instalan ni se cargan hasta que pulsas «Aceptar».</li>
+        </ul>
+        <p>Puedes cambiar de opinión cuando quieras: <a href="#" data-abrir-cookies>abrir mis preferencias de cookies</a> (también está el enlace «Cookies» al pie de todas las páginas). Si las rechazas después de haberlas aceptado, borramos las cookies de analítica y dejamos de medir. También puedes borrar las cookies desde los ajustes de tu navegador.</p>
 
         <h3>Cuánto tiempo conservamos los datos</h3>
         <p>Mientras tu cuenta exista. Si borras tu cuenta desde tu perfil, se elimina de inmediato junto con todas las recetas de comunidad que hubieras publicado — no queda ningún rastro tuyo en nuestra base de datos.</p>

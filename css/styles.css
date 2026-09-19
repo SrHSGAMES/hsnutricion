@@ -1141,6 +1141,36 @@ a.ingrediente-link { text-decoration: none; }
 .footer-link { font-size: .85rem; color: var(--ink-faint); text-decoration: none; }
 .footer-link:hover { color: var(--green-700); text-decoration: underline; }
 
+/* ---------- Aviso de cookies (js/analytics.js) ---------- */
+.cookie-banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px 18px;
+  flex-wrap: wrap;
+  padding: 16px 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+.cookie-banner p { margin: 0; flex: 1 1 320px; font-size: .88rem; line-height: 1.5; }
+.cookie-banner a { color: var(--green-700); text-decoration: underline; }
+.cookie-banner-estado { color: var(--ink-faint); }
+/* "Rechazar" y "Aceptar" con el mismo tamaño y aspecto a propósito (sin destacar uno) */
+.cookie-banner-acciones { display: flex; gap: 10px; flex: 0 0 auto; }
+.cookie-banner-acciones .btn { min-width: 110px; justify-content: center; }
+@media (max-width: 520px) {
+  .cookie-banner-acciones { width: 100%; }
+  .cookie-banner-acciones .btn { flex: 1; }
+}
+
 /* ---------- Página de privacidad ---------- */
 .legal-content { max-width: 760px; }
 .legal-content h3 { margin: 34px 0 12px; font-size: 1.15rem; }
