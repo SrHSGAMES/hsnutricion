@@ -506,10 +506,29 @@
   }, ["recetasGrid"]);
 
   /* ================= Recetas saludables: teaser en el índice ================= */
+  // Portada: solo unas pocas recetas con foto, de tipos variados (la lista
+  // completa vive en recetas.html). Se completa con las siguientes si alguna falta.
+  const RECETAS_DESTACADAS = [
+    "tostada_aguacate_huevo", "poke_bowl_salmon", "bowl_arroz_aguacate_tomate", "tortitas_platano_avena",
+    "katsu_curry_vegano", "hamburguesa_garbanzos", "crumbl_cookies_saludables", "pizza_saludable"
+  ];
   seguro("recetas-teaser", () => {
     const grid = document.getElementById("recetasTeaserGrid");
-    RECETAS.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
+    const elegidas = RECETAS_DESTACADAS.map(id => RECETAS.find(r => r.id === id)).filter(Boolean);
+    RECETAS.forEach(r => { if (elegidas.length < 8 && r.imagen && !elegidas.includes(r)) elegidas.push(r); });
+    elegidas.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
   }, ["recetasTeaserGrid"]);
+
+  /* ================= Cifras dinámicas (alimentos y recetas) ================= */
+  // Elementos con data-total="alimentos" o "recetas" se rellenan con el total real,
+  // para que portada y "Sobre" nunca queden desactualizados.
+  function actualizarTotales() {
+    document.querySelectorAll("[data-total]").forEach(el => {
+      if (el.dataset.total === "alimentos") el.textContent = FOODS.length;
+      else if (el.dataset.total === "recetas" && typeof RECETAS !== "undefined") el.textContent = RECETAS.length;
+    });
+  }
+  seguro("totales", actualizarTotales);
 
   /* ================= Recetas de la comunidad: teaser en el índice ================= */
   seguro("comunidad-teaser", () => {
@@ -595,6 +614,7 @@
           if (typeof window.__refrescarGuia === "function") window.__refrescarGuia();
           const statFoods = document.getElementById("statFoods");
           if (statFoods) statFoods.textContent = FOODS.length;
+          actualizarTotales();
         }
       })
       .catch(err => console.error("[HSNutrición] No se pudieron cargar los alimentos de la comunidad:", err));

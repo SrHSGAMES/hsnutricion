@@ -35,11 +35,11 @@
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="#como-funciona">Cómo funciona</a>
-      <a href="#analizar">Analizar alimentos</a>
-      <a href="#alimentos">Guía de alimentos</a>
-      <a href="#recetas">Recetas Saludables</a>
-      <a href="comunidad.html">Recetas de la Comunidad</a>
-      <a href="#sobre">Sobre HSNutrición</a>
+      <a href="#analizar">Analizar</a>
+      <a href="#alimentos">Alimentos</a>
+      <a href="#recetas">Recetas</a>
+      <a href="comunidad.html">Comunidad</a>
+      <a href="sobre.html">Sobre</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="header-actions">
@@ -62,7 +62,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
-      <p class="eyebrow reveal">Guía nutricional con criterio experto</p>
+      <p class="eyebrow reveal">Guía nutricional basada en evidencia</p>
       <h1 class="reveal">Come mejor sin renunciar <span class="text-underline">a lo que te gusta</span></h1>
       <p class="hero-sub reveal">Cuéntanos qué comes —por texto o con una foto del plato o la etiqueta— y HSNutrición identifica cada alimento, lo valora con un criterio nutricional claro y te propone el sustituto más saludable, explicado paso a paso.</p>
       <div class="hero-cta reveal">
@@ -74,8 +74,8 @@
       </div>
       <ul class="hero-stats reveal">
         <li><strong id="statFoods">0</strong><span>alimentos en la guía</span></li>
-        <li><strong>A–E</strong><span>calificación nutricional</span></li>
-        <li><strong>100%</strong><span>gratis y sin registro</span></li>
+        <li><strong data-total="recetas">0</strong><span>recetas saludables</span></li>
+        <li><strong>Gratis</strong><span>y sin registro para analizar</span></li>
       </ul>
     </div>
     <div class="hero-visual reveal" aria-hidden="true">
@@ -96,6 +96,20 @@
         <div class="mock-bar"><span style="width: 20%"></span></div>
       </div>
       <div class="mock-arrow">→</div>
+    </div>
+  </section>
+
+  <!-- RECETAS SALUDABLES (teaser: la lista completa vive en recetas.html) -->
+  <section class="section section-tinted" id="recetas">
+    <div class="container">
+      <h2 class="section-title reveal">Recetas saludables para empezar</h2>
+      <p class="section-sub reveal">Recetas seleccionadas: genuinamente saludables, o versiones arregladas de clásicos que no lo eran. Con macros calculados y cada ingrediente enlazado a su ficha.</p>
+
+      <div class="recetas-teaser-grid reveal" id="recetasTeaserGrid"></div>
+
+      <p class="recetas-teaser-cta reveal">
+        <a href="recetas.html" class="btn btn-primary btn-sm"><span>Ver todas las recetas (<span data-total="recetas">40</span>)</span></a>
+      </p>
     </div>
   </section>
 
@@ -225,22 +239,8 @@
     </div>
   </section>
 
-  <!-- RECETAS SALUDABLES (teaser: la lista completa vive en recetas.html) -->
-  <section class="section section-tinted" id="recetas">
-    <div class="container">
-      <h2 class="section-title reveal">Recetas Saludables</h2>
-      <p class="section-sub reveal">Aquí no documentamos de todo, como en la guía de alimentos — seleccionamos. Solo entran recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, pensadas para mejorar tu salud y tu esperanza de vida con cada plato.</p>
-
-      <div class="recetas-teaser-grid reveal" id="recetasTeaserGrid"></div>
-
-      <p class="recetas-teaser-cta reveal">
-        <a href="recetas.html" class="btn btn-primary btn-sm">Ver todas las recetas</a>
-      </p>
-    </div>
-  </section>
-
   <!-- RECETAS DE LA COMUNIDAD (teaser) -->
-  <section class="section" id="comunidad-teaser">
+  <section class="section section-tinted" id="comunidad-teaser">
     <div class="container">
       <h2 class="section-title reveal">Recetas de la Comunidad</h2>
       <p class="section-sub reveal">Recetas creadas por otras personas de HSNutrición, con macros calculados a partir de datos reales y una calificación asignada por IA. Publica la tuya y forma parte.</p>
@@ -253,14 +253,14 @@
     </div>
   </section>
 
-  <!-- SOBRE -->
-  <section class="section section-tinted" id="sobre">
+  <!-- SOBRE (resumen; la versión completa vive en sobre.html) -->
+  <section class="section" id="sobre">
     <div class="container about-grid">
       <div class="reveal">
         <h2 class="section-title" style="text-align:left">Un criterio nutricional claro, sin dogmas</h2>
         <p>HSNutrición traduce principios básicos de la nutrición humana y dietética —perfil de grasas, densidad de fibra, azúcares añadidos y densidad calórica— en recomendaciones prácticas y fáciles de aplicar en la compra y en la cocina de cada día.</p>
-        <p>Cuando sugerimos un sustituto, priorizamos que la <strong>textura y el uso en la receta cambien lo mínimo posible</strong>. Por eso, ante grasas como la mantequilla, solemos señalar dos caminos: un cambio de mínimo esfuerzo (por ejemplo, margarina vegetal sin grasas trans) y la opción nutricionalmente superior —casi siempre el <strong>AOVE</strong>— cuando la receta lo permite.</p>
-        <p>Nuestra guía base cubre 41 alimentos habituales, pero la lista crece sola: si buscas uno que no está, la IA consulta <strong>PubMed</strong> —la base de datos de estudios biomédicos de EE. UU.— y redacta su ficha citando la evidencia científica real que encuentra. Esa ficha se guarda para todo el mundo, así que la próxima persona que la busque —o la mencione en un texto o una foto— la recibe al instante, sin esperar a la IA.</p>
+        <p>Cuando sugerimos un sustituto, priorizamos que la <strong>textura y el uso en la receta cambien lo mínimo posible</strong>: ante la mantequilla, por ejemplo, señalamos un cambio de mínimo esfuerzo y la opción nutricionalmente superior —casi siempre el <strong>AOVE</strong>— cuando la receta lo permite.</p>
+        <p>Cada ficha cita estudios reales de <strong>PubMed</strong>, y la guía crece sola: si buscas un alimento que aún no está, la IA redacta su ficha con la evidencia que encuentra y la guarda para todo el mundo.</p>
         <div class="rating-legend">
           <span class="badge badge-A">A</span> Excelente
           <span class="badge badge-B">B</span> Buena
@@ -268,6 +268,7 @@
           <span class="badge badge-D">D</span> Mejorable
           <span class="badge badge-E">E</span> Poco recomendable
         </div>
+        <p style="margin-top:22px"><a href="sobre.html" class="btn btn-ghost btn-sm btn-envolver">Cómo puntuamos y de dónde sale la información →</a></p>
       </div>
       <div class="about-card reveal">
         <h3>⚠️ Aviso importante</h3>
@@ -277,7 +278,7 @@
   </section>
 
   <!-- CONTACTO -->
-  <section class="section" id="contacto">
+  <section class="section section-tinted" id="contacto">
     <div class="container">
       <h2 class="section-title reveal">¿Tienes alguna sugerencia o crítica?</h2>
       <p class="section-sub reveal">Seguimos buscando maneras de mejorar HSNutrición, y las críticas son siempre bienvenidas — nos ayudan más que los halagos.</p>

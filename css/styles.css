@@ -223,9 +223,10 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
 /* #1d8145 (antes #1f8a49): contraste 4,9:1 sobre blanco y sobre el tinte del pie, para cumplir WCAG AA. */
 .brand-name span { color: #1d8145; }
 
-.main-nav { display: flex; align-items: center; gap: 30px; }
+.main-nav { display: flex; align-items: center; gap: 20px; }
 .main-nav a {
   position: relative;
+  white-space: nowrap;
   font-weight: 500;
   color: var(--ink-soft);
   padding: 6px 0;
@@ -1171,6 +1172,40 @@ a.ingrediente-link { text-decoration: none; }
   .cookie-banner-acciones .btn { flex: 1; }
 }
 
+/* ---------- Página "Sobre HSNutrición" ---------- */
+.sobre-contenido { max-width: 780px; }
+.sobre-contenido > p { font-size: 1.02rem; }
+.sobre-lead { font-size: 1.15rem !important; color: var(--ink); margin-bottom: 30px !important; }
+.sobre-cartas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 560px) { .sobre-cartas { grid-template-columns: 1fr; } }
+.sobre-carta {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: 18px 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.sobre-carta:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: var(--green-200); }
+.sobre-carta strong { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--green-700); line-height: 1.15; }
+.sobre-carta span { font-size: .9rem; color: var(--ink-soft); line-height: 1.5; }
+.sobre-lista { display: flex; flex-direction: column; gap: 12px; margin: 0 0 24px; padding-left: 22px; list-style: disc; color: var(--ink-soft); line-height: 1.65; }
+.sobre-lista li::marker { color: var(--green-500); }
+.escala-ab { display: flex; flex-direction: column; gap: 10px; margin: 26px 0; }
+.escala-fila {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 16px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+.escala-fila .badge { width: 34px; height: 34px; font-size: 1.05rem; }
+.escala-fila div { display: flex; flex-direction: column; gap: 2px; }
+.escala-fila strong { font-size: .98rem; }
+.escala-fila span:not(.badge) { font-size: .88rem; color: var(--ink-soft); line-height: 1.5; }
+.enlace-texto { color: var(--green-700); text-decoration: underline; }
+
 /* ---------- Página de privacidad ---------- */
 .legal-content { max-width: 760px; }
 .legal-content h3 { margin: 34px 0 12px; font-size: 1.15rem; }
@@ -1218,7 +1253,8 @@ a.ingrediente-link { text-decoration: none; }
   .about-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
 }
-@media (max-width: 760px) {
+/* El menú de 7 enlaces no cabe en una línea por debajo de ~1140 px: hamburguesa. */
+@media (max-width: 1140px) {
   .main-nav { display: none; }
   .main-nav.open-mobile {
     display: flex;
@@ -1234,6 +1270,8 @@ a.ingrediente-link { text-decoration: none; }
   }
   .main-nav.open-mobile a { padding: 12px 0; border-bottom: 1px solid var(--line); }
   .nav-toggle { display: flex; }
+}
+@media (max-width: 760px) {
   .header-actions .btn-sm { display: none; }
   .hero { padding: 46px 0 40px; }
   .text-underline { white-space: normal; }

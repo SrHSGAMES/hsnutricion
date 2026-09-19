@@ -481,11 +481,11 @@ def render_pagina(receta, foods, todas_recetas):
     </a>
     <nav class="main-nav" id="mainNav">
       <a href="index.html#como-funciona">Cómo funciona</a>
-      <a href="index.html#analizar">Analizar alimentos</a>
-      <a href="index.html#alimentos">Guía de alimentos</a>
-      <a href="index.html#recetas">Recetas Saludables</a>
-      <a href="comunidad.html">Recetas de la Comunidad</a>
-      <a href="index.html#sobre">Sobre HSNutrición</a>
+      <a href="index.html#analizar">Analizar</a>
+      <a href="index.html#alimentos">Alimentos</a>
+      <a href="index.html#recetas">Recetas</a>
+      <a href="comunidad.html">Comunidad</a>
+      <a href="sobre.html">Sobre</a>
       <a href="index.html#contacto">Contacto</a>
     </nav>
     <div class="header-actions">
@@ -646,6 +646,7 @@ def render_sitemap(recetas, extra_urls=None):
         {"loc": f"{SITE_URL}/", "prioridad": "1.0"},
         {"loc": f"{SITE_URL}/recetas.html", "prioridad": "0.8"},
         {"loc": f"{SITE_URL}/comunidad.html", "prioridad": "0.7"},
+        {"loc": f"{SITE_URL}/sobre.html", "prioridad": "0.6"},
         {"loc": f"{SITE_URL}/privacidad.html", "prioridad": "0.3"},
     ]
     for receta in recetas:
@@ -709,7 +710,7 @@ def main():
     sitemap_path = os.path.join(ROOT, "sitemap.xml")
     with open(sitemap_path, "w", encoding="utf-8") as f:
         f.write(render_sitemap(recetas, extra_urls=urls_sustitutos + urls_alimentos))
-    print(f"  sitemap.xml — {len(recetas) + 4 + len(urls_sustitutos) + len(urls_alimentos)} URLs")
+    print(f"  sitemap.xml — {len(recetas) + 5 + len(urls_sustitutos) + len(urls_alimentos)} URLs")
 
 
 if __name__ == "__main__":
