@@ -75,7 +75,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
         sustituto_html = f'''
       <div class="food-motivo" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
         <span>¿Buscas algo más saludable todavía?</span>
-        <a class="btn btn-primary btn-sm" href="sustituto-{slug(food["id"])}.html">Ver sustitutos de {nombre_fmt} →</a>
+        <a class="btn btn-primary btn-sm btn-envolver" href="sustituto-{slug(food["id"])}.html">Ver sustitutos de {nombre_fmt} →</a>
       </div>'''
 
     recetas_relacionadas = [r for r in todas_recetas if any(i["foodId"] == food["id"] for i in r["ingredientes"])]
@@ -163,7 +163,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
       <div class="food-card-head reveal" style="margin-bottom:18px">
         <span class="food-emoji" style="font-size:2.4rem;width:70px;height:70px">{food["emoji"]}</span>
         <div class="food-title">
-          <h1 style="margin:0 0 4px;font-family:var(--font-display);font-size:1.9rem;font-weight:600">{esc(nombre_fmt)}</h1>
+          <h1 class="ficha-titulo">{esc(nombre_fmt)}</h1>
           <span class="food-cat">{esc(categorias_txt)}</span>
         </div>
         <span class="badge badge-{food["rating"]}" title="Calificación nutricional" style="width:44px;height:44px;font-size:1.3rem">{food["rating"]}</span>

@@ -205,14 +205,14 @@ def render_tabla_comparativa(original, sustituto):
     filas_html = "\n".join(
         f'          <tr><td>{nombre}</td><td>{a}</td><td>{b}</td></tr>' for nombre, a, b in filas
     )
-    return f'''<table class="tabla-comparativa">
+    return f'''<div class="tabla-scroll"><table class="tabla-comparativa">
         <thead>
           <tr><th>Por 100 g</th><th>{esc(formatear_nombre(original["nombre"]))}</th><th>{esc(formatear_nombre(sustituto["nombre"]))}</th></tr>
         </thead>
         <tbody>
 {filas_html}
         </tbody>
-      </table>'''
+      </table></div>'''
 
 
 def render_enlace_ficha(food):
@@ -220,7 +220,7 @@ def render_enlace_ficha(food):
     comunidad aún sin promover a data.js no la tienen)."""
     if not food or food.get("comunidad"):
         return ""
-    return (f'<a class="btn btn-primary btn-sm" style="margin-top:14px" '
+    return (f'<a class="btn btn-primary btn-sm btn-envolver" style="margin-top:14px" '
             f'href="alimento-{slug(food["id"])}.html">Ver ficha de {esc(formatear_nombre(food["nombre"]))} →</a>')
 
 

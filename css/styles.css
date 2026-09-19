@@ -167,6 +167,8 @@ p { color: var(--ink-soft); line-height: 1.65; margin: 0 0 1em; }
 .btn-ghost:hover { border-color: var(--green-400); background: var(--green-50); }
 
 .btn-lg { padding: 15px 28px; font-size: 1.02rem; }
+/* Botones con texto largo (p. ej. "Ver ficha de <nombre largo> →"): que el texto se parta en vez de ensanchar la página en móvil. */
+.btn-envolver { white-space: normal; text-align: center; justify-content: center; max-width: 100%; }
 .btn-sm { padding: 10px 18px; font-size: .9rem; }
 
 .btn-icon {
@@ -794,6 +796,12 @@ a.ingrediente-link { text-decoration: none; }
 .guia-grid > .food-card { content-visibility: auto; contain-intrinsic-size: auto 510px; }
 
 /* Subtítulos de las páginas de alimento: son h2 por jerarquía (bajo el h1) pero conservan el aspecto de los antiguos h4. */
+/* Título de la ficha de alimento: mismo tamaño que antes (1,9 rem) en pantallas normales; se reduce en móviles estrechos y parte palabras largas para no ensanchar la página. */
+.ficha-titulo { margin: 0 0 4px; font-family: var(--font-display); font-size: clamp(1.45rem, 7vw, 1.9rem); font-weight: 600; overflow-wrap: anywhere; }
+.food-card-head .food-title { min-width: 0; overflow-wrap: break-word; }
+/* Tablas comparativas de sustitutos: si no caben en pantallas estrechas, se desplazan dentro de su tarjeta. */
+.tabla-scroll { overflow-x: auto; }
+
 .ficha-sub { font-family: var(--font-body); font-size: 1rem; font-weight: 700; line-height: normal; margin: 1.33em 0; color: inherit; }
 
 .food-page-link {
