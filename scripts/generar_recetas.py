@@ -341,9 +341,16 @@ def elegir_relacionadas(receta, todas_recetas, n=3):
     return otras[:n]
 
 
+def ruta_miniatura(imagen):
+    """Miniatura de una foto de receta (scripts/generar_miniaturas.py), o la
+    propia foto si aún no existe su miniatura."""
+    mini = os.path.splitext(imagen.replace("img/recetas/", "img/recetas/thumbs/", 1))[0] + ".jpg"
+    return mini if os.path.exists(os.path.join(ROOT, mini)) else imagen
+
+
 def render_receta_teaser(receta):
     if receta["imagen"]:
-        foto_html = f'<img src="{esc(receta["imagen"])}" alt="{esc(receta["nombre"])}" loading="lazy">'
+        foto_html = f'<img src="{esc(ruta_miniatura(receta["imagen"]))}" alt="{esc(receta["nombre"])}" loading="lazy">'
     else:
         foto_html = f'<span class="receta-foto-emoji">{receta["emojiPortada"]}</span>'
     return f'''      <a class="receta-teaser-card" href="receta-{slug(receta["id"])}.html">

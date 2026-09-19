@@ -283,10 +283,17 @@
     foto.className = "receta-teaser-foto";
     if (receta.imagen) {
       const img = document.createElement("img");
-      img.src = receta.imagen;
+      // Las tarjetas usan la miniatura (img/recetas/thumbs/, ver
+      // scripts/generar_miniaturas.py); si no existiera, se usa la foto original.
+      const miniatura = receta.imagen.replace("img/recetas/", "img/recetas/thumbs/").replace(/\.[^./]+$/, ".jpg");
+      img.src = miniatura;
       img.alt = receta.nombre;
       img.loading = "lazy";
       img.addEventListener("error", () => {
+        if (img.getAttribute("src") !== receta.imagen) {
+          img.src = receta.imagen;
+          return;
+        }
         img.remove();
         foto.insertAdjacentHTML("afterbegin", `<span class="receta-foto-emoji">${receta.emojiPortada}</span>`);
       });
