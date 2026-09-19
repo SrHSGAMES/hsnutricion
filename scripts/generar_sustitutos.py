@@ -176,7 +176,7 @@ def render_food_card(food, con_link_categoria=True):
       <div class="food-card-head">
         <span class="food-emoji">{food["emoji"]}</span>
         <div class="food-title">
-          <h4>{esc(formatear_nombre(food["nombre"]))}</h4>
+          <h3>{esc(formatear_nombre(food["nombre"]))}</h3>
           <span class="food-cat">{esc(" · ".join(food.get("categorias", [])))}</span>
         </div>
         <span class="badge badge-{food["rating"]}" title="Calificación nutricional">{food["rating"]}</span>
@@ -237,7 +237,7 @@ def render_sustituto_card(sustituto, original, recetas_relacionadas, real=None):
       <div class="food-card-head">
         <span class="food-emoji">{sustituto["emoji"]}</span>
         <div class="food-title">
-          <h4>{esc(formatear_nombre(sustituto["nombre"]))}</h4>
+          <h3>{esc(formatear_nombre(sustituto["nombre"]))}</h3>
         </div>
         {etiqueta_mejor}
       </div>

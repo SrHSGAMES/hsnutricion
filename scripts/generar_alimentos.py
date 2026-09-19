@@ -41,7 +41,7 @@ def render_citas(estudios):
         for i, e in enumerate(estudios)
     )
     return f'''
-      <h4>Estudios científicos consultados</h4>
+      <h2 class="ficha-sub">Estudios científicos consultados</h2>
       <div class="citas open">{items}</div>'''
 
 
@@ -173,7 +173,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
 
       <p class="food-motivo">{esc(food["motivo"])}</p>
 
-      <h4>Información nutricional (por 100 g)</h4>
+      <h2 class="ficha-sub">Información nutricional (por 100 g)</h2>
       <div class="macro-table">
 {macros_html}
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>{food["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{food["azucares"]:g} g</b> son azúcares · sodio: <b>{food["sodio"]:g} mg</b></p>

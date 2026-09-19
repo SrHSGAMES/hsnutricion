@@ -194,7 +194,7 @@
       <div class="food-card-head">
         <span class="food-emoji">${food.emoji}</span>
         <div class="food-title">
-          <h4>${formatearNombre(food.nombre)}</h4>
+          <h3>${formatearNombre(food.nombre)}</h3>
           <span class="food-cat">${food.categorias.join(" · ")}</span>
         </div>
         <span class="badge badge-${food.rating}" title="Calificación nutricional">${food.rating}</span>

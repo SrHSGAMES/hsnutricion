@@ -414,7 +414,7 @@ def render_pagina(receta, foods, todas_recetas):
         por_racion = {k: round(totales[k] / receta["raciones"], 1) for k in MACRO_KEYS}
         macros_racion_html = "\n".join(render_macro_row(k, por_racion[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
         por_racion_html = f'''
-            <h4>Información nutricional (por ración)</h4>
+            <h2>Información nutricional (por ración)</h2>
             <div class="macro-table">
 {macros_racion_html}
               <p class="food-motivo" style="margin-top:0">De las grasas, <b>{por_racion["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{por_racion["azucares"]:g} g</b> son azúcares · sodio: <b>{por_racion["sodio"]:g} mg</b></p>
@@ -522,26 +522,26 @@ def render_pagina(receta, foods, todas_recetas):
 
             <div class="receta-columnas">
               <div>
-                <h4>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h4>
+                <h2>Ingredientes <span class="receta-hint">(toca el nombre para ver su ficha)</span></h2>
                 <ul class="receta-ingredientes">
 {ingredientes_html}
                 </ul>
               </div>
               <div>
-                <h4>Elaboración</h4>
+                <h2>Elaboración</h2>
                 <ol class="receta-pasos">
 {pasos_html}
                 </ol>
               </div>
             </div>
 
-            <h4>Información nutricional (receta completa{", " + str(receta["raciones"]) + " raciones" if receta["raciones"] > 1 else ""})</h4>
+            <h2>Información nutricional (receta completa{", " + str(receta["raciones"]) + " raciones" if receta["raciones"] > 1 else ""})</h2>
             <div class="macro-table">
 {macros_html}
               <p class="food-motivo" style="margin-top:0">De las grasas, <b>{totales["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{totales["azucares"]:g} g</b> son azúcares · sodio: <b>{totales["sodio"]:g} mg</b>{incompleto_txt}</p>
             </div>{por_racion_html}
 
-            <h4>Preguntas frecuentes</h4>
+            <h2>Preguntas frecuentes</h2>
             <div class="receta-faq">
 {faq_html}
             </div>
