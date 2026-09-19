@@ -592,6 +592,11 @@
   // Carga los alimentos que la IA ya generó para otras personas y los añade a
   // FOODS/INDICE_ALIAS, para que la guía y la detección por texto/imagen los
   // reconozcan sin volver a llamar a la IA.
+  // Alimentos que la IA generó dos veces (o que ya existen en la guía con otro id) y
+  // que siguen guardados en la base de datos de la comunidad: no se vuelven a mostrar.
+  // Su versión buena vive en js/data.js (ia_semillas_de_chia, ia_curry_en_polvo,
+  // "edamame" y "cafe").
+  const IDS_COMUNIDAD_DUPLICADOS = new Set(["ia_semillas_de_ch_a", "ia_curry", "ia_edamame", "ia_cafe"]);
   seguro("alimentos-comunidad", () => {
     fetch("/api/community-foods")
       .then(r => (r.ok ? r.json() : { alimentos: [] }))
@@ -600,7 +605,7 @@
         const idsExistentes = new Set(FOODS.map(f => f.id));
         let nuevos = 0;
         alimentos.forEach(({ food, estudios }) => {
-          if (!food || !food.id || idsExistentes.has(food.id)) return;
+          if (!food || !food.id || idsExistentes.has(food.id) || IDS_COMUNIDAD_DUPLICADOS.has(food.id)) return;
           food.__estudios = estudios || [];
           FOODS.push(food);
           idsExistentes.add(food.id);
