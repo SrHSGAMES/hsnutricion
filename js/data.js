@@ -4295,6 +4295,625 @@ const FOODS = [
       }
     ],
     sustitutos: []
+  },
+  {
+    id: "alcachofa",
+    nombre: "Alcachofa",
+    aliases: ["alcachofa", "alcachofas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 47, carbs: 10.5, azucares: 1, proteinas: 3.3, grasas: 0.2, grasasSat: 0.04, fibra: 5.4, sodio: 94,
+    motivo: "Destaca por su fibra (incluida inulina, de acción prebiótica) y por compuestos como la cinarina. Los estudios, sobre todo con extractos, sugieren un efecto favorable sobre el perfil de lípidos [1] y la salud cardiometabólica [2]; el efecto de comerla entera está menos estudiado. Es una verdura poco calórica y muy saciante.",
+    estudios: [
+      {
+        "pmid": "30308247",
+        "titulo": "The effect of artichoke on lipid profile: A review of possible mechanisms of action.",
+        "revista": "Pharmacological research",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30308247/"
+      },
+      {
+        "pmid": "41270328",
+        "titulo": "Artichoke and cardiometabolic health: A systematic and meta-analytic synthesis of current evidence.",
+        "revista": "Diabetes & metabolic syndrome",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41270328/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "bacalao",
+    nombre: "Bacalao",
+    aliases: ["bacalao", "bacalao fresco"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "A",
+    kcal: 82, carbs: 0, azucares: 0, proteinas: 17.8, grasas: 0.7, grasasSat: 0.13, fibra: 0, sodio: 54,
+    motivo: "Pescado blanco magro, con más de 17 g de proteína y menos de 1 g de grasa por 100 g, y rico en yodo y selenio. El metaanálisis sobre consumo de pescado y cardiopatía coronaria respalda su papel en una dieta cardiosaludable [1], y en conjunto el pescado se asocia con mejores resultados de salud [2]. Los valores son del bacalao fresco: el salado (en salazón) tiene muchísimo más sodio, salvo que se desale bien.",
+    estudios: [
+      {
+        "pmid": "32751304",
+        "titulo": "Fish Consumption and Coronary Heart Disease: A Meta-Analysis.",
+        "revista": "Nutrients",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32751304/"
+      },
+      {
+        "pmid": "35758202",
+        "titulo": "Fish and human health: an umbrella review of observational studies.",
+        "revista": "International journal of food sciences and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35758202/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "berenjena",
+    nombre: "Berenjena",
+    aliases: ["berenjena", "berenjenas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🍆",
+    rating: "A",
+    kcal: 25, carbs: 5.9, azucares: 3.5, proteinas: 1, grasas: 0.2, grasasSat: 0.04, fibra: 3, sodio: 2,
+    motivo: "Muy pocas calorías, fibra y potasio. La piel concentra antocianinas, pigmentos antioxidantes, y la revisión disponible describe diversos compuestos bioactivos con posible interés para la salud [1]. Ojo con la forma de cocinarla: absorbe mucho aceite al freírla, lo que multiplica sus calorías; al horno, a la plancha o asada mantiene su perfil ligero.",
+    estudios: [
+      {
+        "pmid": "30064803",
+        "titulo": "Health benefits and bioactive compounds of eggplant.",
+        "revista": "Food chemistry",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30064803/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "brocoli",
+    nombre: "Brócoli",
+    aliases: ["brocoli", "brécol", "brecol", "brécoles", "brócoli"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥦",
+    rating: "A",
+    kcal: 34, carbs: 6.6, azucares: 1.7, proteinas: 2.8, grasas: 0.4, grasasSat: 0.06, fibra: 2.6, sodio: 33,
+    motivo: "Aporta muy pocas calorías junto con fibra, vitamina C, vitamina K y folato. Es una crucífera rica en glucosinolatos, a partir de los cuales se forma el sulforafano, un compuesto con actividad antioxidante y antiinflamatoria muy estudiado [1]. El consumo de crucíferas se ha relacionado con beneficios sobre varios resultados de salud [2]. Cocinado al vapor o al dente conserva mejor sus compuestos sensibles al calor.",
+    estudios: [
+      {
+        "pmid": "30372361",
+        "titulo": "Isothiocyanate from Broccoli, Sulforaphane, and Its Properties.",
+        "revista": "Journal of medicinal food",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30372361/"
+      },
+      {
+        "pmid": "34929422",
+        "titulo": "Cruciferous vegetable and isothiocyanate intake and multiple health outcomes.",
+        "revista": "Food chemistry",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34929422/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "caballa",
+    nombre: "Caballa",
+    aliases: ["caballa", "caballas", "verdel"],
+    categorias: ["Proteínas", "Grasas"],
+    emoji: "🐟",
+    rating: "A",
+    kcal: 205, carbs: 0, azucares: 0, proteinas: 18.6, grasas: 13.9, grasasSat: 3.3, fibra: 0, sodio: 90,
+    motivo: "Pescado azul: su grasa es sobre todo insaturada y aporta omega-3 (EPA y DHA), además de vitamina D y B12. Los ácidos grasos EPA y DHA se han asociado con beneficios en distintas etapas de la vida [1], y el consumo de pescado en general con menor riesgo cardiovascular [2]. Al ser un pez pequeño, su contenido en mercurio es bajo en comparación con grandes depredadores como el pez espada.",
+    estudios: [
+      {
+        "pmid": "22332096",
+        "titulo": "Omega-3 fatty acids EPA and DHA: health benefits throughout life.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22332096/"
+      },
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "calabaza",
+    nombre: "Calabaza",
+    aliases: ["calabaza", "calabazas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🎃",
+    rating: "A",
+    kcal: 26, carbs: 6.5, azucares: 2.8, proteinas: 1, grasas: 0.1, grasasSat: 0.05, fibra: 0.5, sodio: 1,
+    motivo: "Aporta un dulzor natural con muy pocas calorías, y es rica en carotenoides (betacarotenos, precursores de la vitamina A) que le dan su color naranja [1][2]. Además de fibra y potasio, admite muchos usos: cremas, asada, purés o incluso en repostería saludable.",
+    estudios: [
+      {
+        "pmid": "35684166",
+        "titulo": "Nutritional Value, Phytochemical Potential, and Therapeutic Benefits of Pumpkin (Cucurbita sp.).",
+        "revista": "Plants (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35684166/"
+      },
+      {
+        "pmid": "36677916",
+        "titulo": "Carotenoid Content and Profiles of Pumpkin Products and By-Products.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36677916/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "cerveza",
+    nombre: "Cerveza",
+    aliases: ["cerveza", "cervezas", "cerveza rubia", "birra"],
+    categorias: ["Bebidas"],
+    emoji: "🍺",
+    rating: "D",
+    kcal: 43, carbs: 3.6, azucares: 0.1, proteinas: 0.5, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
+    motivo: "Aporta calorías del alcohol y carbohidratos sin apenas nutrientes. Contiene compuestos no alcohólicos (polifenoles del lúpulo, vitaminas del grupo B) que se han estudiado [1], pero no compensan el efecto del alcohol: el metaanálisis de 2023 no encontró un beneficio claro en consumos bajos y sí un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. La opción más prudente es reservarla para ocasiones puntuales.",
+    estudios: [
+      {
+        "pmid": "31782326",
+        "titulo": "Beer and its non-alcoholic compounds in health and disease.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31782326/"
+      },
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Cerveza sin alcohol (0,0)",
+        emoji: "🍺", mejor: true,
+        kcal: 20, carbs: 4.5, azucares: 3, proteinas: 0.3, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Mantiene el sabor y el ritual con menos de la mitad de calorías y sin alcohol."
+      }
+    ]
+  },
+  {
+    id: "coliflor",
+    nombre: "Coliflor",
+    aliases: ["coliflor", "coliflores"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 25, carbs: 5, azucares: 1.9, proteinas: 1.9, grasas: 0.3, grasasSat: 0.1, fibra: 2, sodio: 30,
+    motivo: "Muy baja en calorías y con fibra, vitamina C y vitamina K. Como el brócoli, es una crucífera: sus glucosinolatos dan lugar a isotiocianatos, compuestos cuyo posible papel protector se investiga desde hace años [1]. Su textura neutra permite usarla triturada como alternativa baja en carbohidratos al arroz o al puré de patata.",
+    estudios: [
+      {
+        "pmid": "29468815",
+        "titulo": "Isothiocyanates: Translating the Power of Plants to People.",
+        "revista": "Molecular nutrition & food research",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29468815/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "croissant",
+    nombre: "Croissant",
+    aliases: ["croissant", "croissants", "cruasán", "cruasan", "cruasanes"],
+    categorias: ["Dulces"],
+    emoji: "🥐",
+    rating: "D",
+    kcal: 406, carbs: 45.8, azucares: 11.3, proteinas: 8.2, grasas: 21, grasasSat: 11.7, fibra: 2.4, sodio: 400,
+    motivo: "Bollería de harina refinada y mucha mantequilla o margarina: más de 400 kcal por 100 g, con 11,7 g de grasa saturada y 11 g de azúcares. La bollería industrial es un producto ultraprocesado, y los metaanálisis asocian un mayor consumo de ultraprocesados con más riesgo de resultados adversos de salud [1][2]. Un croissant ocasional no es un problema, pero no es un desayuno diario recomendable.",
+    estudios: [
+      {
+        "pmid": "38418082",
+        "titulo": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38418082/"
+      },
+      {
+        "pmid": "38688162",
+        "titulo": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38688162/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Tostada de pan integral con AOVE y tomate",
+        emoji: "🍞", mejor: true,
+        kcal: 280, carbs: 42, azucares: 4, proteinas: 9.5, grasas: 8, grasasSat: 1.2, fibra: 6.5, sodio: 480,
+        porque: "Más fibra y grasas insaturadas del aceite de oliva, mucha menos grasa saturada y sin azúcares añadidos, con un desayuno igual de rápido."
+      }
+    ]
+  },
+  {
+    id: "cuscus",
+    nombre: "Cuscús cocido",
+    aliases: ["cuscus", "cuscús", "couscous", "cous cous", "cuscús cocido"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "C",
+    kcal: 112, carbs: 23.2, azucares: 0.1, proteinas: 3.8, grasas: 0.2, grasasSat: 0.04, fibra: 1.4, sodio: 5,
+    motivo: "El cuscús tradicional es sémola de trigo refinada: aporta poca fibra (1,4 g por 100 g) y una carga glucémica considerable. El consumo de cereales integrales se asocia con menor riesgo cardiovascular [1] y una menor carga glucémica de la dieta con mejores resultados de salud [2], por lo que la versión integral o el uso de quinoa son mejores opciones habituales.",
+    estudios: [
+      {
+        "pmid": "29039970",
+        "titulo": "Food groups and risk of coronary heart disease, stroke and heart failure: A systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29039970/"
+      },
+      {
+        "pmid": "38272606",
+        "titulo": "Association of glycaemic index and glycaemic load with type 2 diabetes, cardiovascular disease, cancer, and all-cause mortality: a meta-analysis of mega cohorts of more than 100 000 participants.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38272606/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Cuscús integral",
+        emoji: "🌾", mejor: true,
+        kcal: 113, carbs: 23.2, azucares: 0.4, proteinas: 4.1, grasas: 0.3, grasasSat: 0.05, fibra: 2.2, sodio: 8,
+        porque: "Conserva el salvado del grano: más fibra y saciedad con la misma textura y el mismo tiempo de preparación."
+      },
+      {
+        nombre: "Quinoa (cocida)",
+        emoji: "🌾", mejor: true,
+        kcal: 120, carbs: 21.3, azucares: 0.9, proteinas: 4.4, grasas: 1.9, grasasSat: 0.2, fibra: 2.8, sodio: 7,
+        porque: "Más proteína y fibra, sin gluten y con grasas insaturadas; se usa igual en ensaladas y guarniciones."
+      }
+    ]
+  },
+  {
+    id: "esparragos",
+    nombre: "Espárragos",
+    aliases: ["esparragos", "espárrago", "esparrago", "espárragos verdes", "esparragos verdes", "espárragos"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌱",
+    rating: "A",
+    kcal: 20, carbs: 3.9, azucares: 1.9, proteinas: 2.2, grasas: 0.1, grasasSat: 0.04, fibra: 2.1, sodio: 2,
+    motivo: "Solo unas 20 kcal por 100 g, con folato, vitamina K y fibra. Contienen asparagina y compuestos fenólicos y saponinas cuyas propiedades se revisan en la literatura científica [1]. Tras comerlos, el olor característico de la orina es inofensivo.",
+    estudios: [
+      {
+        "pmid": "38254589",
+        "titulo": "A Review of the Pro-Health Activity of Asparagus officinalis L. and Its Components.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38254589/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "ternera_filete",
+    nombre: "Filete de ternera",
+    aliases: ["filete de ternera", "ternera", "solomillo de ternera", "lomo de ternera"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🥩",
+    rating: "B",
+    kcal: 135, carbs: 0, azucares: 0, proteinas: 21, grasas: 5, grasasSat: 2.1, fibra: 0, sodio: 60,
+    motivo: "Carne roja magra: proteína completa, hierro hemo, zinc y vitamina B12. Un consumo elevado de carne roja se asocia con mayor riesgo cardiovascular y de diabetes [1], mientras que los ensayos con ternera magra en cantidades moderadas no muestran un empeoramiento de los factores de riesgo cardiovascular [2]. Por eso: en raciones moderadas, magra y sin procesar, y alternada con pescado y legumbres.",
+    estudios: [
+      {
+        "pmid": "37264855",
+        "titulo": "Red meat consumption, cardiovascular diseases, and diabetes: a systematic review and meta-analysis.",
+        "revista": "European heart journal",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
+      },
+      {
+        "pmid": "39649475",
+        "titulo": "Beef Consumption and Cardiovascular Disease Risk Factors: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
+        "revista": "Current developments in nutrition",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39649475/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "gambas",
+    nombre: "Gambas",
+    aliases: ["gambas", "gamba", "langostinos", "langostino", "camarones"],
+    categorias: ["Proteínas"],
+    emoji: "🦐",
+    rating: "A",
+    kcal: 85, carbs: 0, azucares: 0, proteinas: 20.1, grasas: 0.5, grasasSat: 0.1, fibra: 0, sodio: 119,
+    motivo: "Marisco muy magro: unos 20 g de proteína con apenas 0,5 g de grasa por 100 g, y rico en yodo y selenio. Tienen colesterol, pero un ensayo clásico con gambas observó subidas de LDL y también de HDL [1], y la revisión sobre marisco no señala un riesgo especial en el consumo habitual [2]. Cuidado con el sodio si son cocidas o en conserva.",
+    estudios: [
+      {
+        "pmid": "8901790",
+        "titulo": "Effects of shrimp consumption on plasma lipoproteins.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "1996",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/8901790/"
+      },
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "judias_verdes",
+    nombre: "Judías verdes",
+    aliases: ["judias verdes", "judía verde", "judia verde", "judías verdes", "ejotes"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🫛",
+    rating: "A",
+    kcal: 31, carbs: 7, azucares: 3.3, proteinas: 1.8, grasas: 0.2, grasasSat: 0.05, fibra: 2.7, sodio: 6,
+    motivo: "Verdura verde con pocas calorías, fibra, vitamina K y folato. Un mayor consumo de frutas y verduras se asocia con menor riesgo de enfermedad cardiovascular y de mortalidad [1], y las judías verdes son una forma sencilla de sumar raciones: hervidas, al vapor, salteadas o al horno.",
+    estudios: [
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "ia_kale",
+    nombre: "Kale",
+    aliases: ["kale"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 35, carbs: 4.4, azucares: 1, proteinas: 2.9, grasas: 1.5, grasasSat: 0.2, fibra: 4.1, sodio: 53,
+    motivo: "El kale (col rizada) es una verdura de hoja verde de excelente densidad nutricional. Presenta un aporte calórico muy bajo junto con una notable cantidad de fibra dietética, vitaminas (A, C, K) y minerales. Como miembro destacado de la familia de las crucíferas, contiene glucosinolatos precursores de isotiocianatos bioactivos como el sulforafano [1], compuestos ampliamente estudiados por sus propiedades antioxidantes, antiinflamatorias y de protección celular [1].",
+    estudios: [
+      {
+        "pmid": "30372361",
+        "titulo": "Isothiocyanate from Broccoli, Sulforaphane, and Its Properties.",
+        "revista": "Journal of medicinal food",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30372361/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "kiwi",
+    nombre: "Kiwi",
+    aliases: ["kiwi", "kiwis"],
+    categorias: ["Frutas"],
+    emoji: "🥝",
+    rating: "A",
+    kcal: 61, carbs: 14.7, azucares: 9, proteinas: 1.1, grasas: 0.5, grasasSat: 0.03, fibra: 3, sodio: 3,
+    motivo: "Aporta más vitamina C por 100 g que la naranja, además de fibra, potasio y vitamina K; contiene actinidina, una enzima que ayuda a digerir proteínas. Las revisiones recogen sus atributos nutricionales [1] y el metaanálisis disponible sugiere efectos favorables sobre marcadores de salud metabólica [2].",
+    estudios: [
+      {
+        "pmid": "29470689",
+        "titulo": "The nutritional and health attributes of kiwifruit: a review.",
+        "revista": "European journal of nutrition",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29470689/"
+      },
+      {
+        "pmid": "30774402",
+        "titulo": "Effect of kiwifruit on metabolic health in patients with cardiovascular risk factors: a systematic review and meta-analysis.",
+        "revista": "Diabetes, metabolic syndrome and obesity : targets and therapy",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30774402/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "kefir",
+    nombre: "Kéfir",
+    aliases: ["kefir", "kéfir", "kefir de leche"],
+    categorias: ["Lácteos"],
+    emoji: "🥛",
+    rating: "A",
+    kcal: 55, carbs: 4.5, azucares: 4.5, proteinas: 3.6, grasas: 3, grasasSat: 1.9, fibra: 0, sodio: 40,
+    motivo: "Leche fermentada con una gran diversidad de bacterias y levaduras, además de calcio y proteína. Las revisiones describen sus beneficios nutricionales y para la salud [1] y el metaanálisis disponible recoge efectos favorables de sus compuestos bioactivos [2]. Mejor natural, sin azúcares añadidos.",
+    estudios: [
+      {
+        "pmid": "28222814",
+        "titulo": "Milk kefir: nutritional, microbiological and health benefits.",
+        "revista": "Nutrition research reviews",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28222814/"
+      },
+      {
+        "pmid": "34745425",
+        "titulo": "Bioactive Compounds from Kefir and Their Potential Benefits on Health: A Systematic Review and Meta-Analysis.",
+        "revista": "Oxidative medicine and cellular longevity",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34745425/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "melocoton",
+    nombre: "Melocotón",
+    aliases: ["melocoton", "melocotones", "durazno", "duraznos", "melocotón"],
+    categorias: ["Frutas"],
+    emoji: "🍑",
+    rating: "A",
+    kcal: 39, carbs: 9.5, azucares: 8.4, proteinas: 0.9, grasas: 0.3, grasasSat: 0.02, fibra: 1.5, sodio: 0,
+    motivo: "Fruta de temporada con pocas calorías, vitamina C, potasio y compuestos fenólicos. Un mayor consumo de fruta entera se ha asociado con menor riesgo de diabetes tipo 2 [1], y de frutas y verduras en general con menor riesgo cardiovascular y de mortalidad [2]. En almíbar es otra cosa: añade azúcares libres.",
+    estudios: [
+      {
+        "pmid": "23990623",
+        "titulo": "Fruit consumption and risk of type 2 diabetes: results from three prospective longitudinal cohort studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23990623/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "melon",
+    nombre: "Melón",
+    aliases: ["melon", "melón", "melones", "melón cantalupo"],
+    categorias: ["Frutas"],
+    emoji: "🍈",
+    rating: "A",
+    kcal: 34, carbs: 8.2, azucares: 7.9, proteinas: 0.8, grasas: 0.2, grasasSat: 0.05, fibra: 0.9, sodio: 16,
+    motivo: "Fruta muy hidratante y poco calórica, con vitamina C, potasio y, en las variedades de pulpa naranja, provitamina A. Como el resto de la fruta entera, se enmarca en un patrón en el que comer más frutas y verduras se asocia con menor riesgo cardiovascular y de mortalidad [1].",
+    estudios: [
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "merluza",
+    nombre: "Merluza",
+    aliases: ["merluza", "pescadilla"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "A",
+    kcal: 80, carbs: 0, azucares: 0, proteinas: 17.4, grasas: 1.3, grasasSat: 0.3, fibra: 0, sodio: 90,
+    motivo: "Pescado blanco muy magro: proteína de buena calidad con apenas un gramo de grasa, además de yodo, selenio y vitamina B12. El consumo de pescado se asocia con menor riesgo cardiovascular y mejores resultados de salud [1][2]. Al horno, a la plancha o al vapor conserva su perfil ligero.",
+    estudios: [
+      {
+        "pmid": "35758202",
+        "titulo": "Fish and human health: an umbrella review of observational studies.",
+        "revista": "International journal of food sciences and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35758202/"
+      },
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "naranja",
+    nombre: "Naranja",
+    aliases: ["naranja", "naranjas"],
+    categorias: ["Frutas"],
+    emoji: "🍊",
+    rating: "A",
+    kcal: 47, carbs: 11.8, azucares: 9.4, proteinas: 0.9, grasas: 0.1, grasasSat: 0.02, fibra: 2.4, sodio: 0,
+    motivo: "Fuente clásica de vitamina C, con folato, potasio y flavonoides como la hesperidina [1]. Entera aporta fibra y sacia; en zumo pierde la fibra y concentra el azúcar de varias piezas, por eso conviene preferir la fruta entera. Un mayor consumo de frutas y verduras se asocia con menor riesgo cardiovascular y de mortalidad [2].",
+    estudios: [
+      {
+        "pmid": "35204122",
+        "titulo": "Bioactive Compounds of Citrus Fruits: A Review of Composition and Health Benefits of Carotenoids, Flavonoids, Limonoids, and Terpenes.",
+        "revista": "Antioxidants (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35204122/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "queso_cottage",
+    nombre: "Queso cottage",
+    aliases: ["queso cottage", "cottage", "queso cottage natural"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "B",
+    kcal: 98, carbs: 3.4, azucares: 2.7, proteinas: 11.1, grasas: 4.3, grasasSat: 1.7, fibra: 0, sodio: 364,
+    motivo: "Lácteo fresco muy proteico (11 g por 100 g, sobre todo caseína, de digestión lenta) y moderado en grasa; se ha puesto de moda como base cremosa para recetas dulces y saladas. Las revisiones lo describen como un lácteo fermentado con potencial nutricional aún poco explorado [1]. Su punto débil es el sodio (unos 360 mg por 100 g): mejor elegir versiones bajas en sal.",
+    estudios: [
+      {
+        "pmid": "40188423",
+        "titulo": "Cottage cheese, a relatively underexplored cultured dairy product with potential health benefits?",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40188423/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "quinoa",
+    nombre: "Quinoa cocida",
+    aliases: ["quinoa", "quinua", "quinoa cocida"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 120, carbs: 21.3, azucares: 0.9, proteinas: 4.4, grasas: 1.9, grasasSat: 0.2, fibra: 2.8, sodio: 7,
+    motivo: "Pseudocereal sin gluten con una proteína de buena calidad (aporta todos los aminoácidos esenciales), fibra, magnesio, hierro y grasas mayoritariamente insaturadas [1][2]. Contiene saponinas en la cubierta que dan sabor amargo: conviene enjuagarla bien antes de cocerla.",
+    estudios: [
+      {
+        "pmid": "26114306",
+        "titulo": "Quinoa: Nutritional, functional, and antinutritional aspects.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26114306/"
+      },
+      {
+        "pmid": "36608550",
+        "titulo": "Nutrient composition, functional activity and industrial applications of quinoa (Chenopodium quinoa Willd.).",
+        "revista": "Food chemistry",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36608550/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "sandia",
+    nombre: "Sandía",
+    aliases: ["sandia", "sandías", "sandias", "sandía"],
+    categorias: ["Frutas"],
+    emoji: "🍉",
+    rating: "A",
+    kcal: 30, carbs: 7.6, azucares: 6.2, proteinas: 0.6, grasas: 0.2, grasasSat: 0.02, fibra: 0.4, sodio: 1,
+    motivo: "Más de un 90 % de agua y unas 30 kcal por 100 g: muy hidratante. Contiene licopeno y citrulina, un aminoácido cuyo posible efecto sobre la salud cardiometabólica se estudia [1]. Su índice glucémico es alto, pero la carga glucémica de una ración es baja por lo poco concentrada que está en carbohidratos.",
+    estudios: [
+      {
+        "pmid": "34894302",
+        "titulo": "Watermelon and L-Citrulline in Cardio-Metabolic Health: Review of the Evidence 2000-2020.",
+        "revista": "Current atherosclerosis reports",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34894302/"
+      }
+    ],
+    sustitutos: []
   }
 ];
 
