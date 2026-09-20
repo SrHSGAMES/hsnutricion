@@ -1325,5 +1325,207 @@ const RECETAS = [
       { pregunta: "¿Se puede hacer sin gluten?", respuesta: "Depende de las Tortitas de Avena: la avena en sí no tiene gluten, pero puede llevar trazas por contaminación cruzada salvo que compres una marca certificada sin gluten." },
       { pregunta: "¿Cuánto tiempo se conserva en la nevera?", respuesta: "2-3 días en un recipiente hermético; el sabor mejora si lo dejas reposar de un día para otro." }
     ]
+  },
+  {
+    id: "crema_calabaza_jengibre",
+    nombre: "Crema de Calabaza y Jengibre",
+    emojiPortada: "🎃🥣🫚",
+    rating: "A",
+    tiempo: "40 min",
+    raciones: 4,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano", "bajo-en-calorias"],
+    descripcion: "Una crema de otoño sedosa y reconfortante: calabaza, zanahoria y jengibre, sin nata ni patata. La cremosidad viene de las propias verduras, y las pipas de calabaza tostadas por encima aportan el toque crujiente.",
+    motivo: "La cremosidad viene de la propia calabaza y la zanahoria, sin nata, mantequilla ni patata, así que la grasa saturada es mínima (1,3 g por ración) y las calorías, muy contenidas. El jengibre y el ajo aportan sabor sin necesidad de sal añadida, y la calabaza y la zanahoria son ricas en betacarotenos, precursores de la vitamina A. Las pipas de calabaza del final suman zinc, magnesio y grasas insaturadas.",
+    ingredientes: [
+      { foodId: "calabaza", cantidad: 800 },
+      { foodId: "ia_cebolla", cantidad: 150 },
+      { foodId: "ia_zanahoria", cantidad: 100 },
+      { foodId: "ia_jengibre", cantidad: 15 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 500 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "pimienta_negra", cantidad: 1 },
+      { foodId: "ia_pipas_de_calabaza", cantidad: 20 }
+    ],
+    pasos: [
+      "Pela y trocea la calabaza y la zanahoria; pica la cebolla y el ajo, y ralla el jengibre.",
+      "Sofríe la cebolla y el ajo en el AOVE 5 minutos a fuego medio, sin que se doren.",
+      "Añade la calabaza, la zanahoria y el jengibre, y rehoga 3 minutos.",
+      "Vierte el caldo de verduras caliente, tapa y cuece a fuego suave unos 25 minutos, hasta que la calabaza esté tierna.",
+      "Tritura hasta obtener una crema fina; si la prefieres más ligera, añade un poco de agua o de caldo.",
+      "Sirve con pimienta negra y las pipas de calabaza por encima, tostadas 2 minutos en una sartén seca."
+    ],
+    faqs: [
+      { pregunta: "¿Es una receta vegana?", respuesta: "Sí, es 100 % vegetal: solo lleva verduras, caldo de verduras, AOVE y pipas." },
+      { pregunta: "¿Se puede congelar?", respuesta: "Sí, hasta 3 meses en recipientes herméticos. Descongélala en la nevera y recaliéntala removiendo." },
+      { pregunta: "¿Qué tipo de calabaza es mejor?", respuesta: "Cualquiera de pulpa naranja; la calabaza de cacahuete (butternut) es dulce y sin hilos, y queda especialmente cremosa." }
+    ]
+  },
+  {
+    id: "salmon_horno_brocoli_quinoa",
+    nombre: "Salmón al Horno con Brócoli y Quinoa",
+    emojiPortada: "🐟🥦🌾",
+    rating: "B",
+    tiempo: "30 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    descripcion: "Un plato completo en una sola bandeja: salmón jugoso al horno con limón, brócoli asado y quinoa. Proteína, omega-3 y fibra en una cena de 30 minutos y sin apenas fregar.",
+    motivo: "El salmón aporta proteína completa y grasas omega-3 (EPA y DHA), y el brócoli y la quinoa suman fibra, vitamina C y proteína vegetal: 40 g de proteína y más de 8 g de fibra por ración. La calificamos B y no A porque es un plato calórico (unas 590 kcal por ración) y el salmón junto al aceite eleva la grasa hasta los 30 g, con 6 g de saturada. Es muy nutritivo, pero encaja mejor como plato principal ocasional que como comida diaria en raciones grandes.",
+    ingredientes: [
+      { foodId: "salmon", cantidad: 300 },
+      { foodId: "brocoli", cantidad: 300 },
+      { foodId: "quinoa", cantidad: 240 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 60 },
+      { foodId: "ia_ajo", cantidad: 5 },
+      { foodId: "pimienta_negra", cantidad: 1 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Si no tienes quinoa cocida, cuece unos 80 g en seco (bien aclarada) con el doble de agua durante 15 minutos y resérvala.",
+      "Mezcla en una bandeja el brócoli en ramilletes con la mitad del AOVE, el ajo laminado y la pimienta; hornea 10 minutos.",
+      "Haz hueco en la bandeja, coloca los lomos de salmón con rodajas de limón encima y el resto del AOVE, y hornea 12-15 minutos según el grosor.",
+      "Sirve el salmón y el brócoli sobre la quinoa, con un chorrito del jugo de la bandeja y un poco de zumo de limón."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar salmón congelado?", respuesta: "Sí. Descongélalo en la nevera y sécalo bien con papel de cocina antes de hornearlo, para que no suelte agua." },
+      { pregunta: "¿Cómo sé que el salmón está en su punto?", respuesta: "Cuando la parte más gruesa se separa en lascas al presionar con un tenedor, pero sigue jugosa por dentro. Suele ser entre 12 y 15 minutos." },
+      { pregunta: "¿Y si no tengo quinoa?", respuesta: "Sirve igual de bien con arroz integral o con cuscús integral, aunque cambiarán algo los valores nutricionales." }
+    ]
+  },
+  {
+    id: "ensalada_quinoa_garbanzos_aguacate",
+    nombre: "Ensalada de Quinoa, Garbanzos y Aguacate",
+    emojiPortada: "🥗🌾🥑",
+    rating: "A",
+    tiempo: "20 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    descripcion: "Una ensalada saciante y 100 % vegetal: quinoa, garbanzos, aguacate y verduras frescas con aliño de limón. Casi 17 g de fibra por ración y lista en 20 minutos; aguanta bien en la nevera para llevártela al trabajo.",
+    motivo: "Combina proteína vegetal completa (quinoa y garbanzos), casi 17 g de fibra por ración y grasas insaturadas del aguacate y del AOVE, con solo 2,7 g de grasa saturada y prácticamente nada de sodio, porque el sabor viene del limón, el cilantro y la cebolla y no de la sal. Las legumbres y los cereales integrales son la base de los patrones de alimentación más saludables, y esta ensalada los reúne en un solo plato.",
+    ingredientes: [
+      { foodId: "quinoa", cantidad: 240 },
+      { foodId: "ia_garbanzos", cantidad: 200 },
+      { foodId: "aguacate", cantidad: 100 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "pepino", cantidad: 150 },
+      { foodId: "ia_cebolla", cantidad: 40 },
+      { foodId: "cilantro", cantidad: 10 },
+      { foodId: "limon", cantidad: 40 },
+      { foodId: "aove", cantidad: 15 }
+    ],
+    pasos: [
+      "Escurre y enjuaga los garbanzos si son de bote.",
+      "Corta el tomate y el pepino en dados, la cebolla en juliana fina y pica el cilantro.",
+      "Mezcla en un bol la quinoa, los garbanzos, el tomate, el pepino, la cebolla y el cilantro.",
+      "Aliña con el zumo de limón y el AOVE, y remueve bien.",
+      "Añade el aguacate en dados justo antes de servir para que no se oxide."
+    ],
+    faqs: [
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "Sí, hasta 2 días en la nevera. Guarda aparte el aguacate y el aliño, y añádelos justo antes de comer." },
+      { pregunta: "¿Es apta para celíacos?", respuesta: "La quinoa, los garbanzos y las verduras no llevan gluten; comprueba la etiqueta si compras la quinoa o los garbanzos ya envasados." },
+      { pregunta: "¿Puedo usar garbanzos de bote?", respuesta: "Sí, pero escúrrelos y enjuágalos bien: así se elimina buena parte del sodio del líquido de la conserva." }
+    ]
+  },
+  {
+    id: "berenjenas_rellenas_lentejas",
+    nombre: "Berenjenas Rellenas de Lentejas",
+    emojiPortada: "🍆🫘🍅",
+    rating: "A",
+    tiempo: "1 h",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    descripcion: "Berenjenas asadas rellenas de un guiso de lentejas con tomate, comino y pimentón: un plato de cuchara servido al horno. Vegano, con casi 20 g de proteína y 18 g de fibra por ración.",
+    motivo: "Une una verdura muy ligera con una legumbre: casi 20 g de proteína vegetal y 18 g de fibra por ración, con solo 12 g de grasa (1,8 g saturada) y prácticamente nada de sodio. Las berenjenas se hornean en lugar de freírse, porque al freír absorben mucho aceite y multiplican sus calorías; el comino, el pimentón y el ajo dan el sabor sin necesidad de sal. Las lentejas aportan además hierro y folato.",
+    ingredientes: [
+      { foodId: "berenjena", cantidad: 600 },
+      { foodId: "ia_lentejas", cantidad: 120 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "ia_cebolla", cantidad: 120 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "pimenton", cantidad: 3 },
+      { foodId: "comino", cantidad: 2 }
+    ],
+    pasos: [
+      "Cuece las lentejas (unos 120 g en seco) en agua sin sal durante 20-25 minutos, hasta que estén tiernas, y escúrrelas.",
+      "Precalienta el horno a 200 °C. Abre las berenjenas por la mitad a lo largo, marca la pulpa con cortes en rombo, píntalas con la mitad del AOVE y hornéalas 25-30 minutos con la pulpa hacia arriba.",
+      "Mientras tanto, sofríe la cebolla y el ajo picados en el resto del AOVE durante 5 minutos; añade el tomate rallado, el pimentón y el comino, y cocina 8 minutos más.",
+      "Incorpora las lentejas al sofrito y mezcla.",
+      "Vacía con una cuchara parte de la pulpa de las berenjenas (deja un borde de 1 cm), pícala y mézclala con el relleno.",
+      "Rellena las mitades, gratina 8-10 minutos y sirve."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar lentejas de bote?", respuesta: "Sí: unos 300 g de lentejas ya cocidas, escurridas y enjuagadas, y te ahorras el primer paso." },
+      { pregunta: "¿Se pueden congelar?", respuesta: "Sí, ya rellenas y antes de gratinar, hasta 2 meses. Descongélalas en la nevera y gratínalas directamente." },
+      { pregunta: "¿Es necesario freír la berenjena?", respuesta: "No, y es mejor no hacerlo: al horno queda tierna y jugosa sin absorber el aceite que se llevaría al freírla." }
+    ]
+  },
+  {
+    id: "tacos_cottage_huevo_aguacate",
+    nombre: "Tacos de Queso Cottage con Huevo y Aguacate",
+    emojiPortada: "🌮🥑🥚",
+    rating: "C",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico", "vegetariano"],
+    descripcion: "La tendencia del queso cottage, en versión taco: huevo revuelto cremoso con cottage, aguacate y pico de gallo sobre tortillas de maíz. Cerca de 30 g de proteína por ración y sin gluten de forma natural.",
+    motivo: "Tiene una proteína excelente (unos 30 g por ración) y casi 10 g de fibra, pero la calificamos C por dos motivos: el sodio (unos 500 mg por ración, sobre todo del queso cottage) y una grasa saturada algo alta (6,8 g) al sumar huevo, cottage y aguacate. Es un desayuno o cena rápido y saciante, no un plato para todos los días. Elegir un cottage bajo en sal y usar solo la mitad del queso baja bastante el sodio.",
+    ingredientes: [
+      { foodId: "tortilla_maiz", cantidad: 120 },
+      { foodId: "queso_cottage", cantidad: 200 },
+      { foodId: "huevo", cantidad: 200 },
+      { foodId: "aguacate", cantidad: 150 },
+      { foodId: "ia_tomate", cantidad: 100 },
+      { foodId: "cilantro", cantidad: 10 },
+      { foodId: "limon", cantidad: 20 }
+    ],
+    pasos: [
+      "Bate los huevos con la mitad del queso cottage.",
+      "Cuájalos a fuego bajo en una sartén antiadherente, removiendo suavemente 3-4 minutos, para que queden cremosos.",
+      "Calienta las tortillas de maíz unos 30 segundos por cada lado.",
+      "Pica el tomate y el cilantro, y aplasta el aguacate con el zumo de limón.",
+      "Monta cada taco con el aguacate, el huevo, el queso cottage restante y el pico de gallo."
+    ],
+    faqs: [
+      { pregunta: "¿Cómo puedo reducir el sodio?", respuesta: "Elige un queso cottage bajo en sal o sustituye la mitad por yogur natural sin azúcar; el resto de ingredientes apenas aportan sodio." },
+      { pregunta: "¿Es apta para celíacos?", respuesta: "Sí, siempre que las tortillas sean 100 % de maíz: revisa la etiqueta, porque algunas llevan harina de trigo." },
+      { pregunta: "¿Se puede triturar el cottage?", respuesta: "Sí; si lo pasas por la batidora antes de mezclarlo con el huevo, el resultado es más cremoso y sin grumos." }
+    ]
+  },
+  {
+    id: "racimos_fruta_congelada_yogur",
+    nombre: "Racimos de Fruta Congelada con Yogur",
+    emojiPortada: "🍓🫐🥛",
+    rating: "A",
+    tiempo: "10 min + congelación",
+    raciones: 4,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
+    descripcion: "El snack viral del verano que también funciona en otoño: pequeños racimos de yogur natural con frutos rojos, congelados. Sin azúcar añadido (la miel es opcional), unos 10 g de proteína por ración y solo unas 100 kcal.",
+    motivo: "Se basa en yogur natural sin azúcar (10 g de proteína por 100 g y casi nada de grasa) y en frutos rojos, ricos en fibra y antocianinas. Así, casi todo el azúcar de la receta viene de la propia fruta y el yogur; la miel es opcional y, sin ella, es todavía más ligera. Es una alternativa sencilla al helado o a los snacks dulces industriales.",
+    ingredientes: [
+      { foodId: "yogur_natural", cantidad: 400 },
+      { foodId: "arandanos", cantidad: 100 },
+      { foodId: "fresas", cantidad: 100 },
+      { foodId: "frambuesas", cantidad: 50 },
+      { foodId: "miel", cantidad: 15, opcional: true }
+    ],
+    pasos: [
+      "Forra una bandeja o un plato que quepa en el congelador con papel de horno.",
+      "Si usas miel, mézclala con el yogur.",
+      "Reparte unas 12 cucharadas de yogur sobre el papel, dejando espacio entre ellas.",
+      "Coloca encima los arándanos, trozos de fresa y las frambuesas, presionando ligeramente para que se sujeten.",
+      "Congela como mínimo 2 horas. Guarda los racimos en un recipiente hermético en el congelador hasta 1 mes y tómalos directamente del congelador."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar yogur vegetal?", respuesta: "Sí, con un yogur de soja espeso y sin azúcar; quedarán algo menos firmes que con yogur natural o griego." },
+      { pregunta: "¿Cuánto duran en el congelador?", respuesta: "Hasta un mes en un recipiente hermético; sepáralos con papel de horno para que no se peguen entre sí." },
+      { pregunta: "¿Puedo usar otras frutas?", respuesta: "Sí: mango, kiwi o plátano en trozos funcionan bien. Evita las muy acuosas, como la sandía, porque al congelarse quedan duras." }
+    ]
   }
 ];
