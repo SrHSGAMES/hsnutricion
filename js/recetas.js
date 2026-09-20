@@ -1296,6 +1296,7 @@ const RECETAS = [
   {
     id: "tiramisu_yogur_saludable",
     nombre: "Tiramisú de Yogur Saludable",
+    imagen: "img/recetas/Tiramisu-de-Yogur-Saludable.jpg",
     emojiPortada: "☕🍰🥄",
     rating: "A",
     tiempo: "20 min + reposo",
@@ -1329,6 +1330,7 @@ const RECETAS = [
   {
     id: "crema_calabaza_jengibre",
     nombre: "Crema de Calabaza y Jengibre",
+    imagen: "img/recetas/Crema-de-Calabaza-y-Jengibre.jpg",
     emojiPortada: "🎃🥣🫚",
     rating: "A",
     tiempo: "40 min",
@@ -1365,6 +1367,7 @@ const RECETAS = [
   {
     id: "salmon_horno_brocoli_quinoa",
     nombre: "Salmón al Horno con Brócoli y Quinoa",
+    imagen: "img/recetas/Salmon-al-Horno-con-Brocoli-y-Quinoa.jpg",
     emojiPortada: "🐟🥦🌾",
     rating: "B",
     tiempo: "30 min",
@@ -1397,6 +1400,7 @@ const RECETAS = [
   {
     id: "ensalada_quinoa_garbanzos_aguacate",
     nombre: "Ensalada de Quinoa, Garbanzos y Aguacate",
+    imagen: "img/recetas/Ensalada-de-Quinoa-Garbanzos-y-Aguacate.jpg",
     emojiPortada: "🥗🌾🥑",
     rating: "A",
     tiempo: "20 min",
@@ -1432,6 +1436,7 @@ const RECETAS = [
   {
     id: "berenjenas_rellenas_lentejas",
     nombre: "Berenjenas Rellenas de Lentejas",
+    imagen: "img/recetas/Berenjenas-Rellenas-de-Lentejas.jpg",
     emojiPortada: "🍆🫘🍅",
     rating: "A",
     tiempo: "1 h",
@@ -1467,6 +1472,7 @@ const RECETAS = [
   {
     id: "tacos_cottage_huevo_aguacate",
     nombre: "Tacos de Queso Cottage con Huevo y Aguacate",
+    imagen: "img/recetas/Tacos-de-Queso-Cottage-con-Huevo-y-Aguacate.jpg",
     emojiPortada: "🌮🥑🥚",
     rating: "C",
     tiempo: "15 min",
@@ -1500,6 +1506,7 @@ const RECETAS = [
   {
     id: "racimos_fruta_congelada_yogur",
     nombre: "Racimos de Fruta Congelada con Yogur",
+    imagen: "img/recetas/Racimo-de-Fruta-Congelada-con-Yogur.jpg",
     emojiPortada: "🍓🫐🥛",
     rating: "A",
     tiempo: "10 min + congelación",
