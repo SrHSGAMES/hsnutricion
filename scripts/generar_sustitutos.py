@@ -333,10 +333,10 @@ def render_pagina(food, todos_los_foods, todas_recetas):
       <span class="brand-name">HS<span>Nutrición</span></span>
     </a>
     <nav class="main-nav" id="mainNav">
+      <a href="index.html#recetas">Recetas</a>
       <a href="index.html#como-funciona">Cómo funciona</a>
       <a href="index.html#analizar">Analizar</a>
       <a href="index.html#alimentos">Alimentos</a>
-      <a href="index.html#recetas">Recetas</a>
       <a href="comunidad.html">Comunidad</a>
       <a href="sobre.html">Sobre</a>
       <a href="index.html#contacto">Contacto</a>
