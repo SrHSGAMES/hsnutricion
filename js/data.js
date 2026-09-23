@@ -253,7 +253,7 @@ const FOODS = [
   {
     id: "pan_integral",
     nombre: "Pan integral",
-    aliases: ["pan integral", "pan de centeno", "pan de masa madre"],
+    aliases: ["pan integral", "pan de masa madre"],
     categorias: ["Cereales"],
     emoji: "🌾",
     rating: "A",
@@ -573,7 +573,7 @@ const FOODS = [
   {
     id: "yogur_natural",
     nombre: "Yogur natural sin azúcar",
-    aliases: ["yogur natural", "yogur natural sin azucar", "yogur griego natural"],
+    aliases: ["yogur natural", "yogur natural sin azucar"],
     categorias: ["Lácteos"],
     emoji: "🥣",
     rating: "A",
@@ -4911,6 +4911,716 @@ const FOODS = [
         "revista": "Current atherosclerosis reports",
         "anio": "2021",
         "url": "https://pubmed.ncbi.nlm.nih.gov/34894302/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "ia_chirimoya",
+    nombre: "Chirimoya",
+    aliases: ["chirimoya", "chirimoyas"],
+    categorias: ["Frutas"],
+    emoji: "🍈",
+    rating: "A",
+    kcal: 79, carbs: 18, azucares: 13, proteinas: 1.6, grasas: 0.6, grasasSat: 0.1, fibra: 3, sodio: 4,
+    motivo: "La chirimoya es una fruta tropical con una densidad nutricional notable: casi 3 g de fibra por 100 g, que ayuda a moderar la absorción de sus azúcares naturales, junto con vitamina C, potasio y compuestos fenólicos con actividad antioxidante [1]. Su perfil nutricional y nutracéutico se mantiene favorable en las principales variedades comerciales [2].",
+    estudios: [
+      {
+        "pmid": "32512771",
+        "titulo": "Chemical Profile and Biological Activity of Cherimoya (Annona cherimola Mill.) and Atemoya (Annona atemoya) Leaves.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32512771/"
+      },
+      {
+        "pmid": "33374394",
+        "titulo": "Pomological, Sensorial, Nutritional and Nutraceutical Profile of Seven Cultivars of Cherimoya (Annona cherimola Mill).",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33374394/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "guisantes",
+    nombre: "Guisantes (cocidos)",
+    aliases: ["guisantes", "guisantes cocidos", "arvejas", "petit pois"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🟢",
+    rating: "A",
+    kcal: 84, carbs: 14, azucares: 5.7, proteinas: 5.4, grasas: 0.4, grasasSat: 0.1, fibra: 5.5, sodio: 3,
+    motivo: "Los guisantes son una legumbre-verdura con un perfil poco habitual: aportan fibra y proteína vegetal en cantidades notables para tratarse de una hortaliza, lo que ayuda a la saciedad y a moderar el pico glucémico de la comida [1]. Como el resto de legumbres, se asocian de forma consistente a una mejor salud cardiometabólica [2].",
+    estudios: [
+      {
+        "pmid": "39510482",
+        "titulo": "A comprehensive review on composition to application of pea protein and its components.",
+        "revista": "International journal of biological macromolecules",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39510482/"
+      },
+      {
+        "pmid": "25061763",
+        "titulo": "Nutritional and health benefits of pulses.",
+        "revista": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25061763/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "aceitunas",
+    nombre: "Aceitunas verdes",
+    aliases: ["aceitunas", "aceitunas verdes", "olivas"],
+    categorias: ["Grasas"],
+    emoji: "🫒",
+    rating: "C",
+    kcal: 145, carbs: 3.8, azucares: 0.5, proteinas: 1, grasas: 15, grasasSat: 2, fibra: 3.3, sodio: 1550,
+    motivo: "Las aceitunas de mesa aportan grasa mayoritariamente monoinsaturada, similar a la del AOVE, junto con polifenoles propios del olivo [1] — la misma familia de compuestos ligada a un menor riesgo cardiovascular dentro de la dieta mediterránea [2]. Su punto débil es la sal del proceso de conservación en salmuera: unos 1.500 mg de sodio por 100 g, así que conviene tratarlas como aderezo y no como ración principal.",
+    estudios: [
+      {
+        "pmid": "33354328",
+        "titulo": "Table olives and health: a review.",
+        "revista": "Journal of nutritional science",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33354328/"
+      },
+      {
+        "pmid": "29897866",
+        "titulo": "Primary Prevention of Cardiovascular Disease with a Mediterranean Diet Supplemented with Extra-Virgin Olive Oil or Nuts.",
+        "revista": "The New England journal of medicine",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29897866/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "AOVE (aceite de oliva virgen extra)",
+        emoji: "🫒", mejor: true,
+        kcal: 884, carbs: 0, azucares: 0, proteinas: 0, grasas: 100, grasasSat: 14, fibra: 0, sodio: 0,
+        porque: "Mismo tipo de grasa saludable, sin la sal de la salmuera."
+      }
+    ]
+  },
+  {
+    id: "seitan",
+    nombre: "Seitán",
+    aliases: ["seitan", "seitán"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 121, carbs: 4, azucares: 0.5, proteinas: 25, grasas: 1.9, grasasSat: 0.3, fibra: 0.6, sodio: 15,
+    motivo: "El seitán es gluten de trigo hidratado y cocido: prácticamente toda su caloría es proteína (unos 25 g por 100 g) con muy poca grasa, lo que lo convierte en una alternativa cárnica muy magra [1]. Al ser gluten puro, no es apto para personas celíacas o con sensibilidad al gluten, y su perfil de aminoácidos es menos completo que el de la soja o los lácteos [2].",
+    estudios: [
+      {
+        "pmid": "36794485",
+        "titulo": "Comparison of life cycle assessments and nutritional contents of soy protein and wheat protein (seitan) based vegan bacon products for human and environmental health.",
+        "revista": "Journal of the science of food and agriculture",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36794485/"
+      },
+      {
+        "pmid": "28244676",
+        "titulo": "What is gluten?",
+        "revista": "Journal of gastroenterology and hepatology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28244676/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "proteina_whey",
+    nombre: "Proteína de suero en polvo (whey)",
+    aliases: ["proteina en polvo", "whey", "proteina de suero", "batido de proteinas"],
+    categorias: ["Suplemento Alimenticio"],
+    emoji: "🥤",
+    rating: "A",
+    kcal: 375, carbs: 6, azucares: 4, proteinas: 78, grasas: 6, grasasSat: 3.5, fibra: 1, sodio: 150,
+    motivo: "La proteína de suero es una de las fuentes de proteína mejor estudiadas para estimular la síntesis de proteína muscular, gracias a su perfil de aminoácidos esenciales y su rápida digestión [1], con beneficios documentados incluso en personas mayores con sarcopenia [2]. Es un suplemento, no un alimento imprescindible: solo aporta ventaja real si te cuesta llegar a tu objetivo de proteína solo con comida.",
+    estudios: [
+      {
+        "pmid": "25757896",
+        "titulo": "Supplemental protein in support of muscle mass and health: advantage whey.",
+        "revista": "Journal of food science",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25757896/"
+      },
+      {
+        "pmid": "37196876",
+        "titulo": "Whey Protein Supplementation with or without Vitamin D on Sarcopenia-Related Measures: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37196876/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "yogur_griego",
+    nombre: "Yogur griego natural",
+    aliases: ["yogur griego", "yogur griego natural", "yogur griego sin azucar"],
+    categorias: ["Lácteos"],
+    emoji: "🥣",
+    rating: "A",
+    kcal: 97, carbs: 4, azucares: 4, proteinas: 9, grasas: 5, grasasSat: 3.2, fibra: 0, sodio: 36,
+    motivo: "Con un colado que concentra la proteína (unos 9 g por 100 g, el doble que un yogur natural normal) y menos azúcar residual, el yogur griego natural favorece más la saciedad que un yogur convencional [1]. Los ensayos con deportistas muestran además menores marcadores de inflamación sistémica tras su consumo regular [2]. Elige siempre la versión natural sin azucarar: las de sabores suman mucho azúcar añadido.",
+    estudios: [
+      {
+        "pmid": "33405074",
+        "titulo": "Effect of Yogurt Consumption on Metabolic Syndrome Risk Factors: a Narrative Review.",
+        "revista": "Current nutrition reports",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33405074/"
+      },
+      {
+        "pmid": "40944203",
+        "titulo": "Resistance Exercise Training and Greek Yogurt Consumption Modulate Markers of Systemic Inflammation in Healthy Young Males-A Secondary Analysis of a Randomized Controlled Trial.",
+        "revista": "Nutrients",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40944203/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mozzarella",
+    nombre: "Queso mozzarella",
+    aliases: ["mozzarella", "queso mozzarella", "bola de mozzarella"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "B",
+    kcal: 253, carbs: 2.2, azucares: 1, proteinas: 18, grasas: 19, grasasSat: 12, fibra: 0, sodio: 370,
+    motivo: "La mozzarella aporta calcio y proteína de calidad, pero también una ración considerable de grasa saturada. Las revisiones más recientes matizan ese punto: el efecto del queso sobre el riesgo cardiovascular parece menos negativo que el de otras fuentes de grasa saturada, probablemente por su matriz de nutrientes (calcio, péptidos bioactivos) [1][2]. Aun así, moderar la cantidad tiene sentido si ya cubres bien tu ración de lácteos.",
+    estudios: [
+      {
+        "pmid": "40088974",
+        "titulo": "Regular-fat and low-fat dairy foods and cardiovascular diseases: perspectives for future dietary recommendations.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40088974/"
+      },
+      {
+        "pmid": "34632478",
+        "titulo": "Exploring the Links between Diet and Inflammation: Dairy Foods as Case Studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34632478/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso fresco batido 0%",
+        emoji: "🧀", mejor: true,
+        kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
+        porque: "Misma untuosidad para gratinar o rellenar, con muchísima menos grasa."
+      }
+    ]
+  },
+  {
+    id: "queso_feta",
+    nombre: "Queso feta",
+    aliases: ["feta", "queso feta"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 264, carbs: 4, azucares: 4, proteinas: 14, grasas: 21, grasasSat: 15, fibra: 0, sodio: 1000,
+    motivo: "El queso feta madura en salmuera, lo que dispara su sodio muy por encima de otros quesos (en torno a 1.000 mg por 100 g), aunque las revisiones más amplias sobre el consumo de queso no muestran un perjuicio cardiovascular claro en cantidades moderadas [1][2]. Aun así, su combinación de sodio y grasa saturada pide raciones pequeñas: más como condimento de ensalada que como ingrediente principal.",
+    estudios: [
+      {
+        "pmid": "37328108",
+        "titulo": "Cheese consumption and multiple health outcomes: an umbrella review and updated meta-analysis of prospective studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37328108/"
+      },
+      {
+        "pmid": "34550320",
+        "titulo": "Dairy Product Consumption and Cardiovascular Health: A Systematic Review and Meta-analysis of Prospective Cohort Studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34550320/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso cottage",
+        emoji: "🧀", mejor: true,
+        kcal: 98, carbs: 3.4, azucares: 2.7, proteinas: 11.1, grasas: 4.3, grasasSat: 1.7, fibra: 0, sodio: 364,
+        porque: "Mucha menos grasa saturada y sodio, manteniendo un lácteo salado y proteico."
+      }
+    ]
+  },
+  {
+    id: "requeson",
+    nombre: "Requesón",
+    aliases: ["requeson", "requesón"],
+    categorias: ["Lácteos"],
+    emoji: "🥛",
+    rating: "A",
+    kcal: 98, carbs: 3.4, azucares: 3, proteinas: 13, grasas: 4, grasasSat: 2.5, fibra: 0, sodio: 350,
+    motivo: "El requesón es un lácteo fresco elaborado a partir del suero, con buena proteína y mucha menos grasa que un queso curado. Los lácteos frescos de este tipo aportan péptidos bioactivos de interés, con efecto descrito incluso sobre la tensión arterial [1], y encajan en el patrón de lácteos de la dieta mediterránea [2]. Una opción ligera para untar con fruta o miel.",
+    estudios: [
+      {
+        "pmid": "34828854",
+        "titulo": "Antihypertensive Peptides from Ultrafiltration and Fermentation of the Ricotta Cheese Exhausted Whey: Design and Characterization of a Functional Ricotta Cheese.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34828854/"
+      },
+      {
+        "pmid": "15052494",
+        "titulo": "Mediterranean milk and milk products.",
+        "revista": "European journal of nutrition",
+        "anio": "2004",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/15052494/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "hummus",
+    nombre: "Hummus",
+    aliases: ["hummus", "hummus casero", "pate de garbanzos"],
+    categorias: ["Untables"],
+    emoji: "🧆",
+    rating: "A",
+    kcal: 166, carbs: 14, azucares: 0.6, proteinas: 7.9, grasas: 9.6, grasasSat: 1.4, fibra: 6, sodio: 379,
+    motivo: "El hummus casero (garbanzos, tahini, limón y aceite de oliva) combina fibra, proteína vegetal y grasa insaturada; en personas sanas produce una respuesta de glucosa e insulina más suave que otros aperitivos igual de calóricos [1], y su perfil nutricional se considera uno de los puntos fuertes de la dieta mediterránea [2]. Ojo con las versiones comerciales: algunas llevan bastante más sal y aceite de girasol refinado que la receta casera.",
+    estudios: [
+      {
+        "pmid": "38823849",
+        "titulo": "Impact of chickpea hummus on postprandial blood glucose, insulin and gut hormones in healthy humans combined with mechanistic studies of food structure, rheology and digestion kinetics.",
+        "revista": "Food research international (Ottawa, Ont.)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38823849/"
+      },
+      {
+        "pmid": "33260594",
+        "titulo": "The Benefits of Including Hummus and Hummus Ingredients into the American Diet to Promote Diet Quality and Health: A Comprehensive Review.",
+        "revista": "Nutrients",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33260594/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "higos_secos",
+    nombre: "Higos secos",
+    aliases: ["higos secos", "higo seco", "higos pasas"],
+    categorias: ["Frutas"],
+    emoji: "🟤",
+    rating: "B",
+    kcal: 249, carbs: 63.9, azucares: 47.9, proteinas: 3.3, grasas: 0.9, grasasSat: 0.2, fibra: 9.8, sodio: 10,
+    motivo: "Al secarse, el higo concentra azúcar y calorías, pero también fibra y minerales como el potasio y el calcio, con un perfil comparable al de otras frutas desecadas de esta guía [1]. Son útiles como snack energético puntual, no como sustituto de la fruta fresca del día a día.",
+    estudios: [
+      {
+        "pmid": "37299587",
+        "titulo": "Phytochemical Composition and Health Benefits of Figs (Fresh and Dried): A Review of Literature from 2000 to 2022.",
+        "revista": "Nutrients",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37299587/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "ciruelas_pasas",
+    nombre: "Ciruelas pasas",
+    aliases: ["ciruelas pasas", "ciruela pasa", "ciruelas secas"],
+    categorias: ["Frutas"],
+    emoji: "🟣",
+    rating: "B",
+    kcal: 240, carbs: 63.9, azucares: 38.1, proteinas: 2.2, grasas: 0.4, grasasSat: 0.03, fibra: 7.1, sodio: 2,
+    motivo: "Las ciruelas pasas destacan dentro de la fruta desecada por la solidez de su evidencia clínica: un ensayo aleatorizado de 12 meses en mujeres posmenopáusicas mostró que tomarlas a diario ayuda a preservar la densidad mineral ósea de la cadera [1], resultado que respaldan las revisiones sobre fruta desecada y salud ósea [2]. Como el resto de fruta desecada, concentran azúcar y calorías: una ración pequeña (4-5 unidades) es suficiente.",
+    estudios: [
+      {
+        "pmid": "35798020",
+        "titulo": "Prunes preserve hip bone mineral density in a 12-month randomized controlled trial in postmenopausal women: the Prune Study.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35798020/"
+      },
+      {
+        "pmid": "28422064",
+        "titulo": "Dried Plums, Prunes and Bone Health: A Comprehensive Review.",
+        "revista": "Nutrients",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28422064/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "leche_coco",
+    nombre: "Leche de coco (para cocinar)",
+    aliases: ["leche de coco", "leche de coco de lata"],
+    categorias: ["Bebidas vegetales"],
+    emoji: "🥥",
+    rating: "C",
+    kcal: 230, carbs: 3.3, azucares: 3.3, proteinas: 2.3, grasas: 24, grasasSat: 21, fibra: 2.2, sodio: 15,
+    motivo: "La leche de coco de lata aporta cremosidad sin lácteos, pero también mucha grasa saturada — más del 85% de su grasa total —, bastante más que el aceite de oliva o los frutos secos [1]. Resérvala para recetas puntuales y usa la versión light, o una bebida de avena o soja, cuando el plato lo permita.",
+    estudios: [
+      {
+        "pmid": "39093148",
+        "titulo": "Lipid Profile of Plant-Based Milk Alternatives (PBMAs) and Cow's Milk: A Comparison.",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39093148/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Leche desnatada",
+        emoji: "🥛", mejor: true,
+        kcal: 34, carbs: 5, azucares: 5, proteinas: 3.4, grasas: 0.1, grasasSat: 0.1, fibra: 0, sodio: 42,
+        porque: "Aporta cremosidad para cocinar con una fracción de la grasa saturada."
+      }
+    ]
+  },
+  {
+    id: "muslo_pollo",
+    nombre: "Muslo de pollo (con piel)",
+    aliases: ["muslo de pollo", "contramuslo de pollo", "muslo de pollo con piel"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🍗",
+    rating: "B",
+    kcal: 209, carbs: 0, azucares: 0, proteinas: 26, grasas: 11, grasasSat: 3, fibra: 0, sodio: 84,
+    motivo: "El muslo de pollo con piel es más graso que la pechuga (unos 11 g de grasa por 100 g frente a 3-4 g), pero sigue siendo una buena fuente de proteína, hierro y zinc, algo más biodisponibles que en la pechuga [1]. Si buscas la opción más magra, quita la piel antes de cocinarlo o alterna con pechuga.",
+    estudios: [
+      {
+        "pmid": "37630747",
+        "titulo": "Poultry Consumption and Human Cardiometabolic Health-Related Outcomes: A Narrative Review.",
+        "revista": "Nutrients",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37630747/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Misma proteína magra con una fracción de la grasa, si quitas la piel del muslo no compensa."
+      }
+    ]
+  },
+  {
+    id: "lubina",
+    nombre: "Lubina",
+    aliases: ["lubina", "lubina a la plancha"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "A",
+    kcal: 124, carbs: 0, azucares: 0, proteinas: 23.6, grasas: 2.5, grasasSat: 0.6, fibra: 0, sodio: 68,
+    motivo: "La lubina es un pescado blanco magro: mucha proteína de alta calidad y poca grasa, con un perfil similar al de otros pescados magros que los metaanálisis relacionan con menor riesgo cardiovascular y de mortalidad por cualquier causa [1][2].",
+    estudios: [
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "33942085",
+        "titulo": "Lipid-modifying effects of lean fish and fish-derived protein consumption in humans: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Nutrition reviews",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33942085/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mejillones",
+    nombre: "Mejillones al natural",
+    aliases: ["mejillones", "mejillones al natural", "mejillones al vapor"],
+    categorias: ["Proteínas"],
+    emoji: "🦪",
+    rating: "A",
+    kcal: 86, carbs: 3.7, azucares: 0, proteinas: 12, grasas: 2.2, grasasSat: 0.4, fibra: 0, sodio: 286,
+    motivo: "Los mejillones son uno de los mariscos más densos en nutrientes: hierro, zinc, yodo y, sobre todo, vitamina B12 en cantidades muy superiores a la mayoría de proteínas animales [1], con un perfil de omega-3 nada desdeñable para tratarse de un molusco [2]. Todo eso con muy pocas calorías.",
+    estudios: [
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "34639325",
+        "titulo": "Trace Elements and Omega-3 Fatty Acids of Wild and Farmed Mussels (Mytilus galloprovincialis) Consumed in Bulgaria: Human Health Risks.",
+        "revista": "International journal of environmental research and public health",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34639325/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "trigo_sarraceno",
+    nombre: "Trigo sarraceno (cocido)",
+    aliases: ["trigo sarraceno", "alforfon", "alforfón", "trigo sarraceno cocido"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 92, carbs: 19.9, azucares: 0.9, proteinas: 3.4, grasas: 0.6, grasasSat: 0.1, fibra: 2.7, sodio: 1,
+    motivo: "A pesar del nombre, el trigo sarraceno no es trigo ni contiene gluten: es una semilla rica en fibra y en rutina, un flavonoide que se ha relacionado con un mejor control de la glucemia [1][2]. Una alternativa completa a la pasta o el arroz blanco para quien evita el gluten.",
+    estudios: [
+      {
+        "pmid": "35409281",
+        "titulo": "Impact of Rutin and Other Phenolic Substances on the Digestibility of Buckwheat Grain Metabolites.",
+        "revista": "International journal of molecular sciences",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35409281/"
+      },
+      {
+        "pmid": "38547702",
+        "titulo": "Nutritional and functional perspectives of pseudocereals.",
+        "revista": "Food chemistry",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38547702/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pan_centeno",
+    nombre: "Pan de centeno",
+    aliases: ["pan de centeno", "pan centeno integral"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 259, carbs: 48, azucares: 3.5, proteinas: 8.5, grasas: 1.7, grasasSat: 0.3, fibra: 8.5, sodio: 500,
+    motivo: "El pan de centeno integral tiene un índice glucémico más bajo que el pan de trigo blanco, e incluso que buena parte del pan de trigo integral, gracias a su fibra soluble [1], lo que se traduce en mejor saciedad tras la comida [2]. Comprueba la etiqueta: muchos panes 'de centeno' del súper mezclan mayoritariamente harina de trigo.",
+    estudios: [
+      {
+        "pmid": "29097438",
+        "titulo": "Whole grain-rich diet reduces body weight and systemic low-grade inflammation without inducing major changes of the gut microbiome: a randomised cross-over trial.",
+        "revista": "Gut",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29097438/"
+      },
+      {
+        "pmid": "23885994",
+        "titulo": "The effect of fiber on satiety and food intake: a systematic review.",
+        "revista": "Journal of the American College of Nutrition",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23885994/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "palomitas",
+    nombre: "Palomitas de maíz (naturales)",
+    aliases: ["palomitas", "palomitas de maiz", "palomitas caseras"],
+    categorias: ["Snacks"],
+    emoji: "🍿",
+    rating: "A",
+    kcal: 387, carbs: 78, azucares: 0.9, proteinas: 13, grasas: 4.5, grasasSat: 0.6, fibra: 15, sodio: 8,
+    motivo: "Las palomitas hechas solo con maíz, sin mantequilla ni sal añadida, son cereal integral: aportan mucha fibra por muy pocas calorías, y los estudios que comparan el maíz reventado con otras formas de grano integral no encuentran diferencias relevantes en su valor nutricional [1], en línea con el beneficio general del grano integral sobre el riesgo cardiovascular [2]. Las versiones de cine o microondas con mantequilla o caramelo no tienen nada que ver con esta ficha.",
+    estudios: [
+      {
+        "pmid": "42061716",
+        "titulo": "Whole Grains Perspective: Porridge or Popcorn.",
+        "revista": "The Journal of nutrition",
+        "anio": "2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42061716/"
+      },
+      {
+        "pmid": "35681238",
+        "titulo": "Intake of whole grain foods and risk of coronary heart disease in US men and women.",
+        "revista": "BMC medicine",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35681238/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "vino_tinto",
+    nombre: "Vino tinto",
+    aliases: ["vino tinto", "copa de vino", "vino"],
+    categorias: ["Bebidas"],
+    emoji: "🍷",
+    rating: "D",
+    kcal: 85, carbs: 2.6, azucares: 0.6, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
+    motivo: "El vino tinto contiene resveratrol y otros polifenoles del hollejo de la uva, estudiados por su posible efecto cardioprotector [1], pero las revisiones más recientes coinciden en que esos compuestos no compensan el efecto del alcohol: no existe un nivel de consumo que se considere sin riesgo, y la cantidad de resveratrol que aporta una copa es demasiado baja para tener un efecto clínico relevante. El metaanálisis de 2023 encontró un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. Si bebes, que sea ocasional y en cantidad moderada.",
+    estudios: [
+      {
+        "pmid": "31597344",
+        "titulo": "Red Wine Consumption and Cardiovascular Health.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31597344/"
+      },
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Vino tinto desalcoholizado (0,0%)",
+        emoji: "🍷", mejor: true,
+        kcal: 15, carbs: 3, azucares: 3, proteinas: 0.2, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Mantiene el sabor y el ritual, sin alcohol ni sus calorías."
+      }
+    ]
+  },
+  {
+    id: "mostaza",
+    nombre: "Mostaza",
+    aliases: ["mostaza", "mostaza de dijon", "mostaza amarilla"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🟡",
+    rating: "C",
+    kcal: 66, carbs: 6, azucares: 3, proteinas: 4, grasas: 3.3, grasasSat: 0.2, fibra: 3, sodio: 1120,
+    motivo: "La mostaza aporta muy pocas calorías y apenas azúcar en comparación con otras salsas de mesa, además de compuestos azufrados (glucosinolatos) propios de la familia de la col, con actividad antioxidante descrita en varios estudios [1][2]. Su pero es el sodio: como el resto de condimentos concentrados, con una cucharadita por plato es más que suficiente.",
+    estudios: [
+      {
+        "pmid": "36079672",
+        "titulo": "Glucosinolates and Omega-3 Fatty Acids from Mustard Seeds: Phytochemistry and Pharmacology.",
+        "revista": "Plants (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36079672/"
+      },
+      {
+        "pmid": "27043505",
+        "titulo": "Sinigrin and Its Therapeutic Benefits.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27043505/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "sirope_arce",
+    nombre: "Sirope de arce",
+    aliases: ["sirope de arce", "jarabe de arce", "maple syrup"],
+    categorias: ["Dulces"],
+    emoji: "🍁",
+    rating: "C",
+    kcal: 260, carbs: 67, azucares: 60, proteinas: 0.1, grasas: 0.2, grasasSat: 0, fibra: 0, sodio: 12,
+    motivo: "El sirope de arce es, ante todo, azúcar concentrado (más del 60% de su peso), aunque su procesado mínimo conserva compuestos fenólicos propios del árbol del arce con actividad antioxidante que no están presentes en el azúcar blanco [1][2]. Esa diferencia es real pero pequeña: en la báscula, sigue sumando calorías y azúcar como cualquier otro sirope.",
+    estudios: [
+      {
+        "pmid": "36294262",
+        "titulo": "Maple Syrup: Chemical Analysis and Nutritional Profile, Health Impacts, Safety and Quality Control, and Food Industry Applications.",
+        "revista": "International journal of environmental research and public health",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36294262/"
+      },
+      {
+        "pmid": "21033720",
+        "titulo": "Maple syrup phytochemicals include lignans, coumarins, a stilbene, and other previously unreported antioxidant phenolic compounds.",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21033720/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Stevia",
+        emoji: "🌿", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 0,
+        porque: "Endulza sin calorías ni azúcar; combínala con un poco de canela si quieres recordar el sabor a caramelo."
+      }
+    ]
+  },
+  {
+    id: "stevia",
+    nombre: "Stevia",
+    aliases: ["stevia", "estevia"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 0,
+    motivo: "Los glucósidos de esteviol —el compuesto dulce de la stevia— no aportan calorías ni elevan la glucemia, y los metaanálisis de ensayos clínicos muestran incluso una ligera mejora del control glucémico frente a placebo [1][2]. A diferencia de los edulcorantes artificiales, su origen es vegetal, y las principales agencias de seguridad alimentaria (EFSA, FDA) la consideran segura dentro de la ingesta diaria admisible.",
+    estudios: [
+      {
+        "pmid": "36770924",
+        "titulo": "Steviol Glycosides from Stevia rebaudiana: An Updated Overview of Their Sweetening Activity, Pharmacological Properties, and Safety Aspects.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36770924/"
+      },
+      {
+        "pmid": "39098209",
+        "titulo": "Effect of stevia on blood glucose and HbA1C: A meta-analysis.",
+        "revista": "Diabetes & metabolic syndrome",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39098209/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "chocolate_blanco",
+    nombre: "Chocolate blanco",
+    aliases: ["chocolate blanco"],
+    categorias: ["Dulces"],
+    emoji: "🍫",
+    rating: "D",
+    kcal: 539, carbs: 59, azucares: 59, proteinas: 5.9, grasas: 32, grasasSat: 19, fibra: 0, sodio: 90,
+    motivo: "El chocolate blanco no lleva pasta de cacao, solo manteca de cacao, leche y azúcar, así que se queda sin los flavonoides que sí aporta el chocolate negro. Su perfil pasa a ser el de un dulce con mucha grasa saturada y azúcar, del tipo que las revisiones asocian a mayor riesgo cardiovascular cuando se consume de forma habitual [1][2]. Si el antojo es de chocolate, el negro ≥ 70-85% da mucho más a cambio de las mismas calorías.",
+    estudios: [
+      {
+        "pmid": "32562735",
+        "titulo": "Saturated Fats and Health: A Reassessment and Proposal for Food-Based Recommendations: JACC State-of-the-Art Review.",
+        "revista": "Journal of the American College of Cardiology",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32562735/"
+      },
+      {
+        "pmid": "26268692",
+        "titulo": "Intake of saturated and trans unsaturated fatty acids and risk of all cause mortality, cardiovascular disease, and type 2 diabetes: systematic review and meta-analysis of observational studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26268692/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Chocolate negro ≥ 85%",
+        emoji: "🍫", mejor: true,
+        kcal: 598, carbs: 22, azucares: 7, proteinas: 8, grasas: 43, grasasSat: 25, fibra: 11, sodio: 20,
+        porque: "El mismo antojo de chocolate con antioxidantes reales y mucha menos azúcar."
+      }
+    ]
+  },
+  {
+    id: "alcaparras",
+    nombre: "Alcaparras",
+    aliases: ["alcaparras"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🟢",
+    rating: "C",
+    kcal: 23, carbs: 4.9, azucares: 0.4, proteinas: 2.4, grasas: 0.9, grasasSat: 0.2, fibra: 3.2, sodio: 2960,
+    motivo: "Las alcaparras están entre los alimentos vegetales más ricos en rutina y quercetina, dos flavonoides con actividad antioxidante muy estudiada [1][2], pero también entre los más salados: al conservarse en salmuera o sal seca llegan a superar los 2.900 mg de sodio por 100 g. En la práctica esto importa poco, porque se usan a cucharaditas, nunca como ración.",
+    estudios: [
+      {
+        "pmid": "36771330",
+        "titulo": "The Current State of Knowledge about the Biological Activity of Different Parts of Capers.",
+        "revista": "Nutrients",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36771330/"
+      },
+      {
+        "pmid": "31294468",
+        "titulo": "Nutraceutical Value of Pantelleria Capers (Capparis spinosa L.).",
+        "revista": "Journal of food science",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31294468/"
       }
     ],
     sustitutos: []

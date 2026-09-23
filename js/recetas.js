@@ -1534,5 +1534,130 @@ const RECETAS = [
       { pregunta: "¿Cuánto duran en el congelador?", respuesta: "Hasta un mes en un recipiente hermético; sepáralos con papel de horno para que no se peguen entre sí." },
       { pregunta: "¿Puedo usar otras frutas?", respuesta: "Sí: mango, kiwi o plátano en trozos funcionan bien. Evita las muy acuosas, como la sandía, porque al congelarse quedan duras." }
     ]
+  },
+  {
+    id: "ensalada_griega",
+    nombre: "Ensalada Griega",
+    emojiPortada: "🥗🫒🧀",
+    rating: "B",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
+    descripcion: "El clásico griego sin trucos: pepino, tomate, feta y aceitunas con un aliño sencillo de AOVE y orégano. Fresca, rápida y sin cocción.",
+    motivo: "La combinación de verduras frescas, grasa monoinsaturada del AOVE y las aceitunas, y proteína del feta la hace muy nutritiva, pero tanto el feta como las aceitunas son ingredientes salados: la ración ronda los 975 mg de sodio, la mitad de lo recomendable en todo el día. La calificamos B por eso, no por sus verduras ni su grasa, que son excelentes.",
+    ingredientes: [
+      { foodId: "pepino", cantidad: 200 },
+      { foodId: "ia_tomate", cantidad: 250 },
+      { foodId: "queso_feta", cantidad: 100 },
+      { foodId: "aceitunas", cantidad: 60 },
+      { foodId: "ia_cebolla", cantidad: 40 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "oregano", cantidad: 1 },
+      { foodId: "limon", cantidad: 20 }
+    ],
+    pasos: [
+      "Corta el pepino, el tomate y la cebolla en trozos grandes; mézclalos en un bol.",
+      "Añade la feta en dados o desmenuzada y las aceitunas.",
+      "Alíñalo con el AOVE, el zumo de limón y el orégano justo antes de servir, para que las verduras no suelten agua."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo dejarla preparada con antelación?", respuesta: "Corta las verduras y guárdalas en la nevera, pero añade el feta, las aceitunas y el aliño justo antes de comer para que no se ablande." },
+      { pregunta: "¿Cómo reduzco el sodio?", respuesta: "Usa la mitad de feta y aclara las aceitunas bajo el grifo antes de añadirlas; pierdes algo de sabor pero bajas bastante el sodio." },
+      { pregunta: "¿Qué aceitunas van mejor?", respuesta: "Las kalamata son las más tradicionales, pero cualquier aceituna negra o verde de buena calidad funciona." }
+    ]
+  },
+  {
+    id: "pollo_horno_guisantes_trigo_sarraceno",
+    nombre: "Pollo al Horno con Guisantes y Trigo Sarraceno",
+    emojiPortada: "🍗🟢🌾",
+    rating: "B",
+    tiempo: "45 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    descripcion: "Un plato único de bandeja: muslos de pollo al horno, guisantes salteados y trigo sarraceno, un cereal sin gluten con mucha fibra. Casi 49 g de proteína por ración.",
+    motivo: "El muslo de pollo aporta más hierro y sabor que la pechuga, y el trigo sarraceno suma fibra y minerales sin gluten: 49 g de proteína y más de 9 g de fibra por ración. La calificamos B y no A porque es un plato calórico (583 kcal por ración) y el muslo con piel eleva algo más la grasa saturada que si fuera pechuga; sigue siendo un plato muy recomendable, pero mejor como plato principal que en raciones extragrandes.",
+    ingredientes: [
+      { foodId: "muslo_pollo", cantidad: 300 },
+      { foodId: "guisantes", cantidad: 200 },
+      { foodId: "trigo_sarraceno", cantidad: 240 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "limon", cantidad: 20 },
+      { foodId: "pimienta_negra", cantidad: 1 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Si no tienes trigo sarraceno cocido, cuece unos 80 g en seco con el doble de agua durante 12-15 minutos y resérvalo.",
+      "Coloca los muslos de pollo en una bandeja con el AOVE, el ajo laminado, el zumo de limón y la pimienta; hornea 35-40 minutos hasta que la piel esté dorada.",
+      "En los últimos 8 minutos, añade los guisantes a la bandeja para que se hagan con el jugo del pollo.",
+      "Sirve el pollo y los guisantes sobre el trigo sarraceno."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar pechuga en vez de muslo?", respuesta: "Sí, pero reduce el tiempo de horno a unos 20-25 minutos para que no se seque, y ganarás en magro lo que pierdes en jugosidad." },
+      { pregunta: "¿Los guisantes pueden ser congelados?", respuesta: "Sí, sin descongelar; añádelos directamente a la bandeja." },
+      { pregunta: "¿Con qué sustituyo el trigo sarraceno?", respuesta: "Quinoa o arroz integral funcionan igual de bien, aunque cambiarán algo los valores nutricionales." }
+    ]
+  },
+  {
+    id: "bol_yogur_griego_higos_nueces",
+    nombre: "Bol de Yogur Griego con Higos y Nueces",
+    emojiPortada: "🥣🟤🌰",
+    rating: "A",
+    tiempo: "5 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano", "proteico"],
+    descripcion: "Un desayuno o postre de 5 minutos: yogur griego bien cremoso con higos secos troceados, nueces y un hilo de sirope de arce. Más de 21 g de proteína por ración.",
+    motivo: "El colado del yogur griego concentra proteína y reduce el azúcar frente a un yogur normal, y los higos y las nueces suman fibra, minerales y grasa insaturada. Con 21 g de proteína por ración y sin azúcar añadido si omites el sirope, lo calificamos A.",
+    ingredientes: [
+      { foodId: "yogur_griego", cantidad: 400 },
+      { foodId: "higos_secos", cantidad: 60 },
+      { foodId: "ia_nueces", cantidad: 30 },
+      { foodId: "sirope_arce", cantidad: 20, opcional: true }
+    ],
+    pasos: [
+      "Reparte el yogur griego en dos boles.",
+      "Trocea los higos secos y repártelos por encima junto con las nueces.",
+      "Termina con un hilo de sirope de arce al gusto."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo prepararlo la noche antes?", respuesta: "Mejor monta el yogur base y añade los higos, las nueces y el sirope justo antes de comer, para que las nueces no pierdan el crujiente." },
+      { pregunta: "¿Puedo usar yogur natural normal en vez de griego?", respuesta: "Sí, pero tendrá menos proteína y una textura más líquida." },
+      { pregunta: "¿Cómo bajo el azúcar?", respuesta: "Omite el sirope de arce; los higos ya aportan dulzor de sobra." }
+    ]
+  },
+  {
+    id: "salteado_seitan_verduras",
+    nombre: "Salteado de Seitán con Verduras",
+    emojiPortada: "🌾🫑🧅",
+    rating: "A",
+    tiempo: "20 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano", "proteico"],
+    descripcion: "Un salteado rápido tipo wok: seitán troceado con pimientos, cebolla, ajo y jengibre, ligado con un poco de salsa de soja baja en sodio. 40 g de proteína vegetal por ración.",
+    motivo: "El seitán aporta casi tanta proteína como la carne con muy poca grasa, y las verduras suman fibra, vitamina C y color. Con 40 g de proteína, apenas 1.6 g de grasa saturada y sin ningún ingrediente que penalice, lo calificamos A.",
+    ingredientes: [
+      { foodId: "seitan", cantidad: 300 },
+      { foodId: "ia_pimiento_rojo", cantidad: 150 },
+      { foodId: "ia_pimiento_verde", cantidad: 100 },
+      { foodId: "ia_cebolla", cantidad: 100 },
+      { foodId: "salsa_soja_baja_sodio", cantidad: 20 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "ia_jengibre", cantidad: 6 }
+    ],
+    pasos: [
+      "Corta el seitán en tiras y los pimientos y la cebolla en juliana.",
+      "Calienta el AOVE en una sartén o wok a fuego fuerte y saltea el seitán 3-4 minutos hasta que se dore; resérvalo.",
+      "En la misma sartén, saltea la cebolla, los pimientos, el ajo y el jengibre 4-5 minutos.",
+      "Vuelve a añadir el seitán, incorpora la salsa de soja y saltea 1-2 minutos más hasta que todo esté bien integrado."
+    ],
+    faqs: [
+      { pregunta: "¿Dónde compro seitán?", respuesta: "En la sección de proteína vegetal de la mayoría de supermercados grandes, o en tiendas de dietética; también se puede hacer casero con gluten de trigo." },
+      { pregunta: "¿Es apto para celíacos?", respuesta: "No: el seitán es gluten de trigo puro, así que no es apto para celíacos ni para quien evite el gluten." },
+      { pregunta: "¿Puedo añadir más verduras?", respuesta: "Sí, brócoli, zanahoria o champiñones combinan muy bien en este salteado." }
+    ]
   }
 ];
