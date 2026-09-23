@@ -2,7 +2,12 @@
 // Se usa el nivel gratuito (modelos "flash"), suficiente para este proyecto personal/educativo.
 
 const GEMINI_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/interactions";
-const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-flash-latest";
+// Fijamos una versión concreta (no el alias "-latest"): Google puede
+// reasignar "-latest" a un modelo nuevo sin avisar, y el nuevo suele estar
+// más saturado (más gente probándolo) mientras el nuestro sigue con cuota
+// gratuita de sobra. Con GEMINI_MODEL en las variables de entorno se puede
+// cambiar sin tocar código si Google retira este modelo.
+const GEMINI_MODEL = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
 export async function callGemini(apiKey, { input, responseSchema }) {
   const body = { model: GEMINI_MODEL, input };
