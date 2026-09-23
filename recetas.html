@@ -66,21 +66,23 @@
 
       <div class="filters reveal">
         <input type="search" id="buscadorRecetas" placeholder="Buscar una receta…">
-        <select id="filtroCategoriaRecetas" aria-label="Filtrar recetas por categoría">
-          <option value="">Todas las categorías</option>
-          <option value="vegano">Vegano</option>
-          <option value="vegetariano">Vegetariano</option>
-          <option value="proteico">Proteico</option>
-          <option value="bajo-en-calorias">Bajo en calorías</option>
-        </select>
-        <select id="filtroRatingRecetas" aria-label="Filtrar recetas por calificación">
-          <option value="">Todas las calificaciones</option>
-          <option value="A">A — Excelente</option>
-          <option value="B">B — Buena</option>
-          <option value="C">C — Moderada</option>
-          <option value="D">D — Mejorable</option>
-          <option value="E">E — Poco recomendable</option>
-        </select>
+        <button type="button" class="btn btn-ghost btn-sm" id="limpiarFiltrosRecetas">Limpiar filtros</button>
+      </div>
+
+      <div class="filtros-avanzados reveal">
+        <div class="filtro-grupo">
+          <span class="filtro-grupo-label">Momento del día</span>
+          <div class="filtro-chips" id="filtroMomentoRecetas"></div>
+        </div>
+        <div class="filtro-grupo">
+          <span class="filtro-grupo-label">Categoría</span>
+          <div class="filtro-chips" id="filtroCategoriaRecetas"></div>
+        </div>
+        <div class="filtro-grupo">
+          <span class="filtro-grupo-label">Calificación</span>
+          <div class="filtro-chips" id="filtroRatingRecetas"></div>
+        </div>
+        <div class="filtro-grupo filtro-grupo-rangos" id="filtroRangosRecetas"></div>
       </div>
 
       <div class="recetas-teaser-grid" id="recetasGrid"></div>

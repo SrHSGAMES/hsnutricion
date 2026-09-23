@@ -433,29 +433,198 @@
     document.querySelectorAll(".reveal").forEach(el => io.observe(el));
   });
 
+  /* ================= Filtros: grupo de chips (selección múltiple) ================= */
+  // Construye un grupo de botones-chip dentro de "contenedor" a partir de
+  // "opciones" ([{valor, etiqueta}]); cada clic añade/quita ese valor de un
+  // Set y llama a onChange(seleccion) para que quien lo use vuelva a
+  // filtrar. Se usa tanto para listas fijas (calificación, momento del día)
+  // como dinámicas (categorías de la guía, que dependen de FOODS).
+  function crearFiltroChips(contenedor, opciones, onChange, seleccionPrevia) {
+    const seleccion = new Set(
+      seleccionPrevia ? [...seleccionPrevia].filter(v => opciones.some(o => o.valor === v)) : []
+    );
+    contenedor.innerHTML = "";
+    opciones.forEach(({ valor, etiqueta }) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "filtro-chip";
+      btn.textContent = etiqueta;
+      const activo = seleccion.has(valor);
+      btn.classList.toggle("activo", activo);
+      btn.setAttribute("aria-pressed", activo ? "true" : "false");
+      btn.addEventListener("click", () => {
+        if (seleccion.has(valor)) seleccion.delete(valor); else seleccion.add(valor);
+        const ahoraActivo = seleccion.has(valor);
+        btn.classList.toggle("activo", ahoraActivo);
+        btn.setAttribute("aria-pressed", ahoraActivo ? "true" : "false");
+        onChange(seleccion);
+      });
+      contenedor.appendChild(btn);
+    });
+    return {
+      seleccion,
+      limpiar() {
+        seleccion.clear();
+        contenedor.querySelectorAll(".filtro-chip").forEach(b => {
+          b.classList.remove("activo");
+          b.setAttribute("aria-pressed", "false");
+        });
+      }
+    };
+  }
+
+  /* ================= Filtros: rango doble (barra de dos tiradores + cajas numéricas) ================= */
+  // min/max delimitan la barra visual; las cajas numéricas no tienen tope, así
+  // que se puede escribir un valor mayor del que alcanza la barra (p.ej. para
+  // no perderse recetas con más calorías de las que cubre el tirador). Cuando
+  // el valor real se sale de [min, max], el tirador se queda pegado al extremo.
+  function crearFiltroRango({ etiqueta, min, max, step = 1, onChange }) {
+    const wrap = document.createElement("div");
+    wrap.className = "filtro-rango";
+    wrap.innerHTML = `
+      <span class="filtro-rango-etiqueta">${etiqueta}</span>
+      <div class="filtro-rango-track">
+        <div class="filtro-rango-fill"></div>
+        <button type="button" class="filtro-rango-tirador filtro-rango-tirador-min" role="slider"
+          aria-label="${etiqueta} — mínimo" aria-valuemin="${min}" aria-valuemax="${max}" tabindex="0"></button>
+        <button type="button" class="filtro-rango-tirador filtro-rango-tirador-max" role="slider"
+          aria-label="${etiqueta} — máximo" aria-valuemin="${min}" aria-valuemax="${max}" tabindex="0"></button>
+      </div>
+      <div class="filtro-rango-cajas">
+        <input type="number" class="filtro-rango-num" data-limite="min" min="0" step="${step}" aria-label="${etiqueta} — mínimo exacto">
+        <span class="filtro-rango-guion" aria-hidden="true">–</span>
+        <input type="number" class="filtro-rango-num" data-limite="max" min="0" step="${step}" aria-label="${etiqueta} — máximo exacto">
+      </div>`;
+
+    const track = wrap.querySelector(".filtro-rango-track");
+    const fill = wrap.querySelector(".filtro-rango-fill");
+    const tirMin = wrap.querySelector(".filtro-rango-tirador-min");
+    const tirMax = wrap.querySelector(".filtro-rango-tirador-max");
+    const numMin = wrap.querySelector('[data-limite="min"]');
+    const numMax = wrap.querySelector('[data-limite="max"]');
+
+    let valMin = min, valMax = max;
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const aPaso = v => Math.round(v / step) * step;
+
+    function pintar() {
+      const pctMin = clamp((valMin - min) / (max - min), 0, 1) * 100;
+      const pctMax = clamp((valMax - min) / (max - min), 0, 1) * 100;
+      tirMin.style.left = pctMin + "%";
+      tirMax.style.left = pctMax + "%";
+      fill.style.left = pctMin + "%";
+      fill.style.width = Math.max(0, pctMax - pctMin) + "%";
+      tirMin.setAttribute("aria-valuenow", valMin);
+      tirMax.setAttribute("aria-valuenow", valMax);
+      if (document.activeElement !== numMin) numMin.value = valMin;
+      if (document.activeElement !== numMax) numMax.value = valMax;
+    }
+
+    function fijar(nuevoMin, nuevoMax, { disparar = true } = {}) {
+      valMin = Math.max(0, nuevoMin);
+      valMax = Math.max(0, nuevoMax);
+      pintar();
+      if (disparar) onChange({ min: valMin, max: valMax });
+    }
+
+    function valorDesdeX(clientX) {
+      const rect = track.getBoundingClientRect();
+      const frac = clamp((clientX - rect.left) / rect.width, 0, 1);
+      return aPaso(min + frac * (max - min));
+    }
+
+    function activarArrastre(tirador, esMin) {
+      tirador.addEventListener("pointerdown", e => {
+        e.preventDefault();
+        tirador.setPointerCapture(e.pointerId);
+        tirador.focus();
+        mover(e);
+      });
+      tirador.addEventListener("pointermove", e => {
+        if (tirador.hasPointerCapture && tirador.hasPointerCapture(e.pointerId)) mover(e);
+      });
+      function mover(e) {
+        const v = valorDesdeX(e.clientX);
+        if (esMin) fijar(Math.min(v, valMax), valMax);
+        else fijar(valMin, Math.max(v, valMin));
+      }
+      tirador.addEventListener("keydown", e => {
+        let delta = 0;
+        if (e.key === "ArrowRight" || e.key === "ArrowUp") delta = step;
+        else if (e.key === "ArrowLeft" || e.key === "ArrowDown") delta = -step;
+        else if (e.key === "Home") delta = -Infinity;
+        else if (e.key === "End") delta = Infinity;
+        else return;
+        e.preventDefault();
+        if (esMin) {
+          const v = delta === -Infinity ? min : delta === Infinity ? valMax : clamp(valMin + delta, min, valMax);
+          fijar(v, valMax);
+        } else {
+          const v = delta === -Infinity ? valMin : delta === Infinity ? max : clamp(valMax + delta, valMin, max);
+          fijar(valMin, v);
+        }
+      });
+    }
+    activarArrastre(tirMin, true);
+    activarArrastre(tirMax, false);
+
+    numMin.addEventListener("input", () => {
+      if (numMin.value === "") return;
+      const v = Math.max(0, Number(numMin.value));
+      fijar(v, Math.max(v, valMax));
+    });
+    numMax.addEventListener("input", () => {
+      if (numMax.value === "") return;
+      const v = Math.max(0, Number(numMax.value));
+      fijar(Math.min(v, valMin), v);
+    });
+
+    pintar();
+    return {
+      el: wrap,
+      obtener: () => ({ min: valMin, max: valMax }),
+      reset: () => fijar(min, max, { disparar: false })
+    };
+  }
+
   /* ================= Guía completa (contenido visible por defecto) ================= */
   seguro("guia-completa", () => {
     const guiaGrid = document.getElementById("guiaGrid");
     const buscadorGuia = document.getElementById("buscadorGuia");
-    const filtroCategoria = document.getElementById("filtroCategoria");
-    const filtroRating = document.getElementById("filtroRating");
+    const contCategoria = document.getElementById("filtroCategoria");
+    const contRating = document.getElementById("filtroRating");
+    const btnLimpiar = document.getElementById("limpiarFiltrosGuia");
 
+    let chipsCategoria = crearFiltroChips(contCategoria, [], renderGuia);
+    const chipsRating = crearFiltroChips(contRating, [
+      { valor: "A", etiqueta: "A — Excelente" },
+      { valor: "B", etiqueta: "B — Buena" },
+      { valor: "C", etiqueta: "C — Moderada" },
+      { valor: "D", etiqueta: "D — Mejorable" },
+      { valor: "E", etiqueta: "E — Poco recomendable" }
+    ], renderGuia);
+
+    // Las categorías dependen de FOODS (crece con los alimentos de la
+    // comunidad), así que se reconstruyen los chips manteniendo lo ya
+    // marcado cuando aparecen categorías nuevas.
     function actualizarCategorias() {
-      const valorActual = filtroCategoria.value;
       const categorias = [...new Set(FOODS.flatMap(f => f.categorias))].sort();
-      filtroCategoria.innerHTML = '<option value="">Todas las categorías</option>' +
-        categorias.map(c => `<option value="${c}">${c}</option>`).join("");
-      filtroCategoria.value = categorias.includes(valorActual) ? valorActual : "";
+      chipsCategoria = crearFiltroChips(
+        contCategoria,
+        categorias.map(c => ({ valor: c, etiqueta: c })),
+        renderGuia,
+        chipsCategoria.seleccion
+      );
     }
 
     function renderGuia() {
       const q = normalizar(buscadorGuia.value);
-      const cat = filtroCategoria.value;
-      const rating = filtroRating.value;
+      const cats = chipsCategoria.seleccion;
+      const ratings = chipsRating.seleccion;
       const lista = FOODS.filter(f =>
         (!q || normalizar(f.nombre).includes(q)) &&
-        (!cat || f.categorias.includes(cat)) &&
-        (!rating || f.rating === rating)
+        (cats.size === 0 || f.categorias.some(c => cats.has(c))) &&
+        (ratings.size === 0 || ratings.has(f.rating))
       ).sort((a, b) => formatearNombre(a.nombre).localeCompare(formatearNombre(b.nombre), "es", { sensitivity: "base" }));
       guiaGrid.innerHTML = "";
       if (!lista.length) {
@@ -471,7 +640,13 @@
       animarBarras(guiaGrid);
     }
     actualizarCategorias();
-    [buscadorGuia, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderGuia));
+    buscadorGuia.addEventListener("input", renderGuia);
+    btnLimpiar?.addEventListener("click", () => {
+      buscadorGuia.value = "";
+      chipsCategoria.limpiar();
+      chipsRating.limpiar();
+      renderGuia();
+    });
     renderGuia();
 
     // Otros bloques (p.ej. la carga de alimentos de la comunidad) llaman a
@@ -483,25 +658,74 @@
   seguro("recetas", () => {
     const grid = document.getElementById("recetasGrid");
     const buscador = document.getElementById("buscadorRecetas");
-    const filtroCategoria = document.getElementById("filtroCategoriaRecetas");
-    const filtroRating = document.getElementById("filtroRatingRecetas");
+    const contMomento = document.getElementById("filtroMomentoRecetas");
+    const contCategoria = document.getElementById("filtroCategoriaRecetas");
+    const contRating = document.getElementById("filtroRatingRecetas");
+    const contRangos = document.getElementById("filtroRangosRecetas");
+    const btnLimpiar = document.getElementById("limpiarFiltrosRecetas");
     const sinResultados = document.getElementById("recetasSinResultados");
+
+    // Macros totales de cada receta completa (no por ración): se calculan una
+    // sola vez y se reutilizan en cada filtrado por rango.
+    const macrosPorReceta = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
+
+    const chipsMomento = crearFiltroChips(contMomento, [
+      { valor: "desayuno", etiqueta: "Desayuno" },
+      { valor: "comida", etiqueta: "Comida" },
+      { valor: "cena", etiqueta: "Cena" }
+    ], renderRecetas);
+    const chipsCategoria = crearFiltroChips(contCategoria, [
+      { valor: "vegano", etiqueta: "Vegano" },
+      { valor: "vegetariano", etiqueta: "Vegetariano" },
+      { valor: "proteico", etiqueta: "Proteico" },
+      { valor: "bajo-en-calorias", etiqueta: "Bajo en calorías" }
+    ], renderRecetas);
+    const chipsRating = crearFiltroChips(contRating, [
+      { valor: "A", etiqueta: "A" }, { valor: "B", etiqueta: "B" }, { valor: "C", etiqueta: "C" },
+      { valor: "D", etiqueta: "D" }, { valor: "E", etiqueta: "E" }
+    ], renderRecetas);
+
+    const rangoKcal = crearFiltroRango({ etiqueta: "Calorías (receta completa)", min: 0, max: 5000, step: 10, onChange: renderRecetas });
+    const rangoCarbs = crearFiltroRango({ etiqueta: "Carbohidratos (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
+    const rangoProteinas = crearFiltroRango({ etiqueta: "Proteínas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
+    const rangoGrasas = crearFiltroRango({ etiqueta: "Grasas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
+    [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].forEach(r => contRangos.appendChild(r.el));
+
+    function dentroDeRango(valor, rango) {
+      const { min, max } = rango.obtener();
+      return valor >= min && valor <= max;
+    }
 
     function renderRecetas() {
       const q = normalizar(buscador.value);
-      const cat = filtroCategoria.value;
-      const rating = filtroRating.value;
-      const lista = RECETAS.filter(r =>
-        (!q || normalizar(r.nombre).includes(q)) &&
-        (!cat || (r.etiquetas || []).includes(cat)) &&
-        (!rating || r.rating === rating)
-      ).sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" }));
+      const momentos = chipsMomento.seleccion;
+      const cats = chipsCategoria.seleccion;
+      const ratings = chipsRating.seleccion;
+      const lista = RECETAS.filter(r => {
+        const macros = macrosPorReceta.get(r.id);
+        return (!q || normalizar(r.nombre).includes(q)) &&
+          (momentos.size === 0 || (r.momento || []).some(m => momentos.has(m))) &&
+          (cats.size === 0 || (r.etiquetas || []).some(c => cats.has(c))) &&
+          (ratings.size === 0 || ratings.has(r.rating)) &&
+          dentroDeRango(macros.kcal, rangoKcal) &&
+          dentroDeRango(macros.carbs, rangoCarbs) &&
+          dentroDeRango(macros.proteinas, rangoProteinas) &&
+          dentroDeRango(macros.grasas, rangoGrasas);
+      }).sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" }));
       grid.innerHTML = "";
       sinResultados.hidden = lista.length > 0;
       lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
       grid.dataset.listo = "1"; // quita el espacio reservado (ver css: #recetasGrid)
     }
-    [buscador, filtroCategoria, filtroRating].forEach(el => el.addEventListener("input", renderRecetas));
+    buscador.addEventListener("input", renderRecetas);
+    btnLimpiar?.addEventListener("click", () => {
+      buscador.value = "";
+      chipsMomento.limpiar();
+      chipsCategoria.limpiar();
+      chipsRating.limpiar();
+      [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].forEach(r => r.reset());
+      renderRecetas();
+    });
     renderRecetas();
   }, ["recetasGrid"]);
 
