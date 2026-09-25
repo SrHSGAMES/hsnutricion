@@ -5624,6 +5624,675 @@ const FOODS = [
       }
     ],
     sustitutos: []
+  },
+  {
+    id: "coles_bruselas",
+    nombre: "Coles de Bruselas",
+    aliases: ["coles de bruselas", "col de bruselas", "coles bruselas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 36, carbs: 7, azucares: 1.4, proteinas: 2.6, grasas: 0.5, grasasSat: 0.1, fibra: 2.6, sodio: 21,
+    motivo: "Las coles de Bruselas pertenecen a las crucíferas: aportan fibra, vitamina C y K y glucosinolatos, compuestos que el cuerpo transforma en isotiocianatos, estudiados por su papel protector frente a distintos tipos de cáncer [1][2]. Con solo 36 kcal por 100 g, son una guarnición muy saciante. Al vapor o asadas conservan mejor sus compuestos que hervidas mucho tiempo.",
+    estudios: [
+      {
+        "pmid": "37921869",
+        "titulo": "Glucosinolates in cancer prevention and treatment: experimental and clinical evidence.",
+        "revista": "Medical oncology (Northwood, London, England)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37921869/"
+      },
+      {
+        "pmid": "30372361",
+        "titulo": "Isothiocyanate from Broccoli, Sulforaphane, and Its Properties.",
+        "revista": "Journal of medicinal food",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30372361/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "acelgas",
+    nombre: "Acelgas",
+    aliases: ["acelgas", "acelga"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 20, carbs: 4.1, azucares: 1.1, proteinas: 1.9, grasas: 0.1, grasasSat: 0, fibra: 2.1, sodio: 179,
+    motivo: "Las acelgas son una de las hojas verdes más completas: muy pocas calorías, vitamina K, magnesio, potasio y flavonoides con actividad antioxidante descritos en las revisiones sistemáticas sobre su composición [1][2]. Su sodio natural (unos 180 mg por 100 g) es mayor que el de otras hojas, pero sigue siendo bajo para el volumen que se come.",
+    estudios: [
+      {
+        "pmid": "32746613",
+        "titulo": "Bioactive compounds and nutritional composition of Swiss chard (Beta vulgaris L. var. cicla and flavescens): a systematic review.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32746613/"
+      },
+      {
+        "pmid": "30884696",
+        "titulo": "Wild edible Swiss chard leaves (Beta vulgaris L. var. cicla): Nutritional, phytochemical composition and biological activities.",
+        "revista": "Food research international (Ottawa, Ont.)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30884696/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "rucula",
+    nombre: "Rúcula",
+    aliases: ["rucula", "rúcula"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 25, carbs: 3.7, azucares: 2.1, proteinas: 2.6, grasas: 0.7, grasasSat: 0.1, fibra: 1.6, sodio: 27,
+    motivo: "La rúcula es una crucífera de hoja con glucosinolatos y flavonoles propios, responsables de su sabor picante [1], y una buena cantidad de nitratos vegetales y compuestos fenólicos [2]. Muy pocas calorías y un toque de sabor que permite aliñar con menos sal.",
+    estudios: [
+      {
+        "pmid": "24773270",
+        "titulo": "Glucosinolates, myrosinase hydrolysis products, and flavonols found in rocket (Eruca sativa and Diplotaxis tenuifolia).",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24773270/"
+      },
+      {
+        "pmid": "29660828",
+        "titulo": "Storage Stability of Dietary Nitrate and Phenolic Compounds in Beetroot (Beta vulgaris) and Arugula (Eruca sativa) Juices.",
+        "revista": "Journal of food science",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29660828/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "albaricoque",
+    nombre: "Albaricoque",
+    aliases: ["albaricoque", "albaricoques"],
+    categorias: ["Frutas"],
+    emoji: "🍑",
+    rating: "A",
+    kcal: 48, carbs: 11, azucares: 9.2, proteinas: 1.4, grasas: 0.4, grasasSat: 0, fibra: 2, sodio: 1,
+    motivo: "El albaricoque es rico en carotenoides (la base de su color naranja) y polifenoles, que se conservan razonablemente incluso en conserva [1]. Como el resto de la fruta entera, su consumo se asocia con menor riesgo de diabetes tipo 2 en grandes estudios de cohortes [2], y aporta solo 48 kcal por 100 g.",
+    estudios: [
+      {
+        "pmid": "28946320",
+        "titulo": "Impact of canning and storage on apricot carotenoids and polyphenols.",
+        "revista": "Food chemistry",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28946320/"
+      },
+      {
+        "pmid": "23990623",
+        "titulo": "Fruit consumption and risk of type 2 diabetes: results from three prospective longitudinal cohort studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23990623/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mandarina",
+    nombre: "Mandarina",
+    aliases: ["mandarina", "mandarinas", "clementina", "clementinas"],
+    categorias: ["Frutas"],
+    emoji: "🍊",
+    rating: "A",
+    kcal: 53, carbs: 13.3, azucares: 10.6, proteinas: 0.8, grasas: 0.3, grasasSat: 0, fibra: 1.8, sodio: 2,
+    motivo: "La mandarina aporta vitamina C y flavanonas (hesperidina, narirutina), flavonoides cítricos relacionados con un mejor metabolismo de las lipoproteínas [1], cuya cantidad depende de la variedad y de la parte del fruto [2]. Mejor entera que en zumo: conserva la fibra y las membranas blancas, donde se concentran los flavonoides.",
+    estudios: [
+      {
+        "pmid": "27146015",
+        "titulo": "Citrus Flavonoids as Regulators of Lipoprotein Metabolism and Atherosclerosis.",
+        "revista": "Annual review of nutrition",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27146015/"
+      },
+      {
+        "pmid": "34609268",
+        "titulo": "Nutrients and bioactives in citrus fruits: Different citrus varieties, fruit parts, and growth stages.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34609268/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pomelo",
+    nombre: "Pomelo",
+    aliases: ["pomelo", "pomelos", "toronja"],
+    categorias: ["Frutas"],
+    emoji: "🍊",
+    rating: "A",
+    kcal: 42, carbs: 10.7, azucares: 6.9, proteinas: 0.8, grasas: 0.1, grasasSat: 0, fibra: 1.6, sodio: 0,
+    motivo: "El pomelo es una fruta cítrica ligera (42 kcal por 100 g) con vitamina C y flavonoides como la naringenina [1]. Tiene un aviso importante: interfiere con el metabolismo de bastantes medicamentos (algunas estatinas, antihipertensivos e inmunosupresores) y aumenta su efecto [2]. Si tomas medicación de forma habitual, consulta con tu médico o farmacéutico antes de consumirlo.",
+    estudios: [
+      {
+        "pmid": "34609268",
+        "titulo": "Nutrients and bioactives in citrus fruits: Different citrus varieties, fruit parts, and growth stages.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34609268/"
+      },
+      {
+        "pmid": "23184849",
+        "titulo": "Grapefruit-medication interactions: forbidden fruit or avoidable consequences?",
+        "revista": "CMAJ : Canadian Medical Association journal = journal de l'Association medicale canadienne",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23184849/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "moras",
+    nombre: "Moras",
+    aliases: ["moras", "mora", "zarzamoras", "zarzamora"],
+    categorias: ["Frutas"],
+    emoji: "🫐",
+    rating: "A",
+    kcal: 43, carbs: 9.6, azucares: 4.9, proteinas: 1.4, grasas: 0.5, grasasSat: 0, fibra: 5.3, sodio: 1,
+    motivo: "Las moras concentran antocianinas y elagitaninos, polifenoles con actividad antioxidante [1][2], y destacan por su fibra (más de 5 g por 100 g) y su bajo contenido en azúcar frente a otras frutas. Una de las mejores opciones para endulzar un desayuno sin recurrir a azúcar añadido.",
+    estudios: [
+      {
+        "pmid": "37569399",
+        "titulo": "Blackberries and Mulberries: Berries with Significant Health-Promoting Properties.",
+        "revista": "International journal of molecular sciences",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37569399/"
+      },
+      {
+        "pmid": "36838920",
+        "titulo": "Antioxidant Guided Fractionation of Blackberry Polyphenols Show Synergistic Role of Catechins and Ellagitannins.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36838920/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "caqui",
+    nombre: "Caqui",
+    aliases: ["caqui", "caquis", "palosanto"],
+    categorias: ["Frutas"],
+    emoji: "🟠",
+    rating: "A",
+    kcal: 70, carbs: 18.6, azucares: 12.5, proteinas: 0.6, grasas: 0.2, grasasSat: 0, fibra: 3.6, sodio: 1,
+    motivo: "El caqui aporta carotenoides, taninos y otros compuestos fenólicos con actividad antioxidante [1][2], además de casi 4 g de fibra por 100 g. Es una fruta dulce (unos 12 g de azúcares), así que conviene tomarla como una pieza de fruta más y no en cantidades muy grandes.",
+    estudios: [
+      {
+        "pmid": "27047315",
+        "titulo": "Persimmon (Diospyros kaki) fruit: hidden phytochemicals and health claims.",
+        "revista": "EXCLI journal",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27047315/"
+      },
+      {
+        "pmid": "34579162",
+        "titulo": "From Diospyros kaki L. (Persimmon) Phytochemical Profile and Health Impact to New Product Perspectives and Waste Valorization.",
+        "revista": "Nutrients",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34579162/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pulpo",
+    nombre: "Pulpo (cocido)",
+    aliases: ["pulpo", "pulpo cocido", "pulpo a la gallega"],
+    categorias: ["Proteínas"],
+    emoji: "🐙",
+    rating: "B",
+    kcal: 164, carbs: 4.4, azucares: 0, proteinas: 29.8, grasas: 2.1, grasasSat: 0.6, fibra: 0, sodio: 460,
+    motivo: "El pulpo cocido es una proteína muy magra (casi 30 g por 100 g con solo 2 g de grasa) y una fuente de minerales como hierro, zinc y selenio, propios del marisco [1][2]. Su calificación baja a B por el sodio, que de forma natural ronda los 460 mg por 100 g y sube más si se cuece o se aliña con sal.",
+    estudios: [
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "28559603",
+        "titulo": "Octopus vulgaris protein hydrolysates: characterization, antioxidant and functional properties.",
+        "revista": "Journal of food science and technology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28559603/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "calamar",
+    nombre: "Calamar (a la plancha)",
+    aliases: ["calamar", "calamares", "chipirones", "calamar a la plancha"],
+    categorias: ["Proteínas"],
+    emoji: "🦑",
+    rating: "A",
+    kcal: 110, carbs: 3, azucares: 0, proteinas: 20, grasas: 1.8, grasasSat: 0.5, fibra: 0, sodio: 260,
+    motivo: "El calamar a la plancha es proteína muy magra con poca grasa, y su pequeña fracción grasa es rica en ácidos grasos poliinsaturados [1]. Aunque contiene colesterol, este marisco forma parte del patrón de consumo de pescado y marisco asociado a buena salud [2]. Elige plancha o horno: rebozado y frito pierde casi todas sus ventajas.",
+    estudios: [
+      {
+        "pmid": "36394935",
+        "titulo": "[Squid fat as a promising source of polyunsaturated fatty acids].",
+        "revista": "Voprosy pitaniia",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36394935/"
+      },
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "anchoas",
+    nombre: "Anchoas en aceite",
+    aliases: ["anchoas", "anchoa", "boquerones en aceite", "anchoas en aceite"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "C",
+    kcal: 210, carbs: 0, azucares: 0, proteinas: 29, grasas: 10, grasasSat: 2.2, fibra: 0, sodio: 3670,
+    motivo: "Las anchoas son un pescado azul pequeño, rico en proteína, omega-3 y micronutrientes como calcio y hierro [1]. La calificación es C por el curado en sal: casi 3.700 mg de sodio por 100 g, una de las cifras más altas de la guía, y reducir el sodio es una de las medidas mejor respaldadas para la salud cardiovascular [2]. Se usan a unidades, como sabor, no como ración.",
+    estudios: [
+      {
+        "pmid": "37118295",
+        "titulo": "Small pelagic fish supply abundant and affordable micronutrients to low- and middle-income countries.",
+        "revista": "Nature food",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37118295/"
+      },
+      {
+        "pmid": "40613399",
+        "titulo": "Lowering Sodium Intake: Reduction and Substitution for Cardiovascular Health.",
+        "revista": "International journal for vitamin and nutrition research",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40613399/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Sardina",
+        emoji: "🐟", mejor: true,
+        kcal: 208, carbs: 0, azucares: 0, proteinas: 24.6, grasas: 11.5, grasasSat: 2.3, fibra: 0, sodio: 387,
+        porque: "El mismo pescado azul con omega-3, con casi diez veces menos sodio."
+      }
+    ]
+  },
+  {
+    id: "solomillo_cerdo",
+    nombre: "Solomillo de cerdo",
+    aliases: ["solomillo de cerdo", "lomo de cerdo", "solomillo cerdo"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🥩",
+    rating: "B",
+    kcal: 143, carbs: 0, azucares: 0, proteinas: 26, grasas: 3.5, grasasSat: 1.2, fibra: 0, sodio: 57,
+    motivo: "El solomillo es el corte más magro del cerdo: 26 g de proteína por 100 g con solo 3,5 g de grasa. Aun así es carne roja no procesada, y los metaanálisis asocian un consumo alto y frecuente con algo más de riesgo cardiovascular y de diabetes tipo 2 [1], mientras que patrones saludables con carne magra en cantidades moderadas mejoran los factores de riesgo [2]. Por eso lo calificamos B: mejor de vez en cuando que a diario.",
+    estudios: [
+      {
+        "pmid": "37264855",
+        "titulo": "Red meat consumption, cardiovascular diseases, and diabetes: a systematic review and meta-analysis.",
+        "revista": "European heart journal",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
+      },
+      {
+        "pmid": "39125421",
+        "titulo": "Healthy Dietary Patterns with and without Meat Improved Cardiometabolic Disease Risk Factors in Adults: A Randomized Crossover Controlled Feeding Trial.",
+        "revista": "Nutrients",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39125421/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Aún más magra y sin el matiz de la carne roja."
+      }
+    ]
+  },
+  {
+    id: "clara_huevo",
+    nombre: "Clara de huevo",
+    aliases: ["clara de huevo", "claras de huevo", "claras"],
+    categorias: ["Proteínas"],
+    emoji: "🥚",
+    rating: "A",
+    kcal: 52, carbs: 0.7, azucares: 0.7, proteinas: 11, grasas: 0.2, grasasSat: 0, fibra: 0, sodio: 166,
+    motivo: "La clara es proteína casi pura (11 g por 100 g) sin grasa ni colesterol, con una excelente digestibilidad. Un ensayo con jóvenes mostró, eso sí, que el huevo entero estimula más la síntesis de proteína muscular tras entrenar que la misma cantidad de proteína en claras [1], así que para el día a día conviene no descartar la yema, que aporta vitaminas y grasas útiles.",
+    estudios: [
+      {
+        "pmid": "28978542",
+        "titulo": "Consumption of whole eggs promotes greater stimulation of postexercise muscle protein synthesis than consumption of isonitrogenous amounts of egg whites in young men.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28978542/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "bulgur",
+    nombre: "Bulgur (cocido)",
+    aliases: ["bulgur", "bulgur cocido", "trigo bulgur"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 83, carbs: 18.6, azucares: 0.1, proteinas: 3.1, grasas: 0.2, grasasSat: 0, fibra: 4.5, sodio: 5,
+    motivo: "El bulgur es trigo precocido y triturado que conserva el salvado: unos 4,5 g de fibra por 100 g cocido y una respuesta glucémica baja frente a otros derivados del trigo [1], en línea con el valor nutricional de los cereales integrales [2]. Se cuece en unos 10 minutos y es una base excelente para ensaladas.",
+    estudios: [
+      {
+        "pmid": "3962904",
+        "titulo": "Low glycemic response to traditionally processed wheat and rye products: bulgur and pumpernickel bread.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "1986",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3962904/"
+      },
+      {
+        "pmid": "32316241",
+        "titulo": "Nutritional Value of Grain-Based Foods.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32316241/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mijo",
+    nombre: "Mijo (cocido)",
+    aliases: ["mijo", "mijo cocido"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 119, carbs: 23.7, azucares: 0, proteinas: 3.5, grasas: 1, grasasSat: 0.2, fibra: 1.3, sodio: 2,
+    motivo: "El mijo es un cereal sin gluten con fibra, magnesio y compuestos fenólicos, y las revisiones destacan su interés nutricional y su papel en el control glucémico [1]. Cocido en 15-20 minutos queda esponjoso y es una alternativa al arroz.",
+    estudios: [
+      {
+        "pmid": "36219789",
+        "titulo": "Nutritional and health-promoting attributes of millet: current and future perspectives.",
+        "revista": "Nutrition reviews",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36219789/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "cebada",
+    nombre: "Cebada perlada (cocida)",
+    aliases: ["cebada", "cebada perlada", "cebada cocida"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 123, carbs: 28.2, azucares: 0.3, proteinas: 2.3, grasas: 0.4, grasasSat: 0.1, fibra: 3.8, sodio: 3,
+    motivo: "La cebada es la fuente más conocida de beta-glucanos, una fibra soluble que en los metaanálisis reduce el colesterol LDL [1], y sus fitoquímicos bioactivos añaden interés a su perfil [2]. Ojo: contiene gluten, y la cebada perlada está más procesada que la integral.",
+    estudios: [
+      {
+        "pmid": "20924392",
+        "titulo": "β-glucan from barley and its lipid-lowering capacity: a meta-analysis of randomized, controlled trials.",
+        "revista": "European journal of clinical nutrition",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20924392/"
+      },
+      {
+        "pmid": "28911532",
+        "titulo": "Bioactive phytochemicals in barley.",
+        "revista": "Journal of food and drug analysis",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28911532/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "granola",
+    nombre: "Granola",
+    aliases: ["granola", "granola comercial"],
+    categorias: ["Cereales"],
+    emoji: "🥣",
+    rating: "C",
+    kcal: 471, carbs: 64, azucares: 26, proteinas: 10, grasas: 20, grasasSat: 3.7, fibra: 6, sodio: 20,
+    motivo: "La granola combina cereal integral y frutos secos, y las versiones de avena con beta-glucanos han mostrado efectos favorables sobre el colesterol [1]. El problema es que la mayoría de las comerciales llevan mucho azúcar o sirope (en torno a 26 g por 100 g) y aceite, y el tipo de edulcorante cambia mucho su composición final [2]. Mejor casera, o en pocas cantidades por encima del yogur.",
+    estudios: [
+      {
+        "pmid": "27872611",
+        "titulo": "Hypocholesterolemic and Prebiotic Effects of a Whole-Grain Oat-Based Granola Breakfast Cereal in a Cardio-Metabolic \"At Risk\" Population.",
+        "revista": "Frontiers in microbiology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27872611/"
+      },
+      {
+        "pmid": "39289802",
+        "titulo": "Exploring the chemical composition of granola formulated with different sweeteners and produced via oven and microwave baking.",
+        "revista": "Journal of food science",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39289802/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Avena integral",
+        emoji: "🌾", mejor: true,
+        kcal: 389, carbs: 66, azucares: 0.8, proteinas: 17, grasas: 7, grasasSat: 1.2, fibra: 10, sodio: 2,
+        porque: "Mismo cereal integral sin azúcar añadido; puedes tostarla y añadir tú los frutos secos."
+      }
+    ]
+  },
+  {
+    id: "skyr",
+    nombre: "Skyr",
+    aliases: ["skyr", "yogur islandes", "yogur islandés"],
+    categorias: ["Lácteos"],
+    emoji: "🥣",
+    rating: "A",
+    kcal: 63, carbs: 4, azucares: 4, proteinas: 11, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 50,
+    motivo: "El skyr es un lácteo fermentado colado, tipo yogur islandés, con 11 g de proteína por 100 g y casi nada de grasa. En hombres mayores que hacían entrenamiento de fuerza, tomarlo se estudió como apoyo a la respuesta muscular [1], y su proteína se digiere de forma progresiva [2]. Elige la versión natural: las de sabores suman azúcar añadido.",
+    estudios: [
+      {
+        "pmid": "34121642",
+        "titulo": "Effects of Icelandic yogurt consumption and resistance training in healthy untrained older males.",
+        "revista": "The British journal of nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34121642/"
+      },
+      {
+        "pmid": "37789767",
+        "titulo": "In vitro digestion of two protein-rich dairy products in the ageing gastrointestinal tract.",
+        "revista": "Food & function",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37789767/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "queso_parmesano",
+    nombre: "Queso parmesano",
+    aliases: ["parmesano", "queso parmesano", "parmigiano", "parmigiano reggiano", "grana padano"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 431, carbs: 4.1, azucares: 0.9, proteinas: 38, grasas: 29, grasasSat: 19, fibra: 0, sodio: 1600,
+    motivo: "El parmesano es un queso de larga maduración con mucha proteína y calcio y péptidos bioactivos propios de su curación [1], y se ha relacionado con la salud ósea [2]. Su lado menos amable: casi 1.600 mg de sodio y 19 g de grasa saturada por 100 g. Rallado sobre el plato, unos 10 g bastan para dar sabor.",
+    estudios: [
+      {
+        "pmid": "29089844",
+        "titulo": "Cheese as Functional Food: The Example of Parmigiano Reggiano and Grana Padano.",
+        "revista": "Food technology and biotechnology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29089844/"
+      },
+      {
+        "pmid": "22461827",
+        "titulo": "Parmigiano Reggiano cheese and bone health.",
+        "revista": "Clinical cases in mineral and bone metabolism",
+        "anio": "2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22461827/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Levadura nutricional",
+        emoji: "🌱", mejor: true,
+        kcal: 370, carbs: 38, azucares: 0, proteinas: 50, grasas: 4, grasasSat: 1, fibra: 23, sodio: 50,
+        porque: "Aporta el mismo sabor umami en polvo, con casi nada de grasa saturada ni sodio."
+      }
+    ]
+  },
+  {
+    id: "queso_cabra",
+    nombre: "Queso de cabra",
+    aliases: ["queso de cabra", "queso cabra", "queso de cabra semicurado"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 364, carbs: 2.2, azucares: 0.5, proteinas: 22, grasas: 30, grasasSat: 21, fibra: 0, sodio: 500,
+    motivo: "El queso de cabra parte de una leche con composición distinta a la de vaca [1], y los estudios de consumo de queso no muestran un perjuicio cardiovascular claro en cantidades moderadas [2]. Aun así, semicurado aporta unos 21 g de grasa saturada y 500 mg de sodio por 100 g: raciones pequeñas.",
+    estudios: [
+      {
+        "pmid": "24029787",
+        "titulo": "Cow's milk and goat's milk.",
+        "revista": "World review of nutrition and dietetics",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24029787/"
+      },
+      {
+        "pmid": "37328108",
+        "titulo": "Cheese consumption and multiple health outcomes: an umbrella review and updated meta-analysis of prospective studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37328108/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso fresco batido 0%",
+        emoji: "🧀", mejor: true,
+        kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
+        porque: "Misma cremosidad para ensaladas y tostas con una fracción de la grasa saturada."
+      }
+    ]
+  },
+  {
+    id: "pinones",
+    nombre: "Piñones",
+    aliases: ["piñones", "pinones", "piñon", "pinon"],
+    categorias: ["Frutos Secos"],
+    emoji: "🌰",
+    rating: "A",
+    kcal: 673, carbs: 13, azucares: 3.6, proteinas: 14, grasas: 68, grasasSat: 4.9, fibra: 3.7, sodio: 2,
+    motivo: "Los piñones contienen ácido pinolénico, un ácido graso poco común con efectos antiinflamatorios descritos en estudios celulares y clínicos [1][2], además de grasa mayoritariamente insaturada, magnesio y vitamina E. Son muy calóricos (673 kcal por 100 g): un puñado pequeño, unos 20 g, es suficiente.",
+    estudios: [
+      {
+        "pmid": "36674687",
+        "titulo": "The Beneficial Effects of Pine Nuts and Its Major Fatty Acid, Pinolenic Acid, on Inflammation and Metabolic Perturbations in Inflammatory Disorders.",
+        "revista": "International journal of molecular sciences",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36674687/"
+      },
+      {
+        "pmid": "33831456",
+        "titulo": "A review of the functional effects of pine nut oil, pinolenic acid and its derivative eicosatrienoic acid and their potential health benefits.",
+        "revista": "Progress in lipid research",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33831456/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "miso",
+    nombre: "Miso",
+    aliases: ["miso", "pasta de miso"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🍲",
+    rating: "C",
+    kcal: 198, carbs: 26, azucares: 6, proteinas: 12, grasas: 6, grasasSat: 1, fibra: 5.4, sodio: 3728,
+    motivo: "El miso es soja fermentada con koji: aporta proteína, microorganismos y compuestos bioactivos de la fermentación [1][2], y los alimentos de soja fermentada se han relacionado con menor riesgo de diabetes. Su gran pero es la sal: unos 3.700 mg de sodio por 100 g. Una cucharadita disuelta en caldo aporta sabor con poco sodio.",
+    estudios: [
+      {
+        "pmid": "37799064",
+        "titulo": "Fermented soybean foods and diabetes.",
+        "revista": "Journal of diabetes investigation",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37799064/"
+      },
+      {
+        "pmid": "33226273",
+        "titulo": "Traditional fermented soybean products: processing, flavor formation, nutritional and biological activities.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33226273/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "vinagre_balsamico",
+    nombre: "Vinagre balsámico",
+    aliases: ["vinagre balsamico", "vinagre balsámico", "balsamico", "balsámico", "vinagre de modena"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🍶",
+    rating: "B",
+    kcal: 88, carbs: 17, azucares: 15, proteinas: 0.5, grasas: 0, grasasSat: 0, fibra: 0, sodio: 23,
+    motivo: "Como el resto de vinagres, el ácido acético puede atenuar la subida de glucosa e insulina tras las comidas, según metaanálisis de ensayos clínicos [1]. El balsámico es el más dulce (unos 15 g de azúcares por 100 g, aunque se usa a cucharaditas): úsalo como aderezo, no como bebida.",
+    estudios: [
+      {
+        "pmid": "28292654",
+        "titulo": "Vinegar consumption can attenuate postprandial glucose and insulin responses; a systematic review and meta-analysis of clinical trials.",
+        "revista": "Diabetes research and clinical practice",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28292654/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pizza_congelada",
+    nombre: "Pizza congelada",
+    aliases: ["pizza congelada", "pizza precocinada"],
+    categorias: ["Platos Preparados"],
+    emoji: "🍕",
+    rating: "D",
+    kcal: 250, carbs: 30, azucares: 3.5, proteinas: 11, grasas: 10, grasasSat: 4.5, fibra: 2, sodio: 620,
+    motivo: "La pizza congelada es un producto ultraprocesado: harina refinada, queso y embutido procesados, sal y aditivos. Las revisiones paraguas más recientes asocian un mayor consumo de ultraprocesados con más riesgo de mortalidad y de enfermedades cardiometabólicas [1][2]. Como recurso puntual está bien, pero como base de la alimentación no.",
+    estudios: [
+      {
+        "pmid": "38418082",
+        "titulo": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38418082/"
+      },
+      {
+        "pmid": "38688162",
+        "titulo": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38688162/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pizza casera de base integral",
+        emoji: "🍕", mejor: true,
+        kcal: 200, carbs: 28, azucares: 3, proteinas: 9, grasas: 6, grasasSat: 2, fibra: 4, sodio: 350,
+        porque: "Controlas la sal, el queso y la harina, con más fibra y menos ultraprocesado."
+      }
+    ]
   }
 ];
 

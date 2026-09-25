@@ -1708,5 +1708,96 @@ const RECETAS = [
       { pregunta: "¿Es apto para celíacos?", respuesta: "No: el seitán es gluten de trigo puro, así que no es apto para celíacos ni para quien evite el gluten." },
       { pregunta: "¿Puedo añadir más verduras?", respuesta: "Sí, brócoli, zanahoria o champiñones combinan muy bien en este salteado." }
     ]
+  },
+  {
+    id: "ensalada_bulgur_rucula_albaricoque",
+    nombre: "Ensalada de Bulgur con Rúcula, Albaricoque y Queso de Cabra",
+    emojiPortada: "🥗🍑🧀",
+    rating: "B",
+    tiempo: "20 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
+    momento: ["comida", "cena"],
+    descripcion: "Una ensalada templada y muy completa: bulgur, rúcula, albaricoque fresco, queso de cabra y piñones con un aliño de AOVE y limón. Dulce, salada y crujiente a la vez, lista en 20 minutos.",
+    motivo: "El bulgur aporta fibra y carbohidrato de absorción lenta, la rúcula y el albaricoque suman antioxidantes y frescura, y los piñones y el AOVE, grasa insaturada. Se queda en B por el queso de cabra: sus 60 g aportan colesterol y unos 13 g de grasa saturada (casi 8 g por ración contando el resto). Con menos queso, o cambiándolo por queso fresco, sube fácilmente a A.",
+    ingredientes: [
+      { foodId: "bulgur", cantidad: 240 },
+      { foodId: "rucula", cantidad: 60 },
+      { foodId: "albaricoque", cantidad: 120 },
+      { foodId: "queso_cabra", cantidad: 60 },
+      { foodId: "pinones", cantidad: 20 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 20 }
+    ],
+    pasos: [
+      "Si no tienes bulgur cocido, cuece unos 90 g en seco con el doble de agua durante 10-12 minutos, escúrrelo y déjalo templar.",
+      "Tuesta los piñones unos 2 minutos en una sartén seca, sin dejar de moverlos.",
+      "Corta el albaricoque en gajos y desmenuza el queso de cabra.",
+      "Mezcla el bulgur con la rúcula, el albaricoque y el queso; aliña con el AOVE y el zumo de limón y termina con los piñones por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo hacerla sin albaricoque?", respuesta: "Sí, en otras estaciones funcionan bien el melocotón, el higo fresco o la granada; cambiarán algo las calorías." },
+      { pregunta: "¿Cómo la hago más ligera?", respuesta: "Usa la mitad de queso de cabra o sustitúyelo por queso fresco batido 0%; bajará mucho la grasa saturada." },
+      { pregunta: "¿Es apta para celíacos?", respuesta: "No: el bulgur es trigo y contiene gluten. Con quinoa o mijo cocido queda igual de bien y sin gluten." }
+    ]
+  },
+  {
+    id: "pulpo_gallega_ligero",
+    nombre: "Pulpo a la Gallega Ligero",
+    emojiPortada: "🐙🥔🌶️",
+    rating: "B",
+    tiempo: "40 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "El pulpo a feira de siempre, pero con menos aceite: pulpo cocido sobre cachelos, con AOVE y pimentón. Casi 48 g de proteína por ración con muy poca grasa.",
+    motivo: "El pulpo es una de las proteínas más magras que existen y la patata cocida aporta carbohidrato saciante sin apenas grasa, con solo 15 g de AOVE para toda la receta. Lo calificamos B por el sodio: el propio pulpo ya aporta unos 460 mg por 100 g y, con la sal del agua de cocción y del plato, cada ración ronda los 700 mg.",
+    ingredientes: [
+      { foodId: "pulpo", cantidad: 300 },
+      { foodId: "ia_patata_cocida", cantidad: 300 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "pimenton", cantidad: 3 }
+    ],
+    pasos: [
+      "Si el pulpo ya viene cocido, córtalo en rodajas de 1 cm; si es fresco, cuécelo entero en agua sin sal unos 45 minutos (asústalo tres veces) y déjalo reposar en su agua.",
+      "Cuece las patatas con piel en agua durante 20-25 minutos, pélalas y córtalas en rodajas gruesas.",
+      "Coloca las patatas en el plato y el pulpo encima.",
+      "Aliña con el AOVE y espolvorea el pimentón. Prueba antes de añadir sal: probablemente no haga falta."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar pulpo congelado?", respuesta: "Sí, y de hecho es habitual: al congelarse las fibras se ablandan. Descongélalo en la nevera y cuécelo como el fresco." },
+      { pregunta: "¿Cómo bajo el sodio?", respuesta: "No salar el agua de cocción ni el plato, y usar pimentón picante o un chorrito de limón para dar sabor." },
+      { pregunta: "¿Con qué acompañarlo?", respuesta: "Una ensalada verde o verduras a la plancha le dan fibra y equilibran el plato." }
+    ]
+  },
+  {
+    id: "bol_skyr_moras_granola",
+    nombre: "Bol de Skyr con Moras y Granola",
+    emojiPortada: "🥣🫐🌾",
+    rating: "B",
+    tiempo: "5 min",
+    raciones: 1,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano", "proteico"],
+    momento: ["desayuno"],
+    descripcion: "Un desayuno de 5 minutos con casi 32 g de proteína: skyr natural bien frío, moras frescas y un puñado de granola crujiente por encima.",
+    motivo: "El skyr aporta mucha proteína casi sin grasa y las moras, fibra y antocianinas con poco azúcar. Lo calificamos B por la granola: 30 g de una granola comercial suman unos 8 g de azúcar, y con el de la fruta y el skyr la ración llega a unos 23 g. Con granola casera o con avena tostada, sube a A.",
+    ingredientes: [
+      { foodId: "skyr", cantidad: 250 },
+      { foodId: "moras", cantidad: 100 },
+      { foodId: "granola", cantidad: 30 }
+    ],
+    pasos: [
+      "Pon el skyr en un bol.",
+      "Añade las moras, lavadas y escurridas.",
+      "Termina con la granola justo antes de comer, para que no se ablande."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar moras congeladas?", respuesta: "Sí; déjalas descongelar 10 minutos en el bol y soltarán un jugo que endulza el skyr de forma natural." },
+      { pregunta: "¿Qué granola elijo?", respuesta: "Mira la etiqueta: cuanto menos azúcar y más avena y frutos secos, mejor. Si puedes, hazla en casa." },
+      { pregunta: "¿Puedo sustituir el skyr?", respuesta: "El yogur griego natural funciona igual, con algo menos de proteína y más grasa." }
+    ]
   }
 ];
