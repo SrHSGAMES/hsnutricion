@@ -1647,31 +1647,31 @@ const RECETAS = [
     ]
   },
   {
-    id: "bol_yogur_griego_higos_nueces",
-    nombre: "Bol de Yogur Griego con Higos y Nueces",
+    id: "bol_yogur_soja_higos_nueces",
+    nombre: "Bol de Yogur de Soja con Higos y Nueces",
     emojiPortada: "🥣🟤🌰",
     rating: "A",
     tiempo: "5 min",
     raciones: 2,
     mostrarPorRacion: true,
-    etiquetas: ["vegetariano", "proteico"],
+    etiquetas: ["vegano"],
     momento: ["desayuno"],
-    descripcion: "Un desayuno o postre de 5 minutos: yogur griego bien cremoso con higos secos troceados, nueces y un hilo de sirope de arce. Más de 21 g de proteína por ración.",
-    motivo: "El colado del yogur griego concentra proteína y reduce el azúcar frente a un yogur normal, y los higos y las nueces suman fibra, minerales y grasa insaturada. Con 21 g de proteína por ración y sin azúcar añadido si omites el sirope, lo calificamos A.",
+    descripcion: "Un desayuno o postre de 5 minutos: yogur de soja natural con higos secos troceados, nueces y un hilo de sirope de arce. 100 % vegetal y con unos 11 g de proteína por ración.",
+    motivo: "El yogur de soja aporta proteína vegetal con muy poca grasa saturada, y los higos y las nueces suman fibra, minerales y grasa insaturada. Con unos 11 g de proteína y solo 1,6 g de grasa saturada por ración, y sin azúcar añadido si omites el sirope, lo calificamos A.",
     ingredientes: [
-      { foodId: "yogur_griego", cantidad: 400 },
+      { foodId: "yogur_soja", cantidad: 400 },
       { foodId: "higos_secos", cantidad: 60 },
       { foodId: "ia_nueces", cantidad: 30 },
       { foodId: "sirope_arce", cantidad: 20, opcional: true }
     ],
     pasos: [
-      "Reparte el yogur griego en dos boles.",
+      "Reparte el yogur de soja en dos boles.",
       "Trocea los higos secos y repártelos por encima junto con las nueces.",
       "Termina con un hilo de sirope de arce al gusto."
     ],
     faqs: [
       { pregunta: "¿Puedo prepararlo la noche antes?", respuesta: "Mejor monta el yogur base y añade los higos, las nueces y el sirope justo antes de comer, para que las nueces no pierdan el crujiente." },
-      { pregunta: "¿Puedo usar yogur natural normal en vez de griego?", respuesta: "Sí, pero tendrá menos proteína y una textura más líquida." },
+      { pregunta: "¿Puedo usar yogur de leche?", respuesta: "Sí, el natural o el griego funcionan igual; el griego aportará más proteína, pero ya no será una receta vegana." },
       { pregunta: "¿Cómo bajo el azúcar?", respuesta: "Omite el sirope de arce; los higos ya aportan dulzor de sobra." }
     ]
   },
