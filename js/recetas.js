@@ -1583,6 +1583,7 @@ const RECETAS = [
   {
     id: "ensalada_griega",
     nombre: "Ensalada Griega",
+    imagen: "img/recetas/Ensalada-Griega.jpg",
     emojiPortada: "🥗🫒🧀",
     rating: "B",
     tiempo: "15 min",
@@ -1616,6 +1617,7 @@ const RECETAS = [
   {
     id: "pollo_horno_guisantes_trigo_sarraceno",
     nombre: "Pollo al Horno con Guisantes y Trigo Sarraceno",
+    imagen: "img/recetas/Pollo-al-Horno-con-Guisantes-y-Trigo-Sarraceno.jpg",
     emojiPortada: "🍗🟢🌾",
     rating: "B",
     tiempo: "45 min",
@@ -1649,6 +1651,7 @@ const RECETAS = [
   {
     id: "bol_yogur_soja_higos_nueces",
     nombre: "Bol de Yogur de Soja con Higos y Nueces",
+    imagen: "img/recetas/Bol-de-Yogur-Soja-con-Nueces-e-Higos.jpg",
     emojiPortada: "🥣🟤🌰",
     rating: "A",
     tiempo: "5 min",
@@ -1678,6 +1681,7 @@ const RECETAS = [
   {
     id: "salteado_seitan_verduras",
     nombre: "Salteado de Seitán con Verduras",
+    imagen: "img/recetas/Salteado-de-Seitán-con-Verduras.jpg",
     emojiPortada: "🌾🫑🧅",
     rating: "A",
     tiempo: "20 min",
@@ -1712,6 +1716,7 @@ const RECETAS = [
   {
     id: "ensalada_bulgur_rucula_albaricoque",
     nombre: "Ensalada de Bulgur con Rúcula, Albaricoque y Queso de Cabra",
+    imagen: "img/recetas/Ensalada-de-Bulgur-con-Rucula-Albaricoque-y-Queso-de-Cabra.jpg",
     emojiPortada: "🥗🍑🧀",
     rating: "B",
     tiempo: "20 min",
@@ -1745,6 +1750,7 @@ const RECETAS = [
   {
     id: "pulpo_gallega_ligero",
     nombre: "Pulpo a la Gallega Ligero",
+    imagen: "img/recetas/Pulpo-a-la-Gallega-Ligero.jpg",
     emojiPortada: "🐙🥔🌶️",
     rating: "B",
     tiempo: "40 min",
@@ -1775,6 +1781,7 @@ const RECETAS = [
   {
     id: "bol_skyr_moras_granola",
     nombre: "Bol de Skyr con Moras y Granola",
+    imagen: "img/recetas/Bol-de-Skyr-con-Moras-y-Granola.jpg",
     emojiPortada: "🥣🫐🌾",
     rating: "B",
     tiempo: "5 min",
