@@ -602,7 +602,7 @@ textarea:focus, #buscadorGuia:focus, #buscadorRecetas:focus, #buscadorComunidad:
 .receta-teaser-badge { position: absolute; top: 10px; right: 10px; }
 .receta-teaser-info { padding: 14px 16px 16px; }
 .receta-teaser-info h3 { font-size: 1.02rem; font-weight: 600; margin-bottom: 4px; }
-.receta-teaser-info .receta-meta { font-size: .82rem; color: var(--ink-faint); margin: 0; }
+.receta-teaser-info .receta-meta { display: block; font-size: .82rem; color: var(--ink-faint); margin: 0; }
 .recetas-teaser-cta { text-align: center; margin-top: 28px; }
 /* recetas.html rellena el listado con JS: hasta el primer pintado se reserva una pantalla de alto
    para que el pie de página no salte al aparecer las tarjetas (desplazamiento de diseño). */

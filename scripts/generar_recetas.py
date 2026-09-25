@@ -348,6 +348,22 @@ def ruta_miniatura(imagen):
     return mini if os.path.exists(os.path.join(ROOT, mini)) else imagen
 
 
+_FOODS_TARJETAS = None
+
+
+def kcal_tarjeta(receta):
+    """Calorías que muestra la tarjeta de una receta: por ración si su página
+    lo hace así (mostrarPorRacion y más de 1 ración), y si no, las de la receta
+    completa. Mismo criterio que calcularMacrosReceta() de js/app.js."""
+    global _FOODS_TARJETAS
+    if _FOODS_TARJETAS is None:
+        _FOODS_TARJETAS = parse_foods(DATA_JS)
+    totales, _ = calcular_macros(receta, _FOODS_TARJETAS)
+    if receta["mostrarPorRacion"] and receta["raciones"] > 1:
+        return f'{round(totales["kcal"] / receta["raciones"]):g} kcal por ración'
+    return f'{round(totales["kcal"]):g} kcal'
+
+
 def render_receta_teaser(receta):
     if receta["imagen"]:
         foto_html = f'<img src="{esc(ruta_miniatura(receta["imagen"]))}" alt="{esc(receta["nombre"])}" loading="lazy">'
@@ -361,6 +377,7 @@ def render_receta_teaser(receta):
         <div class="receta-teaser-info">
           <h3>{esc(receta["nombre"])}</h3>
           <span class="receta-meta">⏱️ {esc(receta["tiempo"])}</span>
+          <span class="receta-meta">🔥 {kcal_tarjeta(receta)}</span>
         </div>
       </a>'''
 

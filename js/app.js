@@ -318,7 +318,12 @@
 
     const info = document.createElement("div");
     info.className = "receta-teaser-info";
-    info.innerHTML = `<h3>${receta.nombre}</h3><span class="receta-meta">⏱️ ${receta.tiempo}</span>`;
+    // Calorías como en la página de la receta: por ración si se muestra así, y si no, las de la receta completa.
+    const kcalTotal = calcularMacrosReceta(receta.ingredientes).kcal;
+    const kcalTexto = receta.mostrarPorRacion && receta.raciones > 1
+      ? `${Math.round(kcalTotal / receta.raciones)} kcal por ración`
+      : `${Math.round(kcalTotal)} kcal`;
+    info.innerHTML = `<h3>${receta.nombre}</h3><span class="receta-meta">⏱️ ${receta.tiempo}</span><span class="receta-meta">🔥 ${kcalTexto}</span>`;
 
     a.appendChild(foto);
     a.appendChild(info);
