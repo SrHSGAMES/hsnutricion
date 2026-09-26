@@ -224,9 +224,10 @@
 
       <div class="filters reveal">
         <input type="search" id="buscadorGuia" placeholder="Buscar un alimento…">
+        <button type="button" class="btn btn-ghost btn-sm btn-filtros" id="btnFiltrosGuia" aria-expanded="false" aria-controls="panelFiltrosGuia">Filtros<span class="btn-filtros-num" hidden></span></button>
         <button type="button" class="btn btn-ghost btn-sm" id="limpiarFiltrosGuia">Limpiar filtros</button>
       </div>
-      <div class="filtros-avanzados reveal">
+      <div class="filtros-avanzados reveal" id="panelFiltrosGuia" hidden>
         <div class="filtro-grupo">
           <span class="filtro-grupo-label">Categoría</span>
           <div class="filtro-chips" id="filtroCategoria" aria-label="Filtrar por categoría"></div>

@@ -66,10 +66,11 @@
 
       <div class="filters reveal">
         <input type="search" id="buscadorRecetas" placeholder="Buscar una receta…">
+        <button type="button" class="btn btn-ghost btn-sm btn-filtros" id="btnFiltrosRecetas" aria-expanded="false" aria-controls="panelFiltrosRecetas">Filtros<span class="btn-filtros-num" hidden></span></button>
         <button type="button" class="btn btn-ghost btn-sm" id="limpiarFiltrosRecetas">Limpiar filtros</button>
       </div>
 
-      <div class="filtros-avanzados reveal">
+      <div class="filtros-avanzados reveal" id="panelFiltrosRecetas" hidden>
         <div class="filtro-grupo">
           <span class="filtro-grupo-label">Momento del día</span>
           <div class="filtro-chips" id="filtroMomentoRecetas"></div>

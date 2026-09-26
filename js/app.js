@@ -585,7 +585,23 @@
     return {
       el: wrap,
       obtener: () => ({ min: valMin, max: valMax }),
+      activo: () => valMin !== min || valMax !== max,
       reset: () => fijar(min, max, { disparar: false })
+    };
+  }
+
+  // Botón "Filtros": despliega/esconde el panel de filtros (cerrado por
+  // defecto para no abrumar) y muestra cuántos filtros hay activos.
+  function conectarBotonFiltros(boton, panel) {
+    boton.addEventListener("click", () => {
+      const abrir = panel.hidden;
+      panel.hidden = !abrir;
+      boton.setAttribute("aria-expanded", abrir ? "true" : "false");
+    });
+    const num = boton.querySelector(".btn-filtros-num");
+    return function actualizarNumero(n) {
+      num.textContent = n;
+      num.hidden = n === 0;
     };
   }
 
@@ -596,6 +612,9 @@
     const contCategoria = document.getElementById("filtroCategoria");
     const contRating = document.getElementById("filtroRating");
     const btnLimpiar = document.getElementById("limpiarFiltrosGuia");
+    const actualizarNumFiltros = conectarBotonFiltros(
+      document.getElementById("btnFiltrosGuia"), document.getElementById("panelFiltrosGuia")
+    );
 
     let chipsCategoria = crearFiltroChips(contCategoria, [], renderGuia);
     const chipsRating = crearFiltroChips(contRating, [
@@ -623,6 +642,7 @@
       const q = normalizar(buscadorGuia.value);
       const cats = chipsCategoria.seleccion;
       const ratings = chipsRating.seleccion;
+      actualizarNumFiltros(cats.size + ratings.size);
       const lista = FOODS.filter(f =>
         (!q || normalizar(f.nombre).includes(q)) &&
         (cats.size === 0 || f.categorias.some(c => cats.has(c))) &&
@@ -665,6 +685,9 @@
     const contRating = document.getElementById("filtroRatingRecetas");
     const contRangos = document.getElementById("filtroRangosRecetas");
     const btnLimpiar = document.getElementById("limpiarFiltrosRecetas");
+    const actualizarNumFiltros = conectarBotonFiltros(
+      document.getElementById("btnFiltrosRecetas"), document.getElementById("panelFiltrosRecetas")
+    );
     const sinResultados = document.getElementById("recetasSinResultados");
 
     // Macros totales de cada receta completa (no por ración): se calculan una
@@ -703,6 +726,8 @@
       const momentos = chipsMomento.seleccion;
       const cats = chipsCategoria.seleccion;
       const ratings = chipsRating.seleccion;
+      actualizarNumFiltros(momentos.size + cats.size + ratings.size +
+        [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].filter(r => r.activo()).length);
       const lista = RECETAS.filter(r => {
         const macros = macrosPorReceta.get(r.id);
         return (!q || normalizar(r.nombre).includes(q)) &&

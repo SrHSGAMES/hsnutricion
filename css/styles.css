@@ -990,6 +990,20 @@ a.ingrediente-link { text-decoration: none; }
   border: 1.5px solid var(--line);
   border-radius: var(--radius-md, 16px);
 }
+.filtros-avanzados[hidden] { display: none; }
+.btn-filtros[aria-expanded="true"] { background: var(--green-50); border-color: var(--green-400); }
+.btn-filtros-num {
+  display: inline-block;
+  min-width: 20px;
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--green-600);
+  color: #fff;
+  font-size: .75rem;
+  line-height: 1.4;
+}
+.btn-filtros-num[hidden] { display: none; }
 .filtro-grupo { display: flex; flex-direction: column; gap: 8px; }
 .filtro-grupo-label {
   font-size: .82rem;
