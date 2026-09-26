@@ -352,16 +352,14 @@ _FOODS_TARJETAS = None
 
 
 def kcal_tarjeta(receta):
-    """Calorías que muestra la tarjeta de una receta: por ración si su página
-    lo hace así (mostrarPorRacion y más de 1 ración), y si no, las de la receta
-    completa. Mismo criterio que calcularMacrosReceta() de js/app.js."""
+    """Calorías por ración que muestra siempre la tarjeta de una receta (con
+    1 ración, son las de la receta entera). Mismo cálculo que
+    calcularMacrosReceta() de js/app.js."""
     global _FOODS_TARJETAS
     if _FOODS_TARJETAS is None:
         _FOODS_TARJETAS = parse_foods(DATA_JS)
     totales, _ = calcular_macros(receta, _FOODS_TARJETAS)
-    if receta["mostrarPorRacion"] and receta["raciones"] > 1:
-        return f'{round(totales["kcal"] / receta["raciones"]):g} kcal por ración'
-    return f'{round(totales["kcal"]):g} kcal'
+    return f'{round(totales["kcal"] / max(receta["raciones"], 1)):g} kcal por ración'
 
 
 def render_receta_teaser(receta):
