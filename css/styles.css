@@ -1355,6 +1355,9 @@ a.ingrediente-link { text-decoration: none; }
    de una receta de la comunidad: quedaba estrecho aunque llevara
    "modal-wide", forzando scroll de sobra). */
 .modal-wide { max-width: 840px; max-height: 94vh; overflow-y: auto; padding: 26px 28px; }
+/* Deja hueco a la derecha para que la calificación (A-E) no quede debajo
+   del botón de cerrar, que está posicionado encima del contenido. */
+.modal-wide .comunidad-card-head { padding-right: 40px; }
 /* Un poco más compacto que en el resto del sitio: aquí el objetivo es que la
    ficha quepa entera al abrirla, sin scroll, en la mayoría de pantallas. */
 .modal-wide .receta-columnas { gap: 10px 28px; }
