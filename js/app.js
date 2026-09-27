@@ -101,6 +101,15 @@
     return totales;
   }
 
+  // Minutos totales del campo "tiempo" de una receta (p.ej. "1 h 30 min",
+  // "10 min + congelación"): suma las horas y los minutos que encuentre,
+  // ignorando el resto del texto ("+ reposo", "(con reposo)"...).
+  function minutosDeTiempo(tiempo) {
+    const horas = tiempo.match(/(\d+)\s*h/);
+    const minutos = tiempo.match(/(\d+)\s*min/);
+    return (horas ? Number(horas[1]) * 60 : 0) + (minutos ? Number(minutos[1]) : 0);
+  }
+
   function crearTablaMacros(food, { caption = "(por 100 g)" } = {}) {
     const cont = document.createElement("div");
     cont.className = "macro-table";
@@ -710,11 +719,13 @@
       { valor: "D", etiqueta: "D" }, { valor: "E", etiqueta: "E" }
     ], renderRecetas);
 
+    const rangoTiempo = crearFiltroRango({ etiqueta: "Tiempo de preparación (min)", min: 0, max: 180, step: 5, onChange: renderRecetas });
     const rangoKcal = crearFiltroRango({ etiqueta: "Calorías (receta completa)", min: 0, max: 5000, step: 10, onChange: renderRecetas });
     const rangoCarbs = crearFiltroRango({ etiqueta: "Carbohidratos (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
     const rangoProteinas = crearFiltroRango({ etiqueta: "Proteínas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
     const rangoGrasas = crearFiltroRango({ etiqueta: "Grasas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
-    [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].forEach(r => contRangos.appendChild(r.el));
+    const rangos = [rangoTiempo, rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas];
+    rangos.forEach(r => contRangos.appendChild(r.el));
 
     function dentroDeRango(valor, rango) {
       const { min, max } = rango.obtener();
@@ -727,13 +738,14 @@
       const cats = chipsCategoria.seleccion;
       const ratings = chipsRating.seleccion;
       actualizarNumFiltros(momentos.size + cats.size + ratings.size +
-        [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].filter(r => r.activo()).length);
+        rangos.filter(r => r.activo()).length);
       const lista = RECETAS.filter(r => {
         const macros = macrosPorReceta.get(r.id);
         return (!q || normalizar(r.nombre).includes(q)) &&
           (momentos.size === 0 || (r.momento || []).some(m => momentos.has(m))) &&
           (cats.size === 0 || (r.etiquetas || []).some(c => cats.has(c))) &&
           (ratings.size === 0 || ratings.has(r.rating)) &&
+          dentroDeRango(minutosDeTiempo(r.tiempo), rangoTiempo) &&
           dentroDeRango(macros.kcal, rangoKcal) &&
           dentroDeRango(macros.carbs, rangoCarbs) &&
           dentroDeRango(macros.proteinas, rangoProteinas) &&
@@ -750,7 +762,7 @@
       chipsMomento.limpiar();
       chipsCategoria.limpiar();
       chipsRating.limpiar();
-      [rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas].forEach(r => r.reset());
+      rangos.forEach(r => r.reset());
       renderRecetas();
     });
     renderRecetas();
