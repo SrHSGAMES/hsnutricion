@@ -710,13 +710,6 @@ a.ingrediente-link { text-decoration: none; }
 .receta-pasos { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; }
 .receta-pasos li { font-size: .94rem; color: var(--ink-soft); line-height: 1.55; padding-left: 4px; }
 
-.modal-wide { max-width: 720px; max-height: calc(100vh - 40px); overflow-y: auto; }
-.modal-ficha { max-width: 520px; padding: 0; background: transparent; box-shadow: none; }
-.modal-ficha .modal-close { top: -14px; right: -14px; background: #fff; box-shadow: var(--shadow-md); z-index: 2; }
-/* La ficha puede ser más alta que la pantalla (estudios de PubMed incluidos),
-   así que el propio contenido —no el modal entero— es lo que hace scroll. */
-.modal-ficha #fichaModalContenido { max-height: calc(100vh - 40px); overflow-y: auto; }
-.modal-ficha #fichaModalContenido .food-card { box-shadow: var(--shadow-lg); }
 
 /* ---------- Food card ---------- */
 .food-card {
@@ -1355,6 +1348,29 @@ a.ingrediente-link { text-decoration: none; }
 .modal label { display: block; font-weight: 600; margin: 16px 0 8px; font-size: .9rem; }
 .modal-hint { font-size: .8rem; color: var(--ink-faint); margin-top: 10px; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+
+/* Estas dos van después de ".modal" a propósito: comparten selector de una
+   sola clase, así que si van antes en la hoja, ".modal" gana la cascada y
+   su max-width de 460px se come el de estas (le pasó al modal de detalle
+   de una receta de la comunidad: quedaba estrecho aunque llevara
+   "modal-wide", forzando scroll de sobra). */
+.modal-wide { max-width: 840px; max-height: 94vh; overflow-y: auto; padding: 26px 28px; }
+/* Un poco más compacto que en el resto del sitio: aquí el objetivo es que la
+   ficha quepa entera al abrirla, sin scroll, en la mayoría de pantallas. */
+.modal-wide .receta-columnas { gap: 10px 28px; }
+.modal-wide .receta-ingredientes { gap: 6px; }
+.modal-wide .receta-ingredientes li { padding: 6px 10px; }
+.modal-wide .receta-pasos { gap: 6px; }
+.modal-wide h4 { margin: 12px 0 8px; }
+.modal-wide .macro-row { margin-bottom: 5px; }
+.modal-wide .food-motivo { margin: 10px 0; padding: 8px 10px; }
+.modal-wide .comunidad-card-autor { margin: 2px 0 8px; }
+.modal-ficha { max-width: 520px; padding: 0; background: transparent; box-shadow: none; }
+.modal-ficha .modal-close { top: -14px; right: -14px; background: #fff; box-shadow: var(--shadow-md); z-index: 2; }
+/* La ficha puede ser más alta que la pantalla (estudios de PubMed incluidos),
+   así que el propio contenido —no el modal entero— es lo que hace scroll. */
+.modal-ficha #fichaModalContenido { max-height: calc(100vh - 40px); overflow-y: auto; }
+.modal-ficha #fichaModalContenido .food-card { box-shadow: var(--shadow-lg); }
 
 /* ---------- Responsive ---------- */
 @media (min-width: 1000px) {
