@@ -65,7 +65,8 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     nombre_fmt = formatear_nombre(food["nombre"])
     page_url = f'{SITE_URL}/alimento-{slug(food["id"])}.html'
     categorias_txt = " · ".join(food.get("categorias", []))
-    descripcion = f'{nombre_fmt} tiene calificación {food["rating"]} en HSNutrición: {food["kcal"]:g} kcal, {food["proteinas"]:g} g de proteína y {food["grasas"]:g} g de grasa por 100 g. Te explicamos el porqué.'
+    cierre = "Descubre el motivo y el mejor sustituto." if food["id"] in ids_con_sustituto else "Descubre el motivo."
+    descripcion = f'¿Cuántas calorías tiene {nombre_fmt}? {food["kcal"]:g} kcal y {food["proteinas"]:g} g de proteína por 100 g — calificación {food["rating"]} en HSNutrición. {cierre}'
 
     macros_html = "\n".join(render_macro_row(k, food[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     citas_html = render_citas(food.get("estudios") or [])
@@ -100,11 +101,11 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/analytics.js" defer></script>
-<title>{esc(nombre_fmt)} — Ficha nutricional | HSNutrición</title>
+<title>{esc(nombre_fmt)}: calorías y calificación {food["rating"]} | HSNutrición</title>
 <meta name="description" content="{esc(descripcion)}">
 <link rel="canonical" href="{page_url}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{esc(nombre_fmt)} — HSNutrición">
+<meta property="og:title" content="{esc(nombre_fmt)}: calorías y calificación {food["rating"]}">
 <meta property="og:description" content="{esc(descripcion)}">
 <meta property="og:image" content="{SITE_URL}/img/banner-hsnutricion.jpg">
 <meta property="og:url" content="{page_url}">
