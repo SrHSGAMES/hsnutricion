@@ -5949,9 +5949,9 @@ const FOODS = [
     aliases: ["solomillo de cerdo", "lomo de cerdo", "solomillo cerdo"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🥩",
-    rating: "B",
+    rating: "D",
     kcal: 143, carbs: 0, azucares: 0, proteinas: 26, grasas: 3.5, grasasSat: 1.2, fibra: 0, sodio: 57,
-    motivo: "El solomillo es el corte más magro del cerdo: 26 g de proteína por 100 g con solo 3,5 g de grasa. Aun así es carne roja no procesada, y los metaanálisis asocian un consumo alto y frecuente con algo más de riesgo cardiovascular y de diabetes tipo 2 [1], mientras que patrones saludables con carne magra en cantidades moderadas mejoran los factores de riesgo [2]. Por eso lo calificamos B: mejor de vez en cuando que a diario.",
+    motivo: "El solomillo es el corte más magro del cerdo: 26 g de proteína por 100 g con solo 3,5 g de grasa. Aun así es carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso lo calificamos D: mejor ocasional que diario, y alternándolo con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "37264855",
@@ -5961,11 +5961,18 @@ const FOODS = [
         "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
       },
       {
-        "pmid": "39125421",
-        "titulo": "Healthy Dietary Patterns with and without Meat Improved Cardiometabolic Disease Risk Factors in Adults: A Randomized Crossover Controlled Feeding Trial.",
-        "revista": "Nutrients",
+        "pmid": "39174161",
+        "titulo": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+        "revista": "The lancet. Diabetes & endocrinology",
         "anio": "2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/39125421/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
+      },
+      {
+        "pmid": "35491892",
+        "titulo": "Associations of the consumption of unprocessed red meat and processed meat with the incidence of cardiovascular disease and mortality, and the dose-response relationship: A systematic review and meta-analysis of cohort studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
       }
     ],
     sustitutos: [
