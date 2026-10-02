@@ -3946,40 +3946,40 @@ const FOODS = [
     aliases: ["ternera magra picada (5%)"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🥩",
-    rating: "A",
+    rating: "D",
     kcal: 125, carbs: 0, azucares: 0, proteinas: 21, grasas: 5, grasasSat: 2.1, fibra: 0, sodio: 65,
-    motivo: "Excelente fuente de proteínas de alto valor biológico con elevada capacidad para estimular la síntesis proteica muscular [1]. Su bajo porcentaje de materia grasa (5%) permite beneficiarse de sus micronutrientes clave como hierro hemo, zinc y vitamina B12 [2] integrándose perfectamente en un patrón de alimentación cardioprotector [3][4].",
+    motivo: "Aunque su 5 % de grasa la hace una de las opciones más magras de la carne roja, sigue siendo carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: mejor ocasional que diaria, y alternándola con pescado, legumbres o aves.",
     estudios: [
       {
-        "pmid": "37972895",
-        "titulo": "Higher Muscle Protein Synthesis Rates Following Ingestion of an Omnivorous Meal Compared with an Isocaloric and Isonitrogenous Vegan Meal in Healthy, Older Adults.",
-        "revista": "The Journal of nutrition",
+        "pmid": "37264855",
+        "titulo": "Red meat consumption, cardiovascular diseases, and diabetes: a systematic review and meta-analysis.",
+        "revista": "European heart journal",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
+      },
+      {
+        "pmid": "39174161",
+        "titulo": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+        "revista": "The lancet. Diabetes & endocrinology",
         "anio": "2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/37972895/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
       },
       {
-        "pmid": "26643369",
-        "titulo": "The role of red meat in the diet: nutrition and health benefits.",
-        "revista": "The Proceedings of the Nutrition Society",
-        "anio": "2016",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/26643369/"
-      },
-      {
-        "pmid": "15927927",
-        "titulo": "Lean meat and heart health.",
-        "revista": "Asia Pacific journal of clinical nutrition",
-        "anio": "2005",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/15927927/"
-      },
-      {
-        "pmid": "39125421",
-        "titulo": "Healthy Dietary Patterns with and without Meat Improved Cardiometabolic Disease Risk Factors in Adults: A Randomized Crossover Controlled Feeding Trial.",
-        "revista": "Nutrients",
-        "anio": "2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/39125421/"
+        "pmid": "35491892",
+        "titulo": "Associations of the consumption of unprocessed red meat and processed meat with the incidence of cardiovascular disease and mortality, and the dose-response relationship: A systematic review and meta-analysis of cohort studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
       }
     ],
-    sustitutos: []
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Más proteína por 100 g con menos grasa saturada y sin el matiz de riesgo de la carne roja."
+      }
+    ]
   },
   {
     id: "ia_tofu",
@@ -4605,9 +4605,9 @@ const FOODS = [
     aliases: ["filete de ternera", "ternera", "solomillo de ternera", "lomo de ternera"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🥩",
-    rating: "B",
+    rating: "D",
     kcal: 135, carbs: 0, azucares: 0, proteinas: 21, grasas: 5, grasasSat: 2.1, fibra: 0, sodio: 60,
-    motivo: "Carne roja magra: proteína completa, hierro hemo, zinc y vitamina B12. Un consumo elevado de carne roja se asocia con mayor riesgo cardiovascular y de diabetes [1], mientras que los ensayos con ternera magra en cantidades moderadas no muestran un empeoramiento de los factores de riesgo cardiovascular [2]. Por eso: en raciones moderadas, magra y sin procesar, y alternada con pescado y legumbres.",
+    motivo: "Aunque es un corte magro y aporta proteína completa, hierro hemo, zinc y vitamina B12, es carne roja y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: es mejor tratarla como un plato ocasional y alternarla con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "37264855",
@@ -4617,14 +4617,28 @@ const FOODS = [
         "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
       },
       {
-        "pmid": "39649475",
-        "titulo": "Beef Consumption and Cardiovascular Disease Risk Factors: A Systematic Review and Meta-analysis of Randomized Controlled Trials.",
-        "revista": "Current developments in nutrition",
+        "pmid": "39174161",
+        "titulo": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+        "revista": "The lancet. Diabetes & endocrinology",
         "anio": "2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/39649475/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
+      },
+      {
+        "pmid": "35491892",
+        "titulo": "Associations of the consumption of unprocessed red meat and processed meat with the incidence of cardiovascular disease and mortality, and the dose-response relationship: A systematic review and meta-analysis of cohort studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
       }
     ],
-    sustitutos: []
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Más proteína por 100 g con menos grasa saturada y sin el matiz de riesgo de la carne roja."
+      }
+    ]
   },
   {
     id: "gambas",
