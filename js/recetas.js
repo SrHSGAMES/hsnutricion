@@ -227,7 +227,7 @@ const RECETAS = [
     raciones: 8,
     mostrarPorRacion: true,
     etiquetas: ["vegetariano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "La versión sana de las galletas gigantes que arrasan en redes: sin azúcar añadido —el dulzor viene solo de los dátiles—, con harina integral y chocolate negro. Mismo gusto, perfil nutricional muy distinto.",
     motivo: "Las Crumbl originales llevan harina blanca, mantequilla y una mezcla de azúcar blanco y moreno que puede superar los 30 g de azúcar añadido por galleta, más coberturas extra que disparan aún más esa cifra. Aquí el dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre sin más; la harina integral suma fibra frente a la blanca; y el chocolate negro ≥85% aporta antioxidantes con mucha menos azúcar que unas pepitas de chocolate con leche. La margarina vegetal sin grasas trans mantiene la textura blanda característica de estas galletas — es el ingrediente a disfrutar con moderación, como en cualquier repostería.",
     ingredientes: [
@@ -677,7 +677,7 @@ const RECETAS = [
     raciones: 12,
     mostrarPorRacion: true,
     etiquetas: ["vegano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "El snack sin horno de moda: dátiles, avena, crema de cacahuete y cacao puro triturados juntos y formados en bolitas. Sin azúcar añadido, listo en 20 minutos y aguanta toda la semana en la nevera.",
     motivo: "El dulzor viene entero de los dátiles, que aportan fibra junto a su azúcar natural en vez de azúcar libre. La avena y las pipas de calabaza dan cuerpo y proteína vegetal, la crema de cacahuete aporta grasas saludables, y las semillas de chía suman omega-3. Al llevar bastante dátil por bolita, la calificamos con B, igual criterio que con las Crumbl Cookies — sigue siendo un snack de comida real, para disfrutar con moderación.",
     ingredientes: [
@@ -740,7 +740,7 @@ const RECETAS = [
     raciones: 8,
     mostrarPorRacion: true,
     etiquetas: ["vegano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "La versión casera del chocolate viral con pistacho y kataifi crujiente: chocolate negro ≥85% en vez de chocolate con leche, y una crema de pistacho sin azúcar añadido en vez de pasta de pistacho comercial.",
     motivo: "El chocolate negro sustituye al chocolate con leche de la receta original, aportando antioxidantes y mucha menos azúcar. La crema de relleno se hace triturando pistachos enteros con un poco de dátil para el dulzor, en vez de una pasta de pistacho comercial que suele llevar azúcar y aceite de palma. El kataifi se tuesta con un chorrito de AOVE en vez de la mantequilla abundante habitual. Sigue siendo un chocolate con bastante grasa —por eso lo calificamos con B, igual que las Crumbl Cookies—, pero muy por encima del original en calidad de ingredientes.",
     ingredientes: [
@@ -776,7 +776,7 @@ const RECETAS = [
     raciones: 9,
     mostrarPorRacion: true,
     etiquetas: ["vegetariano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "El brownie de siempre, pero con boniato en vez de harina y mantequilla en cantidad, y dátiles como único endulzante. Jugoso por dentro, sin azúcar añadido.",
     motivo: "El boniato triturado sustituye a gran parte de la harina y la grasa de un brownie normal, aportando humedad, fibra y betacarotenos, sin apenas grasa saturada propia. El dulzor viene entero de los dátiles, que suman fibra junto a su azúcar natural en vez de azúcar libre sin más. El cacao puro y el chocolate negro ≥85% dan el sabor característico con mucha menos azúcar que un brownie con chocolate con leche. Sigue siendo un postre con bastante dátil y chocolate por porción —por eso lo calificamos con B, igual criterio que las Crumbl Cookies—, pero con un perfil muy superior al de un brownie normal.",
     ingredientes: [
@@ -922,7 +922,7 @@ const RECETAS = [
     tiempo: "10 min",
     raciones: 6,
     etiquetas: ["vegano", "bajo-en-calorias"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "El clásico dip de garbanzos hecho en casa: garbanzos, tahini, limón, ajo y comino, sin conservantes ni aceites de baja calidad. Perfecto para untar o acompañar verduras crudas.",
     motivo: "El tahini (sésamo molido) aporta grasas mayoritariamente insaturadas, calcio y proteína vegetal, y junto con los garbanzos suma una cantidad de fibra excepcional para un simple dip. El limón y el comino dan todo el sabor sin necesidad de sal añadida. Es mucho más denso en nutrientes que un hummus comercial, que suele llevar aceites de girasol refinados y conservantes.",
     ingredientes: [
@@ -1211,7 +1211,7 @@ const RECETAS = [
     tiempo: "10 min",
     raciones: 1,
     etiquetas: ["vegano", "bajo-en-calorias"],
-    momento: ["desayuno"],
+    momento: ["desayuno", "snack"],
     descripcion: "Un bowl de fruta sobre una base de yogur de soja: arándanos, fresas, frambuesas y granada, todo antioxidantes. Sin azúcar añadido.",
     motivo: "Los arándanos, las fresas, las frambuesas y la granada comparten un perfil rico en polifenoles y antioxidantes, cada una con su propio matiz (antocianinas, vitamina C, elagitaninos...). El yogur de soja da consistencia y cuerpo al bowl, aportando proteína vegetal y probióticos, y las semillas de chía suman omega-3 y el crujiente característico de estos bowls.",
     ingredientes: [
@@ -1244,7 +1244,7 @@ const RECETAS = [
     tiempo: "10 min",
     raciones: 1,
     etiquetas: ["vegano", "bajo-en-calorias"],
-    momento: ["desayuno"],
+    momento: ["desayuno", "snack"],
     descripcion: "Un bowl de fruta de temporada fría sobre una base de yogur de soja: manzana, pera y granada, con un toque de canela. Sin azúcar añadido.",
     motivo: "La manzana y la pera aportan fibra soluble (pectina) que modera la absorción de su propio azúcar, y la granada suma polifenoles antioxidantes con un matiz distinto al resto de la fruta. La canela es el maridaje clásico con manzana y pera, y se ha asociado además con una mejora en la regulación de la glucemia. El yogur de soja da consistencia al bowl con proteína vegetal y probióticos.",
     ingredientes: [
@@ -1276,7 +1276,7 @@ const RECETAS = [
     tiempo: "10 min",
     raciones: 1,
     etiquetas: ["vegano"],
-    momento: ["desayuno"],
+    momento: ["desayuno", "snack"],
     descripcion: "Un bowl pensado para antes o después de entrenar: plátano, dátiles, crema de cacahuete, almendras y pipas de calabaza sobre una base de yogur de soja. Energía concentrada, sin azúcar añadido.",
     motivo: "El plátano y los dátiles aportan carbohidratos de rápida disponibilidad junto con fibra, ideales para reponer energía. Las almendras y las pipas de calabaza suman grasas saludables, proteína vegetal y minerales como magnesio y zinc, y la crema de cacahuete completa el perfil de grasas insaturadas. Al llevar bastante dátil y plátano, concentra un azúcar natural notable —por eso lo calificamos con B, igual criterio que con las Gachas Dulces—, así que es mejor reservarlo para momentos de mayor gasto energético.",
     ingredientes: [
@@ -1309,7 +1309,7 @@ const RECETAS = [
     tiempo: "10 min",
     raciones: 1,
     etiquetas: ["vegano", "bajo-en-calorias"],
-    momento: ["desayuno"],
+    momento: ["desayuno", "snack"],
     descripcion: "Un bowl de fruta tropical sobre base de yogur de soja: mango, piña y papaya, con un chorrito de lima. Sin azúcar añadido y con muy poca grasa saturada.",
     motivo: "El mango, la piña y la papaya comparten un perfil rico en vitamina C y antioxidantes, cada una aportando además algo propio: betacarotenos el mango, bromelina la piña, y papaína la papaya, dos enzimas con propiedades digestivas. La lima realza el dulzor de la fruta sin necesidad de azúcar añadido, y el yogur de soja da consistencia al bowl con proteína vegetal.",
     ingredientes: [
@@ -1341,7 +1341,7 @@ const RECETAS = [
     raciones: 4,
     mostrarPorRacion: true,
     etiquetas: ["vegetariano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "La versión viral del tiramisú sin mascarpone ni nata: yogur de soja en vez de la crema clásica, y las Tortitas de Avena de la guía en vez de bizcochos o galletas Biscoff empapados en café. Mucha menos grasa saturada y azúcar que el original.",
     motivo: "El mascarpone, la nata y las yemas de huevo del tiramisú clásico se sustituyen aquí por yogur de soja, que aporta cremosidad con muchísima menos grasa saturada. Las Tortitas de Avena hacen de base crujiente-esponjosa en vez de bizcochos o galletas industriales, con mucho menos azúcar añadido. El cacao puro suma fibra y antioxidantes, y la miel se usa en una cantidad moderada solo como toque de dulzor — se puede omitir sin problema.",
     ingredientes: [
@@ -1557,7 +1557,7 @@ const RECETAS = [
     raciones: 4,
     mostrarPorRacion: true,
     etiquetas: ["vegetariano"],
-    momento: [],
+    momento: ["snack"],
     descripcion: "El snack viral del verano que también funciona en otoño: pequeños racimos de yogur natural con frutos rojos, congelados. Sin azúcar añadido (la miel es opcional), unos 10 g de proteína por ración y solo unas 100 kcal.",
     motivo: "Se basa en yogur natural sin azúcar (10 g de proteína por 100 g y casi nada de grasa) y en frutos rojos, ricos en fibra y antocianinas. Así, casi todo el azúcar de la receta viene de la propia fruta y el yogur; la miel es opcional y, sin ella, es todavía más ligera. Es una alternativa sencilla al helado o a los snacks dulces industriales.",
     ingredientes: [

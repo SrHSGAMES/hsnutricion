@@ -1408,3 +1408,76 @@ a.ingrediente-link { text-decoration: none; }
   .section { padding: 56px 0; }
   .tab-panel { padding: 20px 16px 24px; }
 }
+
+/* ---------- Menú diario (menu.html) ---------- */
+.menu-bloqueo {
+  max-width: 560px;
+  margin: 10px auto 0;
+  padding: 28px 28px 30px;
+  text-align: center;
+  background: var(--paper-tint);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.menu-bloqueo h3 { margin-bottom: 8px; font-size: 1.15rem; }
+.menu-bloqueo p { color: var(--ink-soft); margin-bottom: 18px; }
+.menu-controles { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 14px 16px; margin-bottom: 14px; }
+.menu-kcal { display: flex; flex-direction: column; gap: 6px; font-size: .86rem; font-weight: 600; color: var(--ink); }
+.menu-kcal-caja { display: flex; align-items: center; gap: 8px; font-weight: 500; color: var(--ink-soft); }
+.menu-kcal input {
+  width: 130px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 11px 12px;
+  font-size: 1rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  background: #fff;
+}
+.menu-snacks { padding-bottom: 12px; }
+.menu-filtros-nota { font-size: .84rem; color: var(--ink-faint); margin: 0; }
+#menuAviso { min-height: 1.2em; margin: 0 0 12px; color: var(--rating-E); }
+#menuResultado { margin-top: 8px; display: flex; flex-direction: column; gap: 18px; }
+.menu-resumen {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px;
+  padding: 18px 22px;
+  background: var(--green-50);
+  border: 1.5px solid var(--green-200);
+  border-radius: var(--radius-md);
+}
+.menu-resumen-principal { display: flex; flex-direction: column; gap: 2px; }
+.menu-resumen-num { font-family: "Fraunces", serif; font-size: 1.8rem; font-weight: 600; color: var(--green-800); font-variant-numeric: tabular-nums; }
+.menu-resumen-sub { font-size: .86rem; color: var(--ink-soft); }
+.menu-resumen-macros { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .88rem; color: var(--ink-soft); }
+.menu-resumen-macros b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.menu-comida {
+  padding: 18px 20px 20px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.menu-comida-cab { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.menu-comida-cab h3 { margin: 0; font-size: 1.1rem; flex: 1; }
+.menu-comida-kcal { font-weight: 700; color: var(--green-700); font-variant-numeric: tabular-nums; }
+.menu-platos { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 10px; }
+.menu-plato {
+  display: flex; align-items: center; gap: 12px;
+  padding: 8px 12px 8px 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper-tint);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s ease, background .15s ease;
+}
+.menu-plato:hover { border-color: var(--green-400); background: #fff; }
+.menu-plato-foto { flex: none; width: 64px; height: 48px; border-radius: 8px; overflow: hidden; display: grid; place-items: center; background: var(--green-100); }
+.menu-plato-foto img { width: 100%; height: 100%; object-fit: cover; }
+.menu-plato-emoji { font-size: 1.1rem; }
+.menu-plato-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: .92rem; }
+.menu-plato-info b { font-weight: 600; line-height: 1.25; }
+.menu-plato .badge { flex: none; }
+@media (max-width: 640px) {
+  .menu-controles .btn-primary { flex: 1 1 100%; }
+  .menu-comida-cab { flex-wrap: wrap; }
+}

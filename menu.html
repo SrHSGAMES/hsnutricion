@@ -4,14 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/analytics.js" defer></script>
-<title>Recetas Saludables — HSNutrición</title>
-<meta name="description" content="Recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, con ingredientes enlazados a la guía nutricional de HSNutrición.">
-<link rel="canonical" href="https://www.hsnutricion.com/recetas.html">
+<title>Menú diario — HSNutrición</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Genera un menú diario con desayuno, comida, cena y snacks a partir de las calorías que necesitas, usando las recetas de HSNutrición. Herramienta para usuarios registrados.">
+<link rel="canonical" href="https://www.hsnutricion.com/menu.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Recetas Saludables — HSNutrición">
-<meta property="og:description" content="Recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, con ingredientes enlazados a la guía nutricional de HSNutrición.">
+<meta property="og:title" content="Menú diario — HSNutrición">
+<meta property="og:description" content="Genera un menú diario con desayuno, comida, cena y snacks a partir de las calorías que necesitas, usando las recetas de HSNutrición. Herramienta para usuarios registrados.">
 <meta property="og:image" content="https://www.hsnutricion.com/img/banner-hsnutricion.jpg">
-<meta property="og:url" content="https://www.hsnutricion.com/recetas.html">
+<meta property="og:url" content="https://www.hsnutricion.com/menu.html">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="preload" href="fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -58,37 +59,47 @@
 
 <main>
 
-  <!-- RECETAS SALUDABLES -->
-  <section class="section" id="recetas">
+  <section class="section" id="menuApp">
     <div class="container">
-      <h2 class="section-title reveal">Recetas Saludables</h2>
-      <p class="section-sub reveal">Aquí no documentamos de todo, como en la guía de alimentos — seleccionamos. Solo entran recetas genuinamente saludables, o versiones arregladas de clásicos que no lo eran, pensadas para mejorar tu salud y tu esperanza de vida con cada plato.</p>
+      <h2 class="section-title reveal">Menú diario</h2>
+      <p class="section-sub reveal">Dinos cuántas calorías quieres en el día y te montamos un menú con las recetas de HSNutrición, repartido en desayuno, comida y cena (y snacks si los pides). Si no llegan los platos, añadimos más platos o raciones hasta acercarnos al número que pidas.</p>
 
-      <div class="filters reveal">
-        <input type="search" id="buscadorRecetas" placeholder="Buscar una receta…">
-        <a href="menu.html" class="btn btn-ghost btn-sm">Crear mi menú diario</a>
-        <button type="button" class="btn btn-ghost btn-sm btn-filtros" id="btnFiltrosRecetas" aria-expanded="false" aria-controls="panelFiltrosRecetas">Filtros<span class="btn-filtros-num" hidden></span></button>
-        <button type="button" class="btn btn-ghost btn-sm" id="limpiarFiltrosRecetas">Limpiar filtros</button>
+      <div class="menu-bloqueo reveal" id="menuBloqueo" hidden>
+        <h3>Herramienta solo para usuarios registrados</h3>
+        <p>Crea una cuenta gratuita (o inicia sesión) para generar tu menú diario. Solo te pedimos un usuario y una contraseña; el email es opcional.</p>
+        <button type="button" class="btn btn-primary" id="menuBtnAcceder">Iniciar sesión o crear cuenta</button>
       </div>
 
-      <div class="filtros-avanzados reveal" id="panelFiltrosRecetas" hidden>
-        <div class="filtro-grupo">
-          <span class="filtro-grupo-label">Momento del día</span>
-          <div class="filtro-chips" id="filtroMomentoRecetas"></div>
+      <div id="menuHerramienta" hidden>
+        <div class="menu-controles reveal">
+          <label class="menu-kcal">
+            <span>Calorías del día</span>
+            <span class="menu-kcal-caja"><input type="number" id="menuKcal" value="2000" min="500" max="10000" step="50" inputmode="numeric"> kcal</span>
+          </label>
+          <label class="filtro-reportadas menu-snacks">
+            <input type="checkbox" id="menuSnacks"> Incluir snacks
+          </label>
+          <button type="button" class="btn btn-ghost btn-sm btn-filtros" id="btnFiltrosMenu" aria-expanded="false" aria-controls="panelFiltrosMenu">Filtros<span class="btn-filtros-num" hidden></span></button>
+          <button type="button" class="btn btn-ghost btn-sm" id="limpiarFiltrosMenu">Limpiar filtros</button>
+          <button type="button" class="btn btn-primary" id="menuGenerar">Generar menú</button>
         </div>
-        <div class="filtro-grupo">
-          <span class="filtro-grupo-label">Categoría</span>
-          <div class="filtro-chips" id="filtroCategoriaRecetas"></div>
-        </div>
-        <div class="filtro-grupo">
-          <span class="filtro-grupo-label">Calificación</span>
-          <div class="filtro-chips" id="filtroRatingRecetas"></div>
-        </div>
-        <div class="filtro-grupo filtro-grupo-rangos" id="filtroRangosRecetas"></div>
-      </div>
+        <p class="modal-hint" id="menuAviso" role="status"></p>
 
-      <div class="recetas-teaser-grid" id="recetasGrid"></div>
-      <p id="recetasSinResultados" class="recetas-sin-resultados" hidden>No se han encontrado recetas con ese filtro.</p>
+        <div class="filtros-avanzados reveal" id="panelFiltrosMenu" hidden>
+          <p class="menu-filtros-nota">Los filtros se aplican a las recetas que pueden entrar en el menú. Los rangos de calorías y macros son sobre la receta completa, igual que en el listado de recetas.</p>
+          <div class="filtro-grupo">
+            <span class="filtro-grupo-label">Categoría</span>
+            <div class="filtro-chips" id="filtroCategoriaMenu"></div>
+          </div>
+          <div class="filtro-grupo">
+            <span class="filtro-grupo-label">Calificación</span>
+            <div class="filtro-chips" id="filtroRatingMenu"></div>
+          </div>
+          <div class="filtro-grupo filtro-grupo-rangos" id="filtroRangosMenu"></div>
+        </div>
+
+        <div id="menuResultado" hidden></div>
+      </div>
     </div>
   </section>
 
@@ -156,6 +167,18 @@
     </form>
   </div>
 </div>
+
+<!-- MODAL FICHA DE INGREDIENTE -->
+<div class="modal-overlay" id="fichaModalOverlay" hidden>
+  <div class="modal modal-ficha" role="dialog" aria-modal="true">
+    <button class="modal-close" id="fichaModalClose" aria-label="Cerrar">✕</button>
+    <div id="fichaModalContenido"></div>
+  </div>
+</div>
+
+<!-- MODAL CONSTRUCTOR DE RECETA -->
+
+<!-- MODAL DETALLE DE RECETA DE COMUNIDAD -->
 
 <script src="js/data.js"></script>
 <script src="js/recetas.js"></script>

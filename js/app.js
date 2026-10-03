@@ -685,45 +685,39 @@
     window.__refrescarGuia = () => { actualizarCategorias(); renderGuia(); };
   }, ["guiaGrid"]);
 
-  /* ================= Recetas saludables: galería completa en recetas.html ================= */
-  seguro("recetas", () => {
-    const grid = document.getElementById("recetasGrid");
-    const buscador = document.getElementById("buscadorRecetas");
-    const contMomento = document.getElementById("filtroMomentoRecetas");
-    const contCategoria = document.getElementById("filtroCategoriaRecetas");
-    const contRating = document.getElementById("filtroRatingRecetas");
-    const contRangos = document.getElementById("filtroRangosRecetas");
-    const btnLimpiar = document.getElementById("limpiarFiltrosRecetas");
-    const actualizarNumFiltros = conectarBotonFiltros(
-      document.getElementById("btnFiltrosRecetas"), document.getElementById("panelFiltrosRecetas")
-    );
-    const sinResultados = document.getElementById("recetasSinResultados");
-
+  /* ================= Filtros de recetas (compartidos: recetas.html y menu.html) ================= */
+  // Monta los chips (momento opcional, categoría, calificación) y los rangos
+  // (tiempo y macros de la receta completa) en los contenedores dados, y
+  // devuelve pasa(receta) para filtrar, activos() para el contador del botón
+  // "Filtros" y limpiar(). Así el menú diario usa exactamente los mismos
+  // filtros que el listado de recetas, sin duplicar lógica.
+  function crearFiltrosRecetas({ contMomento, contCategoria, contRating, contRangos, onChange }) {
     // Macros totales de cada receta completa (no por ración): se calculan una
     // sola vez y se reutilizan en cada filtrado por rango.
     const macrosPorReceta = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
 
-    const chipsMomento = crearFiltroChips(contMomento, [
+    const chipsMomento = contMomento ? crearFiltroChips(contMomento, [
       { valor: "desayuno", etiqueta: "Desayuno" },
       { valor: "comida", etiqueta: "Comida" },
-      { valor: "cena", etiqueta: "Cena" }
-    ], renderRecetas);
+      { valor: "cena", etiqueta: "Cena" },
+      { valor: "snack", etiqueta: "Snack o postre" }
+    ], onChange) : null;
     const chipsCategoria = crearFiltroChips(contCategoria, [
       { valor: "vegano", etiqueta: "Vegano" },
       { valor: "vegetariano", etiqueta: "Vegetariano" },
       { valor: "proteico", etiqueta: "Proteico" },
       { valor: "bajo-en-calorias", etiqueta: "Bajo en calorías" }
-    ], renderRecetas);
+    ], onChange);
     const chipsRating = crearFiltroChips(contRating, [
       { valor: "A", etiqueta: "A" }, { valor: "B", etiqueta: "B" }, { valor: "C", etiqueta: "C" },
       { valor: "D", etiqueta: "D" }, { valor: "E", etiqueta: "E" }
-    ], renderRecetas);
+    ], onChange);
 
-    const rangoTiempo = crearFiltroRango({ etiqueta: "Tiempo de preparación (min)", min: 0, max: 180, step: 5, onChange: renderRecetas });
-    const rangoKcal = crearFiltroRango({ etiqueta: "Calorías (receta completa)", min: 0, max: 5000, step: 10, onChange: renderRecetas });
-    const rangoCarbs = crearFiltroRango({ etiqueta: "Carbohidratos (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
-    const rangoProteinas = crearFiltroRango({ etiqueta: "Proteínas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
-    const rangoGrasas = crearFiltroRango({ etiqueta: "Grasas (g, receta completa)", min: 0, max: 1000, step: 5, onChange: renderRecetas });
+    const rangoTiempo = crearFiltroRango({ etiqueta: "Tiempo de preparación (min)", min: 0, max: 180, step: 5, onChange });
+    const rangoKcal = crearFiltroRango({ etiqueta: "Calorías (receta completa)", min: 0, max: 5000, step: 10, onChange });
+    const rangoCarbs = crearFiltroRango({ etiqueta: "Carbohidratos (g, receta completa)", min: 0, max: 1000, step: 5, onChange });
+    const rangoProteinas = crearFiltroRango({ etiqueta: "Proteínas (g, receta completa)", min: 0, max: 1000, step: 5, onChange });
+    const rangoGrasas = crearFiltroRango({ etiqueta: "Grasas (g, receta completa)", min: 0, max: 1000, step: 5, onChange });
     const rangos = [rangoTiempo, rangoKcal, rangoCarbs, rangoProteinas, rangoGrasas];
     rangos.forEach(r => contRangos.appendChild(r.el));
 
@@ -732,17 +726,13 @@
       return valor >= min && valor <= max;
     }
 
-    function renderRecetas() {
-      const q = normalizar(buscador.value);
-      const momentos = chipsMomento.seleccion;
-      const cats = chipsCategoria.seleccion;
-      const ratings = chipsRating.seleccion;
-      actualizarNumFiltros(momentos.size + cats.size + ratings.size +
-        rangos.filter(r => r.activo()).length);
-      const lista = RECETAS.filter(r => {
+    return {
+      pasa(r) {
         const macros = macrosPorReceta.get(r.id);
-        return (!q || normalizar(r.nombre).includes(q)) &&
-          (momentos.size === 0 || (r.momento || []).some(m => momentos.has(m))) &&
+        const momentos = chipsMomento ? chipsMomento.seleccion : new Set();
+        const cats = chipsCategoria.seleccion;
+        const ratings = chipsRating.seleccion;
+        return (momentos.size === 0 || (r.momento || []).some(m => momentos.has(m))) &&
           (cats.size === 0 || (r.etiquetas || []).some(c => cats.has(c))) &&
           (ratings.size === 0 || ratings.has(r.rating)) &&
           dentroDeRango(minutosDeTiempo(r.tiempo), rangoTiempo) &&
@@ -750,7 +740,44 @@
           dentroDeRango(macros.carbs, rangoCarbs) &&
           dentroDeRango(macros.proteinas, rangoProteinas) &&
           dentroDeRango(macros.grasas, rangoGrasas);
-      }).sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" }));
+      },
+      activos() {
+        return (chipsMomento ? chipsMomento.seleccion.size : 0) + chipsCategoria.seleccion.size +
+          chipsRating.seleccion.size + rangos.filter(r => r.activo()).length;
+      },
+      limpiar() {
+        if (chipsMomento) chipsMomento.limpiar();
+        chipsCategoria.limpiar();
+        chipsRating.limpiar();
+        rangos.forEach(r => r.reset());
+      }
+    };
+  }
+
+  /* ================= Recetas saludables: galería completa en recetas.html ================= */
+  seguro("recetas", () => {
+    const grid = document.getElementById("recetasGrid");
+    const buscador = document.getElementById("buscadorRecetas");
+    const btnLimpiar = document.getElementById("limpiarFiltrosRecetas");
+    const actualizarNumFiltros = conectarBotonFiltros(
+      document.getElementById("btnFiltrosRecetas"), document.getElementById("panelFiltrosRecetas")
+    );
+    const sinResultados = document.getElementById("recetasSinResultados");
+
+    const filtros = crearFiltrosRecetas({
+      contMomento: document.getElementById("filtroMomentoRecetas"),
+      contCategoria: document.getElementById("filtroCategoriaRecetas"),
+      contRating: document.getElementById("filtroRatingRecetas"),
+      contRangos: document.getElementById("filtroRangosRecetas"),
+      onChange: renderRecetas
+    });
+
+    function renderRecetas() {
+      const q = normalizar(buscador.value);
+      actualizarNumFiltros(filtros.activos());
+      const lista = RECETAS
+        .filter(r => (!q || normalizar(r.nombre).includes(q)) && filtros.pasa(r))
+        .sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" }));
       grid.innerHTML = "";
       sinResultados.hidden = lista.length > 0;
       lista.forEach((receta, i) => grid.appendChild(crearTarjetaRecetaTeaser(receta, i)));
@@ -759,14 +786,221 @@
     buscador.addEventListener("input", renderRecetas);
     btnLimpiar?.addEventListener("click", () => {
       buscador.value = "";
-      chipsMomento.limpiar();
-      chipsCategoria.limpiar();
-      chipsRating.limpiar();
-      rangos.forEach(r => r.reset());
+      filtros.limpiar();
       renderRecetas();
     });
     renderRecetas();
   }, ["recetasGrid"]);
+
+  /* ================= Menú diario (menu.html, solo usuarios registrados) ================= */
+  // Reparte las calorías pedidas entre desayuno, comida, cena (y snacks) usando
+  // las recetas que pasan los mismos filtros que el listado de recetas. Si una
+  // receta no llega a las calorías de su comida, se suman más platos o raciones.
+  // Todo ocurre en el navegador: no usa ninguna función del servidor, la
+  // sesión solo decide si se muestra la herramienta o la invitación a entrar.
+  seguro("menu-diario", () => {
+    const bloqueo = document.getElementById("menuBloqueo");
+    const herramienta = document.getElementById("menuHerramienta");
+    const inputKcal = document.getElementById("menuKcal");
+    const chkSnacks = document.getElementById("menuSnacks");
+    const btnGenerar = document.getElementById("menuGenerar");
+    const btnLimpiar = document.getElementById("limpiarFiltrosMenu");
+    const aviso = document.getElementById("menuAviso");
+    const resultado = document.getElementById("menuResultado");
+    const actualizarNumFiltros = conectarBotonFiltros(
+      document.getElementById("btnFiltrosMenu"), document.getElementById("panelFiltrosMenu")
+    );
+
+    // --- Sesión: sin ella solo se ve la invitación a registrarse.
+    function aplicarSesion() {
+      const dentro = Boolean(window.__usuarioActual);
+      bloqueo.hidden = dentro;
+      herramienta.hidden = !dentro;
+    }
+    document.addEventListener("hsn:auth-cambio", aplicarSesion);
+    if (window.__usuarioActual !== undefined) aplicarSesion();
+    // Si /api/me no llega a responder, no dejar la página en blanco.
+    setTimeout(() => { if (bloqueo.hidden && herramienta.hidden) aplicarSesion(); }, 4000);
+    document.getElementById("menuBtnAcceder").addEventListener("click", () => document.getElementById("btnAuth").click());
+
+    // --- Filtros: los mismos que en recetas.html (menos "momento", que aquí lo decide el reparto del día).
+    const filtros = crearFiltrosRecetas({
+      contMomento: null,
+      contCategoria: document.getElementById("filtroCategoriaMenu"),
+      contRating: document.getElementById("filtroRatingMenu"),
+      contRangos: document.getElementById("filtroRangosMenu"),
+      onChange: () => actualizarNumFiltros(filtros.activos())
+    });
+
+    const COMIDAS = {
+      desayuno: { titulo: "Desayuno", emoji: "🌅" },
+      comida: { titulo: "Comida", emoji: "🍽️" },
+      cena: { titulo: "Cena", emoji: "🌙" },
+      snack: { titulo: "Snacks", emoji: "🍎" }
+    };
+    // Parte de las calorías del día que le toca a cada comida.
+    const REPARTO_SIN_SNACKS = { desayuno: 0.25, comida: 0.40, cena: 0.35 };
+    const REPARTO_CON_SNACKS = { desayuno: 0.22, comida: 0.35, cena: 0.30, snack: 0.13 };
+
+    const macrosDe = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
+    const racionesDe = r => Math.max(r.raciones || 1, 1);
+    const kcalRacion = r => macrosDe.get(r.id).kcal / racionesDe(r);
+
+    let menu = null;       // { desayuno: [{receta, raciones}], ... }
+    let objetivo = 0;
+    let comidasActivas = [];
+
+    const aleatorio = n => Math.floor(Math.random() * n);
+    function barajar(lista) {
+      const a = lista.slice();
+      for (let i = a.length - 1; i > 0; i--) { const j = aleatorio(i + 1); [a[i], a[j]] = [a[j], a[i]]; }
+      return a;
+    }
+    const kcalPlatos = platos => platos.reduce((t, p) => t + kcalRacion(p.receta) * p.raciones, 0);
+
+    // Recetas candidatas para una comida: etiquetadas para ella y que pasen los filtros.
+    function candidatas(comida, excluir) {
+      return RECETAS.filter(r => (r.momento || []).includes(comida) && !excluir.has(r.id) && kcalRacion(r) >= 40 && filtros.pasa(r));
+    }
+
+    // Busca una combinación de platos cuyas calorías se acerquen a "objetivoComida".
+    function resolverComida(comida, objetivoComida, excluir) {
+      const pool = candidatas(comida, excluir);
+      if (!pool.length) return [];
+      const maxPlatos = objetivoComida > 1100 ? 4 : 3;
+      let mejores = [];
+      for (let i = 0; i < 700; i++) {
+        const n = Math.min(1 + aleatorio(maxPlatos), pool.length);
+        const platos = barajar(pool).slice(0, n).map(receta => ({ receta, raciones: Math.random() < 0.3 ? 2 : 1 }));
+        const error = Math.abs(kcalPlatos(platos) - objetivoComida) / objetivoComida + 0.012 * n;
+        mejores.push({ platos, error });
+      }
+      mejores.sort((a, b) => a.error - b.error);
+      // Entre las mejores se elige al azar para que cada pulsación dé un menú distinto.
+      const cota = mejores[0].error + 0.04;
+      const top = mejores.filter(m => m.error <= cota).slice(0, 8);
+      return top[aleatorio(top.length)].platos;
+    }
+
+    function generar() {
+      const kcal = Number(inputKcal.value);
+      if (!Number.isFinite(kcal) || kcal < 500 || kcal > 10000) {
+        aviso.textContent = "Escribe unas calorías entre 500 y 10.000 kcal.";
+        return;
+      }
+      objetivo = kcal;
+      const reparto = chkSnacks.checked ? REPARTO_CON_SNACKS : REPARTO_SIN_SNACKS;
+      comidasActivas = Object.keys(reparto);
+      // La cena (o la última comida) absorbe lo que falte, para cerrar el día en el objetivo.
+      const orden = ["desayuno", "comida", ...(chkSnacks.checked ? ["snack"] : []), "cena"];
+      const usadas = new Set();
+      menu = {};
+      let acumulado = 0;
+      orden.forEach((comida, i) => {
+        const ultima = i === orden.length - 1;
+        const objetivoComida = ultima ? Math.max(objetivo - acumulado, objetivo * 0.12) : objetivo * reparto[comida];
+        menu[comida] = resolverComida(comida, objetivoComida, usadas);
+        menu[comida].forEach(p => usadas.add(p.receta.id));
+        acumulado += kcalPlatos(menu[comida]);
+      });
+      pintar();
+    }
+
+    // Cambia solo una comida, ajustándola a lo que falta para el objetivo del día.
+    function cambiarComida(comida) {
+      const resto = comidasActivas.filter(c => c !== comida).reduce((t, c) => t + kcalPlatos(menu[c]), 0);
+      const usadasOtras = new Set(comidasActivas.filter(c => c !== comida).flatMap(c => menu[c].map(p => p.receta.id)));
+      const objetivoComida = Math.max(objetivo - resto, objetivo * 0.1);
+      const previos = new Set(menu[comida].map(p => p.receta.id));
+      let nuevos = resolverComida(comida, objetivoComida, new Set([...usadasOtras, ...previos]));
+      if (!nuevos.length) nuevos = resolverComida(comida, objetivoComida, usadasOtras); // pocas recetas: se permite repetir
+      menu[comida] = nuevos;
+      pintar();
+    }
+
+    const fmt = n => Math.round(n).toLocaleString("es-ES");
+    const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString("es-ES");
+
+    function crearPlato({ receta, raciones }) {
+      const a = document.createElement("a");
+      a.className = "menu-plato";
+      a.href = urlReceta(receta);
+      const foto = receta.imagen
+        ? `<img src="${receta.imagen.replace("img/recetas/", "img/recetas/thumbs/").replace(/\.[^./]+$/, ".jpg")}" alt="" loading="lazy" width="64" height="48">`
+        : `<span class="menu-plato-emoji" aria-hidden="true">${receta.emojiPortada}</span>`;
+      a.innerHTML = `
+        <span class="menu-plato-foto">${foto}</span>
+        <span class="menu-plato-info">
+          <b>${receta.nombre}</b>
+          <span class="receta-meta">${raciones} ${raciones === 1 ? "ración" : "raciones"} · ${fmt(kcalRacion(receta) * raciones)} kcal</span>
+        </span>
+        <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>`;
+      return a;
+    }
+
+    function pintar() {
+      resultado.hidden = false;
+      resultado.innerHTML = "";
+      const total = comidasActivas.reduce((t, c) => t + kcalPlatos(menu[c]), 0);
+      const macros = { proteinas: 0, carbs: 0, grasas: 0, fibra: 0 };
+      comidasActivas.forEach(c => menu[c].forEach(p => {
+        Object.keys(macros).forEach(k => { macros[k] += macrosDe.get(p.receta.id)[k] / racionesDe(p.receta) * p.raciones; });
+      }));
+      const dif = total - objetivo;
+      const pct = objetivo ? (dif / objetivo) * 100 : 0;
+      const sinPlatos = comidasActivas.filter(c => menu[c].length === 0);
+
+      const resumen = document.createElement("div");
+      resumen.className = "menu-resumen reveal in-view";
+      resumen.innerHTML = `
+        <div class="menu-resumen-principal">
+          <span class="menu-resumen-num">${fmt(total)} kcal</span>
+          <span class="menu-resumen-sub">de ${fmt(objetivo)} kcal pedidas · ${dif === 0 ? "justo en el objetivo" : (dif > 0 ? "+" : "−") + fmt(Math.abs(dif)) + " kcal (" + (Math.abs(pct) < 0.1 ? "<0,1" : fmt1(Math.abs(pct))) + " %)"}</span>
+        </div>
+        <div class="menu-resumen-macros">
+          <span><b>${fmt1(macros.proteinas)} g</b> proteínas</span>
+          <span><b>${fmt1(macros.carbs)} g</b> carbohidratos</span>
+          <span><b>${fmt1(macros.grasas)} g</b> grasas</span>
+          <span><b>${fmt1(macros.fibra)} g</b> fibra</span>
+        </div>`;
+      resultado.appendChild(resumen);
+
+      if (sinPlatos.length) {
+        const p = document.createElement("p");
+        p.className = "recetas-sin-resultados";
+        p.textContent = "Con estos filtros no hay recetas para: " + sinPlatos.map(c => COMIDAS[c].titulo.toLowerCase()).join(", ") + ". Prueba a quitar alguno.";
+        resultado.appendChild(p);
+      } else if (Math.abs(pct) > 8) {
+        const p = document.createElement("p");
+        p.className = "modal-hint";
+        p.textContent = "Con las recetas que pasan los filtros no se puede acercar más al objetivo. Prueba a relajar algún filtro" + (chkSnacks.checked ? "." : " o a incluir snacks.");
+        resultado.appendChild(p);
+      }
+
+      comidasActivas.forEach(comida => {
+        const sec = document.createElement("section");
+        sec.className = "menu-comida";
+        const kcalComida = kcalPlatos(menu[comida]);
+        sec.innerHTML = `
+          <header class="menu-comida-cab">
+            <h3>${COMIDAS[comida].emoji} ${COMIDAS[comida].titulo}</h3>
+            <span class="menu-comida-kcal">${fmt(kcalComida)} kcal</span>
+            <button type="button" class="btn btn-ghost btn-sm" data-cambiar="${comida}">Cambiar</button>
+          </header>`;
+        const lista = document.createElement("div");
+        lista.className = "menu-platos";
+        menu[comida].forEach(p => lista.appendChild(crearPlato(p)));
+        if (!menu[comida].length) lista.innerHTML = '<p class="recetas-sin-resultados">Sin recetas disponibles con estos filtros.</p>';
+        sec.appendChild(lista);
+        resultado.appendChild(sec);
+      });
+      resultado.querySelectorAll("[data-cambiar]").forEach(b => b.addEventListener("click", () => cambiarComida(b.dataset.cambiar)));
+    }
+
+    btnGenerar.addEventListener("click", () => { aviso.textContent = ""; generar(); });
+    inputKcal.addEventListener("keydown", e => { if (e.key === "Enter") btnGenerar.click(); });
+    btnLimpiar.addEventListener("click", () => { filtros.limpiar(); actualizarNumFiltros(0); });
+  }, ["menuApp"]);
 
   /* ================= Recetas saludables: teaser en el índice ================= */
   // Portada: solo unas pocas recetas con foto, de tipos variados (la lista
