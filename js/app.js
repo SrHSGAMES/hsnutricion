@@ -691,7 +691,7 @@
   // devuelve pasa(receta) para filtrar, activos() para el contador del botón
   // "Filtros" y limpiar(). Así el menú diario usa exactamente los mismos
   // filtros que el listado de recetas, sin duplicar lógica.
-  function crearFiltrosRecetas({ contMomento, contCategoria, contRating, contRangos, onChange }) {
+  function crearFiltrosRecetas({ contMomento, contCategoria, contRating, contRangos, onChange, sinBajoEnCalorias = false }) {
     // Macros totales de cada receta completa (no por ración): se calculan una
     // sola vez y se reutilizan en cada filtrado por rango.
     const macrosPorReceta = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
@@ -706,7 +706,7 @@
       { valor: "vegano", etiqueta: "Vegano" },
       { valor: "vegetariano", etiqueta: "Vegetariano" },
       { valor: "proteico", etiqueta: "Proteico" },
-      { valor: "bajo-en-calorias", etiqueta: "Bajo en calorías" }
+      ...(sinBajoEnCalorias ? [] : [{ valor: "bajo-en-calorias", etiqueta: "Bajo en calorías" }])
     ], onChange);
     const chipsRating = crearFiltroChips(contRating, [
       { valor: "A", etiqueta: "A" }, { valor: "B", etiqueta: "B" }, { valor: "C", etiqueta: "C" },
@@ -728,7 +728,8 @@
 
     return {
       pasa(r) {
-        const macros = macrosPorReceta.get(r.id);
+        // Los alimentos sueltos del menú no están en RECETAS: sus macros se calculan al vuelo.
+        const macros = macrosPorReceta.get(r.id) || calcularMacrosReceta(r.ingredientes);
         const momentos = chipsMomento ? chipsMomento.seleccion : new Set();
         const cats = chipsCategoria.seleccion;
         const ratings = chipsRating.seleccion;
@@ -829,7 +830,8 @@
       contCategoria: document.getElementById("filtroCategoriaMenu"),
       contRating: document.getElementById("filtroRatingMenu"),
       contRangos: document.getElementById("filtroRangosMenu"),
-      onChange: () => actualizarNumFiltros(filtros.activos())
+      onChange: () => actualizarNumFiltros(filtros.activos()),
+      sinBajoEnCalorias: true // depende de las calorías que se pidan, así que aquí no tiene sentido
     });
 
     const COMIDAS = {
@@ -842,7 +844,47 @@
     const REPARTO_SIN_SNACKS = { desayuno: 0.25, comida: 0.40, cena: 0.35 };
     const REPARTO_CON_SNACKS = { desayuno: 0.22, comida: 0.35, cena: 0.30, snack: 0.13 };
 
-    const macrosDe = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
+    // Alimentos que se pueden comer tal cual (no arroz crudo, pero sí un plátano).
+    // Cada uno lleva una ración realista y la medida casera para que se entienda.
+    const SUELTOS_DEF = [
+      // [id, gramos, medida, momentos, etiquetas]
+      ["ia_platano", 120, "1 plátano mediano", "dscp", "vegano"], ["manzana", 180, "1 manzana mediana", "dscp", "vegano"],
+      ["ia_pera", 170, "1 pera mediana", "dscp", "vegano"], ["naranja", 200, "1 naranja", "dscp", "vegano"],
+      ["mandarina", 150, "2 mandarinas", "dscp", "vegano"], ["kiwi", 150, "2 kiwis", "dscp", "vegano"],
+      ["fresas", 150, "un plato de fresas", "dscp", "vegano"], ["arandanos", 100, "un puñado grande", "dscp", "vegano"],
+      ["frambuesas", 100, "un puñado grande", "dscp", "vegano"], ["moras", 100, "un puñado grande", "dscp", "vegano"],
+      ["melocoton", 150, "1 melocotón", "dscp", "vegano"], ["albaricoque", 120, "3 albaricoques", "dscp", "vegano"],
+      ["sandia", 250, "1 tajada grande", "dscp", "vegano"], ["melon", 200, "1 tajada", "dscp", "vegano"],
+      ["mango", 150, "medio mango", "dscp", "vegano"], ["pina", 150, "unas rodajas", "dscp", "vegano"],
+      ["papaya", 150, "1 trozo grande", "dscp", "vegano"], ["ia_uva", 120, "un racimo pequeño", "dscp", "vegano"],
+      ["ia_cerezas", 100, "un puñado", "dscp", "vegano"], ["ia_granada", 100, "media granada", "dscp", "vegano"],
+      ["ia_chirimoya", 150, "1 chirimoya pequeña", "dscp", "vegano"], ["caqui", 150, "1 caqui", "dscp", "vegano"],
+      ["ia_datiles", 30, "3 dátiles", "ds", "vegano"],
+      ["ia_almendras", 30, "un puñado", "ds", "vegano"], ["ia_nueces", 30, "un puñado", "ds", "vegano"],
+      ["ia_anacardo", 30, "un puñado", "ds", "vegano"], ["pistachos", 30, "un puñado", "ds", "vegano"],
+      ["ia_avellanas", 30, "un puñado", "ds", "vegano"],
+      ["yogur_natural", 125, "1 yogur", "ds", "vegetariano"], ["yogur_griego", 125, "1 yogur", "ds", "vegetariano,proteico"],
+      ["yogur_soja", 125, "1 yogur", "ds", "vegano"], ["skyr", 150, "1 tarrina", "ds", "vegetariano,proteico"],
+      ["queso_fresco", 125, "1 tarrina", "ds", "vegetariano,proteico"], ["kefir", 200, "1 vaso", "ds", "vegetariano"],
+      ["requeson", 100, "1 ración", "ds", "vegetariano,proteico"], ["queso_cottage", 125, "1 tarrina", "ds", "vegetariano,proteico"],
+      ["huevo", 60, "1 huevo cocido", "ds", "vegetariano,proteico"],
+      ["ia_zanahoria", 100, "1 zanahoria en bastones", "s", "vegano"], ["pepino", 150, "medio pepino en bastones", "s", "vegano"]
+    ];
+    const LETRA_MOMENTO = { d: "desayuno", s: "snack", c: "comida", p: "cena" };
+    // Se disfrazan de receta (1 ración = la porción) para reutilizar filtros y reparto.
+    const SUELTOS = SUELTOS_DEF.map(([foodId, gramos, medida, momentos, etiquetas]) => {
+      const food = FOODS.find(f => f.id === foodId);
+      return food && {
+        id: "suelto:" + foodId, suelto: true, nombre: formatearNombre(food.nombre), emojiPortada: food.emoji,
+        rating: food.rating, medida, gramos, raciones: 1, tiempo: "0 min",
+        etiquetas: etiquetas.split(","), momento: momentos.split("").map(l => LETRA_MOMENTO[l]),
+        ingredientes: [{ foodId, cantidad: gramos }],
+        href: IDS_CON_PAGINA_PROPIA.has(foodId) ? `alimento-${slugAlimento(foodId)}.html` : null
+      };
+    }).filter(Boolean);
+    const TODOS = [...RECETAS, ...SUELTOS];
+
+    const macrosDe = new Map(TODOS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
     const racionesDe = r => Math.max(r.raciones || 1, 1);
     const kcalRacion = r => macrosDe.get(r.id).kcal / racionesDe(r);
 
@@ -860,7 +902,7 @@
 
     // Recetas candidatas para una comida: etiquetadas para ella y que pasen los filtros.
     function candidatas(comida, excluir) {
-      return RECETAS.filter(r => (r.momento || []).includes(comida) && !excluir.has(r.id) && kcalRacion(r) >= 40 && filtros.pasa(r));
+      return TODOS.filter(r => (r.momento || []).includes(comida) && !excluir.has(r.id) && kcalRacion(r) >= 40 && filtros.pasa(r));
     }
 
     // Busca una combinación de platos cuyas calorías se acerquen a "objetivoComida".
@@ -868,10 +910,22 @@
       const pool = candidatas(comida, excluir);
       if (!pool.length) return [];
       const maxPlatos = objetivoComida > 1100 ? 4 : 3;
+      const principales = comida !== "snack";
+      const poolRecetas = pool.filter(r => !r.suelto);
+      // Una comida principal necesita al menos una receta; si los filtros no dejan ninguna, se resuelve con lo que haya.
+      const exigeReceta = principales && poolRecetas.length > 0;
       let mejores = [];
       for (let i = 0; i < 700; i++) {
         const n = Math.min(1 + aleatorio(maxPlatos), pool.length);
-        const platos = barajar(pool).slice(0, n).map(receta => ({ receta, raciones: Math.random() < 0.3 ? 2 : 1 }));
+        let elegidos = barajar(pool).slice(0, n);
+        if (exigeReceta && !elegidos.some(r => !r.suelto)) elegidos[0] = poolRecetas[aleatorio(poolRecetas.length)];
+        if (principales) {
+          // como mucho 2 alimentos sueltos junto a las recetas
+          let sueltos = 0;
+          elegidos = elegidos.filter(r => !r.suelto || ++sueltos <= 2);
+        }
+        elegidos = [...new Set(elegidos)];
+        const platos = elegidos.map(receta => ({ receta, raciones: !receta.suelto && Math.random() < 0.3 ? 2 : (receta.suelto && Math.random() < 0.2 ? 2 : 1) }));
         const error = Math.abs(kcalPlatos(platos) - objetivoComida) / objetivoComida + 0.012 * n;
         mejores.push({ platos, error });
       }
@@ -924,15 +978,17 @@
     function crearPlato({ receta, raciones }) {
       const a = document.createElement("a");
       a.className = "menu-plato";
-      a.href = urlReceta(receta);
+      if (receta.suelto) { if (receta.href) a.href = receta.href; } else a.href = urlReceta(receta);
       const foto = receta.imagen
         ? `<img src="${receta.imagen.replace("img/recetas/", "img/recetas/thumbs/").replace(/\.[^./]+$/, ".jpg")}" alt="" loading="lazy" width="64" height="48">`
         : `<span class="menu-plato-emoji" aria-hidden="true">${receta.emojiPortada}</span>`;
       a.innerHTML = `
         <span class="menu-plato-foto">${foto}</span>
         <span class="menu-plato-info">
-          <b>${receta.nombre}</b>
-          <span class="receta-meta">${raciones} ${raciones === 1 ? "ración" : "raciones"} · ${fmt(kcalRacion(receta) * raciones)} kcal</span>
+          <b>${receta.nombre}${receta.suelto ? ' <span class="menu-plato-tipo">alimento</span>' : ""}</b>
+          <span class="receta-meta">${receta.suelto
+            ? `${raciones === 1 ? receta.medida : raciones + " raciones"} (${receta.gramos * raciones} g)`
+            : `${raciones} ${raciones === 1 ? "ración" : "raciones"}`} · ${fmt(kcalRacion(receta) * raciones)} kcal</span>
         </span>
         <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>`;
       return a;
