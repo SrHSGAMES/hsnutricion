@@ -994,6 +994,120 @@
       return a;
     }
 
+    // --- Lista de la compra: suma los ingredientes de todo el menú, escalados a las raciones elegidas.
+    const SECCIONES_COMPRA = [
+      { clave: "verduras", titulo: "🥬 Verduras y hortalizas" },
+      { clave: "frutas", titulo: "🍎 Frutas" },
+      { clave: "carnes", titulo: "🥩 Carne, pescado y huevos" },
+      { clave: "lacteos", titulo: "🥛 Lácteos y bebidas vegetales" },
+      { clave: "secos", titulo: "🌰 Frutos secos y semillas" },
+      { clave: "cereales", titulo: "🌾 Cereales, pan y pasta" },
+      { clave: "legumbres", titulo: "🫘 Legumbres y proteína vegetal" },
+      { clave: "grasas", titulo: "🫒 Aceites, grasas y untables" },
+      { clave: "dulces", titulo: "🍫 Dulces y endulzantes" },
+      { clave: "especias", titulo: "🧂 Especias, salsas y caldos" },
+      { clave: "bebidas", titulo: "☕ Bebidas" },
+      { clave: "otros", titulo: "🛒 Otros" }
+    ];
+    // La primera categoría de la guía que coincida (en este orden) decide la sección.
+    const SECCION_POR_CATEGORIA = [
+      ["Verduras y Hortalizas", "verduras"], ["Frutas", "frutas"], ["Cárnicos", "carnes"], ["Proteínas", "carnes"],
+      ["Lácteos", "lacteos"], ["Bebidas vegetales", "lacteos"], ["Frutos Secos", "secos"], ["Cereales", "cereales"],
+      ["Proteína vegetal", "legumbres"], ["Grasas", "grasas"], ["Untables", "grasas"], ["Dulces", "dulces"],
+      ["Condimentos y Aditivos", "especias"], ["Salsas", "especias"], ["Bebidas", "bebidas"]
+    ];
+    function seccionDe(food) {
+      if (/semillas/.test(food.id)) return "secos";
+      if (food.id === "yogur_soja") return "lacteos";
+      for (const [categoria, clave] of SECCION_POR_CATEGORIA) if (food.categorias.includes(categoria)) return clave;
+      return "otros";
+    }
+    const cantidadTexto = g => (g >= 1000 ? fmt1(g / 1000) + " kg" : fmt(Math.max(g, 1)) + " g");
+
+    function calcularCompra() {
+      const total = new Map(); // foodId -> { gramos, soloOpcional }
+      comidasActivas.forEach(c => menu[c].forEach(({ receta, raciones }) => {
+        const factor = raciones / racionesDe(receta);
+        receta.ingredientes.forEach(ing => {
+          if (ing.foodId === "ia_agua") return; // el agua no se compra
+          const prev = total.get(ing.foodId) || { gramos: 0, soloOpcional: true };
+          prev.gramos += ing.cantidad * factor;
+          if (!ing.opcional) prev.soloOpcional = false;
+          total.set(ing.foodId, prev);
+        });
+      }));
+      const secciones = new Map(SECCIONES_COMPRA.map(sec => [sec.clave, []]));
+      total.forEach((v, foodId) => {
+        const food = FOODS.find(f => f.id === foodId);
+        if (!food) return;
+        secciones.get(seccionDe(food)).push({ nombre: formatearNombre(food.nombre), gramos: v.gramos, opcional: v.soloOpcional });
+      });
+      secciones.forEach(lista => lista.sort((a, b) => a.nombre.localeCompare(b.nombre, "es", { sensitivity: "base" })));
+      return secciones;
+    }
+
+    function textoCompra(secciones) {
+      const lineas = [`Lista de la compra — menú de ${fmt(objetivo)} kcal`, ""];
+      SECCIONES_COMPRA.forEach(sec => {
+        const items = secciones.get(sec.clave);
+        if (!items.length) return;
+        lineas.push(sec.titulo.replace(/^\S+\s/, "").toUpperCase());
+        items.forEach(i => lineas.push(`- ${i.nombre}: ${cantidadTexto(i.gramos)}${i.opcional ? " (opcional)" : ""}`));
+        lineas.push("");
+      });
+      lineas.push("Cantidades de las recetas, tal y como figuran en ellas. Generada en hsnutricion.com");
+      return lineas.join("\n");
+    }
+
+    function crearCompra() {
+      const secciones = calcularCompra();
+      const productos = [...secciones.values()].reduce((t, l) => t + l.length, 0);
+      const sec = document.createElement("section");
+      sec.className = "menu-comida menu-compra";
+      sec.innerHTML = `
+        <header class="menu-comida-cab">
+          <h3>🛒 Lista de la compra</h3>
+          <span class="menu-comida-kcal">${productos} productos</span>
+          <button type="button" class="btn btn-ghost btn-sm" data-compra="copiar">Copiar</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-compra="imprimir">Imprimir</button>
+        </header>
+        <p class="menu-compra-nota">Suma de los ingredientes de todo el menú, con las raciones elegidas. Las cantidades son las de cada receta, así que algunos alimentos (como la quinoa o los garbanzos) están medidos ya cocidos, y las especias van en gramos aunque las compres por envase.</p>
+        <div class="menu-compra-grupos"></div>`;
+      const grupos = sec.querySelector(".menu-compra-grupos");
+      SECCIONES_COMPRA.forEach(def => {
+        const items = secciones.get(def.clave);
+        if (!items.length) return;
+        const g = document.createElement("div");
+        g.className = "menu-compra-grupo";
+        g.innerHTML = `<h4>${def.titulo}</h4><ul>${items.map(i =>
+          `<li><label><input type="checkbox"><span class="menu-compra-nombre">${i.nombre}${i.opcional ? ' <em>(opcional)</em>' : ""}</span><span class="menu-compra-cant">${cantidadTexto(i.gramos)}</span></label></li>`
+        ).join("")}</ul>`;
+        grupos.appendChild(g);
+      });
+
+      sec.querySelector('[data-compra="copiar"]').addEventListener("click", async e => {
+        const boton = e.currentTarget;
+        const texto = textoCompra(secciones);
+        try {
+          await navigator.clipboard.writeText(texto);
+        } catch (_) {
+          const ta = document.createElement("textarea");
+          ta.value = texto; ta.style.position = "fixed"; ta.style.opacity = "0";
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); } catch (_) { /* sin portapapeles */ }
+          ta.remove();
+        }
+        boton.textContent = "¡Copiada!";
+        setTimeout(() => { boton.textContent = "Copiar"; }, 2000);
+      });
+      sec.querySelector('[data-compra="imprimir"]').addEventListener("click", () => {
+        document.body.classList.add("imprimiendo-compra");
+        window.addEventListener("afterprint", () => document.body.classList.remove("imprimiendo-compra"), { once: true });
+        window.print();
+      });
+      return sec;
+    }
+
     function pintar() {
       resultado.hidden = false;
       resultado.innerHTML = "";
@@ -1050,6 +1164,7 @@
         sec.appendChild(lista);
         resultado.appendChild(sec);
       });
+      if (comidasActivas.some(c => menu[c].length)) resultado.appendChild(crearCompra());
       resultado.querySelectorAll("[data-cambiar]").forEach(b => b.addEventListener("click", () => cambiarComida(b.dataset.cambiar)));
     }
 
