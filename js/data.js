@@ -6314,6 +6314,302 @@ const FOODS = [
         porque: "Controlas la sal, el queso y la harina, con más fibra y menos ultraprocesado."
       }
     ]
+  },
+  {
+    id: "pasta_blanca_seca",
+    nombre: "Pasta blanca (seca)",
+    aliases: ["pasta blanca seca", "pasta seca", "macarrones secos", "espaguetis secos"],
+    categorias: ["Cereales"],
+    emoji: "🍝",
+    rating: "C",
+    kcal: 371, carbs: 74.7, azucares: 2.7, proteinas: 13, grasas: 1.5, grasasSat: 0.3, fibra: 3.2, sodio: 6,
+    motivo: "La pasta blanca en seco, tal y como se compra y se pesa antes de cocerla, aporta unas 370 kcal por 100 g; al cocerla absorbe agua y baja a unas 130 kcal por 100 g. Es un cereal refinado con poca fibra frente a su versión integral, y los metaanálisis asocian el consumo de cereales integrales, no el de refinados, con menor riesgo cardiovascular [1]. Una ración habitual son 70-80 g en seco.",
+    estudios: [
+      {
+        "pmid": "27301975",
+        "titulo": "Whole grain consumption and risk of cardiovascular disease, cancer, and all cause and cause specific mortality: systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27301975/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pasta integral (seca)",
+        emoji: "🌾", mejor: true,
+        kcal: 350, carbs: 72, azucares: 3, proteinas: 13.5, grasas: 2.7, grasasSat: 0.5, fibra: 9, sodio: 7,
+        porque: "El triple de fibra con el mismo tiempo de cocción y una textura muy similar una vez cocinada 'al dente'."
+      }
+    ]
+  },
+  {
+    id: "pasta_integral_seca",
+    nombre: "Pasta integral (seca)",
+    aliases: ["pasta integral seca", "espaguetis integrales secos"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 350, carbs: 72, azucares: 3, proteinas: 13.5, grasas: 2.7, grasasSat: 0.5, fibra: 9, sodio: 7,
+    motivo: "La pasta integral en seco, tal y como se compra y se pesa antes de cocerla, aporta unas 350 kcal y cerca de 9 g de fibra por 100 g; al cocerla absorbe agua y baja a unas 124 kcal por 100 g. Su fibra explica la A: en un estudio piloto, la pasta integral redujo el apetito de forma aguda frente a la refinada [1]. Una ración habitual son 70-80 g en seco.",
+    estudios: [
+      {
+        "pmid": "26863235",
+        "titulo": "Whole-grain pasta reduces appetite and meal-induced thermogenesis acutely: a pilot study.",
+        "revista": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26863235/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "arroz_blanco_seco",
+    nombre: "Arroz blanco (seco)",
+    aliases: ["arroz blanco seco", "arroz seco", "arroz crudo"],
+    categorias: ["Cereales"],
+    emoji: "🍚",
+    rating: "C",
+    kcal: 365, carbs: 80, azucares: 0.1, proteinas: 7.1, grasas: 0.7, grasasSat: 0.2, fibra: 1.3, sodio: 5,
+    motivo: "El arroz blanco en seco, como se pesa antes de cocerlo, aporta unas 365 kcal por 100 g; al cocerlo absorbe agua y baja a unas 130 kcal por 100 g. Es un cereal refinado con poca fibra y de carbohidratos de rápida asimilación, a diferencia de las opciones integrales, cuyo consumo se asocia con menos riesgo cardiovascular [1]. Aun así es un alimento básico en la nutrición mundial [2], y enfriarlo tras cocerlo aumenta su almidón resistente y suaviza su respuesta glucémica [3]. Una ración son unos 60-80 g en seco.",
+    estudios: [
+      {
+        "pmid": "27301975",
+        "titulo": "Whole grain consumption and risk of cardiovascular disease, cancer, and all cause and cause specific mortality: systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27301975/"
+      },
+      {
+        "pmid": "31619630",
+        "titulo": "Rice: Importance for Global Nutrition.",
+        "revista": "Journal of nutritional science and vitaminology",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31619630/"
+      },
+      {
+        "pmid": "26693746",
+        "titulo": "Effect of cooling of cooked white rice on resistant starch content and glycemic response.",
+        "revista": "Asia Pacific journal of clinical nutrition",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26693746/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Arroz integral (seco)",
+        emoji: "🌾", mejor: true,
+        kcal: 370, carbs: 77.2, azucares: 0.9, proteinas: 7.9, grasas: 2.9, grasasSat: 0.6, fibra: 3.5, sodio: 7,
+        porque: "Conserva el salvado: más fibra, más saciante y con menor impacto en el azúcar en sangre, con una textura similar."
+      },
+      {
+        nombre: "Quinoa (seca)",
+        emoji: "🌾", mejor: false,
+        kcal: 368, carbs: 64.2, azucares: 4.6, proteinas: 14.1, grasas: 6.1, grasasSat: 0.7, fibra: 7, sodio: 5,
+        porque: "Aporta proteína completa (todos los aminoácidos esenciales) y más fibra que el arroz blanco."
+      }
+    ]
+  },
+  {
+    id: "arroz_integral_seco",
+    nombre: "Arroz integral (seco)",
+    aliases: ["arroz integral seco", "arroz integral crudo"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 370, carbs: 77.2, azucares: 0.9, proteinas: 7.9, grasas: 2.9, grasasSat: 0.6, fibra: 3.5, sodio: 7,
+    motivo: "El arroz integral en seco, como se pesa antes de cocerlo, aporta unas 370 kcal por 100 g; al cocerlo absorbe agua y baja a unas 123 kcal por 100 g. Al conservar el grano entero destaca por su perfil fitoquímico [1] y por minerales como el magnesio, el fósforo o el selenio [2], y su consumo frente al arroz blanco se asocia con menor riesgo de diabetes tipo 2 [3]. Una ración son unos 60-70 g en seco.",
+    estudios: [
+      {
+        "pmid": "29789516",
+        "titulo": "Phytochemical Profile of Brown Rice and Its Nutrigenomic Implications.",
+        "revista": "Antioxidants (Basel, Switzerland)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29789516/"
+      },
+      {
+        "pmid": "31619630",
+        "titulo": "Rice: Importance for Global Nutrition.",
+        "revista": "Journal of nutritional science and vitaminology",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31619630/"
+      },
+      {
+        "pmid": "36167362",
+        "titulo": "White rice, brown rice and the risk of type 2 diabetes: a systematic review and meta-analysis.",
+        "revista": "BMJ open",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36167362/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "quinoa_seca",
+    nombre: "Quinoa (seca)",
+    aliases: ["quinoa seca", "quinoa cruda", "quinua seca"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 368, carbs: 64.2, azucares: 4.6, proteinas: 14.1, grasas: 6.1, grasasSat: 0.7, fibra: 7, sodio: 5,
+    motivo: "La quinoa en seco, cruda y tal y como se compra, aporta unas 370 kcal por 100 g; al cocerla casi triplica su peso y baja a unas 120 kcal por 100 g. Es un pseudocereal sin gluten con proteína de buena calidad (todos los aminoácidos esenciales), fibra, magnesio, hierro y grasas mayoritariamente insaturadas [1][2]. Conviene enjuagarla bien antes de cocerla para quitar las saponinas amargas. Una ración son unos 50-60 g en seco.",
+    estudios: [
+      {
+        "pmid": "26114306",
+        "titulo": "Quinoa: Nutritional, functional, and antinutritional aspects.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26114306/"
+      },
+      {
+        "pmid": "36608550",
+        "titulo": "Nutrient composition, functional activity and industrial applications of quinoa (Chenopodium quinoa Willd.).",
+        "revista": "Food chemistry",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36608550/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "cuscus_seco",
+    nombre: "Cuscús (seco)",
+    aliases: ["cuscús seco", "cuscus seco", "couscous seco"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "C",
+    kcal: 376, carbs: 77.4, azucares: 0.1, proteinas: 12.8, grasas: 0.6, grasasSat: 0.1, fibra: 5, sodio: 10,
+    motivo: "El cuscús en seco, sémola de trigo precocida tal y como se compra, aporta unas 375 kcal por 100 g; al hidratarlo baja a unas 112 kcal por 100 g. Es sémola refinada: aporta poca fibra y una carga glucémica considerable. El consumo de cereales integrales se asocia con menor riesgo cardiovascular [1] y una menor carga glucémica de la dieta con mejores resultados de salud [2], por lo que la versión integral o el uso de quinoa son mejores opciones habituales.",
+    estudios: [
+      {
+        "pmid": "29039970",
+        "titulo": "Food groups and risk of coronary heart disease, stroke and heart failure: A systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29039970/"
+      },
+      {
+        "pmid": "38272606",
+        "titulo": "Association of glycaemic index and glycaemic load with type 2 diabetes, cardiovascular disease, cancer, and all-cause mortality: a meta-analysis of mega cohorts of more than 100 000 participants.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38272606/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Cuscús integral (seco)",
+        emoji: "🌾", mejor: true,
+        kcal: 370, carbs: 76, azucares: 1, proteinas: 13, grasas: 1.5, grasasSat: 0.3, fibra: 7.5, sodio: 12,
+        porque: "Conserva el salvado del grano: más fibra y saciedad con la misma textura y el mismo tiempo de preparación."
+      },
+      {
+        nombre: "Quinoa (seca)",
+        emoji: "🌾", mejor: true,
+        kcal: 368, carbs: 64.2, azucares: 4.6, proteinas: 14.1, grasas: 6.1, grasasSat: 0.7, fibra: 7, sodio: 5,
+        porque: "Más proteína y fibra, sin gluten y con grasas insaturadas; se usa igual en ensaladas y guarniciones."
+      }
+    ]
+  },
+  {
+    id: "bulgur_seco",
+    nombre: "Bulgur (seco)",
+    aliases: ["bulgur seco"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 342, carbs: 75.9, azucares: 0.4, proteinas: 12.3, grasas: 1.3, grasasSat: 0.2, fibra: 12.5, sodio: 17,
+    motivo: "El bulgur en seco, trigo precocido y triturado que conserva su salvado, aporta unas 340 kcal y unos 12 g de fibra por 100 g; al hidratarlo baja a unas 83 kcal por 100 g. Su respuesta glucémica es baja frente a otros derivados del trigo [1], en línea con el valor nutricional de los cereales integrales [2]. Una ración son unos 40-50 g en seco.",
+    estudios: [
+      {
+        "pmid": "3962904",
+        "titulo": "Low glycemic response to traditionally processed wheat and rye products: bulgur and pumpernickel bread.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "1986",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3962904/"
+      },
+      {
+        "pmid": "32316241",
+        "titulo": "Nutritional Value of Grain-Based Foods.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32316241/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mijo_seco",
+    nombre: "Mijo (seco)",
+    aliases: ["mijo seco", "mijo crudo"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 378, carbs: 72.9, azucares: 1.7, proteinas: 11, grasas: 4.2, grasasSat: 0.7, fibra: 8.5, sodio: 5,
+    motivo: "El mijo en seco aporta unas 380 kcal por 100 g; al cocerlo en unos 15-20 minutos queda esponjoso y baja a unas 119 kcal por 100 g. Es un cereal sin gluten con fibra, magnesio y compuestos fenólicos, y las revisiones destacan su interés nutricional y su papel en el control glucémico [1]. Una ración son unos 50-60 g en seco.",
+    estudios: [
+      {
+        "pmid": "36219789",
+        "titulo": "Nutritional and health-promoting attributes of millet: current and future perspectives.",
+        "revista": "Nutrition reviews",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36219789/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "trigo_sarraceno_seco",
+    nombre: "Trigo sarraceno (seco)",
+    aliases: ["trigo sarraceno seco", "alforfón seco", "alforfon seco"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 343, carbs: 71.5, azucares: 0, proteinas: 13.3, grasas: 3.4, grasasSat: 0.7, fibra: 10, sodio: 1,
+    motivo: "El trigo sarraceno en seco aporta unas 343 kcal por 100 g; al cocerlo baja a unas 92 kcal por 100 g. A pesar del nombre, no es trigo ni contiene gluten: es una semilla rica en fibra y en rutina, un flavonoide que se ha relacionado con un mejor control de la glucemia [1][2]. Una alternativa completa a la pasta o el arroz blanco para quien evita el gluten. Una ración son unos 50-60 g en seco.",
+    estudios: [
+      {
+        "pmid": "35409281",
+        "titulo": "Impact of Rutin and Other Phenolic Substances on the Digestibility of Buckwheat Grain Metabolites.",
+        "revista": "International journal of molecular sciences",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35409281/"
+      },
+      {
+        "pmid": "38547702",
+        "titulo": "Nutritional and functional perspectives of pseudocereals.",
+        "revista": "Food chemistry",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38547702/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "cebada_seca",
+    nombre: "Cebada perlada (seca)",
+    aliases: ["cebada seca", "cebada perlada seca"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 352, carbs: 77.7, azucares: 0.8, proteinas: 9.9, grasas: 1.2, grasasSat: 0.2, fibra: 15.6, sodio: 9,
+    motivo: "La cebada perlada en seco aporta unas 350 kcal y cerca de 16 g de fibra por 100 g; al cocerla baja a unas 123 kcal por 100 g. Es la fuente más conocida de beta-glucanos, una fibra soluble que en los metaanálisis reduce el colesterol LDL [1], y sus fitoquímicos bioactivos añaden interés a su perfil [2]. Ojo: contiene gluten, y la cebada perlada está más procesada que la integral. Una ración son unos 50-60 g en seco.",
+    estudios: [
+      {
+        "pmid": "20924392",
+        "titulo": "β-glucan from barley and its lipid-lowering capacity: a meta-analysis of randomized, controlled trials.",
+        "revista": "European journal of clinical nutrition",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20924392/"
+      },
+      {
+        "pmid": "28911532",
+        "titulo": "Bioactive phytochemicals in barley.",
+        "revista": "Journal of food and drug analysis",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28911532/"
+      }
+    ],
+    sustitutos: []
   }
 ];
 

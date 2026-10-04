@@ -1071,7 +1071,7 @@
           <button type="button" class="btn btn-ghost btn-sm" data-compra="copiar">Copiar</button>
           <button type="button" class="btn btn-ghost btn-sm" data-compra="imprimir">Imprimir</button>
         </header>
-        <p class="menu-compra-nota">Suma de los ingredientes de todo el menú, con las raciones elegidas. Las cantidades son las de cada receta, así que algunos alimentos (como la quinoa o los garbanzos) están medidos ya cocidos, y las especias van en gramos aunque las compres por envase.</p>
+        <p class="menu-compra-nota">Suma de los ingredientes de todo el menú, con las raciones elegidas. Las cantidades son las de cada receta: el arroz, la pasta y los cereales van en seco, tal y como se compran, y las legumbres de bote (como los garbanzos) ya cocidas. Las especias van en gramos aunque las compres por envase.</p>
         <div class="menu-compra-grupos"></div>`;
       const grupos = sec.querySelector(".menu-compra-grupos");
       SECCIONES_COMPRA.forEach(def => {

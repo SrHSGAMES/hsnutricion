@@ -53,7 +53,7 @@ const RECETAS = [
     descripcion: "El clásico italiano reinventado: pasta integral con una salsa de tomate fresco rica en licopeno, ajo y albahaca, y un chorrito de AOVE en vez de mantequilla o nata.",
     motivo: "Tres cambios simples convierten un plato de pasta corriente en uno realmente saludable: la pasta integral aporta mucha más fibra y un índice glucémico más bajo que la blanca; la salsa se hace con tomate fresco en vez de salsas envasadas con azúcares añadidos, aprovechando el licopeno del tomate, un antioxidante asociado a la salud cardiovascular; y la grasa viene del AOVE, no de mantequilla ni nata. Nada de sal añadida: la albahaca fresca y el ajo ya aportan todo el sabor que necesita. El queso rallado queda como toque opcional, con moderación por su grasa saturada.",
     ingredientes: [
-      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "pasta_integral_seca", cantidad: 130 },
       { foodId: "ia_tomate", cantidad: 300 },
       { foodId: "aove", cantidad: 12 },
       { foodId: "ia_albahaca", cantidad: 8 },
@@ -84,7 +84,7 @@ const RECETAS = [
     descripcion: "Un bowl 100% vegetal, sin ningún ingrediente de origen animal: carbohidrato complejo del arroz integral, grasa monoinsaturada del aguacate y antioxidantes del tomate fresco, en un plato tan sencillo como saciante.",
     motivo: "Todos los ingredientes de este bowl son de origen vegetal y ya forman parte de nuestra guía con calificación A: el arroz integral aporta fibra y un índice glucémico bajo frente al arroz blanco; el aguacate y el AOVE cubren la grasa saludable que da saciedad; y el tomate fresco suma licopeno, un antioxidante ligado a la salud cardiovascular. Ni rastro de sal añadida — la albahaca fresca y el propio AOVE ya aportan todo el sabor que necesita.",
     ingredientes: [
-      { foodId: "arroz_integral", cantidad: 150 },
+      { foodId: "arroz_integral_seco", cantidad: 50 },
       { foodId: "aguacate", cantidad: 80 },
       { foodId: "ia_tomate", cantidad: 150 },
       { foodId: "aove", cantidad: 8 },
@@ -124,7 +124,7 @@ const RECETAS = [
       { foodId: "ia_margarina_vegetal_sin_grasas_trans", cantidad: 40 },
       { foodId: "ia_curry_en_polvo", cantidad: 15 },
       { foodId: "ia_harina_de_trigo_integral", cantidad: 25 },
-      { foodId: "arroz_integral", cantidad: 560 },
+      { foodId: "arroz_integral_seco", cantidad: 185 },
       { foodId: "ia_tofu", cantidad: 400 },
       { foodId: "ia_bebida_de_soja_sin_azucar", cantidad: 30 },
       { foodId: "ia_pan_rallado_integral", cantidad: 50 }
@@ -646,7 +646,7 @@ const RECETAS = [
     motivo: "Este bowl combina el salmón, rico en omega-3, con arroz integral (más fibra que el blanco) y edamame, una legumbre con una cantidad de proteína inusualmente alta para ser una verdura. El pepino y la zanahoria aportan frescura y volumen con muy pocas calorías, y el aguacate suma grasa monoinsaturada. Usamos salsa de soja baja en sodio y en poca cantidad, ya que es uno de los condimentos más concentrados en sodio que existen — así conseguimos el sabor umami característico sin disparar el sodio del plato.",
     ingredientes: [
       { foodId: "salmon", cantidad: 120 },
-      { foodId: "arroz_integral", cantidad: 150 },
+      { foodId: "arroz_integral_seco", cantidad: 50 },
       { foodId: "aguacate", cantidad: 60 },
       { foodId: "ia_zanahoria", cantidad: 40 },
       { foodId: "edamame", cantidad: 60 },
@@ -1072,7 +1072,7 @@ const RECETAS = [
     descripcion: "Pasta integral con un pesto genuino de albahaca, almendras, ajo y AOVE, sin los aceites de girasol refinados ni conservantes del pesto envasado.",
     motivo: "El pesto casero se hace solo con albahaca fresca, un fruto seco (aquí almendras, en vez de los piñones tradicionales, más caros y con un perfil nutricional similar), ajo y AOVE, así que toda la grasa es mayoritariamente insaturada, muy distinta de los aceites refinados que suelen llevar los pestos comerciales. La pasta integral aporta mucha más fibra que la blanca. El queso curado queda como toque opcional, con moderación.",
     ingredientes: [
-      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "pasta_integral_seca", cantidad: 130 },
       { foodId: "ia_albahaca", cantidad: 40 },
       { foodId: "ia_almendras", cantidad: 30 },
       { foodId: "aove", cantidad: 40 },
@@ -1102,10 +1102,10 @@ const RECETAS = [
     raciones: 2,
     etiquetas: ["vegano", "proteico"],
     momento: ["comida", "cena"],
-    descripcion: "La boloñesa de siempre, pero 100% vegetal: soja texturizada en vez de carne picada, con el sofrito clásico de cebolla, zanahoria y apio. Más de 87 g de proteína y 45 g de fibra en el plato completo.",
+    descripcion: "La boloñesa de siempre, pero 100% vegetal: soja texturizada en vez de carne picada, con el sofrito clásico de cebolla, zanahoria y apio. Más de 85 g de proteína y 42 g de fibra en el plato completo.",
     motivo: "La soja texturizada se obtiene de harina de soja desgrasada, así que aporta muchísima proteína vegetal completa y fibra con muy poca grasa, muy por encima de lo que aportaría la carne picada que sustituye. El sofrito de cebolla, zanahoria y apio es la base clásica de cualquier boloñesa, y el orégano y el ajo dan todo el sabor sin necesidad de sal añadida.",
     ingredientes: [
-      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "pasta_integral_seca", cantidad: 130 },
       { foodId: "soja_texturizada", cantidad: 120 },
       { foodId: "ia_cebolla", cantidad: 80 },
       { foodId: "ia_zanahoria", cantidad: 60 },
@@ -1143,7 +1143,7 @@ const RECETAS = [
     descripcion: "La carbonara italiana real, sin nata (nunca la lleva), con pechuga de pollo en vez de panceta o guanciale para bajar la grasa saturada.",
     motivo: "Esta carbonara sustituye la panceta o el guanciale tradicionales por pechuga de pollo, mucho más magra, y prescinde de la nata que muchas versiones caseras añaden por error —la carbonara italiana real nunca lleva nata—. Aun así, la calificamos con C: entre el huevo, el queso curado y el propio pollo, el plato concentra bastante colesterol y grasa saturada, y no lleva ninguna verdura que equilibre el conjunto. Es una opción razonable de vez en cuando, pero no de las recetas más ligeras de la guía.",
     ingredientes: [
-      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "pasta_integral_seca", cantidad: 130 },
       { foodId: "huevo", cantidad: 150 },
       { foodId: "queso_curado", cantidad: 40 },
       { foodId: "ia_pechuga_de_pollo", cantidad: 150 },
@@ -1177,7 +1177,7 @@ const RECETAS = [
     descripcion: "Pasta integral con una salsa cremosa de setas y espinacas, con yogur natural en vez de nata y un toque de nuez moscada. Cremosidad real sin la grasa saturada de una salsa de nata.",
     motivo: "El yogur natural aporta la misma cremosidad que la nata en una salsa clásica de setas y espinacas, con muchísima menos grasa saturada y sin el aporte calórico extra. Las setas suman betaglucanos y las espinacas hierro, folato y luteína, dos verduras de hoja que rara vez protagonizan un plato de pasta. La nuez moscada es el maridaje clásico de las salsas cremosas con verdura de hoja verde, y se usa en una pizca tan pequeña que su aporte nutricional real es insignificante.",
     ingredientes: [
-      { foodId: "pasta_integral", cantidad: 370 },
+      { foodId: "pasta_integral_seca", cantidad: 130 },
       { foodId: "setas", cantidad: 200 },
       { foodId: "espinacas", cantidad: 150 },
       { foodId: "yogur_natural", cantidad: 150 },
@@ -1416,18 +1416,18 @@ const RECETAS = [
     etiquetas: ["proteico"],
     momento: ["comida", "cena"],
     descripcion: "Un plato completo en una sola bandeja: salmón jugoso al horno con limón, brócoli asado y quinoa. Proteína, omega-3 y fibra en una cena de 30 minutos y sin apenas fregar.",
-    motivo: "El salmón aporta proteína completa y grasas omega-3 (EPA y DHA), y el brócoli y la quinoa suman fibra, vitamina C y proteína vegetal: 40 g de proteína y más de 8 g de fibra por ración. La calificamos B y no A porque es un plato calórico (unas 590 kcal por ración) y el salmón junto al aceite eleva la grasa hasta los 30 g, con 6 g de saturada. Es muy nutritivo, pero encaja mejor como plato principal ocasional que como comida diaria en raciones grandes.",
+    motivo: "El salmón aporta proteína completa y grasas omega-3 (EPA y DHA), y el brócoli y la quinoa suman fibra, vitamina C y proteína vegetal: 40 g de proteína y casi 8 g de fibra por ración. La calificamos B y no A porque es un plato calórico (unas 590 kcal por ración) y el salmón junto al aceite eleva la grasa hasta los 30 g, con 6 g de saturada. Es muy nutritivo, pero encaja mejor como plato principal ocasional que como comida diaria en raciones grandes.",
     ingredientes: [
       { foodId: "salmon", cantidad: 300 },
       { foodId: "brocoli", cantidad: 300 },
-      { foodId: "quinoa", cantidad: 240 },
+      { foodId: "quinoa_seca", cantidad: 80 },
       { foodId: "aove", cantidad: 15 },
       { foodId: "limon", cantidad: 60 },
       { foodId: "ia_ajo", cantidad: 5 },
       { foodId: "pimienta_negra", cantidad: 1 }
     ],
     pasos: [
-      "Precalienta el horno a 200 °C. Si no tienes quinoa cocida, cuece unos 80 g en seco (bien aclarada) con el doble de agua durante 15 minutos y resérvala.",
+      "Precalienta el horno a 200 °C. Cuece los 80 g de quinoa (en seco), bien aclarada, con el doble de agua durante 15 minutos y resérvala.",
       "Mezcla en una bandeja el brócoli en ramilletes con la mitad del AOVE, el ajo laminado y la pimienta; hornea 10 minutos.",
       "Haz hueco en la bandeja, coloca los lomos de salmón con rodajas de limón encima y el resto del AOVE, y hornea 12-15 minutos según el grosor.",
       "Sirve el salmón y el brócoli sobre la quinoa, con un chorrito del jugo de la bandeja y un poco de zumo de limón."
@@ -1449,10 +1449,10 @@ const RECETAS = [
     mostrarPorRacion: true,
     etiquetas: ["vegano"],
     momento: ["comida", "cena"],
-    descripcion: "Una ensalada saciante y 100 % vegetal: quinoa, garbanzos, aguacate y verduras frescas con aliño de limón. Casi 17 g de fibra por ración y lista en 20 minutos; aguanta bien en la nevera para llevártela al trabajo.",
-    motivo: "Combina proteína vegetal completa (quinoa y garbanzos), casi 17 g de fibra por ración y grasas insaturadas del aguacate y del AOVE, con solo 2,7 g de grasa saturada y prácticamente nada de sodio, porque el sabor viene del limón, el cilantro y la cebolla y no de la sal. Las legumbres y los cereales integrales son la base de los patrones de alimentación más saludables, y esta ensalada los reúne en un solo plato.",
+    descripcion: "Una ensalada saciante y 100 % vegetal: quinoa, garbanzos, aguacate y verduras frescas con aliño de limón. Más de 16 g de fibra por ración y lista en 20 minutos; aguanta bien en la nevera para llevártela al trabajo.",
+    motivo: "Combina proteína vegetal completa (quinoa y garbanzos), más de 16 g de fibra por ración y grasas insaturadas del aguacate y del AOVE, con solo 2,7 g de grasa saturada y prácticamente nada de sodio, porque el sabor viene del limón, el cilantro y la cebolla y no de la sal. Las legumbres y los cereales integrales son la base de los patrones de alimentación más saludables, y esta ensalada los reúne en un solo plato.",
     ingredientes: [
-      { foodId: "quinoa", cantidad: 240 },
+      { foodId: "quinoa_seca", cantidad: 80 },
       { foodId: "ia_garbanzos", cantidad: 200 },
       { foodId: "aguacate", cantidad: 100 },
       { foodId: "ia_tomate", cantidad: 200 },
@@ -1463,6 +1463,7 @@ const RECETAS = [
       { foodId: "aove", cantidad: 15 }
     ],
     pasos: [
+      "Aclara bien la quinoa y cuécela con el doble de agua durante 15 minutos; escúrrela y déjala templar.",
       "Escurre y enjuaga los garbanzos si son de bote.",
       "Corta el tomate y el pepino en dados, la cebolla en juliana fina y pica el cilantro.",
       "Mezcla en un bol la quinoa, los garbanzos, el tomate, el pepino, la cebolla y el cilantro.",
@@ -1625,19 +1626,19 @@ const RECETAS = [
     mostrarPorRacion: true,
     etiquetas: ["proteico"],
     momento: ["comida", "cena"],
-    descripcion: "Un plato único de bandeja: muslos de pollo al horno, guisantes salteados y trigo sarraceno, un cereal sin gluten con mucha fibra. Casi 49 g de proteína por ración.",
-    motivo: "El muslo de pollo aporta más hierro y sabor que la pechuga, y el trigo sarraceno suma fibra y minerales sin gluten: 49 g de proteína y más de 9 g de fibra por ración. La calificamos B y no A porque es un plato calórico (583 kcal por ración) y el muslo con piel eleva algo más la grasa saturada que si fuera pechuga; sigue siendo un plato muy recomendable, pero mejor como plato principal que en raciones extragrandes.",
+    descripcion: "Un plato único de bandeja: muslos de pollo al horno, guisantes salteados y trigo sarraceno, un cereal sin gluten con mucha fibra. Unos 49 g de proteína por ración.",
+    motivo: "El muslo de pollo aporta más hierro y sabor que la pechuga, y el trigo sarraceno suma fibra y minerales sin gluten: 49 g de proteína y más de 9 g de fibra por ración. La calificamos B y no A porque es un plato calórico (584 kcal por ración) y el muslo con piel eleva algo más la grasa saturada que si fuera pechuga; sigue siendo un plato muy recomendable, pero mejor como plato principal que en raciones extragrandes.",
     ingredientes: [
       { foodId: "muslo_pollo", cantidad: 300 },
       { foodId: "guisantes", cantidad: 200 },
-      { foodId: "trigo_sarraceno", cantidad: 240 },
+      { foodId: "trigo_sarraceno_seco", cantidad: 65 },
       { foodId: "aove", cantidad: 15 },
       { foodId: "ia_ajo", cantidad: 6 },
       { foodId: "limon", cantidad: 20 },
       { foodId: "pimienta_negra", cantidad: 1 }
     ],
     pasos: [
-      "Precalienta el horno a 200 °C. Si no tienes trigo sarraceno cocido, cuece unos 80 g en seco con el doble de agua durante 12-15 minutos y resérvalo.",
+      "Precalienta el horno a 200 °C. Cuece los 65 g de trigo sarraceno (en seco) con el doble de agua durante 12-15 minutos y resérvalo.",
       "Coloca los muslos de pollo en una bandeja con el AOVE, el ajo laminado, el zumo de limón y la pimienta; hornea 35-40 minutos hasta que la piel esté dorada.",
       "En los últimos 8 minutos, añade los guisantes a la bandeja para que se hagan con el jugo del pollo.",
       "Sirve el pollo y los guisantes sobre el trigo sarraceno."
@@ -1727,7 +1728,7 @@ const RECETAS = [
     descripcion: "Una ensalada templada y muy completa: bulgur, rúcula, albaricoque fresco, queso de cabra y piñones con un aliño de AOVE y limón. Dulce, salada y crujiente a la vez, lista en 20 minutos.",
     motivo: "El bulgur aporta fibra y carbohidrato de absorción lenta, la rúcula y el albaricoque suman antioxidantes y frescura, y los piñones y el AOVE, grasa insaturada. Se queda en B por el queso de cabra: sus 60 g aportan colesterol y unos 13 g de grasa saturada (casi 8 g por ración contando el resto). Con menos queso, o cambiándolo por queso fresco, sube fácilmente a A.",
     ingredientes: [
-      { foodId: "bulgur", cantidad: 240 },
+      { foodId: "bulgur_seco", cantidad: 60 },
       { foodId: "rucula", cantidad: 60 },
       { foodId: "albaricoque", cantidad: 120 },
       { foodId: "queso_cabra", cantidad: 60 },
@@ -1736,7 +1737,7 @@ const RECETAS = [
       { foodId: "limon", cantidad: 20 }
     ],
     pasos: [
-      "Si no tienes bulgur cocido, cuece unos 90 g en seco con el doble de agua durante 10-12 minutos, escúrrelo y déjalo templar.",
+      "Cuece los 60 g de bulgur (en seco) con el doble de agua durante 10-12 minutos, escúrrelo y déjalo templar.",
       "Tuesta los piñones unos 2 minutos en una sartén seca, sin dejar de moverlos.",
       "Corta el albaricoque en gajos y desmenuza el queso de cabra.",
       "Mezcla el bulgur con la rúcula, el albaricoque y el queso; aliña con el AOVE y el zumo de limón y termina con los piñones por encima."
