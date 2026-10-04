@@ -336,6 +336,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.hsnutricion.com/sustituto-atun.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.hsnutricion.com/sustituto-azucar.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.6</priority>
@@ -347,11 +352,6 @@
   </url>
   <url>
     <loc>https://www.hsnutricion.com/sustituto-bebida-de-almendras.html</loc>
-    <lastmod>2026-10-04</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/sustituto-bebida-de-avena.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.6</priority>
   </url>
@@ -482,6 +482,11 @@
   </url>
   <url>
     <loc>https://www.hsnutricion.com/sustituto-jamon-cocido.html</loc>
+    <lastmod>2026-10-04</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.hsnutricion.com/sustituto-jamon-serrano.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.6</priority>
   </url>
@@ -1217,11 +1222,6 @@
   </url>
   <url>
     <loc>https://www.hsnutricion.com/alimento-huevo.html</loc>
-    <lastmod>2026-10-04</lastmod>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.hsnutricion.com/alimento-hummus.html</loc>
     <lastmod>2026-10-04</lastmod>
     <priority>0.5</priority>
   </url>

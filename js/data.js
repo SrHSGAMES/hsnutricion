@@ -605,9 +605,18 @@ const FOODS = [
     aliases: ["queso fresco", "queso fresco batido"],
     categorias: ["Lácteos"],
     emoji: "🧀",
-    rating: "A",
+    rating: "B",
     kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
-    motivo: "Alto en proteína y muy bajo en grasa, buena opción habitual.",
+    motivo: "Alto en proteína (8 g por 100 g) y casi sin grasa, una buena opción habitual. Lo calificamos B y no A por el sodio: unos 300 mg por 100 g, bastante para un lácteo fresco, y reducir el sodio es una de las medidas mejor respaldadas para la salud cardiovascular [1]. Mejor elegir versiones bajas en sal.",
+    estudios: [
+      {
+        "pmid": "40613399",
+        "titulo": "Lowering Sodium Intake: Reduction and Substitution for Cardiovascular Health.",
+        "revista": "International journal for vitamin and nutrition research",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40613399/"
+      }
+    ],
     sustitutos: []
   },
   {
@@ -706,9 +715,25 @@ const FOODS = [
     aliases: ["chorizo", "salchichon", "embutido", "salami"],
     categorias: ["Cárnicos"],
     emoji: "🌭",
-    rating: "D",
+    rating: "E",
     kcal: 455, carbs: 2, azucares: 0.5, proteinas: 24, grasas: 38, grasasSat: 14, fibra: 0, sodio: 1200,
-    motivo: "Carne procesada rica en grasas saturadas y sodio; su consumo frecuente se asocia a mayor riesgo cardiovascular.",
+    motivo: "Carne procesada rica en grasas saturadas y sodio. La Organización Mundial de la Salud, a través de su agencia IARC, clasifica la carne procesada como carcinógena para las personas (grupo 1) por su relación con el cáncer colorrectal [1], y los metaanálisis de estudios prospectivos asocian su consumo con más incidencia de cáncer [2]. Por eso lo calificamos E: mejor evitarlo como consumo habitual.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
     sustitutos: [
       {
         nombre: "Pechuga de pavo o pollo a la plancha",
@@ -742,10 +767,33 @@ const FOODS = [
     aliases: ["jamon serrano", "jamon iberico", "jamon curado"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🍖",
-    rating: "C",
+    rating: "E",
     kcal: 241, carbs: 0.4, azucares: 0, proteinas: 30, grasas: 14, grasasSat: 5, fibra: 0, sodio: 2200,
-    motivo: "Buena fuente de proteína y grasa mayoritariamente insaturada (sobre todo el ibérico), pero muy rico en sodio: modera la ración.",
-    sustitutos: []
+    motivo: "Buena fuente de proteína y grasa mayoritariamente insaturada (sobre todo el ibérico), pero es un curado, es decir, carne procesada, y muy rico en sodio (en torno a 2.200 mg por 100 g). La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) por su relación con el cáncer colorrectal [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso lo calificamos E: mejor evitarlo como consumo habitual.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Carne blanca magra, fresca y sin curar: sin el sodio ni los nitritos de los embutidos."
+      }
+    ]
   },
   {
     id: "huevo",
@@ -1767,9 +1815,9 @@ const FOODS = [
     aliases: ["atún"],
     categorias: ["Proteínas"],
     emoji: "🐟",
-    rating: "A",
+    rating: "C",
     kcal: 130, carbs: 0, azucares: 0, proteinas: 23, grasas: 3.3, grasasSat: 0.9, fibra: 0, sodio: 47,
-    motivo: "El atún es un pescado de excelente calidad nutricional, destacado por su elevado aporte de proteínas de alto valor biológico y un bajo contenido en grasas saturadas. Es una fuente natural importante de ácidos grasos omega-3 (como el DHA), que contribuyen significativamente a la salud cardiovascular y al bienestar general [1].",
+    motivo: "El atún aporta proteína de alto valor biológico y omega-3 (DHA) con poca grasa saturada [1], pero es un pez grande y longevo que acumula metilmercurio: las evaluaciones de riesgo del atún, fresco y en conserva, lo señalan como una fuente relevante de mercurio y otros metales en la dieta [2][3], y por eso las autoridades sanitarias aconsejan limitarlo en el embarazo, la lactancia y la infancia. Además contiene colesterol (alrededor de 40-50 mg por 100 g), una cantidad moderada que cuenta dentro de la ingesta diaria [4]. Por eso lo calificamos C: mejor de forma ocasional y alternándolo con pescados pequeños.",
     estudios: [
       {
         "pmid": "29494205",
@@ -1777,9 +1825,37 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2019",
         "url": "https://pubmed.ncbi.nlm.nih.gov/29494205/"
+      },
+      {
+        "pmid": "31756789",
+        "titulo": "Selenium intake from tuna in Galicia (Spain): Health risk assessment and protective role against exposure to mercury and inorganic arsenic.",
+        "revista": "The Science of the total environment",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31756789/"
+      },
+      {
+        "pmid": "29913231",
+        "titulo": "A systematic review and meta-analysis of metal concentrations in canned tuna fish in Iran and human health risk assessment.",
+        "revista": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29913231/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
-    sustitutos: []
+    sustitutos: [
+      {
+        nombre: "Sardina",
+        emoji: "🐟", mejor: true,
+        kcal: 208, carbs: 0, azucares: 0, proteinas: 24.6, grasas: 11.5, grasasSat: 2.3, fibra: 0, sodio: 387,
+        porque: "Pescado azul pequeño con omega-3 y mucho menos mercurio que el atún."
+      }
+    ]
   },
   {
     id: "ia_avellanas",
@@ -1847,9 +1923,9 @@ const FOODS = [
     aliases: ["bebida de avena"],
     categorias: ["Bebidas vegetales"],
     emoji: "🥛",
-    rating: "B",
+    rating: "A",
     kcal: 45, carbs: 6.5, azucares: 0.5, proteinas: 1, grasas: 1.5, grasasSat: 0.2, fibra: 0.8, sodio: 0.04,
-    motivo: "La bebida de avena, especialmente en su versión sin azúcares añadidos y fortificada, es una alternativa vegetal con un perfil bajo en grasas saturadas y naturalmente libre de colesterol. Es una opción que contribuye a la salud planetaria con un menor impacto ambiental comparado con la leche de origen animal [1]. Sin embargo, su contenido proteico es significativamente inferior al de la leche de vaca o la bebida de soja [1], lo cual es una consideración importante, especialmente para asegurar un crecimiento y nutrición adecuados en niños y adolescentes [2]. Es crucial seleccionar productos sin azúcares añadidos y enriquecidos con calcio, vitamina D y vitamina B12 para compensar la menor densidad nutricional intrínseca y asegurar un aporte adecuado de micronutrientes, especialmente en dietas vegetarianas o veganas.",
+    motivo: "La bebida de avena, en su versión sin azúcares añadidos y fortificada, es una alternativa vegetal con poca grasa saturada, naturalmente libre de colesterol y con un menor impacto ambiental que la leche de origen animal [1]. Aporta menos proteína que la leche de vaca o la bebida de soja [1], algo a tener en cuenta en la infancia y la adolescencia [2], pero eso no la hace peor opción: es una muy buena elección para quien la toma como bebida o en recetas, siempre que elijas productos sin azúcares añadidos y enriquecidos con calcio, vitamina D y vitamina B12, especialmente en dietas vegetarianas o veganas.",
     estudios: [
       {
         "pmid": "37300651",
@@ -1866,14 +1942,7 @@ const FOODS = [
         "url": "https://pubmed.ncbi.nlm.nih.gov/39332772/"
       }
     ],
-    sustitutos: [
-      {
-        nombre: "bebida de soja (sin azúcares añadidos, fortificada)",
-        emoji: "🥛", mejor: true,
-        kcal: 35, carbs: 1.5, azucares: 0.5, proteinas: 3.5, grasas: 1.8, grasasSat: 0.25, fibra: 0.6, sodio: 0.04,
-        porque: "Aporta significativamente más proteínas (aproximadamente 3 veces más) que la bebida de avena, con un contenido similar de grasas saludables (bajo en grasas saturadas) y menos carbohidratos. La evidencia sugiere beneficios para la salud cardiometabólica [2] y es una opción robusta para el crecimiento y la nutrición en todas las edades si está fortificada [3]."
-      }
-    ]
+    sustitutos: []
   },
   {
     id: "ia_bebida_de_soja",
@@ -2691,9 +2760,9 @@ const FOODS = [
     aliases: ["huevo de codorniz"],
     categorias: ["Proteínas"],
     emoji: "🥚",
-    rating: "A",
+    rating: "B",
     kcal: 158, carbs: 0.4, azucares: 0.4, proteinas: 13.1, grasas: 11.1, grasasSat: 3.6, fibra: 0, sodio: 0.14,
-    motivo: "El huevo de codorniz es un alimento de excelente calidad nutricional gracias a su gran aporte de proteínas de alto valor biológico y ácidos grasos esenciales. La literatura científica destaca su elevado potencial nutricional, funcional y terapéutico [1], convirtiéndolo en una opción excelente y sumamente saludable dentro de una alimentación equilibrada.",
+    motivo: "El huevo de codorniz es un alimento de buena calidad nutricional gracias a su aporte de proteínas de alto valor biológico y ácidos grasos esenciales, con un elevado potencial nutricional y funcional descrito en la literatura [1]. Lo calificamos B por el colesterol: por 100 g concentra en torno a 840 mg (un huevo de unos 10 g aporta unos 85 mg), más que el huevo de gallina, y el colesterol dietético cuenta dentro de la ingesta diaria [2] y se ha relacionado con la mortalidad en los metaanálisis más recientes [3]. Con moderación, como parte de una alimentación equilibrada.",
     estudios: [
       {
         "pmid": "36564868",
@@ -2701,6 +2770,20 @@ const FOODS = [
         "revista": "Journal of the science of food and agriculture",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/36564868/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      },
+      {
+        "pmid": "35360933",
+        "titulo": "Associations of Dietary Cholesterol, Serum Cholesterol, and Egg Consumption With Overall and Cause-Specific Mortality: Systematic Review and Updated Meta-Analysis.",
+        "revista": "Circulation",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35360933/"
       }
     ],
     sustitutos: []
@@ -2711,9 +2794,9 @@ const FOODS = [
     aliases: ["jamón cocido"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🥓",
-    rating: "C",
+    rating: "E",
     kcal: 105, carbs: 1.5, azucares: 1, proteinas: 17.5, grasas: 3, grasasSat: 1.1, fibra: 0, sodio: 900,
-    motivo: "Aunque aporta proteínas de buen valor biológico y un nivel moderado de calorías y grasas, el jamón cocido se clasifica como carne procesada. Suele contener una elevada cantidad de sodio y aditivos como nitritos y fosfatos, cuyo consumo habitual se vincula con diversos riesgos para la salud [1][2], por lo que conviene limitar su ingesta dentro de la calidad global de la dieta [3].",
+    motivo: "Aunque aporta proteínas de buen valor biológico y un nivel moderado de calorías y grasas, el jamón cocido es carne procesada. Suele contener mucho sodio y aditivos como nitritos y fosfatos, cuyo consumo habitual se vincula con diversos riesgos para la salud [1][2], y la agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [4]. Por eso lo calificamos E, y conviene limitar su ingesta dentro de la calidad global de la dieta [3].",
     estudios: [
       {
         "pmid": "27597529",
@@ -2735,6 +2818,13 @@ const FOODS = [
         "revista": "Animal : an international journal of animal bioscience",
         "anio": "2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/34836809/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
       }
     ],
     sustitutos: [
@@ -3189,9 +3279,32 @@ const FOODS = [
     aliases: ["pavo"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🦃",
-    rating: "A",
+    rating: "B",
     kcal: 114, carbs: 0, azucares: 0, proteinas: 24.1, grasas: 1.5, grasasSat: 0.4, fibra: 0, sodio: 60,
-    motivo: "La carne fresca de pavo es una excelente fuente de proteínas de alto valor biológico, muy baja en grasas totales y saturadas, y libre de carbohidratos. Es una opción sumamente saludable e idónea para la preservación de la masa muscular y el control calórico.",
+    motivo: "La carne fresca de pavo es una buena fuente de proteínas de alto valor biológico, con poca grasa total y saturada y sin carbohidratos, idónea para la preservación de la masa muscular y el control calórico. Lo calificamos B y no A porque aporta colesterol dietético (en torno a 70 mg por 100 g) [3], y los ensayos que comparan carne blanca y roja no encuentran una diferencia clara en su efecto sobre el colesterol LDL cuando la grasa saturada es la misma [1][2].",
+    estudios: [
+      {
+        "pmid": "22836072",
+        "titulo": "A meta-analysis of randomized controlled trials that compare the lipid effects of beef versus poultry and/or fish consumption.",
+        "revista": "Journal of clinical lipidology",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22836072/"
+      },
+      {
+        "pmid": "31161217",
+        "titulo": "Effects of red meat, white meat, and nonmeat protein sources on atherogenic lipoprotein measures in the context of low compared with high saturated fat intake: a randomized controlled trial.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31161217/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
     sustitutos: []
   },
   {
@@ -3200,9 +3313,9 @@ const FOODS = [
     aliases: ["pechuga de pollo", "pechuga de pollo a la plancha"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🍗",
-    rating: "A",
+    rating: "B",
     kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
-    motivo: "La pechuga de pollo, especialmente sin piel y cocinada de forma saludable (a la plancha, asada), es una excelente fuente de proteínas de alto valor biológico (aproximadamente 31g por 100g), esencial para el mantenimiento y crecimiento muscular, y para la saciedad. Es notablemente baja en grasas totales y, especialmente, en grasas saturadas, lo que la convierte en una opción magra y cardiosaludable [1, 2]. No contiene carbohidratos ni azúcares, lo que la hace adecuada para diversas dietas. Además, es una buena fuente de diversas vitaminas del grupo B (como niacina y B6) y minerales esenciales como fósforo y selenio [3].",
+    motivo: "La pechuga de pollo, especialmente sin piel y cocinada de forma saludable (a la plancha, asada), es una excelente fuente de proteínas de alto valor biológico (aproximadamente 31 g por 100 g), esencial para el mantenimiento y crecimiento muscular, y para la saciedad. Es baja en grasas totales y saturadas, y buena fuente de vitaminas del grupo B (niacina y B6) y minerales como el fósforo y el selenio [3]. Lo calificamos B y no A porque contiene colesterol (en torno a 85 mg por 100 g) [1][2], y los ensayos que comparan carne blanca y roja no encuentran una diferencia clara en su efecto sobre el colesterol LDL cuando la grasa saturada es la misma [4][5].",
     estudios: [
       {
         "pmid": "9429649",
@@ -3224,6 +3337,20 @@ const FOODS = [
         "revista": "Food science of animal resources",
         "anio": "2019",
         "url": "https://pubmed.ncbi.nlm.nih.gov/31508593/"
+      },
+      {
+        "pmid": "22836072",
+        "titulo": "A meta-analysis of randomized controlled trials that compare the lipid effects of beef versus poultry and/or fish consumption.",
+        "revista": "Journal of clinical lipidology",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22836072/"
+      },
+      {
+        "pmid": "31161217",
+        "titulo": "Effects of red meat, white meat, and nonmeat protein sources on atherogenic lipoprotein measures in the context of low compared with high saturated fat intake: a randomized controlled trial.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31161217/"
       }
     ],
     sustitutos: [
@@ -3763,9 +3890,9 @@ const FOODS = [
     aliases: ["sardina"],
     categorias: ["Proteínas", "Grasas"],
     emoji: "🐟",
-    rating: "A",
+    rating: "B",
     kcal: 208, carbs: 0, azucares: 0, proteinas: 24.6, grasas: 11.5, grasasSat: 2.3, fibra: 0, sodio: 387,
-    motivo: "Las sardinas son un pescado azul con un perfil nutricional excepcional. Son una fuente sobresaliente de proteína de alto valor biológico, esencial para la construcción y reparación de tejidos. Destacan especialmente por su alto contenido en ácidos grasos omega-3 (EPA y DHA), que son cruciales para la salud cardiovascular, cerebral y antiinflamatoria [1]. Además, aportan una cantidad significativa de vitamina D (esencial para la salud ósea e inmunológica), vitamina B12 y minerales como el calcio (si se consumen con espinas), fósforo y selenio. Su densidad nutricional las convierte en un alimento muy recomendable para una dieta equilibrada.",
+    motivo: "Las sardinas son un pescado azul con un perfil nutricional muy bueno. Son una fuente sobresaliente de proteína de alto valor biológico y destacan por su alto contenido en ácidos grasos omega-3 (EPA y DHA), que son cruciales para la salud cardiovascular, cerebral y antiinflamatoria [1]. Además, aportan vitamina D, vitamina B12 y minerales como el calcio (si se consumen con espinas), fósforo y selenio. Las calificamos B y no A porque contienen colesterol dietético (entre 60 y 140 mg por 100 g según sean frescas o en conserva) [2] y, en conserva, bastante sodio.",
     estudios: [
       {
         "pmid": "38068783",
@@ -3773,6 +3900,13 @@ const FOODS = [
         "revista": "Nutrients",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/38068783/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
     sustitutos: []
@@ -4329,9 +4463,9 @@ const FOODS = [
     aliases: ["bacalao", "bacalao fresco"],
     categorias: ["Proteínas"],
     emoji: "🐟",
-    rating: "A",
+    rating: "B",
     kcal: 82, carbs: 0, azucares: 0, proteinas: 17.8, grasas: 0.7, grasasSat: 0.13, fibra: 0, sodio: 54,
-    motivo: "Pescado blanco magro, con más de 17 g de proteína y menos de 1 g de grasa por 100 g, y rico en yodo y selenio. El metaanálisis sobre consumo de pescado y cardiopatía coronaria respalda su papel en una dieta cardiosaludable [1], y en conjunto el pescado se asocia con mejores resultados de salud [2]. Los valores son del bacalao fresco: el salado (en salazón) tiene muchísimo más sodio, salvo que se desale bien.",
+    motivo: "Pescado blanco magro, con más de 17 g de proteína y menos de 1 g de grasa por 100 g, y rico en yodo y selenio. El metaanálisis sobre consumo de pescado y cardiopatía coronaria respalda su papel en una dieta cardiosaludable [1], y en conjunto el pescado se asocia con mejores resultados de salud [2]. Lo calificamos B y no A porque, como todo alimento de origen animal, aporta colesterol dietético (en torno a 40-50 mg por 100 g) que suma a la ingesta diaria [3]. Los valores son del bacalao fresco: el salado (en salazón) tiene muchísimo más sodio, salvo que se desale bien.",
     estudios: [
       {
         "pmid": "32751304",
@@ -4346,6 +4480,13 @@ const FOODS = [
         "revista": "International journal of food sciences and nutrition",
         "anio": "2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35758202/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
     sustitutos: []
@@ -4403,9 +4544,9 @@ const FOODS = [
     aliases: ["caballa", "caballas", "verdel"],
     categorias: ["Proteínas", "Grasas"],
     emoji: "🐟",
-    rating: "A",
+    rating: "B",
     kcal: 205, carbs: 0, azucares: 0, proteinas: 18.6, grasas: 13.9, grasasSat: 3.3, fibra: 0, sodio: 90,
-    motivo: "Pescado azul: su grasa es sobre todo insaturada y aporta omega-3 (EPA y DHA), además de vitamina D y B12. Los ácidos grasos EPA y DHA se han asociado con beneficios en distintas etapas de la vida [1], y el consumo de pescado en general con menor riesgo cardiovascular [2]. Al ser un pez pequeño, su contenido en mercurio es bajo en comparación con grandes depredadores como el pez espada.",
+    motivo: "Pescado azul: su grasa es sobre todo insaturada y aporta omega-3 (EPA y DHA), además de vitamina D y B12. Los ácidos grasos EPA y DHA se han asociado con beneficios en distintas etapas de la vida [1], y el consumo de pescado en general con menor riesgo cardiovascular [2]. Al ser un pez pequeño, su contenido en mercurio es bajo en comparación con grandes depredadores como el pez espada. La calificamos B y no A porque aporta colesterol dietético (en torno a 70 mg por 100 g) y bastante grasa saturada para ser pescado (3,3 g por 100 g) [3].",
     estudios: [
       {
         "pmid": "22332096",
@@ -4420,6 +4561,13 @@ const FOODS = [
         "revista": "Advances in nutrition (Bethesda, Md.)",
         "anio": "2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
     sustitutos: []
@@ -4457,9 +4605,9 @@ const FOODS = [
     aliases: ["cerveza", "cervezas", "cerveza rubia", "birra"],
     categorias: ["Bebidas"],
     emoji: "🍺",
-    rating: "D",
+    rating: "E",
     kcal: 43, carbs: 3.6, azucares: 0.1, proteinas: 0.5, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
-    motivo: "Aporta calorías del alcohol y carbohidratos sin apenas nutrientes. Contiene compuestos no alcohólicos (polifenoles del lúpulo, vitaminas del grupo B) que se han estudiado [1], pero no compensan el efecto del alcohol: el metaanálisis de 2023 no encontró un beneficio claro en consumos bajos y sí un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. La opción más prudente es reservarla para ocasiones puntuales.",
+    motivo: "Aporta calorías del alcohol y carbohidratos sin apenas nutrientes. Contiene compuestos no alcohólicos (polifenoles del lúpulo, vitaminas del grupo B) que se han estudiado [1], pero no compensan el efecto del alcohol: el metaanálisis de 2023 no encontró un beneficio claro en consumos bajos y sí un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2], y el alcohol es un carcinógeno reconocido, con riesgo de cáncer que aumenta con la cantidad [3]. Por eso la calificamos E: lo más prudente es evitarla o reservarla para ocasiones muy puntuales.",
     estudios: [
       {
         "pmid": "31782326",
@@ -4474,6 +4622,13 @@ const FOODS = [
         "revista": "JAMA network open",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      },
+      {
+        "pmid": "34579050",
+        "titulo": "Alcohol and Cancer: Epidemiology and Biological Mechanisms.",
+        "revista": "Nutrients",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34579050/"
       }
     ],
     sustitutos: [
@@ -4511,9 +4666,9 @@ const FOODS = [
     aliases: ["croissant", "croissants", "cruasán", "cruasan", "cruasanes"],
     categorias: ["Dulces"],
     emoji: "🥐",
-    rating: "D",
+    rating: "E",
     kcal: 406, carbs: 45.8, azucares: 11.3, proteinas: 8.2, grasas: 21, grasasSat: 11.7, fibra: 2.4, sodio: 400,
-    motivo: "Bollería de harina refinada y mucha mantequilla o margarina: más de 400 kcal por 100 g, con 11,7 g de grasa saturada y 11 g de azúcares. La bollería industrial es un producto ultraprocesado, y los metaanálisis asocian un mayor consumo de ultraprocesados con más riesgo de resultados adversos de salud [1][2]. Un croissant ocasional no es un problema, pero no es un desayuno diario recomendable.",
+    motivo: "Bollería de harina refinada y mucha mantequilla o margarina: más de 400 kcal por 100 g, con 11,7 g de grasa saturada y 11 g de azúcares. La bollería industrial es un producto ultraprocesado, y los metaanálisis asocian un mayor consumo de ultraprocesados con más riesgo de mortalidad y de enfermedades cardiometabólicas [1][2]. Por eso lo calificamos E: no es un alimento para el día a día. Si te apetece, mejor uno artesano y de forma muy ocasional.",
     estudios: [
       {
         "pmid": "38418082",
@@ -4646,9 +4801,9 @@ const FOODS = [
     aliases: ["gambas", "gamba", "langostinos", "langostino", "camarones"],
     categorias: ["Proteínas"],
     emoji: "🦐",
-    rating: "A",
+    rating: "B",
     kcal: 85, carbs: 0, azucares: 0, proteinas: 20.1, grasas: 0.5, grasasSat: 0.1, fibra: 0, sodio: 119,
-    motivo: "Marisco muy magro: unos 20 g de proteína con apenas 0,5 g de grasa por 100 g, y rico en yodo y selenio. Tienen colesterol, pero un ensayo clásico con gambas observó subidas de LDL y también de HDL [1], y la revisión sobre marisco no señala un riesgo especial en el consumo habitual [2]. Cuidado con el sodio si son cocidas o en conserva.",
+    motivo: "Marisco muy magro: unos 20 g de proteína con apenas 0,5 g de grasa por 100 g, y rico en yodo y selenio. Tienen bastante colesterol (en torno a 150-190 mg por 100 g): un ensayo clásico con gambas observó subidas de LDL, y también de HDL [1], y la revisión sobre marisco no señala un riesgo especial en el consumo habitual [2], pero el colesterol dietético cuenta dentro de la ingesta diaria [3]. Por eso las calificamos B y no A. Cuidado con el sodio si son cocidas o en conserva.",
     estudios: [
       {
         "pmid": "8901790",
@@ -4663,6 +4818,13 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
     sustitutos: []
@@ -5172,9 +5334,9 @@ const FOODS = [
     aliases: ["requeson", "requesón"],
     categorias: ["Lácteos"],
     emoji: "🥛",
-    rating: "A",
+    rating: "C",
     kcal: 98, carbs: 3.4, azucares: 3, proteinas: 13, grasas: 4, grasasSat: 2.5, fibra: 0, sodio: 350,
-    motivo: "El requesón es un lácteo fresco elaborado a partir del suero, con buena proteína y mucha menos grasa que un queso curado. Los lácteos frescos de este tipo aportan péptidos bioactivos de interés, con efecto descrito incluso sobre la tensión arterial [1], y encajan en el patrón de lácteos de la dieta mediterránea [2]. Una opción ligera para untar con fruta o miel.",
+    motivo: "El requesón es un lácteo fresco elaborado a partir del suero, con buena proteína y mucha menos grasa que un queso curado. Los lácteos frescos de este tipo aportan péptidos bioactivos de interés, con efecto descrito incluso sobre la tensión arterial [1], y encajan en el patrón de lácteos de la dieta mediterránea [2]. Lo calificamos C porque aporta colesterol dietético [3] y, de su grasa (4 g por 100 g), más de la mitad (2,5 g) es saturada, un tipo de grasa cuya reducción mejora el riesgo cardiovascular [4]. Mejor en raciones moderadas.",
     estudios: [
       {
         "pmid": "34828854",
@@ -5189,33 +5351,20 @@ const FOODS = [
         "revista": "European journal of nutrition",
         "anio": "2004",
         "url": "https://pubmed.ncbi.nlm.nih.gov/15052494/"
-      }
-    ],
-    sustitutos: []
-  },
-  {
-    id: "hummus",
-    nombre: "Hummus",
-    aliases: ["hummus", "hummus casero", "pate de garbanzos"],
-    categorias: ["Untables"],
-    emoji: "🧆",
-    rating: "A",
-    kcal: 166, carbs: 14, azucares: 0.6, proteinas: 7.9, grasas: 9.6, grasasSat: 1.4, fibra: 6, sodio: 379,
-    motivo: "El hummus casero (garbanzos, tahini, limón y aceite de oliva) combina fibra, proteína vegetal y grasa insaturada; en personas sanas produce una respuesta de glucosa e insulina más suave que otros aperitivos igual de calóricos [1], y su perfil nutricional se considera uno de los puntos fuertes de la dieta mediterránea [2]. Ojo con las versiones comerciales: algunas llevan bastante más sal y aceite de girasol refinado que la receta casera.",
-    estudios: [
-      {
-        "pmid": "38823849",
-        "titulo": "Impact of chickpea hummus on postprandial blood glucose, insulin and gut hormones in healthy humans combined with mechanistic studies of food structure, rheology and digestion kinetics.",
-        "revista": "Food research international (Ottawa, Ont.)",
-        "anio": "2024",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/38823849/"
       },
       {
-        "pmid": "33260594",
-        "titulo": "The Benefits of Including Hummus and Hummus Ingredients into the American Diet to Promote Diet Quality and Health: A Comprehensive Review.",
-        "revista": "Nutrients",
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
         "anio": "2020",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/33260594/"
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      },
+      {
+        "pmid": "32428300",
+        "titulo": "Reduction in saturated fat intake for cardiovascular disease.",
+        "revista": "The Cochrane database of systematic reviews",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32428300/"
       }
     ],
     sustitutos: []
@@ -5884,13 +6033,13 @@ const FOODS = [
   },
   {
     id: "calamar",
-    nombre: "Calamar (a la plancha)",
+    nombre: "Calamar",
     aliases: ["calamar", "calamares", "chipirones", "calamar a la plancha"],
     categorias: ["Proteínas"],
     emoji: "🦑",
-    rating: "A",
+    rating: "B",
     kcal: 110, carbs: 3, azucares: 0, proteinas: 20, grasas: 1.8, grasasSat: 0.5, fibra: 0, sodio: 260,
-    motivo: "El calamar a la plancha es proteína muy magra con poca grasa, y su pequeña fracción grasa es rica en ácidos grasos poliinsaturados [1]. Aunque contiene colesterol, este marisco forma parte del patrón de consumo de pescado y marisco asociado a buena salud [2]. Elige plancha o horno: rebozado y frito pierde casi todas sus ventajas.",
+    motivo: "El calamar es proteína muy magra con poca grasa, y su pequeña fracción grasa es rica en ácidos grasos poliinsaturados [1]. Forma parte del patrón de consumo de pescado y marisco asociado a buena salud [2], pero es uno de los mariscos con más colesterol (en torno a 230 mg por 100 g) [3], por eso lo calificamos B y no A. Mejor salteado o al horno que rebozado y frito, donde pierde casi todas sus ventajas.",
     estudios: [
       {
         "pmid": "36394935",
@@ -5905,6 +6054,13 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2022",
         "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
       }
     ],
     sustitutos: []
