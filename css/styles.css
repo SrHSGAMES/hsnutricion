@@ -1383,8 +1383,8 @@ a.ingrediente-link { text-decoration: none; }
   .about-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
 }
-/* El menú de 7 enlaces no cabe en una línea por debajo de ~1140 px: hamburguesa. */
-@media (max-width: 1140px) {
+/* El menú de 7 enlaces (con "Menú diario") no cabe en una línea por debajo de ~1220 px: hamburguesa. */
+@media (max-width: 1220px) {
   .main-nav { display: none; }
   .main-nav.open-mobile {
     display: flex;
