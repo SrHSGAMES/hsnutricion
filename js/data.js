@@ -6766,6 +6766,630 @@ const FOODS = [
       }
     ],
     sustitutos: []
+  },
+  {
+    id: "trucha",
+    nombre: "Trucha",
+    aliases: ["trucha", "truchas", "trucha arcoíris", "trucha arcoiris"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 141, carbs: 0, azucares: 0, proteinas: 19.9, grasas: 6.2, grasasSat: 1.6, fibra: 0, sodio: 52,
+    motivo: "La trucha es un pescado semigraso de agua dulce: casi 20 g de proteína por 100 g, omega-3 y vitamina D, con unos 6 g de grasa mayoritariamente insaturada. El consumo de pescado, graso o magro, se asocia con menor riesgo cardiovascular y de mortalidad [1]. La calificamos B y no A porque aporta colesterol dietético (en torno a 60-70 mg por 100 g) [2], y su contenido en grasa varía bastante entre la trucha de río y la de piscifactoría.",
+    estudios: [
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "dorada",
+    nombre: "Dorada",
+    aliases: ["dorada", "doradas"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 105, carbs: 0, azucares: 0, proteinas: 19, grasas: 3.5, grasasSat: 0.9, fibra: 0, sodio: 70,
+    motivo: "La dorada es un pescado blanco semigraso muy habitual en la dieta mediterránea: unos 19 g de proteína con 3-4 g de grasa por 100 g, y buena fuente de yodo y selenio. Los pescados magros se han asociado con mejoras en los lípidos de la sangre [1], y la forma de cocinarla influye en la calidad de su grasa [2]. La calificamos B y no A porque aporta colesterol dietético (en torno a 50-60 mg por 100 g) [3].",
+    estudios: [
+      {
+        "pmid": "33942085",
+        "titulo": "Lipid-modifying effects of lean fish and fish-derived protein consumption in humans: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Nutrition reviews",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33942085/"
+      },
+      {
+        "pmid": "31377622",
+        "titulo": "Culinary preparation effects on lipid and sensory quality of farmed gilthead seabream (Sparus aurata) and meagre (Argyrosomus regius): An inter-species comparison.",
+        "revista": "Food chemistry",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31377622/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "almejas",
+    nombre: "Almejas",
+    aliases: ["almejas", "almeja", "almejas al natural"],
+    categorias: ["Proteínas"],
+    emoji: "🐚",
+    rating: "B",
+    kcal: 74, carbs: 2.6, azucares: 0, proteinas: 12.8, grasas: 1, grasasSat: 0.1, fibra: 0, sodio: 56,
+    motivo: "Las almejas son uno de los mariscos más densos en nutrientes: muy poca grasa, proteína de alta calidad y mucho hierro, zinc y vitamina B12 [1][2]. Las calificamos B y no A porque aportan colesterol dietético (en torno a 35-50 mg por 100 g) [3] y, como todo bivalvo filtrador, conviene comprarlas de zonas controladas y cocinarlas bien.",
+    estudios: [
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "23782218",
+        "titulo": "Biologically active vitamin B12 compounds in foods for preventing deficiency among vegetarians and elderly subjects.",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23782218/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "surimi",
+    nombre: "Palitos de cangrejo (surimi)",
+    aliases: ["surimi", "palitos de cangrejo", "palitos de surimi", "barritas de cangrejo"],
+    categorias: ["Proteínas"],
+    emoji: "🦀",
+    rating: "C",
+    kcal: 95, carbs: 7.6, azucares: 3.8, proteinas: 15.2, grasas: 0.5, grasasSat: 0.1, fibra: 0, sodio: 800,
+    motivo: "Los palitos de cangrejo no son cangrejo: son pasta de pescado blanco triturada (surimi) mezclada con almidón, azúcar, aromas y colorantes. Aportan proteína (unos 15 g por 100 g) con casi nada de grasa [1], pero son un producto procesado, con unos 800 mg de sodio por 100 g [2], y los ultraprocesados se asocian con peores resultados de salud [3]. Por eso los calificamos C: mejor ocasionales, y como complemento, no como fuente principal de pescado.",
+    estudios: [
+      {
+        "pmid": "34323094",
+        "titulo": "[Fish protein: nutrition and innovation].",
+        "revista": "Nutricion hospitalaria",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34323094/"
+      },
+      {
+        "pmid": "40613399",
+        "titulo": "Lowering Sodium Intake: Reduction and Substitution for Cardiovascular Health.",
+        "revista": "International journal for vitamin and nutrition research",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40613399/"
+      },
+      {
+        "pmid": "38688162",
+        "titulo": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38688162/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Merluza",
+        emoji: "🐟", mejor: true,
+        kcal: 80, carbs: 0, azucares: 0, proteinas: 17.4, grasas: 1.3, grasasSat: 0.3, fibra: 0, sodio: 90,
+        porque: "Pescado blanco fresco, sin almidón ni aditivos y con mucho menos sodio."
+      }
+    ]
+  },
+  {
+    id: "conejo",
+    nombre: "Conejo",
+    aliases: ["conejo", "carne de conejo"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🐇",
+    rating: "B",
+    kcal: 136, carbs: 0, azucares: 0, proteinas: 20.1, grasas: 5.5, grasasSat: 1.6, fibra: 0, sodio: 41,
+    motivo: "La carne de conejo es de las más magras: unos 20 g de proteína por 100 g con 5-6 g de grasa, en la que predomina la insaturada, y buena fuente de vitamina B12 y selenio. Se considera una carne blanca de alto interés nutricional [1]. La calificamos B y no A porque, como toda carne, aporta colesterol dietético (en torno a 55-60 mg por 100 g) [2].",
+    estudios: [
+      {
+        "pmid": "29751220",
+        "titulo": "Rabbit meat production and consumption: State of knowledge and future perspectives.",
+        "revista": "Meat science",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29751220/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "habas",
+    nombre: "Habas (cocidas)",
+    aliases: ["habas", "haba", "habas tiernas", "habas cocidas"],
+    categorias: ["Verduras y Hortalizas", "Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 110, carbs: 19.7, azucares: 1.8, proteinas: 7.6, grasas: 0.4, grasasSat: 0.1, fibra: 5.4, sodio: 5,
+    motivo: "Las habas son una legumbre tierna con mucha fibra (más de 5 g por 100 g) y proteína vegetal, además de folato y potasio; como el resto de legumbres, su consumo se asocia con mejor salud cardiometabólica [1][2]. Aviso importante: pueden provocar favismo, una anemia hemolítica potencialmente grave, en personas con déficit de la enzima G6PD [3]; si tienes ese déficit, evítalas.",
+    estudios: [
+      {
+        "pmid": "25061763",
+        "titulo": "Nutritional and health benefits of pulses.",
+        "revista": "Applied physiology, nutrition, and metabolism = Physiologie appliquee, nutrition et metabolisme",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25061763/"
+      },
+      {
+        "pmid": "36988580",
+        "titulo": "Health benefits of legume seeds.",
+        "revista": "Journal of the science of food and agriculture",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36988580/"
+      },
+      {
+        "pmid": "36678214",
+        "titulo": "Favism: Clinical Features at Different Ages.",
+        "revista": "Nutrients",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36678214/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "hinojo",
+    nombre: "Hinojo",
+    aliases: ["hinojo", "bulbo de hinojo"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 31, carbs: 7.3, azucares: 3.9, proteinas: 1.2, grasas: 0.2, grasasSat: 0.1, fibra: 3.1, sodio: 52,
+    motivo: "El bulbo del hinojo es una hortaliza muy ligera (31 kcal por 100 g) con fibra, potasio y vitamina C, además de compuestos aromáticos y antioxidantes propios de la planta, muy estudiados [1][2]. Crudo y en láminas aporta un toque anisado y crujiente a las ensaladas; asado se vuelve dulce.",
+    estudios: [
+      {
+        "pmid": "36803269",
+        "titulo": "Exploring fennel (Foeniculum vulgare): Composition, functional properties, potential health benefits, and safety.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36803269/"
+      },
+      {
+        "pmid": "25162032",
+        "titulo": "Foeniculum vulgare Mill: a review of its botany, phytochemistry, pharmacology, contemporary application, and toxicology.",
+        "revista": "BioMed research international",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25162032/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "col_lombarda",
+    nombre: "Col lombarda",
+    aliases: ["col lombarda", "lombarda", "repollo morado", "col morada"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 31, carbs: 7.4, azucares: 3.8, proteinas: 1.4, grasas: 0.2, grasasSat: 0, fibra: 2.1, sodio: 27,
+    motivo: "La col lombarda es una crucífera cuyo color morado viene de las antocianinas, antioxidantes con efectos descritos sobre la salud cardiovascular [1][2], y además aporta fibra y vitaminas C y K con solo 31 kcal por 100 g. Cruda conserva mejor sus compuestos: al cocerla, parte de las antocianinas pasa al agua.",
+    estudios: [
+      {
+        "pmid": "34243124",
+        "titulo": "Red cabbage anthocyanins: Stability, extraction, biological activities and applications in food systems.",
+        "revista": "Food chemistry",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34243124/"
+      },
+      {
+        "pmid": "32825684",
+        "titulo": "Anthocyanins: A Comprehensive Review of Their Chemical Properties and Health Effects on Cardiovascular and Neurodegenerative Diseases.",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32825684/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "rabano",
+    nombre: "Rábano",
+    aliases: ["rábano", "rabano", "rábanos", "rabanos"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌱",
+    rating: "A",
+    kcal: 16, carbs: 3.4, azucares: 1.9, proteinas: 0.7, grasas: 0.1, grasasSat: 0, fibra: 1.6, sodio: 39,
+    motivo: "El rábano es una crucífera con glucosinolatos (los responsables de su picor), vitamina C y muy pocas calorías (16 kcal por 100 g). La revisión sobre rábano y diabetes recoge efectos antioxidantes y sobre el control de la glucosa, aunque la mayoría de los datos proceden de estudios experimentales [1], y se han descrito sus perfiles de compuestos antioxidantes [2].",
+    estudios: [
+      {
+        "pmid": "28906451",
+        "titulo": "Radish (Raphanus sativus) and Diabetes.",
+        "revista": "Nutrients",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28906451/"
+      },
+      {
+        "pmid": "26828471",
+        "titulo": "Metabolic Profiling and Antioxidant Assay of Metabolites from Three Radish Cultivars (Raphanus sativus).",
+        "revista": "Molecules (Basel, Switzerland)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26828471/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "higos_frescos",
+    nombre: "Higos frescos",
+    aliases: ["higos", "higo", "higos frescos", "higo fresco", "breva", "brevas"],
+    categorias: ["Frutas"],
+    emoji: "🟣",
+    rating: "A",
+    kcal: 74, carbs: 19.2, azucares: 16.3, proteinas: 0.8, grasas: 0.3, grasasSat: 0.1, fibra: 2.9, sodio: 1,
+    motivo: "El higo fresco aporta fibra (casi 3 g por 100 g), potasio y polifenoles propios [1][2]. Es una fruta dulce (unos 16 g de azúcares por 100 g, como la uva), así que conviene tomarla como una pieza más; en seco concentra mucho más azúcar y calorías (ver Higos secos).",
+    estudios: [
+      {
+        "pmid": "24996314",
+        "titulo": "Ficus carica L. (Moraceae): an ancient source of food and health.",
+        "revista": "Food chemistry",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24996314/"
+      },
+      {
+        "pmid": "37299587",
+        "titulo": "Phytochemical Composition and Health Benefits of Figs (Fresh and Dried): A Review of Literature from 2000 to 2022.",
+        "revista": "Nutrients",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37299587/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "ciruela",
+    nombre: "Ciruela",
+    aliases: ["ciruela", "ciruelas"],
+    categorias: ["Frutas"],
+    emoji: "🟣",
+    rating: "A",
+    kcal: 46, carbs: 11.4, azucares: 9.9, proteinas: 0.7, grasas: 0.3, grasasSat: 0, fibra: 1.4, sodio: 0,
+    motivo: "La ciruela fresca es una fruta ligera (46 kcal por 100 g) con fibra, vitamina C y antocianinas en la piel. Como el resto de la fruta entera, su consumo se asocia con menor riesgo cardiovascular y de mortalidad en los grandes metaanálisis [1], y con menor riesgo de diabetes tipo 2 [2]. Sus versiones secas (ciruelas pasas) concentran el azúcar y se tratan aparte.",
+    estudios: [
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      },
+      {
+        "pmid": "23990623",
+        "titulo": "Fruit consumption and risk of type 2 diabetes: results from three prospective longitudinal cohort studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23990623/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "nectarina",
+    nombre: "Nectarina",
+    aliases: ["nectarina", "nectarinas", "paraguayo", "paraguayas"],
+    categorias: ["Frutas"],
+    emoji: "🍑",
+    rating: "A",
+    kcal: 44, carbs: 10.6, azucares: 7.9, proteinas: 1.1, grasas: 0.3, grasasSat: 0, fibra: 1.7, sodio: 0,
+    motivo: "La nectarina es una fruta ligera (44 kcal por 100 g) con fibra, vitamina C y carotenoides. Como el resto de la fruta entera, su consumo se asocia con menor riesgo cardiovascular y de mortalidad en los grandes metaanálisis [1], y con menor riesgo de diabetes tipo 2 [2]. Mejor con piel, donde se concentran muchos de sus antioxidantes.",
+    estudios: [
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      },
+      {
+        "pmid": "23990623",
+        "titulo": "Fruit consumption and risk of type 2 diabetes: results from three prospective longitudinal cohort studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23990623/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "chocolate_negro_70",
+    nombre: "Chocolate negro 70%",
+    aliases: ["chocolate negro 70", "chocolate 70", "chocolate negro 70%", "chocolate negro al 70"],
+    categorias: ["Dulces"],
+    emoji: "🍫",
+    rating: "C",
+    kcal: 540, carbs: 46, azucares: 24, proteinas: 7.8, grasas: 31, grasasSat: 19, fibra: 11, sodio: 20,
+    motivo: "El chocolate negro con un 70 % de cacao conserva los flavanoles del cacao, que en los metaanálisis mejoran la presión arterial y varios marcadores cardiometabólicos [1][2]. Pero con ese porcentaje aún lleva unos 24 g de azúcar y 19 g de grasa saturada por 100 g, bastante más que el de 85 % o más. Por eso lo calificamos C: un capricho razonable en pequeñas cantidades (una o dos onzas), mejor cuanto mayor sea el porcentaje de cacao.",
+    estudios: [
+      {
+        "pmid": "38931273",
+        "titulo": "Effects of Cocoa Consumption on Cardiometabolic Risk Markers: Meta-Analysis of Randomized Controlled Trials.",
+        "revista": "Nutrients",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38931273/"
+      },
+      {
+        "pmid": "35804776",
+        "titulo": "Effect of Cocoa Beverage and Dark Chocolate Consumption on Blood Pressure in Those with Normal and Elevated Blood Pressure: A Systematic Review and Meta-Analysis.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35804776/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Chocolate negro ≥ 85%",
+        emoji: "🍫", mejor: true,
+        kcal: 598, carbs: 22, azucares: 7, proteinas: 8, grasas: 43, grasasSat: 25, fibra: 11, sodio: 20,
+        porque: "Menos azúcar y más cacao por onza, con el mismo antojo de chocolate."
+      }
+    ]
+  },
+  {
+    id: "zumo_naranja_natural",
+    nombre: "Zumo de naranja natural",
+    aliases: ["zumo de naranja natural", "zumo de naranja", "zumos de naranja", "zumo natural", "zumo de naranja recién exprimido", "naranja exprimida"],
+    categorias: ["Bebidas"],
+    emoji: "🍊",
+    rating: "C",
+    kcal: 45, carbs: 10.4, azucares: 8.4, proteinas: 0.7, grasas: 0.2, grasasSat: 0, fibra: 0.2, sodio: 1,
+    motivo: "El zumo de naranja recién exprimido conserva la vitamina C y los flavonoides de la naranja, y los metaanálisis de ensayos no encuentran efectos adversos sobre los factores de riesgo cardiovascular con un consumo moderado [1][2]. Pero al exprimir se pierde la fibra y el azúcar queda libre: unos 8 g por 100 ml, así que un vaso de 200 ml aporta unos 17 g, casi cuatro cucharaditas. Por eso lo calificamos C: mejor la naranja entera.",
+    estudios: [
+      {
+        "pmid": "34060162",
+        "titulo": "Effects of orange juice intake on cardiovascular risk factors: A systematic review and meta-analysis of randomized controlled clinical trials.",
+        "revista": "Phytotherapy research : PTR",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34060162/"
+      },
+      {
+        "pmid": "36383179",
+        "titulo": "Does chronic consumption of orange juice improve cardiovascular risk factors in overweight and obese adults? A systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Food & function",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36383179/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Naranja",
+        emoji: "🍊", mejor: true,
+        kcal: 47, carbs: 11.8, azucares: 9.4, proteinas: 0.9, grasas: 0.1, grasasSat: 0.02, fibra: 2.4, sodio: 0,
+        porque: "Con la fibra y la pulpa intactas, sacia más y el azúcar se absorbe más despacio."
+      }
+    ]
+  },
+  {
+    id: "refresco_zero",
+    nombre: "Refresco sin azúcar (zero)",
+    aliases: ["refresco zero", "refresco sin azúcar", "cola zero", "coca cola zero", "refresco light", "cola light"],
+    categorias: ["Bebidas"],
+    emoji: "🥤",
+    rating: "D",
+    kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 10,
+    motivo: "No aporta calorías ni azúcar, pero el consumo habitual de bebidas con edulcorantes artificiales se ha asociado en los metaanálisis con más riesgo de diabetes tipo 2, enfermedad cardiovascular y mortalidad [1][2], aunque son estudios observacionales que no demuestran por sí solos que la causa sea la bebida. Lo calificamos D, igual que la sacarina: mejor agua, agua con gas o infusiones.",
+    estudios: [
+      {
+        "pmid": "37187453",
+        "titulo": "Artificially Sweetened Beverages and Health Outcomes: An Umbrella Review.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37187453/"
+      },
+      {
+        "pmid": "39085903",
+        "titulo": "Artificially sweetened beverage consumption and all-cause and cause-specific mortality: an updated systematic review and dose-response meta-analysis of prospective cohort studies.",
+        "revista": "Nutrition journal",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39085903/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin edulcorantes; con gas, limón o hielo cumple el mismo papel."
+      }
+    ]
+  },
+  {
+    id: "salchichas",
+    nombre: "Salchichas (tipo frankfurt)",
+    aliases: ["salchichas", "salchicha", "frankfurt", "salchichas frankfurt", "perrito caliente"],
+    categorias: ["Cárnicos"],
+    emoji: "🌭",
+    rating: "E",
+    kcal: 290, carbs: 4, azucares: 1.5, proteinas: 11, grasas: 26, grasasSat: 9.5, fibra: 0, sodio: 1000,
+    motivo: "Carne procesada rica en grasa saturada y sodio (en torno a 1.000 mg por 100 g) y con aditivos como los nitritos. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso la calificamos E: mejor evitarla como consumo habitual.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Carne blanca magra, fresca y sin curar: sin el sodio ni los nitritos de las salchichas."
+      }
+    ]
+  },
+  {
+    id: "nuggets_pollo",
+    nombre: "Nuggets de pollo",
+    aliases: ["nuggets", "nuggets de pollo", "nugget", "fingers de pollo"],
+    categorias: ["Platos Preparados"],
+    emoji: "🍗",
+    rating: "E",
+    kcal: 300, carbs: 17, azucares: 1, proteinas: 15, grasas: 19, grasasSat: 4, fibra: 1, sodio: 600,
+    motivo: "Los nuggets de pollo son un ultraprocesado: carne triturada y reconstituida, rebozado industrial, aceites refinados y aditivos, con unas 300 kcal y 600 mg de sodio por 100 g. Los metaanálisis asocian un mayor consumo de ultraprocesados con más riesgo de mortalidad y de enfermedades cardiometabólicas [1][2]. Por eso los calificamos E: un filete de pollo con rebozado casero al horno es una alternativa mucho mejor.",
+    estudios: [
+      {
+        "pmid": "38418082",
+        "titulo": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38418082/"
+      },
+      {
+        "pmid": "38688162",
+        "titulo": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38688162/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Pollo entero sin reconstituir, sin rebozado industrial y con mucho menos sodio y aditivos."
+      }
+    ]
+  },
+  {
+    id: "queso_brie",
+    nombre: "Queso brie",
+    aliases: ["brie", "queso brie", "camembert", "queso camembert"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 334, carbs: 0.5, azucares: 0.5, proteinas: 21, grasas: 28, grasasSat: 17, fibra: 0, sodio: 630,
+    motivo: "El brie aporta proteína y calcio y, como el resto de quesos, los metaanálisis de cohortes no encuentran un aumento claro del riesgo cardiovascular con un consumo moderado [1], y sustituir queso por otros lácteos cambia poco los lípidos en sangre [2]. Pero es un queso cremoso muy graso (unos 17 g de grasa saturada por 100 g) y con unos 630 mg de sodio. Por eso lo calificamos C: raciones pequeñas.",
+    estudios: [
+      {
+        "pmid": "27517544",
+        "titulo": "Cheese consumption and risk of cardiovascular disease: a meta-analysis of prospective studies.",
+        "revista": "European journal of nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27517544/"
+      },
+      {
+        "pmid": "37717700",
+        "titulo": "Effect of Isoenergetic Substitution of Cheese with Other Dairy Products on Blood Lipid Markers in the Fasted and Postprandial State: An Updated and Extended Systematic Review and Meta-Analysis of Randomized Controlled Trials in Adults.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37717700/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso cottage",
+        emoji: "🧀", mejor: true,
+        kcal: 98, carbs: 3.4, azucares: 2.7, proteinas: 11.1, grasas: 4.3, grasasSat: 1.7, fibra: 0, sodio: 364,
+        porque: "Mucha menos grasa saturada y sodio, manteniendo un lácteo fresco y proteico."
+      }
+    ]
+  },
+  {
+    id: "kombucha",
+    nombre: "Kombucha",
+    aliases: ["kombucha", "té kombucha", "te kombucha"],
+    categorias: ["Bebidas"],
+    emoji: "🍵",
+    rating: "B",
+    kcal: 15, carbs: 3.5, azucares: 2.5, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+    motivo: "La kombucha es té fermentado con bacterias y levaduras. Los estudios en personas son todavía pequeños: una revisión sistemática sobre microbiota y marcadores de salud metabólica [1] y un ensayo controlado reciente que observó cambios en la microbiota intestinal [2], sin evidencia sólida de beneficios clínicos. Es una bebida baja en calorías, pero conviene mirar la etiqueta (algunas llevan azúcar añadido) y puede contener trazas de alcohol por la fermentación. La calificamos B: una alternativa razonable a un refresco, sin ser un alimento milagroso.",
+    estudios: [
+      {
+        "pmid": "34698580",
+        "titulo": "Effect of kombucha intake on the gut microbiota and obesity-related comorbidities: A systematic review.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34698580/"
+      },
+      {
+        "pmid": "39738315",
+        "titulo": "Modulating the human gut microbiome and health markers through kombucha consumption: a controlled clinical study.",
+        "revista": "Scientific reports",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39738315/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "lentejas_cocidas",
+    nombre: "Lentejas (cocidas)",
+    aliases: ["lentejas cocidas", "lentejas de bote", "lentejas pochadas"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 116, carbs: 20.1, azucares: 1.8, proteinas: 9, grasas: 0.4, grasasSat: 0.1, fibra: 7.9, sodio: 2,
+    motivo: "Las lentejas cocidas, tal y como se comen o se compran de bote, aportan unos 9 g de proteína y casi 8 g de fibra por 100 g con casi nada de grasa. Destacan por sus polifenoles, saponinas y fitosteroles [1], con efectos antiinflamatorios y antimicrobianos descritos [2], y como el resto de legumbres se asocian a mejor salud cardiometabólica [3]. Una ración habitual son 60-80 g en seco (ver Lentejas), que al cocerse más que duplican su peso.",
+    estudios: [
+      {
+        "pmid": "36297337",
+        "titulo": "Polyphenols, Saponins and Phytosterols in Lentils and Their Health Benefits: An Overview.",
+        "revista": "Pharmaceuticals (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36297337/"
+      },
+      {
+        "pmid": "38501131",
+        "titulo": "Health-promoting benefits of lentils: Anti-inflammatory and anti-microbial effects.",
+        "revista": "Current research in physiology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38501131/"
+      },
+      {
+        "pmid": "36988580",
+        "titulo": "Health benefits of legume seeds.",
+        "revista": "Journal of the science of food and agriculture",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36988580/"
+      }
+    ],
+    sustitutos: []
   }
 ];
 
