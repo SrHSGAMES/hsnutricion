@@ -1811,6 +1811,7 @@ const RECETAS = [
   {
     id: "trucha_horno_hinojo",
     nombre: "Trucha al Horno con Hinojo y Patata",
+    imagen: "img/recetas/Trucha-al-Horno-con-Hinojo-y-Patata.jpg",
     emojiPortada: "🐟🌿🥔",
     rating: "B",
     tiempo: "40 min",
@@ -1844,6 +1845,7 @@ const RECETAS = [
   {
     id: "dorada_horno_verduras",
     nombre: "Dorada al Horno con Tomate, Calabacín y Cebolla",
+    imagen: "img/recetas/Dorada-al-Horno-con-Tomate-Calabacín-y-Cebolla.jpg",
     emojiPortada: "🐟🍅🧅",
     rating: "B",
     tiempo: "35 min",
@@ -1877,6 +1879,7 @@ const RECETAS = [
   {
     id: "arroz_conejo_judias",
     nombre: "Arroz Integral con Conejo y Judías Verdes",
+    imagen: "img/recetas/Arroz-Integral-con-Conejo-y-Judías-Verdes.jpg",
     emojiPortada: "🐇🍚🫛",
     rating: "B",
     tiempo: "55 min",
@@ -1912,6 +1915,7 @@ const RECETAS = [
   {
     id: "ensalada_lentejas_lombarda",
     nombre: "Ensalada de Lentejas con Lombarda y Rábano",
+    imagen: "img/recetas/Ensalada-de-Lentejas-con-Lombarda-y-Rábano.jpg",
     emojiPortada: "🥗🫘🥬",
     rating: "A",
     tiempo: "15 min",
@@ -1945,6 +1949,7 @@ const RECETAS = [
   {
     id: "espaguetis_integrales_almejas",
     nombre: "Espaguetis Integrales con Almejas",
+    imagen: "img/recetas/Espaguetis-Integrales-con-Almejas.jpg",
     emojiPortada: "🍝🐚🍋",
     rating: "B",
     tiempo: "25 min",
@@ -1976,6 +1981,7 @@ const RECETAS = [
   {
     id: "tostadas_habas_rabano",
     nombre: "Tostadas de Habas Machacadas con Rábano",
+    imagen: "img/recetas/Tostadas-de-Habas-Machacadas-con-Rábano.jpg",
     emojiPortada: "🍞🫘🌱",
     rating: "A",
     tiempo: "10 min",
@@ -2008,6 +2014,7 @@ const RECETAS = [
   {
     id: "nectarinas_asadas_yogur_soja",
     nombre: "Nectarinas Asadas con Yogur de Soja y Almendras",
+    imagen: "img/recetas/Nectarinas-Asadas-con-Yogur-de-Soja-y-Almendras.jpg",
     emojiPortada: "🍑🥣🌰",
     rating: "A",
     tiempo: "15 min",
