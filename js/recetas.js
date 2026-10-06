@@ -1807,5 +1807,233 @@ const RECETAS = [
       { pregunta: "¿Qué granola elijo?", respuesta: "Mira la etiqueta: cuanto menos azúcar y más avena y frutos secos, mejor. Si puedes, hazla en casa." },
       { pregunta: "¿Puedo sustituir el skyr?", respuesta: "El yogur griego natural funciona igual, con algo menos de proteína y más grasa." }
     ]
+  },
+  {
+    id: "trucha_horno_hinojo",
+    nombre: "Trucha al Horno con Hinojo y Patata",
+    emojiPortada: "🐟🌿🥔",
+    rating: "B",
+    tiempo: "40 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Trucha entera al horno sobre una cama de hinojo y patata con limón, ajo y orégano. Un plato único con casi 45 g de proteína por ración y solo 15 g de AOVE para toda la receta.",
+    motivo: "La trucha aporta proteína de calidad y omega-3, el hinojo suma fibra y la patata, carbohidrato saciante; con 8,8 g de fibra y solo 4,5 g de grasa saturada por ración es un plato muy equilibrado. Lo calificamos B y no A por el colesterol dietético de la trucha, como el resto de pescados de la guía.",
+    ingredientes: [
+      { foodId: "trucha", cantidad: 400 },
+      { foodId: "hinojo", cantidad: 300 },
+      { foodId: "ia_patata", cantidad: 300 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 40 },
+      { foodId: "ia_ajo", cantidad: 5 },
+      { foodId: "oregano", cantidad: 1 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Pela las patatas y córtalas en rodajas finas; corta el hinojo en láminas.",
+      "Coloca las patatas y el hinojo en una bandeja, aliña con la mitad del AOVE y hornea 15 minutos.",
+      "Pide al pescadero que limpie las truchas (unos 200 g cada una, ya limpias). Rellénalas con rodajas de limón y el ajo laminado, y colócalas sobre las verduras.",
+      "Rocía con el AOVE restante, espolvorea el orégano y hornea otros 15-20 minutos, hasta que la carne se separe fácilmente de la espina."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar filetes de trucha en lugar de trucha entera?", respuesta: "Sí; con filetes bastan 12-15 minutos de horno. Ajusta la cantidad, porque la trucha entera lleva espina y cabeza y los filetes no." },
+      { pregunta: "¿Cómo sé que está hecha?", respuesta: "Cuando la carne se desmenuza fácilmente con un tenedor y el ojo se ha vuelto blanco; no la pases de tiempo o quedará seca." },
+      { pregunta: "¿Con qué otro pescado funciona?", respuesta: "Con dorada o lubina enteras, ajustando el tiempo de horno según el tamaño." }
+    ]
+  },
+  {
+    id: "dorada_horno_verduras",
+    nombre: "Dorada al Horno con Tomate, Calabacín y Cebolla",
+    emojiPortada: "🐟🍅🧅",
+    rating: "B",
+    tiempo: "35 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Dorada al horno sobre una base de calabacín, tomate y cebolla con ajo y limón. Ligera, jugosa y con más de 40 g de proteína por ración en solo 340 kcal.",
+    motivo: "Con unas 340 kcal, 41 g de proteína y solo 3 g de grasa saturada por ración, es una cena muy ligera. Las verduras aportan fibra y volumen, y el AOVE, la grasa del plato. Lo calificamos B y no A por el colesterol dietético de la dorada.",
+    ingredientes: [
+      { foodId: "dorada", cantidad: 400 },
+      { foodId: "calabacin", cantidad: 200 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "ia_cebolla", cantidad: 100 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 20 },
+      { foodId: "ia_ajo", cantidad: 5 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Corta el calabacín en rodajas, la cebolla en juliana y el tomate en rodajas gruesas.",
+      "Extiende las verduras en una bandeja con el ajo laminado y la mitad del AOVE, y hornea 12 minutos.",
+      "Coloca encima las doradas limpias (unos 200 g cada una), con unas rodajas de limón en el interior, y riega con el AOVE restante.",
+      "Hornea 18-20 minutos más, hasta que la carne esté opaca y se separe de la espina. Sirve con el jugo de la bandeja y unas gotas de limón."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar lomos de dorada?", respuesta: "Sí, los lomos se hacen en unos 10-12 minutos. Colócalos sobre las verduras ya casi hechas." },
+      { pregunta: "¿Cómo hago el plato más completo?", respuesta: "Acompáñalo con arroz integral cocido o patata cocida; subirán las calorías y los hidratos." },
+      { pregunta: "¿Puedo congelar las sobras?", respuesta: "Mejor no: el pescado cocinado pierde jugosidad al descongelarse. Es preferible comerlo en el día o al siguiente." }
+    ]
+  },
+  {
+    id: "arroz_conejo_judias",
+    nombre: "Arroz Integral con Conejo y Judías Verdes",
+    emojiPortada: "🐇🍚🫛",
+    rating: "B",
+    tiempo: "55 min",
+    raciones: 3,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida"],
+    descripcion: "Un arroz meloso de conejo con judías verdes, pimiento y tomate, con pimentón y ajo. Un plato único de cuchara con casi 40 g de proteína por ración.",
+    motivo: "El conejo es una de las carnes más magras (solo 3,9 g de grasa saturada por ración en toda la receta), el arroz integral aporta fibra y las judías verdes y el pimiento suman verdura al plato. Lo calificamos B por el colesterol dietético del conejo.",
+    ingredientes: [
+      { foodId: "arroz_integral_seco", cantidad: 240 },
+      { foodId: "conejo", cantidad: 450 },
+      { foodId: "judias_verdes", cantidad: 150 },
+      { foodId: "ia_tomate_triturado", cantidad: 150 },
+      { foodId: "ia_pimiento_rojo", cantidad: 100 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "ia_ajo", cantidad: 5 },
+      { foodId: "pimenton", cantidad: 3 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 600 }
+    ],
+    pasos: [
+      "Trocea el conejo (pide al carnicero que lo deje en trozos pequeños y sin hígado) y dóralo en una cazuela con el AOVE a fuego medio-alto. Retíralo.",
+      "En la misma cazuela sofríe el pimiento en tiras y el ajo picado 5 minutos; añade el pimentón y el tomate triturado y cocina 3 minutos más.",
+      "Devuelve el conejo, añade las judías verdes troceadas y el arroz integral, y remueve un minuto.",
+      "Vierte el caldo caliente, lleva a ebullición y cocina a fuego suave, tapado, unos 40 minutos, hasta que el arroz esté tierno. Deja reposar 5 minutos antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo hacerlo con arroz blanco?", respuesta: "Sí, bastarán unos 18-20 minutos de cocción, pero tendrá menos fibra y bajará algo la nota." },
+      { pregunta: "¿Se puede sustituir el conejo?", respuesta: "Con muslos de pollo sin piel funciona igual, aunque el plato cambia de carácter." },
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "Sí, aguanta bien 2 días en la nevera; añade un chorrito de caldo al recalentar, porque el arroz sigue absorbiendo líquido." }
+    ]
+  },
+  {
+    id: "ensalada_lentejas_lombarda",
+    nombre: "Ensalada de Lentejas con Lombarda y Rábano",
+    emojiPortada: "🥗🫘🥬",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano", "proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Lentejas cocidas con col lombarda, rábano, zanahoria rallada y nueces, aliñadas con AOVE y vinagre de manzana. Crujiente, colorida y con casi 20 g de fibra por ración.",
+    motivo: "Casi 20 g de fibra, 21 g de proteína vegetal y solo 1,9 g de grasa saturada por ración, sin ingredientes de origen animal. La lombarda y el rábano aportan frescura y antioxidantes, y las nueces y el AOVE, grasa insaturada. Un plato A de manual.",
+    ingredientes: [
+      { foodId: "lentejas_cocidas", cantidad: 400 },
+      { foodId: "col_lombarda", cantidad: 150 },
+      { foodId: "rabano", cantidad: 60 },
+      { foodId: "ia_zanahoria", cantidad: 100 },
+      { foodId: "ia_nueces", cantidad: 20 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_vinagre_de_manzana", cantidad: 15 }
+    ],
+    pasos: [
+      "Escurre y aclara las lentejas cocidas de bote (o cuécelas tú: unos 160 g en seco dan 400 g cocidas).",
+      "Corta la lombarda en juliana muy fina, el rábano en rodajas finas y ralla la zanahoria.",
+      "Mezcla todo con las lentejas en un bol y añade las nueces troceadas.",
+      "Aliña con el AOVE y el vinagre de manzana, mezcla bien y deja reposar 5 minutos antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Se puede preparar con antelación?", respuesta: "Sí, aguanta 2 días en la nevera. Añade las nueces justo antes de servir para que no pierdan el crujiente." },
+      { pregunta: "¿Puedo usar otra legumbre?", respuesta: "Con garbanzos o alubias cocidos funciona igual, con algo menos de fibra." },
+      { pregunta: "¿La lombarda se come cruda?", respuesta: "Sí, y así conserva mejor sus antocianinas. Cortada muy fina queda tierna." }
+    ]
+  },
+  {
+    id: "espaguetis_integrales_almejas",
+    nombre: "Espaguetis Integrales con Almejas",
+    emojiPortada: "🍝🐚🍋",
+    rating: "B",
+    tiempo: "25 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Espaguetis integrales con almejas al ajo y limón: un plato marinero y rápido, con 24 g de proteína y 7,6 g de fibra por ración.",
+    motivo: "La pasta integral aporta fibra y carbohidrato de absorción lenta, y las almejas, proteína y minerales con muy poca grasa: solo 10,7 g de grasa y 1,6 g de saturada por ración. Lo calificamos B por el colesterol dietético de las almejas, igual que el resto de mariscos.",
+    ingredientes: [
+      { foodId: "pasta_integral_seca", cantidad: 160 },
+      { foodId: "almejas", cantidad: 200 },
+      { foodId: "ia_ajo", cantidad: 8 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 20 }
+    ],
+    pasos: [
+      "Deja las almejas en agua fría 30 minutos para que suelten la arena (unos 600 g con concha dan unos 200 g de carne). Cuece los espaguetis integrales en agua sin sal el tiempo del paquete y reserva un vaso del agua.",
+      "Sofríe el ajo laminado en el AOVE a fuego suave 1 minuto, sin que llegue a dorarse.",
+      "Añade las almejas, tapa y cocina 3-4 minutos hasta que se abran; descarta las que sigan cerradas.",
+      "Incorpora la pasta escurrida y un poco del agua de cocción, mezcla un minuto a fuego vivo y termina con un chorrito de limón."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar almejas congeladas o de bote?", respuesta: "Sí; las congeladas se descongelan en la nevera, y las de bote ya vienen cocidas: añádelas al final y ten en cuenta que llevan más sodio." },
+      { pregunta: "¿Cuánta pasta es una ración?", respuesta: "Aquí 80 g en seco por persona, que al cocerse dan unos 190 g de pasta integral cocida." },
+      { pregunta: "¿Por qué no añado sal?", respuesta: "Las almejas ya aportan sabor a mar; prueba antes de añadir nada." }
+    ]
+  },
+  {
+    id: "tostadas_habas_rabano",
+    nombre: "Tostadas de Habas Machacadas con Rábano",
+    emojiPortada: "🍞🫘🌱",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["desayuno", "snack"],
+    descripcion: "Pan integral tostado con habas machacadas con ajo, limón y AOVE, y rábano en láminas por encima. Un desayuno o tentempié con 10 g de fibra por ración.",
+    motivo: "Las habas aportan fibra y proteína vegetal, el pan integral, más fibra, y el rábano, un toque fresco y picante con casi nada de calorías. Con 10 g de fibra, solo 1,2 g de grasa saturada y 311 kcal por ración, es una opción A, 100 % vegetal.",
+    ingredientes: [
+      { foodId: "habas", cantidad: 200 },
+      { foodId: "pan_integral", cantidad: 120 },
+      { foodId: "aove", cantidad: 10 },
+      { foodId: "limon", cantidad: 15 },
+      { foodId: "rabano", cantidad: 40 },
+      { foodId: "ia_ajo", cantidad: 2 }
+    ],
+    pasos: [
+      "Tuesta las rebanadas de pan integral.",
+      "Machaca las habas cocidas con un tenedor junto con el ajo muy picado, el zumo de limón y la mitad del AOVE, dejando algo de textura.",
+      "Reparte el machacado sobre las tostadas y cubre con el rábano en láminas finas.",
+      "Termina con un hilo del AOVE restante."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar habas congeladas?", respuesta: "Sí: cuécelas 5-8 minutos en agua, escúrrelas y déjalas templar antes de machacarlas." },
+      { pregunta: "¿Las pueden comer todas las personas?", respuesta: "No: las habas pueden provocar favismo en personas con déficit de G6PD, que deben evitarlas." },
+      { pregunta: "¿Se puede preparar el machacado antes?", respuesta: "Sí, aguanta 2 días en la nevera en un recipiente cerrado; monta las tostadas justo antes de comer." }
+    ]
+  },
+  {
+    id: "nectarinas_asadas_yogur_soja",
+    nombre: "Nectarinas Asadas con Yogur de Soja y Almendras",
+    emojiPortada: "🍑🥣🌰",
+    rating: "A",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["snack", "desayuno"],
+    descripcion: "Nectarinas asadas con canela, servidas templadas sobre yogur de soja natural frío con almendras laminadas. Un postre o merienda 100 % vegetal de 189 kcal, sin azúcar añadido.",
+    motivo: "El asado concentra el dulzor natural de la nectarina, así que no hace falta azúcar ni miel. Con yogur de soja, 9 g de proteína vegetal y solo 0,8 g de grasa saturada por ración, las almendras aportan grasa insaturada y crujiente. Los 16 g de azúcares por ración vienen de la fruta y del yogur de soja natural, sin azúcar añadido: es un plato A y 100 % vegetal.",
+    ingredientes: [
+      { foodId: "nectarina", cantidad: 300 },
+      { foodId: "yogur_soja", cantidad: 250 },
+      { foodId: "ia_almendras", cantidad: 20 },
+      { foodId: "ia_canela", cantidad: 1 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Corta las nectarinas por la mitad, quita el hueso y colócalas con el corte hacia arriba en una bandeja.",
+      "Espolvorea la canela y hornea 12 minutos, hasta que estén blandas y ligeramente doradas.",
+      "Tuesta las almendras laminadas 2 minutos en una sartén seca.",
+      "Reparte el yogur de soja en dos boles, coloca encima las nectarinas templadas y termina con las almendras."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo hacerlas en la sartén?", respuesta: "Sí: a fuego medio, con el corte hacia abajo, unos 4-5 minutos por lado en una sartén antiadherente sin aceite." },
+      { pregunta: "¿Con qué otras frutas funciona?", respuesta: "Con melocotón, ciruela o albaricoque; ajusta el tiempo según lo maduras que estén." },
+      { pregunta: "¿Puedo usar yogur de leche?", respuesta: "Sí, el natural o el griego funcionan igual y aportan más proteína, pero la receta dejará de ser vegana." }
+    ]
   }
+
 ];
