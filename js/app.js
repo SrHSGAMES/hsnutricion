@@ -972,10 +972,57 @@
       pintar();
     }
 
+    // Cambia un único plato de una comida y deja el resto como estaba. El nuevo plato se
+    // ajusta a lo que falta para el objetivo del día y no repite nada que ya esté en el menú.
+    function cambiarPlato(comida, indice) {
+      const platos = menu[comida];
+      const actual = platos[indice];
+      if (!actual) return;
+      const total = comidasActivas.reduce((t, c) => t + kcalPlatos(menu[c]), 0);
+      const objetivoPlato = Math.max(objetivo - (total - kcalPlatos([actual])), 60);
+      const resto = platos.filter((_, i) => i !== indice);
+      const principales = comida !== "snack";
+      const sueltosEnResto = resto.filter(p => p.receta.suelto).length;
+      const hayOtraReceta = resto.some(p => !p.receta.suelto);
+      const enMenu = new Set(comidasActivas.flatMap(c => menu[c].map(p => p.receta.id)));
+      const soloEstaComida = new Set(resto.map(p => p.receta.id).concat(actual.receta.id));
+
+      const buscar = excluir => {
+        let pool = candidatas(comida, excluir);
+        // una comida principal conserva al menos una receta y como mucho 2 alimentos sueltos
+        if (principales && !hayOtraReceta && pool.some(r => !r.suelto)) pool = pool.filter(r => !r.suelto);
+        if (principales && sueltosEnResto >= 2) pool = pool.filter(r => !r.suelto);
+        const opciones = [];
+        pool.forEach(receta => [1, 2].forEach(raciones => {
+          const plato = { receta, raciones };
+          opciones.push({ plato, error: Math.abs(kcalPlatos([plato]) - objetivoPlato) / objetivoPlato });
+        }));
+        opciones.sort((a, b) => a.error - b.error);
+        // Una opción por receta (la mejor ración) y, entre las más cercanas, una al azar.
+        const vistas = new Set();
+        const unicas = opciones.filter(o => !vistas.has(o.plato.receta.id) && vistas.add(o.plato.receta.id));
+        const top = unicas.slice(0, 6);
+        return top.length ? top[aleatorio(top.length)].plato : null;
+      };
+      // Primero algo que no esté en ninguna parte del menú; si no queda nada, se permite repetir otra comida.
+      const nuevo = buscar(enMenu) || buscar(soloEstaComida);
+      if (!nuevo) {
+        aviso.textContent = "No hay más alternativas para este plato con los filtros actuales.";
+        return;
+      }
+      aviso.textContent = "";
+      platos[indice] = nuevo;
+      pintar();
+      const boton = resultado.querySelector(`[data-cambiar-plato="${comida}:${indice}"]`);
+      if (boton) boton.focus({ preventScroll: true });
+    }
+
     const fmt = n => Math.round(n).toLocaleString("es-ES");
     const fmt1 = n => (Math.round(n * 10) / 10).toLocaleString("es-ES");
 
-    function crearPlato({ receta, raciones }) {
+    function crearPlato({ receta, raciones }, comida, indice) {
+      const item = document.createElement("div");
+      item.className = "menu-plato-item";
       const a = document.createElement("a");
       a.className = "menu-plato";
       if (receta.suelto) { if (receta.href) a.href = receta.href; } else a.href = urlReceta(receta);
@@ -991,7 +1038,15 @@
             : `${raciones} ${raciones === 1 ? "ración" : "raciones"}`} · ${fmt(kcalRacion(receta) * raciones)} kcal</span>
         </span>
         <span class="badge badge-${receta.rating}" title="Calificación nutricional">${receta.rating}</span>`;
-      return a;
+      const cambiar = document.createElement("button");
+      cambiar.type = "button";
+      cambiar.className = "menu-plato-cambiar";
+      cambiar.dataset.cambiarPlato = comida + ":" + indice;
+      cambiar.title = "Cambiar solo este plato";
+      cambiar.setAttribute("aria-label", "Cambiar solo este plato: " + receta.nombre);
+      cambiar.innerHTML = '<span aria-hidden="true">↻</span><span class="menu-plato-cambiar-txt">Cambiar</span>';
+      item.append(a, cambiar);
+      return item;
     }
 
     // --- Lista de la compra: suma los ingredientes de todo el menú, escalados a las raciones elegidas.
@@ -1159,13 +1214,17 @@
           </header>`;
         const lista = document.createElement("div");
         lista.className = "menu-platos";
-        menu[comida].forEach(p => lista.appendChild(crearPlato(p)));
+        menu[comida].forEach((p, i) => lista.appendChild(crearPlato(p, comida, i)));
         if (!menu[comida].length) lista.innerHTML = '<p class="recetas-sin-resultados">Sin recetas disponibles con estos filtros.</p>';
         sec.appendChild(lista);
         resultado.appendChild(sec);
       });
       if (comidasActivas.some(c => menu[c].length)) resultado.appendChild(crearCompra());
       resultado.querySelectorAll("[data-cambiar]").forEach(b => b.addEventListener("click", () => cambiarComida(b.dataset.cambiar)));
+      resultado.querySelectorAll("[data-cambiar-plato]").forEach(b => b.addEventListener("click", () => {
+        const [comida, indice] = b.dataset.cambiarPlato.split(":");
+        cambiarPlato(comida, Number(indice));
+      }));
     }
 
     btnGenerar.addEventListener("click", () => { aviso.textContent = ""; generar(); });
