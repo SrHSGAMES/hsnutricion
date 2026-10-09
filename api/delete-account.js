@@ -1,8 +1,8 @@
 // POST /api/delete-account   body: { password }
 //
 // Borra la cuenta del usuario y, con ella, todas las recetas de comunidad
-// que había publicado (decisión explícita: borrar la cuenta borra también
-// tu rastro). Requiere volver a escribir la contraseña para confirmar.
+// que había publicado y sus menús guardados (decisión explícita: borrar la
+// cuenta borra también tu rastro). Requiere volver a escribir la contraseña para confirmar.
 
 import {
   almacenDisponible,
@@ -10,7 +10,8 @@ import {
   borrarUsuario,
   borrarSesion,
   listarRecetasComunidad,
-  borrarRecetaComunidad
+  borrarRecetaComunidad,
+  borrarMenusUsuario
 } from "./_lib/store.js";
 import { verificarPassword } from "./_lib/auth.js";
 import { leerTokenSesion, serializarCookieBorrado } from "./_lib/cookies.js";
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
     const token = leerTokenSesion(req);
     if (token) await borrarSesion(token).catch(() => {});
 
+    await borrarMenusUsuario(usernameLower);
     await borrarUsuario(usernameLower);
 
     res.setHeader("Set-Cookie", serializarCookieBorrado(req));

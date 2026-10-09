@@ -1155,35 +1155,88 @@
       if (boton) boton.focus({ preventScroll: true });
     }
 
-    // --- Menús guardados: varios, con nombre, en este navegador y ligados al usuario.
+    // --- Menús guardados: varios, con nombre, en la cuenta (se ven desde cualquier dispositivo).
+    // Viven en el servidor (/api/me); la lista se mantiene aquí en memoria.
     const MAX_MENUS = 20;
-    const claveMenus = () => "hsn:menus:" + String(window.__usuarioActual || "").toLowerCase();
-    function leerMenus() {
+    let menusGuardados = [];
+    let errorMenus = ""; // por qué no se han podido cargar (si ha pasado)
+
+    async function apiMenus(cuerpo) {
+      const r = await fetch("/api/me" + (cuerpo ? "" : "?recurso=menus"), cuerpo
+        ? { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(cuerpo) }
+        : undefined);
+      const datos = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(datos.error || "No se ha podido conectar con tu cuenta. Inténtalo de nuevo.");
+      return Array.isArray(datos.menus) ? datos.menus : [];
+    }
+
+    // Menús que se guardaron antes solo en este navegador (versión anterior): se suben a la cuenta una vez.
+    const claveLocalAntigua = usuario => "hsn:menus:" + String(usuario || "").toLowerCase();
+    function leerMenusLocales(usuario) {
       try {
-        const lista = JSON.parse(localStorage.getItem(claveMenus()) || "[]");
+        const lista = JSON.parse(localStorage.getItem(claveLocalAntigua(usuario)) || "[]");
         return Array.isArray(lista) ? lista : [];
       } catch (_) { return []; }
     }
-    function escribirMenus(lista) {
-      try { localStorage.setItem(claveMenus(), JSON.stringify(lista)); return true; } catch (_) { return false; }
+    function actualizarMenusLocales(usuario, restantes) {
+      try {
+        if (restantes.length) localStorage.setItem(claveLocalAntigua(usuario), JSON.stringify(restantes));
+        else localStorage.removeItem(claveLocalAntigua(usuario));
+      } catch (_) { /* sin almacenamiento local */ }
     }
 
-    function guardarMenuActual(nombre) {
-      if (!menu || !window.__usuarioActual) return "Inicia sesión para guardar menús.";
-      const lista = leerMenus();
-      if (lista.length >= MAX_MENUS) return `Ya tienes ${MAX_MENUS} menús guardados. Borra alguno para guardar otro.`;
-      lista.unshift({
-        id: Date.now().toString(36) + aleatorio(1e6).toString(36),
-        nombre: nombre.trim().slice(0, 40),
-        fecha: new Date().toISOString(),
-        objetivo,
-        kcal: Math.round(comidasActivas.reduce((t, c) => t + kcalPlatos(menu[c]), 0)),
-        comidas: comidasActivas.slice(),
-        menu: Object.fromEntries(comidasActivas.map(c => [c, menu[c].map(p => ({ id: p.receta.id, raciones: p.raciones }))]))
-      });
-      if (!escribirMenus(lista)) return "Tu navegador no deja guardar datos (¿modo privado?).";
+    async function cargarMenusGuardados() {
+      const usuario = window.__usuarioActual;
+      if (!usuario) { menusGuardados = []; errorMenus = ""; renderGuardados(); return; }
+      try {
+        let lista = await apiMenus();
+        const locales = leerMenusLocales(usuario);
+        if (locales.length) {
+          lista = await apiMenus({ accion: "importar", menus: locales });
+          // Solo se borran del navegador los que ya están en la cuenta (por si se llegó al máximo).
+          actualizarMenusLocales(usuario, locales.filter(l => !lista.some(m => m.id === l.id)));
+        }
+        if (usuario !== window.__usuarioActual) return; // cambió de sesión mientras cargaba
+        menusGuardados = lista;
+        errorMenus = "";
+      } catch (err) {
+        menusGuardados = [];
+        errorMenus = err.message;
+      }
       renderGuardados();
-      return "";
+    }
+
+    async function guardarMenuActual(nombre) {
+      if (!menu || !window.__usuarioActual) return "Inicia sesión para guardar menús.";
+      try {
+        menusGuardados = await apiMenus({
+          accion: "guardar",
+          menu: {
+            id: Date.now().toString(36) + aleatorio(1e6).toString(36),
+            nombre: nombre.trim().slice(0, 40),
+            fecha: new Date().toISOString(),
+            objetivo,
+            kcal: Math.round(comidasActivas.reduce((t, c) => t + kcalPlatos(menu[c]), 0)),
+            comidas: comidasActivas.slice(),
+            menu: Object.fromEntries(comidasActivas.map(c => [c, menu[c].map(p => ({ id: p.receta.id, raciones: p.raciones }))]))
+          }
+        });
+        errorMenus = "";
+        renderGuardados();
+        return "";
+      } catch (err) {
+        return err.message;
+      }
+    }
+
+    async function borrarMenuGuardado(id) {
+      try {
+        menusGuardados = await apiMenus({ accion: "borrar", id });
+        aviso.textContent = "";
+      } catch (err) {
+        aviso.textContent = err.message;
+      }
+      renderGuardados();
     }
 
     function abrirMenuGuardado(m) {
@@ -1212,13 +1265,19 @@
     function renderGuardados() {
       const cont = document.getElementById("menuGuardados");
       if (!cont) return;
-      const lista = window.__usuarioActual ? leerMenus() : [];
-      cont.hidden = lista.length === 0;
+      const lista = window.__usuarioActual ? menusGuardados : [];
+      const hayError = Boolean(window.__usuarioActual && errorMenus);
+      cont.hidden = lista.length === 0 && !hayError;
       cont.innerHTML = "";
-      if (!lista.length) return;
+      if (cont.hidden) return;
+      if (!lista.length) {
+        cont.innerHTML = `<div class="menu-guardados-cab"><h3>📌 Mis menús guardados</h3></div><p class="menu-guardar-msg error"></p>`;
+        cont.querySelector(".menu-guardar-msg").textContent = "No se han podido cargar tus menús guardados: " + errorMenus;
+        return;
+      }
       const cab = document.createElement("div");
       cab.className = "menu-guardados-cab";
-      cab.innerHTML = `<h3>📌 Mis menús guardados</h3><span class="menu-guardados-nota">Se guardan en este navegador, con tu usuario (${lista.length}/${MAX_MENUS}).</span>`;
+      cab.innerHTML = `<h3>📌 Mis menús guardados</h3><span class="menu-guardados-nota">Guardados en tu cuenta: los ves desde cualquier dispositivo (${lista.length}/${MAX_MENUS}).</span>`;
       const ul = document.createElement("ul");
       ul.className = "menu-guardados-lista";
       lista.forEach(m => {
@@ -1245,8 +1304,8 @@
             return;
           }
           clearTimeout(temporizador);
-          escribirMenus(leerMenus().filter(x => x.id !== m.id));
-          renderGuardados();
+          borrar.disabled = true;
+          borrarMenuGuardado(m.id);
         });
         li.append(info, abrir, borrar);
         ul.appendChild(li);
@@ -1448,12 +1507,17 @@
       acciones.querySelector('[data-guardar="cancelar"]').addEventListener("click", () => {
         formGuardar.hidden = true; btnAbrirGuardar.hidden = false;
       });
-      formGuardar.addEventListener("submit", e => {
+      formGuardar.addEventListener("submit", async e => {
         e.preventDefault();
-        const error = guardarMenuActual(formGuardar.querySelector("input").value);
+        const botones = formGuardar.querySelectorAll("button");
+        botones.forEach(b => { b.disabled = true; });
+        msgGuardar.classList.remove("error");
+        msgGuardar.textContent = "Guardando…";
+        const error = await guardarMenuActual(formGuardar.querySelector("input").value);
+        botones.forEach(b => { b.disabled = false; });
         formGuardar.hidden = true; btnAbrirGuardar.hidden = false;
         msgGuardar.classList.toggle("error", Boolean(error));
-        msgGuardar.textContent = error || "✓ Menú guardado";
+        msgGuardar.textContent = error || "✓ Menú guardado en tu cuenta";
       });
       resumen.appendChild(acciones);
       resultado.appendChild(resumen);
@@ -1498,8 +1562,8 @@
     btnGenerar.addEventListener("click", () => { aviso.textContent = ""; generar(); });
     inputKcal.addEventListener("keydown", e => { if (e.key === "Enter") btnGenerar.click(); });
     btnLimpiar.addEventListener("click", () => { filtros.limpiar(); actualizarNumFiltros(0); });
-    document.addEventListener("hsn:auth-cambio", renderGuardados);
-    renderGuardados();
+    document.addEventListener("hsn:auth-cambio", cargarMenusGuardados);
+    cargarMenusGuardados();
   }, ["menuApp"]);
 
   /* ================= Recetas saludables: teaser en el índice ================= */

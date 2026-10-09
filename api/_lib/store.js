@@ -116,6 +116,23 @@ export async function obtenerUsuarioDeSesion(req) {
   return obtenerUsuario(sesion.usernameLower);
 }
 
+// --- Menús diarios guardados (una lista por usuario) ---
+
+export async function obtenerMenusUsuario(usernameLower) {
+  const raw = await comando(["GET", `hsn:menus:${usernameLower}`]);
+  const lista = raw ? JSON.parse(raw) : [];
+  return Array.isArray(lista) ? lista : [];
+}
+
+export async function guardarMenusUsuario(usernameLower, lista) {
+  if (!lista.length) await comando(["DEL", `hsn:menus:${usernameLower}`]);
+  else await comando(["SET", `hsn:menus:${usernameLower}`, JSON.stringify(lista)]);
+}
+
+export async function borrarMenusUsuario(usernameLower) {
+  await comando(["DEL", `hsn:menus:${usernameLower}`]);
+}
+
 // --- Recetas de la comunidad ---
 
 export async function guardarRecetaComunidad(id, entrada) {
