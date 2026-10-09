@@ -484,6 +484,117 @@
     };
   }
 
+  /* ================= Alérgenos y alimentos excluidos (filtros de recetas y menú) ================= */
+  // Los 14 alérgenos de declaración obligatoria en la UE. Se deducen del NOMBRE de
+  // cada ingrediente (sin lo que va entre paréntesis), así que un alimento nuevo en
+  // una receta queda clasificado solo. Es orientativo: no cuenta trazas ni los
+  // ingredientes ocultos de productos envasados (revisa siempre la etiqueta).
+  const ALERGENOS = [
+    { id: "gluten", etiqueta: "Gluten", re: /\b(trigo|avena|cebada|centeno|espelta|kamut|seitan|bulgur|cuscus|pasta|pan|galletas?|croissant|granola|kataifi|tortitas de (avena|trigo)|rallado|cerveza|salsa de soja|cereales de desayuno|pizza|nuggets|crepes?)\b/, sin: /trigo sarraceno/ },
+    { id: "crustaceos", etiqueta: "Crustáceos", re: /\b(gambas?|langostinos?|cangrejo|bogavante|langosta|camarones?|cigalas?|surimi)\b/ },
+    { id: "huevo", etiqueta: "Huevo", re: /\b(huevos?|clara|yema|mayonesa|tortilla de patata)\b/ },
+    { id: "pescado", etiqueta: "Pescado", re: /\b(salmon|atun|merluza|bacalao|sardinas?|caballa|trucha|dorada|lubina|anchoas?|surimi|pescado)\b/ },
+    { id: "cacahuete", etiqueta: "Cacahuete", re: /cacahuete/ },
+    { id: "soja", etiqueta: "Soja", re: /\b(soja|tofu|tempeh|edamame|miso)\b/ },
+    { id: "lacteos", etiqueta: "Lácteos", re: /\b(leche|yogur|yogurt|queso|nata|mantequilla|kefir|skyr|requeson|cottage|whey|suero|mozzarella|feta|brie|parmesano|helado|natillas|cuajada|chocolate blanco)\b/, sin: /soja|coco|almendra|avena|vegetal|vegan|cacahuete|margarina/ },
+    { id: "frutos-cascara", etiqueta: "Frutos de cáscara", re: /\b(almendras?|nueces|nuez|avellanas?|anacardos?|pistachos?|pinones|pacanas?|macadamia)\b/, sin: /nuez moscada/ },
+    { id: "apio", etiqueta: "Apio", re: /\b(apio|caldo)\b/ },
+    { id: "mostaza", etiqueta: "Mostaza", re: /\bmostaza\b/ },
+    { id: "sesamo", etiqueta: "Sésamo", re: /\b(sesamo|tahini|tahin)\b/ },
+    { id: "sulfitos", etiqueta: "Sulfitos", re: /\b(vino|vinagre balsamico|cerveza|orejones|higos secos|ciruelas pasas|pasas)\b/ },
+    { id: "altramuces", etiqueta: "Altramuces", re: /\b(altramuz|altramuces|lupino)\b/ },
+    { id: "moluscos", etiqueta: "Moluscos", re: /\b(almejas?|mejillones?|pulpo|calamar(es)?|sepia|ostras?|vieiras?|caracoles?|berberechos?)\b/ }
+  ];
+  const alergenosPorAlimento = new Map();
+  function alergenosDeAlimento(foodId) {
+    if (!alergenosPorAlimento.has(foodId)) {
+      const food = FOODS.find(f => f.id === foodId);
+      const texto = food ? normalizar(food.nombre.replace(/\([^)]*\)/g, " ")) : "";
+      alergenosPorAlimento.set(foodId, ALERGENOS.filter(a => a.re.test(texto) && !(a.sin && a.sin.test(texto))).map(a => a.id));
+    }
+    return alergenosPorAlimento.get(foodId);
+  }
+  const alergenosPorReceta = new Map();
+  function alergenosDeReceta(receta) {
+    if (!alergenosPorReceta.has(receta.id)) {
+      alergenosPorReceta.set(receta.id, [...new Set(receta.ingredientes.flatMap(i => alergenosDeAlimento(i.foodId)))]);
+    }
+    return alergenosPorReceta.get(receta.id);
+  }
+
+  // Buscador para excluir alimentos concretos: se escribe, se elige de la lista y
+  // queda como chip que se quita con un clic. Una receta que lleve cualquiera de
+  // los alimentos elegidos (opcionales incluidos) deja de salir.
+  function crearFiltroExcluirAlimentos(contenedor, onChange) {
+    const seleccion = new Set();
+    let opciones = []; // [{ valor, etiqueta, norm }]
+    contenedor.innerHTML = `
+      <div class="excluir-buscador">
+        <input type="search" class="excluir-input" placeholder="Escribe un alimento que no quieras (p. ej. cilantro)…" autocomplete="off" aria-label="Buscar un alimento para excluirlo">
+        <ul class="excluir-sugerencias" role="listbox" hidden></ul>
+      </div>
+      <div class="filtro-chips excluir-elegidos"></div>`;
+    const input = contenedor.querySelector(".excluir-input");
+    const lista = contenedor.querySelector(".excluir-sugerencias");
+    const elegidos = contenedor.querySelector(".excluir-elegidos");
+
+    function pintarElegidos() {
+      elegidos.innerHTML = "";
+      seleccion.forEach(id => {
+        const op = opciones.find(o => o.valor === id);
+        const chip = document.createElement("button");
+        chip.type = "button";
+        chip.className = "filtro-chip activo excluir-chip";
+        chip.textContent = (op ? op.etiqueta : id) + " ✕";
+        chip.setAttribute("aria-label", "Dejar de excluir " + (op ? op.etiqueta : id));
+        chip.addEventListener("click", () => { seleccion.delete(id); pintarElegidos(); onChange(seleccion); });
+        elegidos.appendChild(chip);
+      });
+    }
+    function sugerencias() {
+      const q = normalizar(input.value.trim());
+      lista.innerHTML = "";
+      if (!q) { lista.hidden = true; return []; }
+      const encontradas = opciones
+        .filter(o => !seleccion.has(o.valor) && o.norm.includes(q))
+        .sort((a, b) => (b.norm.startsWith(q) - a.norm.startsWith(q)) || a.etiqueta.localeCompare(b.etiqueta, "es"))
+        .slice(0, 8);
+      encontradas.forEach(o => {
+        const li = document.createElement("li");
+        li.setAttribute("role", "option");
+        li.textContent = o.etiqueta;
+        // mousedown (y no click) para que se elija antes de que el campo pierda el foco
+        li.addEventListener("mousedown", e => { e.preventDefault(); elegir(o.valor); });
+        lista.appendChild(li);
+      });
+      lista.hidden = encontradas.length === 0;
+      return encontradas;
+    }
+    function elegir(id) {
+      seleccion.add(id);
+      input.value = "";
+      lista.hidden = true;
+      pintarElegidos();
+      onChange(seleccion);
+    }
+    input.addEventListener("input", sugerencias);
+    input.addEventListener("keydown", e => {
+      if (e.key === "Enter") { e.preventDefault(); const [primera] = sugerencias(); if (primera) elegir(primera.valor); }
+      else if (e.key === "Escape") lista.hidden = true;
+    });
+    input.addEventListener("blur", () => { lista.hidden = true; });
+
+    return {
+      seleccion,
+      // Las opciones se pueden fijar más tarde (el menú añade sus alimentos sueltos).
+      fijarOpciones(lista_) {
+        opciones = lista_.map(o => ({ ...o, norm: normalizar(o.etiqueta) }));
+        pintarElegidos();
+      },
+      limpiar() { seleccion.clear(); input.value = ""; lista.hidden = true; pintarElegidos(); }
+    };
+  }
+
   /* ================= Filtros: rango doble (barra de dos tiradores + cajas numéricas) ================= */
   // min/max delimitan la barra visual; las cajas numéricas no tienen tope, así
   // que se puede escribir un valor mayor del que alcanza la barra (p.ej. para
@@ -691,7 +802,7 @@
   // devuelve pasa(receta) para filtrar, activos() para el contador del botón
   // "Filtros" y limpiar(). Así el menú diario usa exactamente los mismos
   // filtros que el listado de recetas, sin duplicar lógica.
-  function crearFiltrosRecetas({ contMomento, contCategoria, contRating, contRangos, onChange, sinBajoEnCalorias = false }) {
+  function crearFiltrosRecetas({ contMomento, contCategoria, contRating, contRangos, contAlergenos, contExcluir, onChange, sinBajoEnCalorias = false }) {
     // Macros totales de cada receta completa (no por ración): se calculan una
     // sola vez y se reutilizan en cada filtrado por rango.
     const macrosPorReceta = new Map(RECETAS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
@@ -713,6 +824,22 @@
       { valor: "D", etiqueta: "D" }, { valor: "E", etiqueta: "E" }
     ], onChange);
 
+    // Exclusiones: alérgenos (chips) y alimentos concretos (buscador). Opcionales: solo si la página trae el contenedor.
+    const chipsAlergenos = contAlergenos
+      ? crearFiltroChips(contAlergenos, ALERGENOS.map(a => ({ valor: a.id, etiqueta: a.etiqueta })), onChange)
+      : null;
+    const excluirAlimentos = contExcluir ? crearFiltroExcluirAlimentos(contExcluir, onChange) : null;
+    // Alimentos que se pueden excluir: los que aparecen como ingrediente en alguna receta (más los extra que pase la página).
+    function fijarAlimentos(extra = []) {
+      if (!excluirAlimentos) return;
+      const ids = new Set([...RECETAS.flatMap(r => r.ingredientes.map(i => i.foodId)), ...extra]);
+      ids.delete("ia_agua");
+      excluirAlimentos.fijarOpciones(
+        [...ids].map(id => FOODS.find(f => f.id === id)).filter(Boolean).map(f => ({ valor: f.id, etiqueta: formatearNombre(f.nombre) }))
+      );
+    }
+    fijarAlimentos();
+
     const rangoTiempo = crearFiltroRango({ etiqueta: "Tiempo de preparación (min)", min: 0, max: 180, step: 5, onChange });
     const rangoKcal = crearFiltroRango({ etiqueta: "Calorías (receta completa)", min: 0, max: 5000, step: 10, onChange });
     const rangoCarbs = crearFiltroRango({ etiqueta: "Carbohidratos (g, receta completa)", min: 0, max: 1000, step: 5, onChange });
@@ -733,6 +860,8 @@
         const momentos = chipsMomento ? chipsMomento.seleccion : new Set();
         const cats = chipsCategoria.seleccion;
         const ratings = chipsRating.seleccion;
+        if (chipsAlergenos && chipsAlergenos.seleccion.size && alergenosDeReceta(r).some(a => chipsAlergenos.seleccion.has(a))) return false;
+        if (excluirAlimentos && excluirAlimentos.seleccion.size && r.ingredientes.some(i => excluirAlimentos.seleccion.has(i.foodId))) return false;
         return (momentos.size === 0 || (r.momento || []).some(m => momentos.has(m))) &&
           (cats.size === 0 || (r.etiquetas || []).some(c => cats.has(c))) &&
           (ratings.size === 0 || ratings.has(r.rating)) &&
@@ -744,9 +873,13 @@
       },
       activos() {
         return (chipsMomento ? chipsMomento.seleccion.size : 0) + chipsCategoria.seleccion.size +
-          chipsRating.seleccion.size + rangos.filter(r => r.activo()).length;
+          chipsRating.seleccion.size + rangos.filter(r => r.activo()).length +
+          (chipsAlergenos ? chipsAlergenos.seleccion.size : 0) + (excluirAlimentos ? excluirAlimentos.seleccion.size : 0);
       },
+      fijarAlimentos,
       limpiar() {
+        if (chipsAlergenos) chipsAlergenos.limpiar();
+        if (excluirAlimentos) excluirAlimentos.limpiar();
         if (chipsMomento) chipsMomento.limpiar();
         chipsCategoria.limpiar();
         chipsRating.limpiar();
@@ -770,6 +903,8 @@
       contCategoria: document.getElementById("filtroCategoriaRecetas"),
       contRating: document.getElementById("filtroRatingRecetas"),
       contRangos: document.getElementById("filtroRangosRecetas"),
+      contAlergenos: document.getElementById("filtroAlergenosRecetas"),
+      contExcluir: document.getElementById("filtroExcluirRecetas"),
       onChange: renderRecetas
     });
 
@@ -830,6 +965,8 @@
       contCategoria: document.getElementById("filtroCategoriaMenu"),
       contRating: document.getElementById("filtroRatingMenu"),
       contRangos: document.getElementById("filtroRangosMenu"),
+      contAlergenos: document.getElementById("filtroAlergenosMenu"),
+      contExcluir: document.getElementById("filtroExcluirMenu"),
       onChange: () => actualizarNumFiltros(filtros.activos()),
       sinBajoEnCalorias: true // depende de las calorías que se pidan, así que aquí no tiene sentido
     });
@@ -883,6 +1020,7 @@
       };
     }).filter(Boolean);
     const TODOS = [...RECETAS, ...SUELTOS];
+    filtros.fijarAlimentos(SUELTOS.map(s => s.ingredientes[0].foodId)); // los alimentos sueltos también se pueden excluir
 
     const macrosDe = new Map(TODOS.map(r => [r.id, calcularMacrosReceta(r.ingredientes)]));
     const racionesDe = r => Math.max(r.raciones || 1, 1);
@@ -1015,6 +1153,105 @@
       pintar();
       const boton = resultado.querySelector(`[data-cambiar-plato="${comida}:${indice}"]`);
       if (boton) boton.focus({ preventScroll: true });
+    }
+
+    // --- Menús guardados: varios, con nombre, en este navegador y ligados al usuario.
+    const MAX_MENUS = 20;
+    const claveMenus = () => "hsn:menus:" + String(window.__usuarioActual || "").toLowerCase();
+    function leerMenus() {
+      try {
+        const lista = JSON.parse(localStorage.getItem(claveMenus()) || "[]");
+        return Array.isArray(lista) ? lista : [];
+      } catch (_) { return []; }
+    }
+    function escribirMenus(lista) {
+      try { localStorage.setItem(claveMenus(), JSON.stringify(lista)); return true; } catch (_) { return false; }
+    }
+
+    function guardarMenuActual(nombre) {
+      if (!menu || !window.__usuarioActual) return "Inicia sesión para guardar menús.";
+      const lista = leerMenus();
+      if (lista.length >= MAX_MENUS) return `Ya tienes ${MAX_MENUS} menús guardados. Borra alguno para guardar otro.`;
+      lista.unshift({
+        id: Date.now().toString(36) + aleatorio(1e6).toString(36),
+        nombre: nombre.trim().slice(0, 40),
+        fecha: new Date().toISOString(),
+        objetivo,
+        kcal: Math.round(comidasActivas.reduce((t, c) => t + kcalPlatos(menu[c]), 0)),
+        comidas: comidasActivas.slice(),
+        menu: Object.fromEntries(comidasActivas.map(c => [c, menu[c].map(p => ({ id: p.receta.id, raciones: p.raciones }))]))
+      });
+      if (!escribirMenus(lista)) return "Tu navegador no deja guardar datos (¿modo privado?).";
+      renderGuardados();
+      return "";
+    }
+
+    function abrirMenuGuardado(m) {
+      const porId = new Map(TODOS.map(r => [r.id, r]));
+      const comidas = (m.comidas || Object.keys(m.menu || {})).filter(c => COMIDAS[c]);
+      let perdidos = 0;
+      const nuevo = {};
+      comidas.forEach(c => {
+        nuevo[c] = ((m.menu || {})[c] || []).map(p => {
+          const receta = porId.get(p.id);
+          if (!receta) { perdidos++; return null; }
+          return { receta, raciones: p.raciones || 1 };
+        }).filter(Boolean);
+      });
+      if (!comidas.length) return;
+      menu = nuevo;
+      objetivo = Number(m.objetivo) || objetivo;
+      comidasActivas = comidas;
+      inputKcal.value = objetivo;
+      chkSnacks.checked = comidas.includes("snack");
+      aviso.textContent = perdidos ? `${perdidos} ${perdidos === 1 ? "plato ya no existe" : "platos ya no existen"} en la web y se ha quitado del menú.` : "";
+      pintar();
+      resultado.scrollIntoView({ block: "start" });
+    }
+
+    function renderGuardados() {
+      const cont = document.getElementById("menuGuardados");
+      if (!cont) return;
+      const lista = window.__usuarioActual ? leerMenus() : [];
+      cont.hidden = lista.length === 0;
+      cont.innerHTML = "";
+      if (!lista.length) return;
+      const cab = document.createElement("div");
+      cab.className = "menu-guardados-cab";
+      cab.innerHTML = `<h3>📌 Mis menús guardados</h3><span class="menu-guardados-nota">Se guardan en este navegador, con tu usuario (${lista.length}/${MAX_MENUS}).</span>`;
+      const ul = document.createElement("ul");
+      ul.className = "menu-guardados-lista";
+      lista.forEach(m => {
+        const li = document.createElement("li");
+        const info = document.createElement("div");
+        info.className = "menu-guardado-info";
+        const nombre = document.createElement("b");
+        nombre.textContent = m.nombre || "Menú sin nombre";
+        const meta = document.createElement("span");
+        const fecha = m.fecha ? new Date(m.fecha).toLocaleDateString("es-ES") : "";
+        meta.textContent = `${fmt(m.kcal || m.objetivo || 0)} kcal · ${(m.comidas || []).length} comidas${fecha ? " · " + fecha : ""}`;
+        info.append(nombre, meta);
+        const abrir = document.createElement("button");
+        abrir.type = "button"; abrir.className = "btn btn-primary btn-sm"; abrir.textContent = "Abrir";
+        abrir.addEventListener("click", () => abrirMenuGuardado(m));
+        const borrar = document.createElement("button");
+        borrar.type = "button"; borrar.className = "btn btn-ghost btn-sm"; borrar.textContent = "Borrar";
+        let temporizador = null;
+        borrar.addEventListener("click", () => {
+          if (!borrar.classList.contains("confirmar")) {
+            // primer clic: pide confirmación y la retira sola a los 3 s
+            borrar.classList.add("confirmar"); borrar.textContent = "¿Seguro?";
+            temporizador = setTimeout(() => { borrar.classList.remove("confirmar"); borrar.textContent = "Borrar"; }, 3000);
+            return;
+          }
+          clearTimeout(temporizador);
+          escribirMenus(leerMenus().filter(x => x.id !== m.id));
+          renderGuardados();
+        });
+        li.append(info, abrir, borrar);
+        ul.appendChild(li);
+      });
+      cont.append(cab, ul);
     }
 
     const fmt = n => Math.round(n).toLocaleString("es-ES");
@@ -1188,6 +1425,37 @@
           <span><b>${fmt1(macros.grasas)} g</b> grasas</span>
           <span><b>${fmt1(macros.fibra)} g</b> fibra</span>
         </div>`;
+      // Guardar este menú (con nombre) en la lista de "Mis menús guardados".
+      const acciones = document.createElement("div");
+      acciones.className = "menu-resumen-acciones";
+      acciones.innerHTML = `
+        <button type="button" class="btn btn-ghost btn-sm" data-guardar="abrir">💾 Guardar este menú</button>
+        <form class="menu-guardar-form" hidden>
+          <input type="text" maxlength="40" required aria-label="Nombre del menú" placeholder="Nombre del menú">
+          <button type="submit" class="btn btn-primary btn-sm">Guardar</button>
+          <button type="button" class="btn btn-ghost btn-sm" data-guardar="cancelar">Cancelar</button>
+        </form>
+        <span class="menu-guardar-msg" role="status"></span>`;
+      const formGuardar = acciones.querySelector(".menu-guardar-form");
+      const msgGuardar = acciones.querySelector(".menu-guardar-msg");
+      const btnAbrirGuardar = acciones.querySelector('[data-guardar="abrir"]');
+      btnAbrirGuardar.addEventListener("click", () => {
+        formGuardar.hidden = false; btnAbrirGuardar.hidden = true; msgGuardar.textContent = "";
+        const campo = formGuardar.querySelector("input");
+        campo.value = `Menú de ${fmt(objetivo)} kcal`;
+        campo.focus(); campo.select();
+      });
+      acciones.querySelector('[data-guardar="cancelar"]').addEventListener("click", () => {
+        formGuardar.hidden = true; btnAbrirGuardar.hidden = false;
+      });
+      formGuardar.addEventListener("submit", e => {
+        e.preventDefault();
+        const error = guardarMenuActual(formGuardar.querySelector("input").value);
+        formGuardar.hidden = true; btnAbrirGuardar.hidden = false;
+        msgGuardar.classList.toggle("error", Boolean(error));
+        msgGuardar.textContent = error || "✓ Menú guardado";
+      });
+      resumen.appendChild(acciones);
       resultado.appendChild(resumen);
 
       if (sinPlatos.length) {
@@ -1230,6 +1498,8 @@
     btnGenerar.addEventListener("click", () => { aviso.textContent = ""; generar(); });
     inputKcal.addEventListener("keydown", e => { if (e.key === "Enter") btnGenerar.click(); });
     btnLimpiar.addEventListener("click", () => { filtros.limpiar(); actualizarNumFiltros(0); });
+    document.addEventListener("hsn:auth-cambio", renderGuardados);
+    renderGuardados();
   }, ["menuApp"]);
 
   /* ================= Recetas saludables: teaser en el índice ================= */

@@ -1477,6 +1477,69 @@ a.ingrediente-link { text-decoration: none; }
 .menu-plato-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-size: .92rem; }
 .menu-plato-info b { font-weight: 600; line-height: 1.25; }
 .menu-plato .badge { flex: none; }
+/* Excluir alérgenos y alimentos (filtros de recetas y menú) */
+.filtro-nota { margin: 2px 0 0; font-size: .8rem; color: var(--ink-faint); max-width: 70ch; }
+.filtro-excluir { display: flex; flex-direction: column; gap: 10px; }
+.excluir-buscador { position: relative; max-width: 420px; }
+.excluir-input {
+  width: 100%;
+  padding: 9px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  font-size: .92rem;
+  background: #fff;
+  color: var(--ink);
+}
+.excluir-input:focus-visible { outline: 2px solid var(--green-500); outline-offset: 1px; }
+.excluir-sugerencias {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 20;
+  margin: 0; padding: 4px; list-style: none;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(20, 60, 34, .14);
+}
+.excluir-sugerencias[hidden] { display: none; }
+.excluir-sugerencias li { padding: 8px 10px; border-radius: 7px; font-size: .9rem; cursor: pointer; }
+.excluir-sugerencias li:hover { background: var(--green-50); }
+.excluir-chip { background: var(--rating-E); border-color: var(--rating-E); }
+.excluir-chip:hover { color: #fff; opacity: .9; }
+
+/* Menús guardados y botón para guardar el menú actual */
+.menu-guardados {
+  margin: 0 0 18px;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-md);
+}
+.menu-guardados-cab { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin-bottom: 10px; }
+.menu-guardados-cab h3 { margin: 0; font-size: 1.05rem; }
+.menu-guardados-nota { font-size: .8rem; color: var(--ink-faint); }
+.menu-guardados-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.menu-guardados-lista li {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px 8px 14px;
+  background: var(--paper-tint);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+}
+.menu-guardado-info { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+.menu-guardado-info b { overflow-wrap: anywhere; font-weight: 600; }
+.menu-guardado-info span { font-size: .8rem; color: var(--ink-soft); }
+.menu-guardados-lista .btn.confirmar { color: #fff; background: var(--rating-E); border-color: var(--rating-E); }
+.menu-resumen-acciones { flex-basis: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.menu-guardar-form { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.menu-guardar-form[hidden], .menu-resumen-acciones [hidden] { display: none; }
+.menu-guardar-form input {
+  padding: 8px 12px; min-width: 220px;
+  border: 1.5px solid var(--line); border-radius: 10px;
+  font: inherit; font-size: .92rem;
+}
+.menu-guardar-msg { font-size: .88rem; font-weight: 600; color: var(--green-700); }
+.menu-guardar-msg.error { color: var(--rating-E); }
+
 /* Botón principal del menú: grande y en su propia fila, fácil de ver y de pulsar */
 .menu-controles .btn-generar-menu {
   flex: 1 1 100%;
