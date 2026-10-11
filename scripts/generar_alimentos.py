@@ -66,7 +66,26 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     page_url = f'{SITE_URL}/alimento-{slug(food["id"])}.html'
     categorias_txt = " · ".join(food.get("categorias", []))
     cierre = "Descubre el motivo y el mejor sustituto." if food["id"] in ids_con_sustituto else "Descubre el motivo."
-    descripcion = f'¿Cuántas calorías tiene {nombre_fmt}? {es(food["kcal"])} kcal y {es(food["proteinas"])} g de proteína por 100 g — calificación {food["rating"]} en HSNutrición. {cierre}'
+    # Lo que busca la gente es "<alimento> proteínas" / "información nutricional" (Search Console):
+    # el título y la descripción lo dicen tal cual, y la ficha arranca respondiendo esa pregunta.
+    titulo = f'{nombre_fmt}: calorías, proteínas e información nutricional'
+    titulo_og = titulo
+    if len(titulo) + len(" | HSNutrición") <= 70:
+        titulo += " | HSNutrición"
+    elif len(titulo) > 70:  # nombres largos: versión corta para que Google no corte el título
+        titulo_og = f'{nombre_fmt}: calorías y proteínas'
+        titulo = titulo_og + " | HSNutrición"
+    kcal_txt, prot_txt = es(food["kcal"]), es(food["proteinas"])
+    base = f'{nombre_fmt}: {kcal_txt} kcal y {prot_txt} g de proteína por 100 g. Información nutricional completa y calificación {food["rating"]} en HSNutrición.'
+    # Google corta las descripciones hacia los 160 caracteres: se añade el cierre solo si cabe.
+    descripcion = f'{base} {cierre}' if len(base) + len(cierre) + 1 <= 160 else base
+    if len(descripcion) > 160:
+        descripcion = f'{nombre_fmt}: {kcal_txt} kcal y {prot_txt} g de proteína por 100 g, con su información nutricional y calificación {food["rating"]}.'
+    respuesta = (
+        f'<b>¿Cuántas calorías y proteínas tiene {esc(nombre_fmt)}?</b> Por 100 g aporta {kcal_txt} kcal y {prot_txt} g de proteína, '
+        f'con {es(food["carbs"])} g de carbohidratos, {es(food["grasas"])} g de grasas y {es(food["fibra"])} g de fibra. '
+        f'Calificación {food["rating"]} en HSNutrición. {cierre}'
+    )
 
     macros_html = "\n".join(render_macro_row(k, food[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     citas_html = render_citas(food.get("estudios") or [])
@@ -101,11 +120,11 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/analytics.js" defer></script>
-<title>{esc(nombre_fmt)}: calorías y calificación {food["rating"]} | HSNutrición</title>
+<title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descripcion)}">
 <link rel="canonical" href="{page_url}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{esc(nombre_fmt)}: calorías y calificación {food["rating"]}">
+<meta property="og:title" content="{esc(titulo_og)}">
 <meta property="og:description" content="{esc(descripcion)}">
 <meta property="og:image" content="{SITE_URL}/img/banner-hsnutricion.jpg">
 <meta property="og:url" content="{page_url}">
@@ -170,7 +189,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
         <span class="badge badge-{food["rating"]}" title="Calificación nutricional" style="width:44px;height:44px;font-size:1.3rem">{food["rating"]}</span>
       </div>
 
-      <p class="section-sub reveal" style="text-align:left;margin:0 0 20px">{esc(descripcion)}</p>
+      <p class="section-sub reveal" style="text-align:left;margin:0 0 20px">{respuesta}</p>
 
       <p class="food-motivo">{esc(food["motivo"])}</p>
 
