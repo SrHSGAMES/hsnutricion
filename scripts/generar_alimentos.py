@@ -17,7 +17,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
-    formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
+    es, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 from generar_sustitutos import (
     parse_foods_full, fecha_publicacion_git as _fecha_publicacion_generica,
@@ -66,7 +66,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     page_url = f'{SITE_URL}/alimento-{slug(food["id"])}.html'
     categorias_txt = " · ".join(food.get("categorias", []))
     cierre = "Descubre el motivo y el mejor sustituto." if food["id"] in ids_con_sustituto else "Descubre el motivo."
-    descripcion = f'¿Cuántas calorías tiene {nombre_fmt}? {food["kcal"]:g} kcal y {food["proteinas"]:g} g de proteína por 100 g — calificación {food["rating"]} en HSNutrición. {cierre}'
+    descripcion = f'¿Cuántas calorías tiene {nombre_fmt}? {es(food["kcal"])} kcal y {es(food["proteinas"])} g de proteína por 100 g — calificación {food["rating"]} en HSNutrición. {cierre}'
 
     macros_html = "\n".join(render_macro_row(k, food[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     citas_html = render_citas(food.get("estudios") or [])
@@ -177,7 +177,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
       <h2 class="ficha-sub">Información nutricional (por 100 g)</h2>
       <div class="macro-table">
 {macros_html}
-        <p class="food-motivo" style="margin-top:0">De las grasas, <b>{food["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{food["azucares"]:g} g</b> son azúcares · sodio: <b>{food["sodio"]:g} mg</b></p>
+        <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(food["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(food["azucares"])} g</b> son azúcares · sodio: <b>{es(food["sodio"])} mg</b></p>
       </div>
       {citas_html}
       {sustituto_html}

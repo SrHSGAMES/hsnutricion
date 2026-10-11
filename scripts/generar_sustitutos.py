@@ -16,7 +16,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ESCALAS, ETIQUETAS,
-    formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
+    es, formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
     parse_recetas, render_sitemap, render_receta_teaser, render_recetas_paginadas,
 )
 
@@ -184,7 +184,7 @@ def render_food_card(food, con_link_categoria=True):
       <p class="food-motivo">{esc(food["motivo"])}</p>
       <div class="macro-table">
 {macros_html}
-        <p class="food-motivo" style="margin-top:0">De las grasas, <b>{food["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{food["azucares"]:g} g</b> son azúcares · sodio: <b>{food["sodio"]:g} mg</b></p>
+        <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(food["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(food["azucares"])} g</b> son azúcares · sodio: <b>{es(food["sodio"])} mg</b></p>
       </div>
       {citas_html}
       {render_enlace_ficha(food)}
@@ -193,14 +193,14 @@ def render_food_card(food, con_link_categoria=True):
 
 def render_tabla_comparativa(original, sustituto):
     filas = [
-        ("Calorías", f'{original["kcal"]:g} kcal', f'{sustituto["kcal"]:g} kcal'),
-        ("Grasas", f'{original["grasas"]:g} g', f'{sustituto["grasas"]:g} g'),
-        ("— saturadas", f'{original["grasasSat"]:g} g', f'{sustituto["grasasSat"]:g} g'),
-        ("Carbohidratos", f'{original["carbs"]:g} g', f'{sustituto["carbs"]:g} g'),
-        ("— azúcares", f'{original["azucares"]:g} g', f'{sustituto["azucares"]:g} g'),
-        ("Proteínas", f'{original["proteinas"]:g} g', f'{sustituto["proteinas"]:g} g'),
-        ("Fibra", f'{original["fibra"]:g} g', f'{sustituto["fibra"]:g} g'),
-        ("Sodio", f'{original["sodio"]:g} mg', f'{sustituto["sodio"]:g} mg'),
+        ("Calorías", f'{es(original["kcal"])} kcal', f'{es(sustituto["kcal"])} kcal'),
+        ("Grasas", f'{es(original["grasas"])} g', f'{es(sustituto["grasas"])} g'),
+        ("— saturadas", f'{es(original["grasasSat"])} g', f'{es(sustituto["grasasSat"])} g'),
+        ("Carbohidratos", f'{es(original["carbs"])} g', f'{es(sustituto["carbs"])} g'),
+        ("— azúcares", f'{es(original["azucares"])} g', f'{es(sustituto["azucares"])} g'),
+        ("Proteínas", f'{es(original["proteinas"])} g', f'{es(sustituto["proteinas"])} g'),
+        ("Fibra", f'{es(original["fibra"])} g', f'{es(sustituto["fibra"])} g'),
+        ("Sodio", f'{es(original["sodio"])} mg', f'{es(sustituto["sodio"])} mg'),
     ]
     filas_html = "\n".join(
         f'          <tr><td>{nombre}</td><td>{a}</td><td>{b}</td></tr>' for nombre, a, b in filas

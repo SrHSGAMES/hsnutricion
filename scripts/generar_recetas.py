@@ -28,6 +28,11 @@ ETIQUETAS = {"kcal": "Calorías", "carbs": "Carbohidratos", "proteinas": "Prote�
 CONECTORES = {"de", "del", "la", "el", "los", "las", "y", "e", "o", "u", "en", "a", "al", "con", "sin", "por", "para", "un", "una", "unos", "unas"}
 
 
+def es(valor):
+    """Número con coma decimal, como se escribe en español (19.9 -> '19,9')."""
+    return f"{valor:g}".replace(".", ",")
+
+
 def formatear_nombre(nombre):
     idx = nombre.find("(")
     principal = (nombre[:idx] if idx != -1 else nombre).strip()
@@ -264,12 +269,12 @@ def construir_faqs(receta, totales):
     if receta["mostrarPorRacion"] and receta["raciones"] > 1:
         por_racion_kcal = round(totales["kcal"] / receta["raciones"], 1)
         respuesta_cal = (
-            f'Toda la receta de {receta["nombre"]} tiene {totales["kcal"]:g} kcal repartidas en '
-            f'{receta["raciones"]} raciones, es decir, unas {por_racion_kcal:g} kcal por ración.'
+            f'Toda la receta de {receta["nombre"]} tiene {es(totales["kcal"])} kcal repartidas en '
+            f'{receta["raciones"]} raciones, es decir, unas {es(por_racion_kcal)} kcal por ración.'
         )
     else:
         raciones_txt = f'{receta["raciones"]} raciones' if receta["raciones"] > 1 else "1 ración"
-        respuesta_cal = f'Esta receta tiene {totales["kcal"]:g} kcal en total ({raciones_txt}).'
+        respuesta_cal = f'Esta receta tiene {es(totales["kcal"])} kcal en total ({raciones_txt}).'
 
     faq_calorias = {
         "pregunta": f'¿Cuántas calorías tiene la receta de {receta["nombre"]}?',
@@ -312,18 +317,18 @@ def render_ingrediente(ing, foods):
           <span class="food-emoji">{food["emoji"]}</span> {esc(formatear_nombre(food["nombre"]))}
           {opcional_tag}
         {cierre}
-        <span class="ingrediente-cantidad">{ing["cantidad"]:g} g</span>
+        <span class="ingrediente-cantidad">{es(ing["cantidad"])} g</span>
       </li>'''
     return f'''      <li{li_class}>
         <span class="ingrediente-pendiente">{esc(ing["foodId"])} (cargando…)</span>
-        <span class="ingrediente-cantidad">{ing["cantidad"]:g} g</span>
+        <span class="ingrediente-cantidad">{es(ing["cantidad"])} g</span>
       </li>'''
 
 
 def render_macro_row(clave, valor):
     unidad = "kcal" if clave == "kcal" else "g"
     return f'''      <div class="macro-row">
-        <div class="macro-row-head"><b>{ETIQUETAS[clave]}</b><span>{valor:g} {unidad}</span></div>
+        <div class="macro-row-head"><b>{ETIQUETAS[clave]}</b><span>{es(valor)} {unidad}</span></div>
         <div class="macro-track"><div class="macro-fill fill-{clave}" style="width:{pct(clave, valor):.1f}%"></div></div>
       </div>'''
 
@@ -359,7 +364,7 @@ def kcal_tarjeta(receta):
     if _FOODS_TARJETAS is None:
         _FOODS_TARJETAS = parse_foods(DATA_JS)
     totales, _ = calcular_macros(receta, _FOODS_TARJETAS)
-    return f'{round(totales["kcal"] / max(receta["raciones"], 1)):g} kcal por ración'
+    return f'{es(round(totales["kcal"] / max(receta["raciones"], 1)))} kcal por ración'
 
 
 def render_receta_teaser(receta):
@@ -432,7 +437,7 @@ def render_pagina(receta, foods, todas_recetas):
             <h2>Información nutricional (por ración)</h2>
             <div class="macro-table">
 {macros_racion_html}
-              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{por_racion["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{por_racion["azucares"]:g} g</b> son azúcares · sodio: <b>{por_racion["sodio"]:g} mg</b></p>
+              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(por_racion["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(por_racion["azucares"])} g</b> son azúcares · sodio: <b>{es(por_racion["sodio"])} mg</b></p>
             </div>'''
 
     faqs = construir_faqs(receta, totales)
@@ -553,7 +558,7 @@ def render_pagina(receta, foods, todas_recetas):
             <h2>Información nutricional (receta completa{", " + str(receta["raciones"]) + " raciones" if receta["raciones"] > 1 else ""})</h2>
             <div class="macro-table">
 {macros_html}
-              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{totales["grasasSat"]:g} g</b> son saturadas · de los carbohidratos, <b>{totales["azucares"]:g} g</b> son azúcares · sodio: <b>{totales["sodio"]:g} mg</b>{incompleto_txt}</p>
+              <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(totales["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(totales["azucares"])} g</b> son azúcares · sodio: <b>{es(totales["sodio"])} mg</b>{incompleto_txt}</p>
             </div>{por_racion_html}
 
             <h2>Preguntas frecuentes</h2>
@@ -655,8 +660,49 @@ def render_pagina(receta, foods, todas_recetas):
 '''
 
 
-def render_sitemap(recetas, extra_urls=None):
+_FECHAS_GIT = None
+
+
+def fechas_modificacion():
+    """Mapa archivo -> fecha (AAAA-MM-DD) de su último cambio real: la del último
+    commit que lo tocó o, si tiene cambios sin commitear (o es nuevo), la de hoy.
+    Así el sitemap no dice que todas las páginas cambiaron el día que se
+    regeneró, que es justo lo que hace que Google acabe ignorando <lastmod>."""
+    global _FECHAS_GIT
+    if _FECHAS_GIT is not None:
+        return _FECHAS_GIT
     hoy = datetime.date.today().isoformat()
+    fechas = {}
+    try:
+        log = subprocess.run(
+            ["git", "log", "--name-only", "--format=@@%cs", "--", "*.html"],
+            cwd=ROOT, capture_output=True, text=True, encoding="utf-8", timeout=60
+        ).stdout
+        fecha = None
+        for linea in log.splitlines():
+            if linea.startswith("@@"):
+                fecha = linea[2:]
+            elif linea.strip() and linea not in fechas:
+                fechas[linea.strip()] = fecha  # el log va del más reciente al más antiguo
+        sucios = subprocess.run(
+            ["git", "status", "--porcelain", "-uall", "--", "*.html"],
+            cwd=ROOT, capture_output=True, text=True, encoding="utf-8", timeout=60
+        ).stdout
+        for linea in sucios.splitlines():
+            if len(linea) > 3:
+                fechas[linea[3:].strip().strip('"')] = hoy
+    except Exception:
+        pass
+    _FECHAS_GIT = fechas
+    return fechas
+
+
+def fecha_url(loc):
+    archivo = "index.html" if loc == f"{SITE_URL}/" else loc.replace(f"{SITE_URL}/", "")
+    return fechas_modificacion().get(archivo) or datetime.date.today().isoformat()
+
+
+def render_sitemap(recetas, extra_urls=None):
     urls = [
         {"loc": f"{SITE_URL}/", "prioridad": "1.0"},
         {"loc": f"{SITE_URL}/recetas.html", "prioridad": "0.8"},
@@ -672,7 +718,7 @@ def render_sitemap(recetas, extra_urls=None):
     entradas = "\n".join(
         f'  <url>\n'
         f'    <loc>{u["loc"]}</loc>\n'
-        f'    <lastmod>{hoy}</lastmod>\n'
+        f'    <lastmod>{fecha_url(u["loc"])}</lastmod>\n'
         f'    <priority>{u["prioridad"]}</priority>\n'
         f'  </url>'
         for u in urls
