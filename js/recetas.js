@@ -2041,6 +2041,238 @@ const RECETAS = [
       { pregunta: "¿Con qué otras frutas funciona?", respuesta: "Con melocotón, ciruela o albaricoque; ajusta el tiempo según lo maduras que estén." },
       { pregunta: "¿Puedo usar yogur de leche?", respuesta: "Sí, el natural o el griego funcionan igual y aportan más proteína, pero la receta dejará de ser vegana." }
     ]
+  },
+  {
+    id: "lenguado_limon_judias",
+    nombre: "Lenguado al Limón con Judías Verdes y Patata",
+    emojiPortada: "🐟🍋🫛",
+    rating: "B",
+    tiempo: "25 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Filetes de lenguado a la plancha con limón y perejil, sobre judías verdes y patata cocida. Un plato ligero y completo de 356 kcal por ración, con 28 g de proteína y 7 g de fibra.",
+    motivo: "El lenguado es un pescado blanco muy magro y, con las judías verdes y la patata cocida, el plato reúne proteína, fibra y carbohidrato saciante con solo 1,7 g de grasa saturada por ración y 15 g de AOVE para toda la receta. Lo calificamos B y no A por el colesterol dietético del lenguado, como el resto de pescados de la guía.",
+    ingredientes: [
+      { foodId: "lenguado", cantidad: 360 },
+      { foodId: "judias_verdes", cantidad: 250 },
+      { foodId: "ia_patata_cocida", cantidad: 300 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 40 },
+      { foodId: "perejil", cantidad: 5 },
+      { foodId: "ia_ajo", cantidad: 4 }
+    ],
+    pasos: [
+      "Cuece las judías verdes y las patatas (con piel, en rodajas gruesas) en agua sin sal: 10 minutos las judías y 15-20 las patatas. Escúrrelas.",
+      "Seca bien los filetes de lenguado con papel de cocina para que se doren en vez de cocerse.",
+      "En una sartén antiadherente con la mitad del AOVE, cocina los filetes 2 minutos por cada lado, a fuego medio-alto. Retíralos.",
+      "En la misma sartén, con el AOVE restante, dora el ajo laminado 1 minuto, añade las judías y las patatas y saltea 2 minutos.",
+      "Sirve el pescado sobre las verduras, con el zumo de limón y el perejil picado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar otro pescado blanco?", respuesta: "Sí: merluza, pescadilla o dorada en filetes funcionan igual; ajusta el tiempo de plancha según el grosor." },
+      { pregunta: "¿El lenguado congelado sirve?", respuesta: "Sí. Descongélalo en la nevera y sécalo muy bien antes de cocinarlo, o soltará agua y se romperá al darle la vuelta." },
+      { pregunta: "¿Cómo hago el plato más completo?", respuesta: "Con una ensalada de hoja verde y un poco de pan integral; subirán la fibra y las calorías." }
+    ]
+  },
+  {
+    id: "rape_salsa_verde",
+    nombre: "Rape en Salsa Verde Ligera con Guisantes",
+    emojiPortada: "🐟🌿🟢",
+    rating: "B",
+    tiempo: "30 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Medallones de rape en una salsa verde de perejil, ajo y caldo de verduras, sin harina ni nata, con guisantes y patata cocida. 384 kcal por ración con 36 g de proteína.",
+    motivo: "El rape es uno de los pescados más magros y la salsa, a base de perejil, ajo y caldo, aporta sabor sin añadir apenas grasa: 1,8 g de saturada y solo 74 mg de sodio por ración. Los guisantes y la patata suman fibra y saciedad. Lo calificamos B por el colesterol dietético del rape.",
+    ingredientes: [
+      { foodId: "rape", cantidad: 400 },
+      { foodId: "guisantes", cantidad: 150 },
+      { foodId: "ia_patata_cocida", cantidad: 200 },
+      { foodId: "ia_cebolla", cantidad: 50 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "perejil", cantidad: 20 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 150 },
+      { foodId: "limon", cantidad: 15 }
+    ],
+    pasos: [
+      "Corta el rape en medallones de 2-3 cm. Cuece las patatas con piel en agua 15-20 minutos, pélalas y córtalas en rodajas.",
+      "Sofríe la cebolla picada y el ajo laminado en el AOVE a fuego suave 5 minutos, sin que se doren.",
+      "Añade el caldo y los guisantes y cuece 3 minutos; incorpora las patatas y el rape y cocina tapado 6-8 minutos, dándole la vuelta una vez.",
+      "Tritura aparte la mitad del perejil con un poco del caldo de la sartén para hacer una salsa verde, y devuélvela a la sartén con el zumo de limón.",
+      "Prueba antes de salar (no suele hacer falta) y sirve con el resto del perejil picado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Por qué no lleva harina?", respuesta: "La salsa liga con el almidón de la patata y los guisantes; así queda más ligera y apta para quien evita el gluten." },
+      { pregunta: "¿Puedo usar otro pescado?", respuesta: "Merluza o bacalao desalado funcionan muy bien; el tiempo de cocción es similar." },
+      { pregunta: "¿Se conserva bien?", respuesta: "Un día en la nevera. El pescado cocinado pierde jugosidad al recalentarlo, hazlo a fuego muy suave." }
+    ]
+  },
+  {
+    id: "sepia_plancha_escarola",
+    nombre: "Sepia a la Plancha con Ensalada de Escarola y Tomate",
+    emojiPortada: "🦑🥗🍅",
+    rating: "B",
+    tiempo: "20 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["cena"],
+    descripcion: "Sepia a la plancha con ajo y perejil sobre una ensalada fresca de escarola y tomate aliñada con AOVE y limón. 285 kcal por ración con casi 35 g de proteína, lista en 20 minutos.",
+    motivo: "La sepia es proteína muy magra y la escarola y el tomate suman fibra y frescura, con solo 1,9 g de grasa saturada y 20 g de AOVE para toda la receta. Lo calificamos B por el colesterol de la sepia y por su sodio natural: sin añadir sal, cada ración ya ronda los 770 mg.",
+    ingredientes: [
+      { foodId: "sepia", cantidad: 400 },
+      { foodId: "escarola", cantidad: 150 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "limon", cantidad: 30 },
+      { foodId: "ia_ajo", cantidad: 4 },
+      { foodId: "perejil", cantidad: 5 }
+    ],
+    pasos: [
+      "Limpia la sepia (o pide que te la dejen limpia), sécala y haz unos cortes cruzados superficiales en la carne para que no se encoja ni se curve.",
+      "Lava la escarola, trocéala y mézclala con el tomate en gajos. Aliña con la mitad del AOVE y la mitad del limón.",
+      "Calienta una plancha o sartén muy caliente con el AOVE restante y cocina la sepia 2-3 minutos por cada lado, sin pasarte para que no quede gomosa.",
+      "Añade al final el ajo picado y el perejil, 30 segundos, y exprime el limón restante.",
+      "Sirve la sepia caliente sobre la ensalada."
+    ],
+    faqs: [
+      { pregunta: "¿Cómo evito que quede dura?", respuesta: "Plancha muy caliente y poco tiempo (2-3 minutos por lado). La sepia se endurece cuando se cocina de más." },
+      { pregunta: "¿Puedo usar sepia congelada?", respuesta: "Sí, y suele quedar más tierna. Descongélala en la nevera y sécala bien antes de la plancha." },
+      { pregunta: "¿Cómo bajo el sodio?", respuesta: "No añadas sal: la sepia ya aporta bastante. El limón y el ajo dan el sabor." }
+    ]
+  },
+  {
+    id: "wraps_pollo_aguacate",
+    nombre: "Wraps de Pollo, Aguacate y Escarola",
+    emojiPortada: "🌯🍗🥑",
+    rating: "B",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Wraps de tortilla de trigo rellenos de pechuga de pollo, aguacate, escarola y tomate, con una salsa de yogur natural y limón. 624 kcal por ración con 50 g de proteína y casi 9 g de fibra.",
+    motivo: "La pechuga aporta mucha proteína magra, el aguacate grasa insaturada y la escarola y el tomate, fibra, con una salsa de yogur en lugar de mayonesa. Lo calificamos B y no A por la tortilla de trigo, de harina refinada y con bastante sodio: la ración llega a unos 730 mg. Con tortillas integrales o de maíz, mejora.",
+    ingredientes: [
+      { foodId: "tortilla_trigo", cantidad: 180 },
+      { foodId: "ia_pechuga_de_pollo", cantidad: 240 },
+      { foodId: "aguacate", cantidad: 140 },
+      { foodId: "escarola", cantidad: 60 },
+      { foodId: "ia_tomate", cantidad: 120 },
+      { foodId: "yogur_natural", cantidad: 60 },
+      { foodId: "limon", cantidad: 10 }
+    ],
+    pasos: [
+      "Corta la pechuga ya cocinada (a la plancha o al horno) en tiras. Machaca el aguacate con un tenedor.",
+      "Mezcla el yogur con el zumo de limón para hacer la salsa.",
+      "Calienta las tortillas 20 segundos por cada lado en una sartén seca para que se doblen sin romperse.",
+      "Extiende el aguacate y la salsa sobre cada tortilla y reparte el pollo, la escarola troceada y el tomate en láminas.",
+      "Enrolla bien apretado, corta por la mitad y sirve enseguida."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar pavo en lugar de pollo?", respuesta: "Sí, la pechuga de pavo funciona igual y es todavía más magra." },
+      { pregunta: "¿Cómo lo hago sin gluten?", respuesta: "Con tortillas de maíz (más pequeñas) o con hojas grandes de lechuga como envoltorio." },
+      { pregunta: "¿Se puede preparar antes?", respuesta: "Mejor montar justo antes de comer; si no, el tomate humedece la tortilla. Puedes tener listos el pollo y la salsa de la víspera." }
+    ]
+  },
+  {
+    id: "ensalada_endibia_pera_castanas",
+    nombre: "Ensalada de Endibias, Pera y Castañas con Manchego",
+    emojiPortada: "🥗🍐🌰",
+    rating: "B",
+    tiempo: "15 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegetariano"],
+    momento: ["comida", "cena"],
+    descripcion: "Una ensalada otoñal de endibia crujiente, pera, castañas asadas y virutas de queso manchego, con un aliño de AOVE y vinagre de manzana. 329 kcal por ración con 8 g de fibra.",
+    motivo: "La endibia y la pera aportan fibra y frescura, las castañas, carbohidrato complejo con muy poca grasa, y el AOVE, grasa insaturada. Lo calificamos B y no A por el manchego: con solo 40 g para toda la receta, la ración alcanza igualmente 5,2 g de grasa saturada. Con la mitad de queso, sube a A.",
+    ingredientes: [
+      { foodId: "endibia", cantidad: 200 },
+      { foodId: "ia_pera", cantidad: 150 },
+      { foodId: "castanas", cantidad: 100 },
+      { foodId: "queso_manchego", cantidad: 40 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_vinagre_de_manzana", cantidad: 15 }
+    ],
+    pasos: [
+      "Separa las hojas de la endibia, lávalas y córtalas en trozos grandes.",
+      "Corta la pera en láminas finas (con piel, si es ecológica) y trocea las castañas asadas y peladas.",
+      "Mezcla en un bol la endibia, la pera y las castañas.",
+      "Aliña con el AOVE y el vinagre de manzana y reparte en dos platos.",
+      "Termina con virutas de manchego hechas con un pelador."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar castañas de bote o envasadas?", respuesta: "Sí, las cocidas al vacío sin azúcar funcionan muy bien. Evita las que vengan en almíbar o glaseadas." },
+      { pregunta: "¿Cómo la hago más ligera?", respuesta: "Reduce el manchego a la mitad o sustitúyelo por queso fresco batido 0%; baja mucho la grasa saturada." },
+      { pregunta: "¿Con qué otra fruta funciona?", respuesta: "Con manzana o granada. La pera da dulzor que equilibra el amargor de la endibia." }
+    ]
+  },
+  {
+    id: "bol_yogur_soja_maracuya_macadamia",
+    nombre: "Bol de Yogur de Soja con Maracuyá, Pasas y Macadamia",
+    emojiPortada: "🥣🟡🥜",
+    rating: "A",
+    tiempo: "5 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["desayuno", "snack"],
+    descripcion: "Yogur de soja natural sin azúcar con pulpa de maracuyá, unas pasas y macadamia troceada. Un desayuno o merienda 100 % vegetal de 5 minutos, con 214 kcal y 7 g de fibra por ración.",
+    motivo: "El yogur de soja aporta proteína vegetal con muy poca grasa saturada, y la maracuyá, mucha fibra y un sabor ácido que hace innecesario endulzar. Las pasas y la macadamia se usan solo como toque: con 1,6 g de grasa saturada por ración y todo el azúcar procedente de la fruta, lo calificamos A.",
+    ingredientes: [
+      { foodId: "yogur_soja", cantidad: 250 },
+      { foodId: "maracuya", cantidad: 100 },
+      { foodId: "pasas", cantidad: 20 },
+      { foodId: "macadamia", cantidad: 20 }
+    ],
+    pasos: [
+      "Reparte el yogur de soja en dos boles.",
+      "Abre las maracuyás por la mitad y vierte la pulpa con las pepitas sobre el yogur.",
+      "Trocea la macadamia y reparte con las pasas por encima.",
+      "Sirve enseguida, para que la macadamia siga crujiente."
+    ],
+    faqs: [
+      { pregunta: "¿Se comen las pepitas de la maracuyá?", respuesta: "Sí, son comestibles y aportan gran parte de la fibra." },
+      { pregunta: "¿Puedo usar yogur de leche?", respuesta: "Sí, el natural o el griego funcionan igual y aportan más proteína, pero la receta dejará de ser vegana." },
+      { pregunta: "¿Qué yogur de soja elijo?", respuesta: "El natural sin azúcar. Los de sabores o azucarados suben mucho los azúcares y bajan la nota." }
+    ]
+  },
+  {
+    id: "arroz_con_leche_vegano",
+    nombre: "Arroz con Leche Vegano con Dátiles",
+    emojiPortada: "🍚🌱🍂",
+    rating: "A",
+    tiempo: "45 min",
+    raciones: 4,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["snack", "desayuno"],
+    descripcion: "El arroz con leche de siempre, pero con bebida de soja y endulzado solo con dátiles, sin azúcar añadido, con canela y piel de limón. 100 % vegetal, 206 kcal por ración y 9 g de proteína.",
+    motivo: "Con bebida de soja el postre no lleva lactosa ni grasa de origen animal: solo 0,5 g de grasa saturada por ración y unos 10 g de azúcares, todos de los dátiles, sin azúcar añadido. El arroz blanco es un cereal refinado, pero en una ración pesa poco (25 g en seco), así que lo calificamos A.",
+    ingredientes: [
+      { foodId: "arroz_blanco_seco", cantidad: 100 },
+      { foodId: "ia_bebida_de_soja_sin_azucar", cantidad: 800 },
+      { foodId: "ia_datiles", cantidad: 60 },
+      { foodId: "ia_canela", cantidad: 2 },
+      { foodId: "limon", cantidad: 10 }
+    ],
+    pasos: [
+      "Pon la bebida de soja sin azúcar en un cazo con la canela y la piel de medio limón (sin la parte blanca) y caliéntala a fuego suave, sin que llegue a hervir con fuerza.",
+      "Cuando empiece a humear, añade el arroz y cocina a fuego mínimo 35-40 minutos, removiendo a menudo para que no se pegue.",
+      "Deshuesa los dátiles, tritúralos con un poco de bebida caliente hasta hacer una pasta y mézclala con el arroz cuando falten 5 minutos.",
+      "Retira la piel de limón y deja templar: espesa al enfriarse. Sirve con una pizca de canela por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar arroz integral?", respuesta: "Sí, aunque tarda bastante más (unos 50 minutos) y queda menos cremoso. A cambio, tiene más fibra." },
+      { pregunta: "¿Con leche de vaca?", respuesta: "Sí, con leche semidesnatada funciona igual; ya no será vegana y subirán la grasa saturada y los azúcares de la lactosa." },
+      { pregunta: "¿Por qué sin azúcar añadido y con la bebida sin azúcar?", respuesta: "Las bebidas de soja azucaradas añaden azúcar libre. Con la versión sin azúcar, el único dulzor viene de los dátiles." }
+    ]
   }
 
 ];
