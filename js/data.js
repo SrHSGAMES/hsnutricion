@@ -544,7 +544,7 @@ const FOODS = [
   {
     id: "leche_desnatada",
     nombre: "Leche desnatada",
-    aliases: ["leche desnatada", "leche semidesnatada"],
+    aliases: ["leche desnatada"],
     categorias: ["Lácteos"],
     emoji: "🥛",
     rating: "A",
@@ -7390,6 +7390,630 @@ const FOODS = [
       }
     ],
     sustitutos: []
+  },
+  {
+    id: "cordero",
+    nombre: "Cordero",
+    aliases: ["cordero", "carne de cordero", "cordero lechal", "chuletas de cordero", "pierna de cordero"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🐑",
+    rating: "D",
+    kcal: 250, carbs: 0, azucares: 0, proteinas: 25, grasas: 16, grasasSat: 7, fibra: 0, sodio: 62,
+    motivo: "El cordero aporta proteína completa, hierro hemo, zinc y vitamina B12, y el perfil de ácidos grasos de su carne varía según la alimentación del animal [1]. Pero es carne roja, con unos 7 g de grasa saturada por 100 g, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [2] y de diabetes tipo 2 [3]. Por eso lo calificamos D, igual que el resto de carnes rojas de la guía: mejor como plato ocasional, alternándolo con pescado, legumbres o aves.",
+    estudios: [
+      {
+        "pmid": "29433780",
+        "titulo": "Nutritional enhancement of sheep meat fatty acid profile for human health and wellbeing.",
+        "revista": "Food research international (Ottawa, Ont.)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29433780/"
+      },
+      {
+        "pmid": "37264855",
+        "titulo": "Red meat consumption, cardiovascular diseases, and diabetes: a systematic review and meta-analysis.",
+        "revista": "European heart journal",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
+      },
+      {
+        "pmid": "39174161",
+        "titulo": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Más proteína por 100 g con menos grasa saturada y sin el matiz de riesgo de la carne roja."
+      }
+    ]
+  },
+  {
+    id: "hamburguesa_ternera",
+    nombre: "Hamburguesa de ternera",
+    aliases: ["hamburguesa", "hamburguesas", "hamburguesa de ternera", "hamburguesa de vacuno", "hamburguesa de carne", "hamburguesa casera"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🍔",
+    rating: "D",
+    kcal: 254, carbs: 0, azucares: 0, proteinas: 24, grasas: 17, grasasSat: 6.8, fibra: 0, sodio: 75,
+    motivo: "La hamburguesa de carne picada de ternera aporta proteína, hierro hemo y vitamina B12, pero con unos 17 g de grasa y casi 7 g de grasa saturada por 100 g. Al ser carne roja, los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: mejor ocasional, con carne magra, a la plancha y con verduras y pan integral en lugar de salsas y patatas fritas.",
+    estudios: [
+      {
+        "pmid": "37264855",
+        "titulo": "Red meat consumption, cardiovascular diseases, and diabetes: a systematic review and meta-analysis.",
+        "revista": "European heart journal",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37264855/"
+      },
+      {
+        "pmid": "39174161",
+        "titulo": "Meat consumption and incident type 2 diabetes: an individual-participant federated meta-analysis of 1·97 million adults with 100 000 incident cases from 31 cohorts in 20 countries.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
+      },
+      {
+        "pmid": "35491892",
+        "titulo": "Associations of the consumption of unprocessed red meat and processed meat with the incidence of cardiovascular disease and mortality, and the dose-response relationship: A systematic review and meta-analysis of cohort studies.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pavo",
+        emoji: "🦃", mejor: true,
+        kcal: 114, carbs: 0, azucares: 0, proteinas: 24.1, grasas: 1.5, grasasSat: 0.4, fibra: 0, sodio: 60,
+        porque: "Carne blanca más magra, con menos grasa saturada y sin el matiz de riesgo de la carne roja."
+      }
+    ]
+  },
+  {
+    id: "rape",
+    nombre: "Rape",
+    aliases: ["rape", "rape a la plancha", "cola de rape"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 76, carbs: 0, azucares: 0, proteinas: 14.5, grasas: 1.5, grasasSat: 0.3, fibra: 0, sodio: 18,
+    motivo: "El rape es un pescado blanco muy magro: unos 14,5 g de proteína con solo 1,5 g de grasa por 100 g, y buena fuente de potasio y fósforo. Los pescados magros se han asociado con mejoras en los lípidos de la sangre [1] y el consumo de pescado en general, con menor riesgo cardiovascular y de mortalidad [2]. Lo calificamos B y no A porque aporta colesterol dietético (en torno a 25-30 mg por 100 g) [3].",
+    estudios: [
+      {
+        "pmid": "33942085",
+        "titulo": "Lipid-modifying effects of lean fish and fish-derived protein consumption in humans: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Nutrition reviews",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33942085/"
+      },
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "lenguado",
+    nombre: "Lenguado",
+    aliases: ["lenguado", "lenguados", "filetes de lenguado"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 70, carbs: 0, azucares: 0, proteinas: 12.4, grasas: 1, grasasSat: 0.3, fibra: 0, sodio: 81,
+    motivo: "El lenguado es un pescado blanco magro y de sabor suave: unos 12 g de proteína con 1 g de grasa por 100 g y pocas calorías. Los pescados magros se han asociado con mejoras en los lípidos de la sangre [1]. Lo calificamos B y no A porque aporta colesterol dietético (en torno a 45-50 mg por 100 g) [2]. A la plancha o al horno conserva todas sus ventajas; rebozado y frito, no.",
+    estudios: [
+      {
+        "pmid": "33942085",
+        "titulo": "Lipid-modifying effects of lean fish and fish-derived protein consumption in humans: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Nutrition reviews",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33942085/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "sepia",
+    nombre: "Sepia",
+    aliases: ["sepia", "sepias", "sepia a la plancha"],
+    categorias: ["Proteínas"],
+    emoji: "🦑",
+    rating: "B",
+    kcal: 79, carbs: 0.8, azucares: 0, proteinas: 16.2, grasas: 0.7, grasasSat: 0.2, fibra: 0, sodio: 372,
+    motivo: "La sepia es un molusco cefalópodo muy magro: unos 16 g de proteína con menos de 1 g de grasa por 100 g, y aporta minerales como hierro, zinc y selenio, propios del marisco [1]. Es de los mariscos con más colesterol (en torno a 110 mg por 100 g) [2] y de forma natural lleva bastante sodio (unos 370 mg por 100 g), por eso la calificamos B y no A. A la plancha o guisada, mejor que rebozada.",
+    estudios: [
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "endibia",
+    nombre: "Endibia",
+    aliases: ["endibia", "endibias", "endivia", "endivias"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 17, carbs: 4, azucares: 0.2, proteinas: 0.9, grasas: 0.1, grasasSat: 0, fibra: 3.1, sodio: 22,
+    motivo: "La endibia es una hoja crujiente y de sabor amargo con solo 17 kcal y más de 3 g de fibra por 100 g. Pertenece a la familia de la achicoria, rica en inulina, una fibra prebiótica [1] (aunque la mayoría de los estudios usan inulina de la raíz, no de la hoja). Como el resto de hortalizas, su consumo habitual se asocia con menor riesgo cardiovascular y de mortalidad [2]. Cruda en ensalada o braseada al horno.",
+    estudios: [
+      {
+        "pmid": "36876591",
+        "titulo": "Inulin: properties and health benefits.",
+        "revista": "Food & function",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36876591/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "escarola",
+    nombre: "Escarola",
+    aliases: ["escarola", "escarolas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 17, carbs: 3.4, azucares: 0.3, proteinas: 1.3, grasas: 0.2, grasasSat: 0.1, fibra: 3.1, sodio: 22,
+    motivo: "La escarola es una hoja amarga con solo 17 kcal y más de 3 g de fibra por 100 g, y contiene kaempferol, un flavonoide antioxidante muy estudiado [1]. Como el resto de hortalizas, su consumo habitual se asocia con menor riesgo cardiovascular y de mortalidad [2]. Cruda en ensalada con AOVE y un toque de limón suaviza su amargor.",
+    estudios: [
+      {
+        "pmid": "21428901",
+        "titulo": "A review on the dietary flavonoid kaempferol.",
+        "revista": "Mini reviews in medicinal chemistry",
+        "anio": "2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21428901/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "maracuya",
+    nombre: "Maracuyá",
+    aliases: ["maracuyá", "maracuya", "fruta de la pasión", "fruta de la pasion", "parchita"],
+    categorias: ["Frutas"],
+    emoji: "🟡",
+    rating: "A",
+    kcal: 97, carbs: 23.4, azucares: 11.2, proteinas: 2.2, grasas: 0.7, grasasSat: 0.1, fibra: 10.4, sodio: 28,
+    motivo: "La maracuyá destaca por su fibra (más de 10 g por 100 g, sobre todo en las pepitas comestibles), su vitamina C y sus polifenoles; las revisiones describen efectos antioxidantes y antiinflamatorios, aunque con evidencia aún preliminar [1]. Es más calórica que otras frutas (97 kcal por 100 g) pero una pieza pesa poco y la fibra compensa. Como el resto de fruta entera, se asocia con menor riesgo cardiovascular y de mortalidad [2].",
+    estudios: [
+      {
+        "pmid": "36076381",
+        "titulo": "Purple passion fruit (Passiflora edulis f. edulis): A comprehensive review on the nutritional value, phytochemical profile and associated health effects.",
+        "revista": "Food research international (Ottawa, Ont.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36076381/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pasas",
+    nombre: "Pasas",
+    aliases: ["pasas", "pasa", "uvas pasas", "uva pasa"],
+    categorias: ["Frutas"],
+    emoji: "🍇",
+    rating: "B",
+    kcal: 299, carbs: 79.2, azucares: 59.2, proteinas: 3.1, grasas: 0.5, grasasSat: 0.1, fibra: 3.7, sodio: 11,
+    motivo: "Las pasas son uva deshidratada: conservan polifenoles, fibra y potasio [1][2], pero al quitar el agua concentran el azúcar (unos 59 g por 100 g) y tienen unas cuatro veces las calorías de la uva. Por eso las calificamos B, igual que los dátiles y los higos secos: en pequeñas raciones (una cucharada, 15-20 g) o dentro de una receta, no a puñados.",
+    estudios: [
+      {
+        "pmid": "31878160",
+        "titulo": "Is Eating Raisins Healthy?",
+        "revista": "Nutrients",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31878160/"
+      },
+      {
+        "pmid": "20851304",
+        "titulo": "Polyphenol content and health benefits of raisins.",
+        "revista": "Nutrition research (New York, N.Y.)",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20851304/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "castanas",
+    nombre: "Castañas",
+    aliases: ["castañas", "castaña", "castañas asadas", "castanas", "castana"],
+    categorias: ["Frutos Secos"],
+    emoji: "🌰",
+    rating: "A",
+    kcal: 245, carbs: 53, azucares: 10.6, proteinas: 3.2, grasas: 2.2, grasasSat: 0.4, fibra: 5.1, sodio: 27,
+    motivo: "A diferencia de otros frutos secos, la castaña es baja en grasa (solo 2 g por 100 g) y rica en carbohidratos complejos, con 5 g de fibra, potasio y vitamina C; sus polifenoles se estudian por su efecto antioxidante [1][2]. Mejor asadas o cocidas y sin azúcar: las castañas glaseadas o en almíbar son otra cosa.",
+    estudios: [
+      {
+        "pmid": "20564434",
+        "titulo": "Composition of European chestnut (Castanea sativa Mill.) and association with health effects: fresh and processed products.",
+        "revista": "Journal of the science of food and agriculture",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20564434/"
+      },
+      {
+        "pmid": "36553794",
+        "titulo": "Sweet Chestnut (Castanea sativa Mill.) Nutritional and Phenolic Composition Interactions with Chestnut Flavor Physiology.",
+        "revista": "Foods (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36553794/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "macadamia",
+    nombre: "Nueces de macadamia",
+    aliases: ["macadamia", "nueces de macadamia", "nuez de macadamia"],
+    categorias: ["Frutos Secos"],
+    emoji: "🥜",
+    rating: "B",
+    kcal: 718, carbs: 13.8, azucares: 4.6, proteinas: 7.9, grasas: 75.8, grasasSat: 12.1, fibra: 8.6, sodio: 5,
+    motivo: "La macadamia es el fruto seco más rico en grasa monoinsaturada: un ensayo en hombres con colesterol alto observó una reducción del colesterol total y del LDL al incluirla en la dieta [1], y el consumo de frutos secos en general se asocia con menor mortalidad [2]. La calificamos B y no A por su grasa saturada: con unos 12 g por 100 g lleva bastante más que la mayoría de frutos secos. En una ración habitual de 20-30 g son unos 3 g, así que encaja bien en una dieta variada.",
+    estudios: [
+      {
+        "pmid": "12672919",
+        "titulo": "Macadamia nut consumption lowers plasma total and LDL cholesterol levels in hypercholesterolemic men.",
+        "revista": "The Journal of nutrition",
+        "anio": "2003",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12672919/"
+      },
+      {
+        "pmid": "28875220",
+        "titulo": "Nut consumption in relation to all-cause and cause-specific mortality: a meta-analysis 18 prospective studies.",
+        "revista": "Food & function",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28875220/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "leche_semidesnatada",
+    nombre: "Leche semidesnatada",
+    aliases: ["leche semidesnatada", "leche semi", "leche semidesnatada sin lactosa"],
+    categorias: ["Lácteos"],
+    emoji: "🥛",
+    rating: "B",
+    kcal: 46, carbs: 4.8, azucares: 4.8, proteinas: 3.4, grasas: 1.6, grasasSat: 1, fibra: 0, sodio: 44,
+    motivo: "Aporta proteína, calcio y vitaminas del grupo B con 1,6 g de grasa por 100 ml, la mitad que la entera. La revisión más reciente de expertos concluye que el consumo de leche, yogur y queso, sea cual sea su contenido graso, se asocia de forma neutra con el riesgo cardiovascular [1], y los metaanálisis de cohortes no ven más riesgo de obesidad, hipertensión ni diabetes tipo 2 con un consumo habitual de lácteos [2]. La calificamos B: un punto intermedio entre la desnatada (A) y la entera (C).",
+    estudios: [
+      {
+        "pmid": "40088974",
+        "titulo": "Regular-fat and low-fat dairy foods and cardiovascular diseases: perspectives for future dietary recommendations.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40088974/"
+      },
+      {
+        "pmid": "36047956",
+        "titulo": "Consumption of Dairy Products and the Risk of Overweight or Obesity, Hypertension, and Type 2 Diabetes Mellitus: A Dose-Response Meta-Analysis and Systematic Review of Cohort Studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36047956/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "queso_manchego",
+    nombre: "Queso manchego",
+    aliases: ["queso manchego", "manchego"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 392, carbs: 0.5, azucares: 0.5, proteinas: 28, grasas: 31, grasasSat: 19.5, fibra: 0, sodio: 800,
+    motivo: "El manchego aporta mucha proteína y calcio y, como el resto de quesos, los metaanálisis de cohortes no encuentran un aumento claro del riesgo cardiovascular con un consumo moderado [1]; además, sustituir queso por otros lácteos cambia poco los lípidos en sangre [2]. Pero el manchego curado es denso en grasa saturada (casi 20 g por 100 g) y en sodio (unos 800 mg). Por eso lo calificamos C: raciones pequeñas, de unos 30 g.",
+    estudios: [
+      {
+        "pmid": "27517544",
+        "titulo": "Cheese consumption and risk of cardiovascular disease: a meta-analysis of prospective studies.",
+        "revista": "European journal of nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27517544/"
+      },
+      {
+        "pmid": "37717700",
+        "titulo": "Effect of Isoenergetic Substitution of Cheese with Other Dairy Products on Blood Lipid Markers in the Fasted and Postprandial State: An Updated and Extended Systematic Review and Meta-Analysis of Randomized Controlled Trials in Adults.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37717700/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso fresco batido 0%",
+        emoji: "🧀", mejor: true,
+        kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
+        porque: "Mucha menos grasa saturada y sodio, manteniendo un lácteo fresco y proteico."
+      }
+    ]
+  },
+  {
+    id: "tortitas_arroz",
+    nombre: "Tortitas de arroz",
+    aliases: ["tortitas de arroz", "tortita de arroz", "galletas de arroz"],
+    categorias: ["Cereales", "Snacks"],
+    emoji: "🍘",
+    rating: "C",
+    kcal: 387, carbs: 81.5, azucares: 0.9, proteinas: 8.2, grasas: 2.8, grasasSat: 0.6, fibra: 4.2, sodio: 29,
+    motivo: "Las tortitas de arroz inflado son cereal refinado hinchado con aire: casi todo carbohidrato (más de 80 g por 100 g) de absorción rápida y poca saciedad. La calidad de los carbohidratos importa: los cereales integrales se asocian con menor riesgo cardiovascular y de diabetes que los refinados [1], y las dietas de índice glucémico alto, con más riesgo de diabetes tipo 2 y enfermedad cardiovascular [2]. Por eso las calificamos C: ocasionales y acompañadas de proteína o grasa saludable (queso fresco, aguacate). Ojo con las saladas o con chocolate.",
+    estudios: [
+      {
+        "pmid": "30638909",
+        "titulo": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+        "revista": "Lancet (London, England)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30638909/"
+      },
+      {
+        "pmid": "38272606",
+        "titulo": "Association of glycaemic index and glycaemic load with type 2 diabetes, cardiovascular disease, cancer, and all-cause mortality: a meta-analysis of mega cohorts of more than 100 000 participants.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38272606/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pan integral",
+        emoji: "🌾", mejor: true,
+        kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
+        porque: "Más fibra y saciedad, con un perfil de carbohidratos de absorción más lenta."
+      }
+    ]
+  },
+  {
+    id: "tortilla_trigo",
+    nombre: "Tortilla de trigo (wrap)",
+    aliases: ["tortilla de trigo", "tortillas de trigo", "wrap", "wraps", "tortilla mexicana", "tortilla de fajita"],
+    categorias: ["Cereales"],
+    emoji: "🌯",
+    rating: "C",
+    kcal: 310, carbs: 51, azucares: 3.2, proteinas: 8.5, grasas: 7.5, grasasSat: 2.8, fibra: 2.5, sodio: 680,
+    motivo: "Las tortillas de trigo (wraps) se hacen con harina refinada y llevan unos 680 mg de sodio y apenas 2,5 g de fibra por 100 g. Los cereales refinados no aportan la protección frente a la diabetes tipo 2 y la enfermedad cardiovascular que sí se asocia a los integrales [1][2]. Por eso las calificamos C: sirven para montar platos con mucha verdura y proteína, mejor en versión integral y con una sola por ración.",
+    estudios: [
+      {
+        "pmid": "30638909",
+        "titulo": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+        "revista": "Lancet (London, England)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30638909/"
+      },
+      {
+        "pmid": "28397016",
+        "titulo": "Food groups and risk of type 2 diabetes mellitus: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28397016/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Tortilla de maíz",
+        emoji: "🌽", mejor: true,
+        kcal: 218, carbs: 44.6, azucares: 0.9, proteinas: 5.7, grasas: 2.9, grasasSat: 0.4, fibra: 6.4, sodio: 15,
+        porque: "Menos calorías por unidad, más fibra relativa y sin gluten, para los mismos rellenos."
+      }
+    ]
+  },
+  {
+    id: "cacao_soluble",
+    nombre: "Cacao soluble azucarado",
+    aliases: ["cacao soluble", "colacao", "cola cao", "cacao en polvo azucarado", "batido de cacao en polvo"],
+    categorias: ["Dulces", "Bebidas"],
+    emoji: "🍫",
+    rating: "D",
+    kcal: 380, carbs: 78, azucares: 72, proteinas: 5.5, grasas: 3.5, grasasSat: 2, fibra: 6, sodio: 100,
+    motivo: "El cacao soluble de desayuno es sobre todo azúcar: más del 70 % de su peso, con apenas 5-6 g de proteína por 100 g. Las revisiones sobre el azúcar libre lo asocian con peores resultados cardiometabólicos y dentales [1], y en la infancia, su principal consumidor, se recomienda limitarlo [2]. Por eso lo calificamos D. Mejor cacao puro sin azúcar con leche, endulzado con un poco de fruta si hace falta.",
+    estudios: [
+      {
+        "pmid": "37019448",
+        "titulo": "Dietary sugar consumption and health: umbrella review.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37019448/"
+      },
+      {
+        "pmid": "28922262",
+        "titulo": "Sugar in Infants, Children and Adolescents: A Position Paper of the European Society for Paediatric Gastroenterology, Hepatology and Nutrition Committee on Nutrition.",
+        "revista": "Journal of pediatric gastroenterology and nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28922262/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Cacao puro en polvo",
+        emoji: "🍫", mejor: true,
+        kcal: 228, carbs: 58, azucares: 1.8, proteinas: 19.6, grasas: 13.7, grasasSat: 8.1, fibra: 33, sodio: 21,
+        porque: "Todo el sabor a cacao y la fibra, sin el 70 % de azúcar del cacao soluble."
+      }
+    ]
+  },
+  {
+    id: "bolleria_industrial",
+    nombre: "Bollería industrial",
+    aliases: ["bollería industrial", "bolleria industrial", "bollería", "bolleria", "magdalenas", "magdalena", "donuts", "donut", "bollos"],
+    categorias: ["Dulces"],
+    emoji: "🧁",
+    rating: "E",
+    kcal: 430, carbs: 52, azucares: 27, proteinas: 6, grasas: 22, grasasSat: 9, fibra: 1.2, sodio: 350,
+    motivo: "Magdalenas, donuts y bollos industriales son ultraprocesados: harina refinada, azúcar (unos 27 g por 100 g), grasas refinadas (a menudo aceite de palma, hasta 9 g de saturada) y aditivos. Los metaanálisis asocian un mayor consumo de ultraprocesados con más riesgo de mortalidad y de enfermedades cardiometabólicas [1][2]. Por eso la calificamos E, igual que el croissant: mejor ocasional, y si se come, que sea un capricho y no un hábito.",
+    estudios: [
+      {
+        "pmid": "38418082",
+        "titulo": "Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38418082/"
+      },
+      {
+        "pmid": "38688162",
+        "titulo": "Ultra-processed foods and human health: An umbrella review and updated meta-analyses of observational evidence.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38688162/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pan integral",
+        emoji: "🌾", mejor: true,
+        kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
+        porque: "Con aceite y tomate o un poco de fruta: más fibra y mucho menos azúcar y grasa saturada."
+      }
+    ]
+  },
+  {
+    id: "turron_duro",
+    nombre: "Turrón duro",
+    aliases: ["turrón", "turron", "turrón duro", "turron duro", "turrón de alicante", "turron de alicante", "turrones"],
+    categorias: ["Dulces"],
+    emoji: "🍬",
+    rating: "D",
+    kcal: 490, carbs: 48, azucares: 44, proteinas: 12, grasas: 27, grasasSat: 2.8, fibra: 5, sodio: 10,
+    motivo: "El turrón duro es sobre todo azúcar y almendra: unos 44 g de azúcar por 100 g. La almendra aporta grasa insaturada, fibra y proteína, y su consumo se asocia con beneficios cardiovasculares [1], pero el azúcar libre, con efectos adversos descritos sobre varias variables metabólicas [2], pesa más en una porción dulce. Por eso lo calificamos D: un capricho navideño de una o dos onzas, no un snack habitual.",
+    estudios: [
+      {
+        "pmid": "38931317",
+        "titulo": "The Effects of Almond Consumption on Cardiovascular Health and Gut Microbiome: A Comprehensive Review.",
+        "revista": "Nutrients",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38931317/"
+      },
+      {
+        "pmid": "37019448",
+        "titulo": "Dietary sugar consumption and health: umbrella review.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37019448/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Almendras",
+        emoji: "🌰", mejor: true,
+        kcal: 579, carbs: 21.55, azucares: 4.35, proteinas: 21.22, grasas: 49.93, grasasSat: 3.8, fibra: 12.5, sodio: 1,
+        porque: "Todo el beneficio del fruto seco (fibra, grasa insaturada, vitamina E) sin el azúcar."
+      }
+    ]
+  },
+  {
+    id: "perejil",
+    nombre: "Perejil",
+    aliases: ["perejil", "perejil fresco"],
+    categorias: ["Condimentos y Aditivos"],
+    emoji: "🌿",
+    rating: "A",
+    kcal: 36, carbs: 6.3, azucares: 0.9, proteinas: 3, grasas: 0.8, grasasSat: 0.1, fibra: 3.3, sodio: 56,
+    motivo: "El perejil fresco es una hierba muy concentrada en nutrientes: vitamina K, vitamina C, folato y flavonoides como la apigenina [1]. En el plato se usan solo unos gramos, así que su aporte es modesto, pero suma sabor sin sal. Los estudios (en su mayoría en animales y células) describen efectos antioxidantes y protectores del hígado y el riñón, sin evidencia clínica sólida aún [1][2]. Por su vitamina K, quien toma anticoagulantes del tipo acenocumarol debe mantener un consumo estable.",
+    estudios: [
+      {
+        "pmid": "38189231",
+        "titulo": "Petroselinum crispum (Mill.) Fuss (Parsley): An Updated Review of the Traditional Uses, Phytochemistry, and Pharmacology.",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38189231/"
+      },
+      {
+        "pmid": "39735703",
+        "titulo": "Renal health benefits and therapeutic effects of parsley (Petroselinum crispum): a review.",
+        "revista": "Frontiers in medicine",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39735703/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "vino_blanco",
+    nombre: "Vino blanco",
+    aliases: ["vino blanco", "vino blanco seco"],
+    categorias: ["Bebidas"],
+    emoji: "🥂",
+    rating: "E",
+    kcal: 82, carbs: 2.6, azucares: 1, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+    motivo: "Como el vino tinto, el blanco no aporta nada que compense el alcohol: el metaanálisis de 2023 no encontró menor mortalidad en quienes beben poco frente a quienes no beben, y sí más riesgo a partir de unos 45 g de alcohol al día [1]; el análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que la cerveza: si bebes, que sea ocasional y en pequeña cantidad (una copa tiene unos 12 g de alcohol).",
+    estudios: [
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua con gas y limón",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin alcohol; con gas, limón y hielo cumple el mismo papel en la mesa."
+      }
+    ]
   }
 ];
 
