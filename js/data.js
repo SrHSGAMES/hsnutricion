@@ -5611,9 +5611,9 @@ const FOODS = [
     aliases: ["vino tinto", "copa de vino", "vino"],
     categorias: ["Bebidas"],
     emoji: "🍷",
-    rating: "D",
+    rating: "E",
     kcal: 85, carbs: 2.6, azucares: 0.6, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
-    motivo: "El vino tinto contiene resveratrol y otros polifenoles del hollejo de la uva, estudiados por su posible efecto cardioprotector [1], pero las revisiones más recientes coinciden en que esos compuestos no compensan el efecto del alcohol: no existe un nivel de consumo que se considere sin riesgo, y la cantidad de resveratrol que aporta una copa es demasiado baja para tener un efecto clínico relevante. El metaanálisis de 2023 encontró un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. Si bebes, que sea ocasional y en cantidad moderada.",
+    motivo: "El vino tinto contiene resveratrol y otros polifenoles del hollejo de la uva, estudiados por su posible efecto cardioprotector [1], pero las revisiones más recientes coinciden en que esos compuestos no compensan el efecto del alcohol: no existe un nivel de consumo que se considere sin riesgo, y la cantidad de resveratrol que aporta una copa es demasiado baja para tener un efecto clínico relevante. El metaanálisis de 2023 encontró un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. Si bebes, que sea ocasional y en cantidad moderada. Por eso lo calificamos E, igual que el resto de bebidas alcohólicas de la guía (cerveza y vino blanco).",
     estudios: [
       {
         "pmid": "31597344",
@@ -8014,6 +8014,47 @@ const FOODS = [
         porque: "Cero calorías y sin alcohol; con gas, limón y hielo cumple el mismo papel en la mesa."
       }
     ]
+  },
+  {
+    id: "ia_nispero",
+    nombre: "Níspero",
+    aliases: ["níspero", "nispero", "nísperos", "nisperos", "níspero japonés", "nispero japones"],
+    categorias: ["Frutas"],
+    emoji: "🟠",
+    rating: "A",
+    kcal: 47, carbs: 12.1, azucares: 8.3, proteinas: 0.4, grasas: 0.2, grasasSat: 0.04, fibra: 1.7, sodio: 1,
+    motivo: "El níspero es una fruta ligera (47 kcal por 100 g) con fibra, vitamina C, potasio y vitamina A en forma de carotenoides. Su fruto contiene polifenoles y ácidos fenólicos con capacidad antioxidante [2], y en ratones alimentados con una dieta rica en grasa y azúcar mejoró el metabolismo de los lípidos y la esteatosis hepática [1], igual que un extracto polifenólico de su piel [3]: son estudios con animales, que no demuestran el mismo efecto en personas. Como el resto de la fruta entera, su consumo se asocia con menor riesgo cardiovascular y de mortalidad [4]. Se come con piel fina y sin el hueso.",
+    estudios: [
+      {
+        "pmid": "39371510",
+        "titulo": "Nutritional Composition and Effect of Loquat Fruit (Eriobotrya japonica L. var. Navela) on Lipid Metabolism and Liver Steatosis in High-Fat High-Sucrose Diet-Fed Mice.",
+        "revista": "Preventive nutrition and food science",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39371510/"
+      },
+      {
+        "pmid": "38203258",
+        "titulo": "Dynamic Changes of Phenolic Composition, Antioxidant Capacity, and Gene Expression in 'Snow White' Loquat (Eriobotrya japonica Lindl.) Fruit throughout Development and Ripening.",
+        "revista": "International journal of molecular sciences",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38203258/"
+      },
+      {
+        "pmid": "37498560",
+        "titulo": "Polyphenol-rich extract from loquat fruit peel prevents hyperlipidemia and hepato-nephrotoxicity in mice: in vivo study and in silico prediction of possible mechanisms involving identified polyphenols and/or their circulating metabolites.",
+        "revista": "Food & function",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37498560/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
   }
 ];
 
