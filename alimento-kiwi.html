@@ -20,21 +20,79 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Kiwi — Ficha nutricional y calificación",
-  "description": "Valor nutricional de Kiwi por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
-  "author": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "mainEntityOfPage": "https://www.hsnutricion.com/alimento-kiwi.html",
-  "datePublished": "2026-09-20"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Kiwi — Ficha nutricional y calificación",
+      "description": "Valor nutricional de Kiwi por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
+      "author": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "mainEntityOfPage": "https://www.hsnutricion.com/alimento-kiwi.html",
+      "datePublished": "2026-09-20"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas proteínas tiene Kiwi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kiwi tiene 1,1 g de proteína por 100 g. Está cerca de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas calorías tiene Kiwi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kiwi tiene 61 kcal por 100 g, alrededor del 3 % de una dieta de 2.000 kcal. Está por debajo de la media de Frutas en la guía (84 kcal por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos carbohidratos, grasas y fibra tiene Kiwi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por 100 g, Kiwi aporta 14,7 g de carbohidratos (de ellos, 9 g son azúcares), 0,5 g de grasas (0,03 g saturadas), 3 g de fibra y 3 mg de sodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es saludable Kiwi?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición, Kiwi tiene una calificación A (excelente). Aporta más vitamina C por 100 g que la naranja, además de fibra, potasio y vitamina K; contiene actinidina, una enzima que ayuda a digerir proteínas."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.hsnutricion.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Kiwi",
+          "item": "https://www.hsnutricion.com/alimento-kiwi.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -119,10 +177,38 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>0,03 g</b> son saturadas · de los carbohidratos, <b>9 g</b> son azúcares · sodio: <b>3 mg</b></p>
       </div>
       
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre Kiwi</h2>
+      <div class="ficha-faq">
+        <details open><summary>¿Cuántas proteínas tiene Kiwi?</summary><p>Kiwi tiene 1,1 g de proteína por 100 g. Está cerca de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g).</p></details>
+        <details><summary>¿Cuántas calorías tiene Kiwi?</summary><p>Kiwi tiene 61 kcal por 100 g, alrededor del 3 % de una dieta de 2.000 kcal. Está por debajo de la media de Frutas en la guía (84 kcal por 100 g).</p></details>
+        <details><summary>¿Cuántos carbohidratos, grasas y fibra tiene Kiwi?</summary><p>Por 100 g, Kiwi aporta 14,7 g de carbohidratos (de ellos, 9 g son azúcares), 0,5 g de grasas (0,03 g saturadas), 3 g de fibra y 3 mg de sodio.</p></details>
+        <details><summary>¿Es saludable Kiwi?</summary><p>En HSNutrición, Kiwi tiene una calificación A (excelente). Aporta más vitamina C por 100 g que la naranja, además de fibra, potasio y vitamina K; contiene actinidina, una enzima que ayuda a digerir proteínas.</p></details>
+      </div>
+
+      <h2 class="ficha-sub">Más alimentos de Frutas</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="alimento-mango.html">Mango</a>
+        <a class="filtro-chip" href="alimento-pitaya.html">Pitaya</a>
+        <a class="filtro-chip" href="alimento-cerezas.html">Cerezas</a>
+        <a class="filtro-chip" href="alimento-arandanos.html">Arándanos</a>
+        <a class="filtro-chip" href="alimento-pera.html">Pera</a>
+        <a class="filtro-chip" href="alimento-lichi.html">Lichi</a>
+        <a class="filtro-chip" href="alimento-uva.html">Uva</a>
+        <a class="filtro-chip" href="alimento-mandarina.html">Mandarina</a>
+      </div>
+      <h2 class="ficha-sub">Kiwi en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="frutas-ricas-en-fibra.html">Frutas ricas en fibra · puesto 14 de 39</a>
+        <a class="filtro-chip" href="frutas-con-mas-proteinas.html">Frutas con más proteínas · puesto 15 de 39</a>
+        <a class="filtro-chip" href="frutas-con-menos-azucar.html">Frutas con menos azúcar · puesto 17 de 39</a>
+        <a class="filtro-chip" href="frutas-con-menos-calorias.html">Frutas con menos calorías · puesto 24 de 39</a>
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>
+      
       <h2 class="ficha-sub">Estudios científicos consultados</h2>
       <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/29470689/" target="_blank" rel="noopener noreferrer">[1] The nutritional and health attributes of kiwifruit: a review. — European journal of nutrition (2018)</a>
 <a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/30774402/" target="_blank" rel="noopener noreferrer">[2] Effect of kiwifruit on metabolic health in patients with cardiovascular risk factors: a systematic review and meta-analysis. — Diabetes, metabolic syndrome and obesity : targets and therapy (2019)</a></div>
-      
     </div>
   </section>
 
@@ -136,6 +222,7 @@
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>

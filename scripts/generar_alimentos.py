@@ -13,12 +13,14 @@ página propia hasta que se "promueven" (se copian a mano) a data.js.
 import glob
 import json
 import os
+import re
 import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
     es, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
+import rankings_lib as RL
 from generar_sustitutos import (
     parse_foods_full, fecha_publicacion_git as _fecha_publicacion_generica,
 )
@@ -61,7 +63,130 @@ def build_article_jsonld(food, page_url, nombre_fmt):
     return data
 
 
-def render_pagina(food, todas_recetas, ids_con_sustituto):
+RATING_TXT = {"A": "excelente", "B": "buena", "C": "moderada", "D": "mejorable", "E": "poco recomendable"}
+
+
+def estadisticas_categorias(foods):
+    """Media de cada nutriente por categoría principal, para comparar cada alimento con los de su categoría."""
+    por_cat = {}
+    for f in foods.values():
+        por_cat.setdefault(f["categorias"][0] if f["categorias"] else "", []).append(f)
+    return {
+        cat: {"n": len(lst), **{k: sum(x[k] for x in lst) / len(lst) for k in ("kcal", "proteinas", "fibra")}}
+        for cat, lst in por_cat.items() if cat
+    }
+
+
+def comparar(valor, media):
+    if media <= 0:
+        return None
+    if valor > media * 1.15:
+        return "por encima de"
+    if valor < media * 0.85:
+        return "por debajo de"
+    return "cerca de"
+
+
+def primera_frase(texto, maximo=260):
+    """Primeras frases del motivo, sin las citas [n], para responder '¿es saludable?'."""
+    limpio = re.sub(r"\s*(\[\d+\])+", "", texto).strip()
+    corte = ""
+    for frase in re.split(r"(?<=[.!?])\s+", limpio):
+        if corte and len(corte) + len(frase) > maximo:
+            break
+        corte = f"{corte} {frase}".strip()
+    return corte
+
+
+def construir_faq(food, nombre_fmt, contexto, recetas_relacionadas):
+    """Preguntas frecuentes con respuestas calculadas solo con los datos de la ficha (nada inventado)."""
+    cat = (food["categorias"] or [""])[0]
+    stats = contexto["stats"].get(cat)
+    faq = []
+
+    p = food["proteinas"]
+    r1 = f'{nombre_fmt} tiene {es(p)} g de proteína por 100 g.'
+    if stats and stats["n"] >= 5:
+        rel = comparar(p, stats["proteinas"])
+        if rel:
+            r1 += f' Está {rel} la media de los alimentos de {cat} de nuestra guía ({es(round(stats["proteinas"], 1))} g por 100 g).'
+    faq.append((f"¿Cuántas proteínas tiene {nombre_fmt}?", r1))
+
+    k = food["kcal"]
+    r2 = f'{nombre_fmt} tiene {es(k)} kcal por 100 g, alrededor del {es(round(k / 20, 1))} % de una dieta de 2.000 kcal.'
+    if stats and stats["n"] >= 5:
+        rel = comparar(k, stats["kcal"])
+        if rel:
+            r2 += f' Está {rel} la media de {cat} en la guía ({es(round(stats["kcal"]))} kcal por 100 g).'
+    faq.append((f"¿Cuántas calorías tiene {nombre_fmt}?", r2))
+
+    faq.append((
+        f"¿Cuántos carbohidratos, grasas y fibra tiene {nombre_fmt}?",
+        f'Por 100 g, {nombre_fmt} aporta {es(food["carbs"])} g de carbohidratos (de ellos, {es(food["azucares"])} g son azúcares), '
+        f'{es(food["grasas"])} g de grasas ({es(food["grasasSat"])} g saturadas), {es(food["fibra"])} g de fibra y {es(food["sodio"])} mg de sodio.',
+    ))
+
+    faq.append((
+        f"¿Es saludable {nombre_fmt}?",
+        f'En HSNutrición, {nombre_fmt} tiene una calificación {food["rating"]} ({RATING_TXT[food["rating"]]}). {primera_frase(food["motivo"])}',
+    ))
+
+    if food.get("sustitutos"):
+        nombres = ", ".join(s["nombre"] for s in food["sustitutos"])
+        faq.append((
+            f"¿Qué puedo comer en lugar de {nombre_fmt}?",
+            f'Las alternativas que proponemos son: {nombres}. {food["sustitutos"][0]["porque"]}',
+        ))
+
+    if recetas_relacionadas:
+        ejemplos = ", ".join(r["nombre"] for r in recetas_relacionadas[:3])
+        n = len(recetas_relacionadas)
+        faq.append((
+            f"¿Qué recetas se pueden hacer con {nombre_fmt}?",
+            f'En HSNutrición hay {n} {"receta" if n == 1 else "recetas"} con {nombre_fmt}, por ejemplo: {ejemplos}.',
+        ))
+    return faq
+
+
+def render_faq(faq):
+    return "\n".join(
+        f'        <details{" open" if i == 0 else ""}><summary>{esc(q)}</summary><p>{esc(a)}</p></details>'
+        for i, (q, a) in enumerate(faq)
+    )
+
+
+def render_relacionados(food, nombre_fmt, contexto):
+    """Enlaces internos: alimentos parecidos de la misma categoría y rankings en los que aparece."""
+    cat = (food["categorias"] or [""])[0]
+    bloques = []
+    parecidos = sorted(
+        (f for f in contexto["foods"].values() if f["id"] != food["id"] and f["categorias"] and f["categorias"][0] == cat),
+        key=lambda f: abs(f["kcal"] - food["kcal"]),
+    )[:8]
+    if parecidos:
+        chips = "\n".join(
+            f'        <a class="filtro-chip" href="alimento-{slug(f["id"])}.html">{esc(formatear_nombre(f["nombre"]))}</a>' for f in parecidos
+        )
+        bloques.append(f"""
+      <h2 class="ficha-sub">Más alimentos de {esc(cat)}</h2>
+      <div class="ficha-relacionados">
+{chips}
+      </div>""")
+    pos = contexto["posiciones"].get(food["id"], [])[:4]
+    if pos:
+        chips = "\n".join(
+            f'        <a class="filtro-chip" href="{r["slug"]}.html">{esc(r["h1"])} · puesto {i} de {n}</a>' for r, i, n in pos
+        )
+        bloques.append(f"""
+      <h2 class="ficha-sub">{esc(nombre_fmt)} en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+{chips}
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>""")
+    return "".join(bloques)
+
+
+def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
     nombre_fmt = formatear_nombre(food["nombre"])
     page_url = f'{SITE_URL}/alimento-{slug(food["id"])}.html'
     categorias_txt = " · ".join(food.get("categorias", []))
@@ -111,7 +236,29 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     </div>
   </section>'''
 
-    jsonld = json.dumps(build_article_jsonld(food, page_url, nombre_fmt), ensure_ascii=False, indent=2)
+    faq = construir_faq(food, nombre_fmt, contexto, recetas_relacionadas)
+    faq_html = render_faq(faq)
+    relacionados_html = render_relacionados(food, nombre_fmt, contexto)
+    grafo = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {k: v for k, v in build_article_jsonld(food, page_url, nombre_fmt).items() if k != "@context"},
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faq
+                ],
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {"@type": "ListItem", "position": 1, "name": "Inicio", "item": SITE_URL + "/"},
+                    {"@type": "ListItem", "position": 2, "name": nombre_fmt, "item": page_url},
+                ],
+            },
+        ],
+    }
+    jsonld = json.dumps(grafo, ensure_ascii=False, indent=2)
     jsonld = jsonld.replace("</", "<\\/")
 
     return f'''<!DOCTYPE html>
@@ -198,8 +345,14 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
 {macros_html}
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(food["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(food["azucares"])} g</b> son azúcares · sodio: <b>{es(food["sodio"])} mg</b></p>
       </div>
-      {citas_html}
       {sustituto_html}
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre {esc(nombre_fmt)}</h2>
+      <div class="ficha-faq">
+{faq_html}
+      </div>
+{relacionados_html}
+      {citas_html}
     </div>
   </section>
 {recetas_html}
@@ -213,6 +366,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto):
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>
@@ -280,6 +434,8 @@ def main():
     foods = parse_foods_full(DATA_JS)
     todas_recetas = parse_recetas(RECETAS_JS)
     ids_con_sustituto = {fid for fid, f in foods.items() if f.get("sustitutos")}
+    rankings = RL.calcular(foods)
+    contexto = {"foods": foods, "stats": estadisticas_categorias(foods), "posiciones": RL.posiciones(foods, rankings)}
 
     objetivo_ids = sys.argv[1:] if len(sys.argv) > 1 else None
 
@@ -287,7 +443,7 @@ def main():
     for food_id, food in foods.items():
         if objetivo_ids and food_id not in objetivo_ids:
             continue
-        html = render_pagina(food, todas_recetas, ids_con_sustituto)
+        html = render_pagina(food, todas_recetas, ids_con_sustituto, contexto)
         filename = f'alimento-{slug(food_id)}.html'
         path = os.path.join(ROOT, filename)
         with open(path, "w", encoding="utf-8") as f:

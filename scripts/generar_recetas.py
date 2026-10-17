@@ -589,6 +589,7 @@ def render_pagina(receta, foods, todas_recetas):
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>
@@ -710,6 +711,10 @@ def render_sitemap(recetas, extra_urls=None):
         {"loc": f"{SITE_URL}/sobre.html", "prioridad": "0.6"},
         {"loc": f"{SITE_URL}/privacidad.html", "prioridad": "0.3"},
     ]
+    # Rankings de alimentos (scripts/generar_rankings.py): el índice y una página por ranking.
+    import rankings_lib as RL
+    urls.append({"loc": f"{SITE_URL}/rankings.html", "prioridad": "0.8"})
+    urls.extend({"loc": f'{SITE_URL}/{r["slug"]}.html', "prioridad": "0.7"} for r in RL.RANKINGS)
     for receta in recetas:
         urls.append({"loc": f'{SITE_URL}/receta-{slug(receta["id"])}.html', "prioridad": "0.7"})
     if extra_urls:

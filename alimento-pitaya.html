@@ -20,21 +20,79 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Pitaya — Ficha nutricional y calificación",
-  "description": "Valor nutricional de Pitaya por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
-  "author": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "mainEntityOfPage": "https://www.hsnutricion.com/alimento-pitaya.html",
-  "datePublished": "2026-08-19"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Pitaya — Ficha nutricional y calificación",
+      "description": "Valor nutricional de Pitaya por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
+      "author": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "mainEntityOfPage": "https://www.hsnutricion.com/alimento-pitaya.html",
+      "datePublished": "2026-08-19"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas proteínas tiene Pitaya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pitaya tiene 1,2 g de proteína por 100 g. Está cerca de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas calorías tiene Pitaya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pitaya tiene 60 kcal por 100 g, alrededor del 3 % de una dieta de 2.000 kcal. Está por debajo de la media de Frutas en la guía (84 kcal por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos carbohidratos, grasas y fibra tiene Pitaya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por 100 g, Pitaya aporta 13 g de carbohidratos (de ellos, 7,7 g son azúcares), 0,5 g de grasas (0,1 g saturadas), 2,9 g de fibra y 1 mg de sodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es saludable Pitaya?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición, Pitaya tiene una calificación A (excelente). La pitaya es una fruta tropical de excelente calidad nutricional, baja en calorías y con un alto contenido de agua, fibra y fitoquímicos. Cuenta con notables propiedades antioxidantes y antiinflamatorias que favorecen la salud metabólica y digestiva [1, 2]."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.hsnutricion.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Pitaya",
+          "item": "https://www.hsnutricion.com/alimento-pitaya.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -119,10 +177,38 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>0,1 g</b> son saturadas · de los carbohidratos, <b>7,7 g</b> son azúcares · sodio: <b>1 mg</b></p>
       </div>
       
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre Pitaya</h2>
+      <div class="ficha-faq">
+        <details open><summary>¿Cuántas proteínas tiene Pitaya?</summary><p>Pitaya tiene 1,2 g de proteína por 100 g. Está cerca de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g).</p></details>
+        <details><summary>¿Cuántas calorías tiene Pitaya?</summary><p>Pitaya tiene 60 kcal por 100 g, alrededor del 3 % de una dieta de 2.000 kcal. Está por debajo de la media de Frutas en la guía (84 kcal por 100 g).</p></details>
+        <details><summary>¿Cuántos carbohidratos, grasas y fibra tiene Pitaya?</summary><p>Por 100 g, Pitaya aporta 13 g de carbohidratos (de ellos, 7,7 g son azúcares), 0,5 g de grasas (0,1 g saturadas), 2,9 g de fibra y 1 mg de sodio.</p></details>
+        <details><summary>¿Es saludable Pitaya?</summary><p>En HSNutrición, Pitaya tiene una calificación A (excelente). La pitaya es una fruta tropical de excelente calidad nutricional, baja en calorías y con un alto contenido de agua, fibra y fitoquímicos. Cuenta con notables propiedades antioxidantes y antiinflamatorias que favorecen la salud metabólica y digestiva [1, 2].</p></details>
+      </div>
+
+      <h2 class="ficha-sub">Más alimentos de Frutas</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="alimento-mango.html">Mango</a>
+        <a class="filtro-chip" href="alimento-kiwi.html">Kiwi</a>
+        <a class="filtro-chip" href="alimento-arandanos.html">Arándanos</a>
+        <a class="filtro-chip" href="alimento-cerezas.html">Cerezas</a>
+        <a class="filtro-chip" href="alimento-pera.html">Pera</a>
+        <a class="filtro-chip" href="alimento-lichi.html">Lichi</a>
+        <a class="filtro-chip" href="alimento-mandarina.html">Mandarina</a>
+        <a class="filtro-chip" href="alimento-frambuesas.html">Frambuesas</a>
+      </div>
+      <h2 class="ficha-sub">Pitaya en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="frutas-con-menos-azucar.html">Frutas con menos azúcar · puesto 11 de 39</a>
+        <a class="filtro-chip" href="frutas-con-mas-proteinas.html">Frutas con más proteínas · puesto 13 de 39</a>
+        <a class="filtro-chip" href="frutas-ricas-en-fibra.html">Frutas ricas en fibra · puesto 16 de 39</a>
+        <a class="filtro-chip" href="frutas-con-menos-calorias.html">Frutas con menos calorías · puesto 23 de 39</a>
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>
+      
       <h2 class="ficha-sub">Estudios científicos consultados</h2>
       <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/37762287/" target="_blank" rel="noopener noreferrer">[1] Pitaya Nutrition, Biology, and Biotechnology: A Review. — International journal of molecular sciences (2023)</a>
 <a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/36678789/" target="_blank" rel="noopener noreferrer">[2] Anti-Inflammatory, Antioxidant, and Other Health Effects of Dragon Fruit and Potential Delivery Systems for Its Bioactive Compounds. — Pharmaceutics (2023)</a></div>
-      
     </div>
   </section>
 
@@ -136,6 +222,7 @@
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>

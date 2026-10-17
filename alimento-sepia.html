@@ -20,21 +20,87 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Sepia — Ficha nutricional y calificación",
-  "description": "Valor nutricional de Sepia por 100 g, calificación B y la razón nutricional detrás de esa calificación.",
-  "author": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "mainEntityOfPage": "https://www.hsnutricion.com/alimento-sepia.html",
-  "datePublished": "2026-10-12"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Sepia — Ficha nutricional y calificación",
+      "description": "Valor nutricional de Sepia por 100 g, calificación B y la razón nutricional detrás de esa calificación.",
+      "author": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "mainEntityOfPage": "https://www.hsnutricion.com/alimento-sepia.html",
+      "datePublished": "2026-10-12"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas proteínas tiene Sepia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sepia tiene 16,2 g de proteína por 100 g. Está cerca de la media de los alimentos de Proteínas de nuestra guía (18,4 g por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas calorías tiene Sepia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sepia tiene 79 kcal por 100 g, alrededor del 4 % de una dieta de 2.000 kcal. Está por debajo de la media de Proteínas en la guía (123 kcal por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos carbohidratos, grasas y fibra tiene Sepia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por 100 g, Sepia aporta 0,8 g de carbohidratos (de ellos, 0 g son azúcares), 0,7 g de grasas (0,2 g saturadas), 0 g de fibra y 372 mg de sodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es saludable Sepia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición, Sepia tiene una calificación B (buena). La sepia es un molusco cefalópodo muy magro: unos 16 g de proteína con menos de 1 g de grasa por 100 g, y aporta minerales como hierro, zinc y selenio, propios del marisco."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué recetas se pueden hacer con Sepia?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición hay 1 receta con Sepia, por ejemplo: Sepia a la Plancha con Ensalada de Escarola y Tomate."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.hsnutricion.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Sepia",
+          "item": "https://www.hsnutricion.com/alimento-sepia.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -119,10 +185,37 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>0,2 g</b> son saturadas · de los carbohidratos, <b>0 g</b> son azúcares · sodio: <b>372 mg</b></p>
       </div>
       
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre Sepia</h2>
+      <div class="ficha-faq">
+        <details open><summary>¿Cuántas proteínas tiene Sepia?</summary><p>Sepia tiene 16,2 g de proteína por 100 g. Está cerca de la media de los alimentos de Proteínas de nuestra guía (18,4 g por 100 g).</p></details>
+        <details><summary>¿Cuántas calorías tiene Sepia?</summary><p>Sepia tiene 79 kcal por 100 g, alrededor del 4 % de una dieta de 2.000 kcal. Está por debajo de la media de Proteínas en la guía (123 kcal por 100 g).</p></details>
+        <details><summary>¿Cuántos carbohidratos, grasas y fibra tiene Sepia?</summary><p>Por 100 g, Sepia aporta 0,8 g de carbohidratos (de ellos, 0 g son azúcares), 0,7 g de grasas (0,2 g saturadas), 0 g de fibra y 372 mg de sodio.</p></details>
+        <details><summary>¿Es saludable Sepia?</summary><p>En HSNutrición, Sepia tiene una calificación B (buena). La sepia es un molusco cefalópodo muy magro: unos 16 g de proteína con menos de 1 g de grasa por 100 g, y aporta minerales como hierro, zinc y selenio, propios del marisco.</p></details>
+        <details><summary>¿Qué recetas se pueden hacer con Sepia?</summary><p>En HSNutrición hay 1 receta con Sepia, por ejemplo: Sepia a la Plancha con Ensalada de Escarola y Tomate.</p></details>
+      </div>
+
+      <h2 class="ficha-sub">Más alimentos de Proteínas</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="alimento-merluza.html">Merluza</a>
+        <a class="filtro-chip" href="alimento-bacalao.html">Bacalao</a>
+        <a class="filtro-chip" href="alimento-rape.html">Rape</a>
+        <a class="filtro-chip" href="alimento-almejas.html">Almejas</a>
+        <a class="filtro-chip" href="alimento-gambas.html">Gambas</a>
+        <a class="filtro-chip" href="alimento-mejillones.html">Mejillones al Natural</a>
+        <a class="filtro-chip" href="alimento-lenguado.html">Lenguado</a>
+        <a class="filtro-chip" href="alimento-surimi.html">Palitos de Cangrejo (surimi)</a>
+      </div>
+      <h2 class="ficha-sub">Sepia en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="pescados-con-menos-calorias.html">Pescados y mariscos con menos calorías · puesto 4 de 20</a>
+        <a class="filtro-chip" href="pescados-con-mas-proteinas.html">Pescados y mariscos con más proteínas · puesto 15 de 20</a>
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>
+      
       <h2 class="ficha-sub">Estudios científicos consultados</h2>
       <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/33527847/" target="_blank" rel="noopener noreferrer">[1] Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy. — Critical reviews in food science and nutrition (2022)</a>
 <a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/31838890/" target="_blank" rel="noopener noreferrer">[2] Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association. — Circulation (2020)</a></div>
-      
     </div>
   </section>
 
@@ -156,6 +249,7 @@
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>

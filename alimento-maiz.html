@@ -20,21 +20,79 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Maíz — Ficha nutricional y calificación",
-  "description": "Valor nutricional de Maíz por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
-  "author": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "mainEntityOfPage": "https://www.hsnutricion.com/alimento-maiz.html",
-  "datePublished": "2026-08-19"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Maíz — Ficha nutricional y calificación",
+      "description": "Valor nutricional de Maíz por 100 g, calificación A y la razón nutricional detrás de esa calificación.",
+      "author": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "mainEntityOfPage": "https://www.hsnutricion.com/alimento-maiz.html",
+      "datePublished": "2026-08-19"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas proteínas tiene Maíz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Maíz tiene 3,2 g de proteína por 100 g. Está por debajo de la media de los alimentos de Cereales de nuestra guía (9,3 g por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas calorías tiene Maíz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Maíz tiene 86 kcal por 100 g, alrededor del 4,3 % de una dieta de 2.000 kcal. Está por debajo de la media de Cereales en la guía (282 kcal por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos carbohidratos, grasas y fibra tiene Maíz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por 100 g, Maíz aporta 19 g de carbohidratos (de ellos, 3,2 g son azúcares), 1,2 g de grasas (0,2 g saturadas), 2,7 g de fibra y 15 mg de sodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es saludable Maíz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición, Maíz tiene una calificación A (excelente). El maíz es un alimento muy completo e integral, considerado tanto cereal como hortaliza. Aporta energía mediante carbohidratos de absorción compleja, fibra dietética y antioxidantes como la luteína y zeaxantina."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.hsnutricion.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Maíz",
+          "item": "https://www.hsnutricion.com/alimento-maiz.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -119,9 +177,37 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>0,2 g</b> son saturadas · de los carbohidratos, <b>3,2 g</b> son azúcares · sodio: <b>15 mg</b></p>
       </div>
       
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre Maíz</h2>
+      <div class="ficha-faq">
+        <details open><summary>¿Cuántas proteínas tiene Maíz?</summary><p>Maíz tiene 3,2 g de proteína por 100 g. Está por debajo de la media de los alimentos de Cereales de nuestra guía (9,3 g por 100 g).</p></details>
+        <details><summary>¿Cuántas calorías tiene Maíz?</summary><p>Maíz tiene 86 kcal por 100 g, alrededor del 4,3 % de una dieta de 2.000 kcal. Está por debajo de la media de Cereales en la guía (282 kcal por 100 g).</p></details>
+        <details><summary>¿Cuántos carbohidratos, grasas y fibra tiene Maíz?</summary><p>Por 100 g, Maíz aporta 19 g de carbohidratos (de ellos, 3,2 g son azúcares), 1,2 g de grasas (0,2 g saturadas), 2,7 g de fibra y 15 mg de sodio.</p></details>
+        <details><summary>¿Es saludable Maíz?</summary><p>En HSNutrición, Maíz tiene una calificación A (excelente). El maíz es un alimento muy completo e integral, considerado tanto cereal como hortaliza. Aporta energía mediante carbohidratos de absorción compleja, fibra dietética y antioxidantes como la luteína y zeaxantina.</p></details>
+      </div>
+
+      <h2 class="ficha-sub">Más alimentos de Cereales</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="alimento-bulgur.html">Bulgur (cocido)</a>
+        <a class="filtro-chip" href="alimento-trigo-sarraceno.html">Trigo Sarraceno (cocido)</a>
+        <a class="filtro-chip" href="alimento-cuscus.html">Cuscús Cocido</a>
+        <a class="filtro-chip" href="alimento-mijo.html">Mijo (cocido)</a>
+        <a class="filtro-chip" href="alimento-quinoa.html">Quinoa Cocida</a>
+        <a class="filtro-chip" href="alimento-arroz-integral.html">Arroz Integral (cocido)</a>
+        <a class="filtro-chip" href="alimento-cebada.html">Cebada Perlada (cocida)</a>
+        <a class="filtro-chip" href="alimento-pasta-integral.html">Pasta Integral (cocida)</a>
+      </div>
+      <h2 class="ficha-sub">Maíz en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="verduras-con-mas-proteinas.html">Verduras con más proteínas · puesto 4 de 39</a>
+        <a class="filtro-chip" href="verduras-ricas-en-fibra.html">Verduras ricas en fibra · puesto 13 de 39</a>
+        <a class="filtro-chip" href="cereales-ricos-en-fibra.html">Cereales ricos en fibra · puesto 26 de 30</a>
+        <a class="filtro-chip" href="verduras-con-menos-calorias.html">Verduras con menos calorías · puesto 37 de 39</a>
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>
+      
       <h2 class="ficha-sub">Estudios científicos consultados</h2>
       <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/28349257/" target="_blank" rel="noopener noreferrer">[1] Corn-based vaccines: current status and prospects. — Planta (2017)</a></div>
-      
     </div>
   </section>
 
@@ -135,6 +221,7 @@
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>

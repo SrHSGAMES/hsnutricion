@@ -20,21 +20,87 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Coco — Ficha nutricional y calificación",
-  "description": "Valor nutricional de Coco por 100 g, calificación C y la razón nutricional detrás de esa calificación.",
-  "author": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "HSNutrición",
-    "url": "https://www.hsnutricion.com"
-  },
-  "mainEntityOfPage": "https://www.hsnutricion.com/alimento-coco.html",
-  "datePublished": "2026-08-19"
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "Coco — Ficha nutricional y calificación",
+      "description": "Valor nutricional de Coco por 100 g, calificación C y la razón nutricional detrás de esa calificación.",
+      "author": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HSNutrición",
+        "url": "https://www.hsnutricion.com"
+      },
+      "mainEntityOfPage": "https://www.hsnutricion.com/alimento-coco.html",
+      "datePublished": "2026-08-19"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuántas proteínas tiene Coco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coco tiene 3,3 g de proteína por 100 g. Está por encima de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántas calorías tiene Coco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Coco tiene 354 kcal por 100 g, alrededor del 17,7 % de una dieta de 2.000 kcal. Está por encima de la media de Frutas en la guía (84 kcal por 100 g)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuántos carbohidratos, grasas y fibra tiene Coco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Por 100 g, Coco aporta 15,2 g de carbohidratos (de ellos, 6,2 g son azúcares), 33,5 g de grasas (29,7 g saturadas), 9 g de fibra y 20 mg de sodio."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Es saludable Coco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En HSNutrición, Coco tiene una calificación C (moderada). El coco fresco aporta un excelente contenido de fibra dietética y minerales, pero destaca por una densidad calórica muy alta y un contenido de grasas saturadas superior al 85% de su grasa total."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué puedo comer en lugar de Coco?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Las alternativas que proponemos son: Aguacate, Almendras. Aporta grasas monoinsaturadas cardiosaludables, rica cantidad de fibra y un contenido de grasas saturadas sensiblemente menor."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://www.hsnutricion.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Coco",
+          "item": "https://www.hsnutricion.com/alimento-coco.html"
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
@@ -119,14 +185,43 @@
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>29,7 g</b> son saturadas · de los carbohidratos, <b>6,2 g</b> son azúcares · sodio: <b>20 mg</b></p>
       </div>
       
-      <h2 class="ficha-sub">Estudios científicos consultados</h2>
-      <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/33022082/" target="_blank" rel="noopener noreferrer">[1] Chemical composition and health benefits of coconut oil: an overview. — Journal of the science of food and agriculture (2021)</a>
-<a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/37364144/" target="_blank" rel="noopener noreferrer">[2] Coconut oil: an overview of cardiometabolic effects and the public health burden of misinformation. — Archives of endocrinology and metabolism (2023)</a></div>
-      
       <div class="food-motivo" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
         <span>¿Buscas algo más saludable todavía?</span>
         <a class="btn btn-primary btn-sm btn-envolver" href="sustituto-coco.html">Ver sustitutos de Coco →</a>
       </div>
+
+      <h2 class="ficha-sub">Preguntas frecuentes sobre Coco</h2>
+      <div class="ficha-faq">
+        <details open><summary>¿Cuántas proteínas tiene Coco?</summary><p>Coco tiene 3,3 g de proteína por 100 g. Está por encima de la media de los alimentos de Frutas de nuestra guía (1,2 g por 100 g).</p></details>
+        <details><summary>¿Cuántas calorías tiene Coco?</summary><p>Coco tiene 354 kcal por 100 g, alrededor del 17,7 % de una dieta de 2.000 kcal. Está por encima de la media de Frutas en la guía (84 kcal por 100 g).</p></details>
+        <details><summary>¿Cuántos carbohidratos, grasas y fibra tiene Coco?</summary><p>Por 100 g, Coco aporta 15,2 g de carbohidratos (de ellos, 6,2 g son azúcares), 33,5 g de grasas (29,7 g saturadas), 9 g de fibra y 20 mg de sodio.</p></details>
+        <details><summary>¿Es saludable Coco?</summary><p>En HSNutrición, Coco tiene una calificación C (moderada). El coco fresco aporta un excelente contenido de fibra dietética y minerales, pero destaca por una densidad calórica muy alta y un contenido de grasas saturadas superior al 85% de su grasa total.</p></details>
+        <details><summary>¿Qué puedo comer en lugar de Coco?</summary><p>Las alternativas que proponemos son: Aguacate, Almendras. Aporta grasas monoinsaturadas cardiosaludables, rica cantidad de fibra y un contenido de grasas saturadas sensiblemente menor.</p></details>
+      </div>
+
+      <h2 class="ficha-sub">Más alimentos de Frutas</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="alimento-pasas.html">Pasas</a>
+        <a class="filtro-chip" href="alimento-datiles.html">Dátiles</a>
+        <a class="filtro-chip" href="alimento-higos-secos.html">Higos Secos</a>
+        <a class="filtro-chip" href="alimento-ciruelas-pasas.html">Ciruelas Pasas</a>
+        <a class="filtro-chip" href="alimento-maracuya.html">Maracuyá</a>
+        <a class="filtro-chip" href="alimento-platano.html">Plátano</a>
+        <a class="filtro-chip" href="alimento-granada.html">Granada</a>
+        <a class="filtro-chip" href="alimento-chirimoya.html">Chirimoya</a>
+      </div>
+      <h2 class="ficha-sub">Coco en los rankings de alimentos</h2>
+      <div class="ficha-relacionados">
+        <a class="filtro-chip" href="frutas-con-mas-proteinas.html">Frutas con más proteínas · puesto 2 de 39</a>
+        <a class="filtro-chip" href="frutas-ricas-en-fibra.html">Frutas ricas en fibra · puesto 3 de 39</a>
+        <a class="filtro-chip" href="frutas-con-menos-azucar.html">Frutas con menos azúcar · puesto 9 de 39</a>
+        <a class="filtro-chip" href="alimentos-ricos-en-fibra.html">Alimentos ricos en fibra · puesto 25 de 50</a>
+        <a class="filtro-chip" href="rankings.html">Ver todos los rankings →</a>
+      </div>
+      
+      <h2 class="ficha-sub">Estudios científicos consultados</h2>
+      <div class="citas open"><a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/33022082/" target="_blank" rel="noopener noreferrer">[1] Chemical composition and health benefits of coconut oil: an overview. — Journal of the science of food and agriculture (2021)</a>
+<a class="cita-item" href="https://pubmed.ncbi.nlm.nih.gov/37364144/" target="_blank" rel="noopener noreferrer">[2] Coconut oil: an overview of cardiometabolic effects and the public health burden of misinformation. — Archives of endocrinology and metabolism (2023)</a></div>
     </div>
   </section>
 
@@ -140,6 +235,7 @@
     </div>
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
+      <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>
