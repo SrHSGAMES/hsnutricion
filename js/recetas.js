@@ -2273,6 +2273,211 @@ const RECETAS = [
       { pregunta: "¿Con leche de vaca?", respuesta: "Sí, con leche semidesnatada funciona igual; ya no será vegana y subirán la grasa saturada y los azúcares de la lactosa." },
       { pregunta: "¿Por qué sin azúcar añadido y con la bebida sin azúcar?", respuesta: "Las bebidas de soja azucaradas añaden azúcar libre. Con la versión sin azúcar, el único dulzor viene de los dátiles." }
     ]
+  },
+  {
+    id: "boquerones_horno_patatas",
+    nombre: "Boquerones al Horno con Patatas y Limón",
+    emojiPortada: "🐟🥔🍋",
+    rating: "B",
+    tiempo: "35 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Boquerones abiertos al horno sobre patata cocida, con ajo, perejil, pimentón y limón. Casi 45 g de proteína y omega-3 en una sola bandeja, con 481 kcal por ración.",
+    motivo: "El boquerón es un pescado azul con proteína de calidad y omega-3, y la patata cocida aporta carbohidrato saciante sin apenas grasa: solo 4,1 g de saturada por ración y 20 g de AOVE para toda la receta. Lo calificamos B y no A por el colesterol dietético del boquerón, como el resto de pescados de la guía.",
+    ingredientes: [
+      { foodId: "boquerones", cantidad: 400 },
+      { foodId: "ia_patata_cocida", cantidad: 300 },
+      { foodId: "limon", cantidad: 40 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "perejil", cantidad: 10 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "pimenton", cantidad: 2 }
+    ],
+    pasos: [
+      "Precalienta el horno a 200 °C. Cuece las patatas con piel en agua 15-20 minutos, pélalas y córtalas en rodajas gruesas.",
+      "Coloca las patatas en una bandeja con la mitad del AOVE y hornea 10 minutos.",
+      "Abre los boquerones en libro (pídelo al pescadero: sin cabeza ni espina) y colócalos sobre las patatas con el ajo laminado y el pimentón. Riega con el AOVE restante.",
+      "Hornea 10-12 minutos más, hasta que el pescado esté opaco.",
+      "Sirve con el zumo de limón y el perejil picado por encima."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar boquerones congelados?", respuesta: "Sí. Descongélalos en la nevera y sécalos bien con papel de cocina antes de hornearlos, para que no suelten agua." },
+      { pregunta: "¿Sirven los boquerones en vinagre?", respuesta: "No para esta receta: ya van marinados y llevan más sodio. Aquí se usan frescos." },
+      { pregunta: "¿Cómo los hago sin rebozar ni freír?", respuesta: "Así, al horno y con un chorrito de AOVE: quedan jugosos y con mucha menos grasa que fritos." }
+    ]
+  },
+  {
+    id: "potaje_judias_pintas_nabo",
+    nombre: "Potaje de Judías Pintas con Nabo y Espelta",
+    emojiPortada: "🫘🥕🌾",
+    rating: "A",
+    tiempo: "60 min",
+    raciones: 3,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["comida"],
+    descripcion: "Un potaje de legumbre con nabo, zanahoria, cebolla y espelta cocida, con pimentón y laurel. 100 % vegetal, con casi 22 g de fibra y 22 g de proteína por ración.",
+    motivo: "Legumbre, cereal integral y verdura en un mismo plato, sin ingredientes de origen animal: casi 22 g de fibra, 22 g de proteína vegetal y solo 1,2 g de grasa saturada por ración. Un plato A de manual.",
+    ingredientes: [
+      { foodId: "judias_pintas", cantidad: 450 },
+      { foodId: "nabo", cantidad: 250 },
+      { foodId: "ia_zanahoria", cantidad: 150 },
+      { foodId: "ia_cebolla", cantidad: 100 },
+      { foodId: "espelta", cantidad: 300 },
+      { foodId: "aove", cantidad: 20 },
+      { foodId: "pimenton", cantidad: 4 },
+      { foodId: "ia_ajo", cantidad: 5 },
+      { foodId: "laurel", cantidad: 1 },
+      { foodId: "ia_caldo_de_verduras", cantidad: 500 }
+    ],
+    pasos: [
+      "Cuece la espelta aparte según el paquete (unos 120 g en seco dan 300 g cocidos) y escúrrela.",
+      "Sofríe la cebolla picada y el ajo en el AOVE a fuego suave 8 minutos; añade el pimentón y remueve medio minuto.",
+      "Incorpora el nabo y la zanahoria en dados, el caldo y el laurel, y cocina 20 minutos.",
+      "Añade las judías pintas (cocidas y escurridas) y la espelta, y cocina 10 minutos más.",
+      "Retira el laurel y deja reposar 5 minutos antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar judías pintas de bote?", respuesta: "Sí, aclaradas bajo el grifo para quitarles parte de la sal. Si las cueces tú, remójalas la noche anterior." },
+      { pregunta: "¿Cómo lo hago sin gluten?", respuesta: "Sustituye la espelta por arroz integral o por trigo sarraceno, que no contienen gluten." },
+      { pregunta: "¿Se puede congelar?", respuesta: "Sí, hasta 3 meses en raciones. Al recalentar, añade un chorrito de caldo porque espesa." }
+    ]
+  },
+  {
+    id: "ensalada_canonigos_guayaba",
+    nombre: "Ensalada de Canónigos, Guayaba y Nueces",
+    emojiPortada: "🥗🍈🌰",
+    rating: "A",
+    tiempo: "10 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["comida", "cena"],
+    descripcion: "Canónigos tiernos con guayaba en dados, nueces y sésamo, con AOVE y limón. Fresca, dulce y crujiente, sin cocinar: 265 kcal por ración.",
+    motivo: "Hoja verde con fibra, fruta con mucha vitamina C y la grasa insaturada de las nueces y el AOVE: solo 2,5 g de saturada por ración, 8 g de fibra y 5 mg de sodio. Sin ingredientes de origen animal ni nada que bajar de nota.",
+    ingredientes: [
+      { foodId: "canonigos", cantidad: 120 },
+      { foodId: "guayaba", cantidad: 200 },
+      { foodId: "ia_nueces", cantidad: 30 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "limon", cantidad: 20 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 6 }
+    ],
+    pasos: [
+      "Lava los canónigos con cuidado y sécalos bien.",
+      "Corta la guayaba en dados (se pueden comer las semillas) y trocea las nueces.",
+      "Mezcla en un bol los canónigos, la guayaba y las nueces.",
+      "Aliña con el AOVE y el zumo de limón y espolvorea el sésamo justo antes de servir."
+    ],
+    faqs: [
+      { pregunta: "¿Se comen las semillas de la guayaba?", respuesta: "Sí, son comestibles y aportan parte de la fibra. Si te molestan, quítalas con una cuchara." },
+      { pregunta: "¿Con qué otra fruta funciona?", respuesta: "Con mango, pera o granada; el dulzor equilibra el sabor ligeramente amargo de los canónigos." },
+      { pregunta: "¿Se puede preparar antes?", respuesta: "Mejor aliñarla justo antes de comer. Puedes tener lista la fruta en dados y los canónigos lavados de la víspera." }
+    ]
+  },
+  {
+    id: "calcots_romesco_ligero",
+    nombre: "Calçots al Horno con Salsa Romesco Ligera",
+    emojiPortada: "🌱🍅🥜",
+    rating: "A",
+    tiempo: "40 min",
+    raciones: 2,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano"],
+    momento: ["comida", "cena"],
+    descripcion: "Calçots asados al horno con una salsa romesco de tomate, pimiento, almendras, avellanas, ajo y pan integral. Una receta de temporada, sin fritos, con 12 g de fibra por ración.",
+    motivo: "La grasa de este plato viene casi toda de las almendras, las avellanas y el AOVE, así que es insaturada: solo 3,3 g de saturada por ración. Los calçots y el pimiento aportan fibra y verdura, y el pan integral espesa la salsa sin harina refinada. Sin ingredientes de origen animal.",
+    ingredientes: [
+      { foodId: "calcots", cantidad: 400 },
+      { foodId: "ia_tomate", cantidad: 200 },
+      { foodId: "ia_pimiento_rojo", cantidad: 100 },
+      { foodId: "ia_almendras", cantidad: 30 },
+      { foodId: "ia_avellanas", cantidad: 20 },
+      { foodId: "pan_integral", cantidad: 40 },
+      { foodId: "ia_ajo", cantidad: 6 },
+      { foodId: "aove", cantidad: 30 },
+      { foodId: "ia_vinagre_de_manzana", cantidad: 10 },
+      { foodId: "pimenton", cantidad: 2 }
+    ],
+    pasos: [
+      "Precalienta el horno a 220 °C. Coloca en una bandeja los calçots, el tomate partido por la mitad, el pimiento en tiras y los ajos con piel, con un hilo del AOVE.",
+      "Asa 25-30 minutos, hasta que los calçots estén tiernos y algo tostados por fuera.",
+      "Tuesta las almendras, las avellanas y el pan integral en una sartén seca unos 3 minutos.",
+      "Pela el tomate y el ajo asados y tritúralos con el pimiento, los frutos secos, el pan, el vinagre, el pimentón y el AOVE restante hasta obtener una salsa espesa.",
+      "Pela los calçots (la capa exterior quemada) y mójalos en la salsa."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo usar cebolleta si no encuentro calçots?", respuesta: "Sí, una cebolleta gruesa también funciona; hornéala unos minutos menos." },
+      { pregunta: "¿Cuánto dura la salsa romesco?", respuesta: "Hasta 4 días en la nevera, en un frasco cerrado. También sirve para pescado, verduras y tostadas." },
+      { pregunta: "¿Se comen con las manos?", respuesta: "Es la tradición: se pela la capa exterior quemada y se moja el calçot en la salsa, con la cabeza hacia atrás." }
+    ]
+  },
+  {
+    id: "batido_hipercalorico_avena_cacahuete",
+    nombre: "Batido Hipercalórico de Avena, Plátano y Cacahuete",
+    emojiPortada: "🥤🍌🥜",
+    rating: "B",
+    tiempo: "5 min",
+    raciones: 1,
+    mostrarPorRacion: true,
+    etiquetas: ["vegano", "proteico"],
+    momento: ["desayuno", "snack"],
+    descripcion: "Un batido espeso de avena, plátano, crema de cacahuete, bebida de soja y cacao para quien necesita sumar muchas calorías con ingredientes de verdad: casi 1.200 kcal y 53 g de proteína en un vaso.",
+    motivo: "Las calorías vienen de la avena, la fruta y el cacahuete, no de azúcar añadido, con casi 29 g de fibra y 53 g de proteína vegetal. Lo calificamos B y no A por su grasa saturada (9,3 g, sobre todo del cacahuete) y por los 34 g de azúcares del plátano. Está pensado para quien necesita ganar peso o energía; si no es tu caso, toma la mitad.",
+    ingredientes: [
+      { foodId: "avena", cantidad: 120 },
+      { foodId: "ia_platano", cantidad: 240 },
+      { foodId: "ia_crema_de_cacahuete", cantidad: 60 },
+      { foodId: "ia_bebida_de_soja_sin_azucar", cantidad: 400 },
+      { foodId: "cacao_puro", cantidad: 10 }
+    ],
+    pasos: [
+      "Pon la bebida de soja y la avena en la batidora y tritura 30 segundos.",
+      "Añade el plátano troceado, la crema de cacahuete y el cacao.",
+      "Tritura un minuto, hasta que quede espeso y sin grumos.",
+      "Tómalo enseguida, o en dos veces separadas por unas horas si te resulta mucho de una vez."
+    ],
+    faqs: [
+      { pregunta: "¿Para quién es un batido así?", respuesta: "Para personas que necesitan subir de peso, deportistas con gasto muy alto o quien tiene poco apetito. No es una receta para bajar de peso." },
+      { pregunta: "¿Cómo lo hago aún más calórico?", respuesta: "Con una cucharada más de crema de cacahuete o con leche entera en lugar de bebida de soja; la receta dejará de ser vegana." },
+      { pregunta: "¿Puedo usar otra bebida vegetal?", respuesta: "Sí; con bebida de avena o de almendras funciona igual, y cambiarán un poco las calorías y la proteína." }
+    ]
+  },
+  {
+    id: "bowl_hipercalorico_arroz_salmon",
+    nombre: "Bowl Hipercalórico de Arroz, Salmón y Aguacate",
+    emojiPortada: "🍚🐟🥑",
+    rating: "B",
+    tiempo: "35 min",
+    raciones: 1,
+    mostrarPorRacion: true,
+    etiquetas: ["proteico"],
+    momento: ["comida", "cena"],
+    descripcion: "Un bol grande de arroz integral con salmón al horno, aguacate, edamame, sésamo, AOVE y salsa de soja. Más de 1.300 kcal y 64 g de proteína en un solo plato, para cubrir un objetivo de calorías alto.",
+    motivo: "La mayor parte de la grasa es insaturada (salmón, aguacate y AOVE) y lleva 19 g de fibra. Lo calificamos B y no A por sus 13 g de grasa saturada y 637 mg de sodio: es un plato muy calórico por diseño, no una opción para el día a día de todo el mundo.",
+    ingredientes: [
+      { foodId: "arroz_integral_seco", cantidad: 110 },
+      { foodId: "salmon", cantidad: 200 },
+      { foodId: "aguacate", cantidad: 150 },
+      { foodId: "edamame", cantidad: 80 },
+      { foodId: "aove", cantidad: 15 },
+      { foodId: "ia_semillas_de_sesamo", cantidad: 10 },
+      { foodId: "salsa_soja_baja_sodio", cantidad: 15 }
+    ],
+    pasos: [
+      "Cuece el arroz integral en abundante agua unos 35 minutos y escúrrelo.",
+      "Mientras, hornea el salmón con la mitad del AOVE a 200 °C durante 12 minutos.",
+      "Cuece el edamame 3 minutos en agua hirviendo y escúrrelo.",
+      "En un bol grande, coloca el arroz y reparte encima el salmón desmenuzado, el aguacate en láminas y el edamame.",
+      "Termina con el AOVE restante, el sésamo y la salsa de soja."
+    ],
+    faqs: [
+      { pregunta: "¿Puedo bajarlo de calorías?", respuesta: "Sí: con la mitad del arroz, del aguacate y del AOVE baja a unas 970 kcal. La versión completa está pensada para objetivos de calorías altos." },
+      { pregunta: "¿Se puede usar otro pescado?", respuesta: "Con caballa, trucha o atún (en su versión fresca) funciona igual, y cambiarán las calorías y la grasa." },
+      { pregunta: "¿Es apto para celíacos?", respuesta: "La salsa de soja suele llevar trigo. Sustitúyela por tamari sin gluten." }
+    ]
   }
 
 ];

@@ -493,7 +493,7 @@
     { id: "gluten", etiqueta: "Gluten", re: /\b(trigo|avena|cebada|centeno|espelta|kamut|seitan|bulgur|cuscus|pasta|pan|galletas?|croissant|granola|kataifi|tortitas de (avena|trigo)|rallado|cerveza|salsa de soja|cereales de desayuno|pizza|nuggets|crepes?)\b/, sin: /trigo sarraceno/ },
     { id: "crustaceos", etiqueta: "Crustáceos", re: /\b(gambas?|langostinos?|cangrejo|bogavante|langosta|camarones?|cigalas?|surimi)\b/ },
     { id: "huevo", etiqueta: "Huevo", re: /\b(huevos?|clara|yema|mayonesa|tortilla de patata)\b/ },
-    { id: "pescado", etiqueta: "Pescado", re: /\b(salmon|atun|merluza|bacalao|sardinas?|caballa|trucha|dorada|lubina|anchoas?|surimi|pescado)\b/ },
+    { id: "pescado", etiqueta: "Pescado", re: /\b(salmon|atun|merluza|bacalao|sardinas?|caballa|trucha|dorada|lubina|anchoas?|boquerones?|boqueron|mero|lenguado|rape|pez espada|emperador|pescadilla|rodaballo|salmonete|bonito|surimi|pescado)\b/ },
     { id: "cacahuete", etiqueta: "Cacahuete", re: /cacahuete/ },
     { id: "soja", etiqueta: "Soja", re: /\b(soja|tofu|tempeh|edamame|miso)\b/ },
     { id: "lacteos", etiqueta: "Lácteos", re: /\b(leche|yogur|yogurt|queso|nata|mantequilla|kefir|skyr|requeson|cottage|whey|suero|mozzarella|feta|brie|parmesano|helado|natillas|cuajada|chocolate blanco)\b/, sin: /soja|coco|almendra|avena|vegetal|vegan|cacahuete|margarina/ },

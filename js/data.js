@@ -764,7 +764,7 @@ const FOODS = [
   {
     id: "jamon_serrano",
     nombre: "Jamón serrano",
-    aliases: ["jamon serrano", "jamon iberico", "jamon curado"],
+    aliases: ["jamon serrano", "jamon curado"],
     categorias: ["Cárnicos", "Proteínas"],
     emoji: "🍖",
     rating: "E",
@@ -4798,7 +4798,7 @@ const FOODS = [
   {
     id: "gambas",
     nombre: "Gambas",
-    aliases: ["gambas", "gamba", "langostinos", "langostino", "camarones"],
+    aliases: ["gambas", "gamba", "camarones"],
     categorias: ["Proteínas"],
     emoji: "🦐",
     rating: "B",
@@ -8055,6 +8055,528 @@ const FOODS = [
       }
     ],
     sustitutos: []
+  },
+  {
+    id: "boquerones",
+    nombre: "Boquerones (frescos)",
+    aliases: ["boquerones", "boquerón", "boqueron", "boquerones frescos"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 131, carbs: 0, azucares: 0, proteinas: 20.4, grasas: 4.8, grasasSat: 1.3, fibra: 0, sodio: 104,
+    motivo: "Los boquerones son un pescado azul pequeño: unos 20 g de proteína por 100 g, con ácidos grasos omega-3, calcio y vitamina D, sobre todo si se comen enteros. El consumo de pescado, graso o magro, se asocia con menor riesgo cardiovascular y de mortalidad [1]. Los calificamos B y no A porque aportan colesterol dietético (en torno a 60 mg por 100 g) [2]. Mejor al horno o a la plancha que fritos y rebozados.",
+    estudios: [
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "langostinos",
+    nombre: "Langostinos",
+    aliases: ["langostinos", "langostino", "langostinos cocidos"],
+    categorias: ["Proteínas"],
+    emoji: "🦐",
+    rating: "B",
+    kcal: 92, carbs: 0.3, azucares: 0, proteinas: 19, grasas: 1.3, grasasSat: 0.2, fibra: 0, sodio: 150,
+    motivo: "Los langostinos son proteína muy magra (unos 19 g por 100 g con poco más de 1 g de grasa) y fuente de yodo, selenio y zinc, propios del marisco [1]. Los calificamos B y no A porque los crustáceos son de los mariscos con más colesterol (en torno a 150 mg por 100 g) [2] y llevan bastante sodio de forma natural. A la plancha o cocidos, mejor que rebozados o en salsas.",
+    estudios: [
+      {
+        "pmid": "33527847",
+        "titulo": "Shellfish consumption and health: A comprehensive review of human studies and recommendations for enhanced public policy.",
+        "revista": "Critical reviews in food science and nutrition",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33527847/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "mero",
+    nombre: "Mero",
+    aliases: ["mero", "filetes de mero", "mero a la plancha"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "B",
+    kcal: 92, carbs: 0, azucares: 0, proteinas: 19.4, grasas: 1, grasasSat: 0.3, fibra: 0, sodio: 53,
+    motivo: "El mero es un pescado blanco muy magro: unos 19 g de proteína con solo 1 g de grasa por 100 g, y firme y de sabor suave. Los pescados magros se han asociado con mejoras en los lípidos de la sangre [1] y el consumo de pescado en general, con menor riesgo cardiovascular y de mortalidad [2]. Lo calificamos B y no A por el colesterol dietético del pescado (en torno a 40-50 mg por 100 g) [3].",
+    estudios: [
+      {
+        "pmid": "33942085",
+        "titulo": "Lipid-modifying effects of lean fish and fish-derived protein consumption in humans: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Nutrition reviews",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33942085/"
+      },
+      {
+        "pmid": "35108375",
+        "titulo": "Relations between the Consumption of Fatty or Lean Fish and Risk of Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35108375/"
+      },
+      {
+        "pmid": "31838890",
+        "titulo": "Dietary Cholesterol and Cardiovascular Risk: A Science Advisory From the American Heart Association.",
+        "revista": "Circulation",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31838890/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pez_espada",
+    nombre: "Pez espada",
+    aliases: ["pez espada", "emperador", "pez espada a la plancha"],
+    categorias: ["Proteínas"],
+    emoji: "🐟",
+    rating: "C",
+    kcal: 144, carbs: 0, azucares: 0, proteinas: 19.8, grasas: 6.7, grasasSat: 1.7, fibra: 0, sodio: 90,
+    motivo: "El pez espada es un pescado azul con unos 20 g de proteína por 100 g, omega-3 y vitamina D. Pero, como otros peces depredadores grandes, acumula metilmercurio: las revisiones sitúan a los peces pelágicos grandes entre los de mayor contenido en mercurio [1], y se ha seguido la exposición en adolescentes españoles [2]. El equilibrio entre el beneficio de sus omega-3 y el riesgo depende de la especie y de la cantidad [3]. Por eso lo calificamos C: ocasional, y las autoridades sanitarias recomiendan evitarlo en embarazo, lactancia y niños pequeños.",
+    estudios: [
+      {
+        "pmid": "36509349",
+        "titulo": "Mercury in oceanic upper trophic level sharks and bony fishes - A systematic review.",
+        "revista": "Environmental pollution (Barking, Essex : 1987)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36509349/"
+      },
+      {
+        "pmid": "37211180",
+        "titulo": "Exposure to mercury among Spanish adolescents: Eleven years of follow-up.",
+        "revista": "Environmental research",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37211180/"
+      },
+      {
+        "pmid": "17913692",
+        "titulo": "Contaminants in fish: risk-benefit considerations.",
+        "revista": "Arhiv za higijenu rada i toksikologiju",
+        "anio": "2007",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17913692/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "morcilla",
+    nombre: "Morcilla",
+    aliases: ["morcilla", "morcilla de burgos", "morcilla de cebolla", "morcilla de arroz"],
+    categorias: ["Cárnicos"],
+    emoji: "🥩",
+    rating: "E",
+    kcal: 300, carbs: 6, azucares: 1, proteinas: 14, grasas: 23, grasasSat: 8.5, fibra: 0.5, sodio: 780,
+    motivo: "La morcilla aporta proteína y hierro hemo, pero es un embutido: grasa saturada elevada (unos 8-9 g por 100 g) y cerca de 800 mg de sodio. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso la calificamos E: mejor evitarla como consumo habitual y dejarla para una ocasión puntual.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Carne blanca magra, fresca y sin curar: sin el sodio ni los aditivos del embutido."
+      }
+    ]
+  },
+  {
+    id: "jamon_iberico",
+    nombre: "Jamón ibérico",
+    aliases: ["jamón ibérico", "jamon iberico", "jamón de bellota", "jamon de bellota", "paleta ibérica", "paleta iberica"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🍖",
+    rating: "E",
+    kcal: 375, carbs: 0, azucares: 0, proteinas: 30, grasas: 28, grasasSat: 10, fibra: 0, sodio: 1900,
+    motivo: "El jamón ibérico tiene una grasa rica en ácido oleico y el curado genera péptidos con actividad biológica descrita [1], pero sigue siendo una carne procesada curada: unos 1.900 mg de sodio por 100 g y 10 g de grasa saturada. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [2], y los metaanálisis asocian su consumo con más incidencia de cáncer [3]. Por eso lo calificamos E, igual que el jamón serrano: en lonchas finas y de forma ocasional.",
+    estudios: [
+      {
+        "pmid": "40867906",
+        "titulo": "Bioactivities Derived from Dry-Cured Ham Peptides: A Review.",
+        "revista": "Antioxidants (Basel, Switzerland)",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40867906/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Carne blanca magra, fresca y sin curar: sin el sodio ni los nitritos del jamón curado."
+      }
+    ]
+  },
+  {
+    id: "canonigos",
+    nombre: "Canónigos",
+    aliases: ["canónigos", "canonigos", "canónigo", "canonigo"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "A",
+    kcal: 21, carbs: 3.6, azucares: 0.8, proteinas: 2, grasas: 0.4, grasasSat: 0.1, fibra: 1.8, sodio: 4,
+    motivo: "Los canónigos son una hoja tierna de sabor suave con solo 21 kcal por 100 g, fibra, vitamina C, folato y carotenoides como la luteína. Las verduras de hoja verde se asocian con menor riesgo cardiovascular y con otros beneficios para la salud [1], y el consumo de hortalizas en general con menor riesgo de mortalidad [2]. Se comen crudos, sin cocinar, y combinan bien con frutas, frutos secos y queso fresco.",
+    estudios: [
+      {
+        "pmid": "34034049",
+        "titulo": "Green leafy vegetable and lutein intake and multiple health outcomes.",
+        "revista": "Food chemistry",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34034049/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "nabo",
+    nombre: "Nabo",
+    aliases: ["nabo", "nabos", "nabo cocido"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🟣",
+    rating: "A",
+    kcal: 28, carbs: 6.4, azucares: 3.8, proteinas: 0.9, grasas: 0.1, grasasSat: 0, fibra: 1.8, sodio: 67,
+    motivo: "El nabo es una crucífera con solo 28 kcal por 100 g, fibra, vitamina C y glucosinolatos, compuestos que las revisiones han estudiado por su actividad antioxidante [1]. Las verduras se asocian con menor riesgo cardiovascular y de mortalidad [2]. Cocido en caldos y potajes, asado o en láminas finas crudo, aporta volumen y saciedad con muy pocas calorías.",
+    estudios: [
+      {
+        "pmid": "30561035",
+        "titulo": "Phytochemical and Health-Beneficial Progress of Turnip (Brassica rapa).",
+        "revista": "Journal of food science",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30561035/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "calcots",
+    nombre: "Calçots",
+    aliases: ["calçots", "calcots", "calçot", "calcot", "cebolleta", "cebolla tierna", "cebolletas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌱",
+    rating: "A",
+    kcal: 32, carbs: 7.3, azucares: 2.3, proteinas: 1.8, grasas: 0.2, grasasSat: 0, fibra: 2.6, sodio: 16,
+    motivo: "Los calçots son una cebolla tierna de la familia de los puerros y las cebollas, con unos 32 kcal por 100 g, fibra y vitamina C. Las verduras del género Allium contienen compuestos azufrados y flavonoides estudiados por sus efectos antioxidantes [1], y las verduras en general se asocian con mejor salud cardiovascular [2]. Asados a la brasa o al horno, sin la salsa pesada, son un plato de temporada muy ligero.",
+    estudios: [
+      {
+        "pmid": "34420186",
+        "titulo": "Chemical constituents and medicinal properties of Allium species.",
+        "revista": "Molecular and cellular biochemistry",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34420186/"
+      },
+      {
+        "pmid": "29751617",
+        "titulo": "Cardiovascular Health Benefits of Specific Vegetable Types: A Narrative Review.",
+        "revista": "Nutrients",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29751617/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "guayaba",
+    nombre: "Guayaba",
+    aliases: ["guayaba", "guayabas"],
+    categorias: ["Frutas"],
+    emoji: "🍈",
+    rating: "A",
+    kcal: 68, carbs: 14.3, azucares: 8.9, proteinas: 2.6, grasas: 1, grasasSat: 0.3, fibra: 5.4, sodio: 2,
+    motivo: "La guayaba destaca por su vitamina C (en torno a 230 mg por 100 g, mucho más que la naranja) y por su fibra: más de 5 g por 100 g, en buena parte en las semillas comestibles. La mayoría de los estudios sobre sus compuestos bioactivos son experimentales y se centran en las hojas y los extractos [1], así que sus efectos terapéuticos no están demostrados en personas; como el resto de la fruta entera, su consumo se asocia con menor riesgo cardiovascular y de mortalidad [2].",
+    estudios: [
+      {
+        "pmid": "28989253",
+        "titulo": "Psidium guajava: A Single Plant for Multiple Health Problems of Rural Indian Population.",
+        "revista": "Pharmacognosy reviews",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28989253/"
+      },
+      {
+        "pmid": "28338764",
+        "titulo": "Fruit and vegetable intake and the risk of cardiovascular disease, total cancer and all-cause mortality-a systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "International journal of epidemiology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28338764/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "judias_pintas",
+    nombre: "Judías pintas (cocidas)",
+    aliases: ["judías pintas", "judias pintas", "judías pintas cocidas", "frijoles pintos", "frijoles"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 143, carbs: 26.2, azucares: 0.3, proteinas: 9, grasas: 0.7, grasasSat: 0.1, fibra: 9, sodio: 1,
+    motivo: "Las judías pintas cocidas aportan 9 g de proteína vegetal y 9 g de fibra por 100 g con casi nada de grasa, además de hierro, folato y potasio. Las revisiones sobre legumbres como las judías asocian su consumo con mejor salud cardiometabólica [1][2]. Remojadas y bien cocidas se digieren mejor; en conserva, conviene aclararlas para quitarles parte de la sal.",
+    estudios: [
+      {
+        "pmid": "33562498",
+        "titulo": "Health Benefits of Plant-Based Nutrition: Focus on Beans in Cardiometabolic Diseases.",
+        "revista": "Nutrients",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33562498/"
+      },
+      {
+        "pmid": "36988580",
+        "titulo": "Health benefits of legume seeds.",
+        "revista": "Journal of the science of food and agriculture",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36988580/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "espelta",
+    nombre: "Espelta (cocida)",
+    aliases: ["espelta", "espelta cocida", "granos de espelta", "espelta integral"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 127, carbs: 26.4, azucares: 0.5, proteinas: 5.5, grasas: 0.8, grasasSat: 0.1, fibra: 3.9, sodio: 8,
+    motivo: "La espelta es un trigo antiguo que, en grano integral, aporta algo más de proteína y fibra que el trigo común, con minerales como magnesio, hierro y zinc; sus compuestos bioactivos se estudian por su posible papel en el control de la glucosa [1]. Los cereales integrales se asocian con menor riesgo cardiovascular, de cáncer y de mortalidad [2]. Contiene gluten, así que no es apta para personas celíacas, y la harina refinada de espelta pierde buena parte de estas ventajas.",
+    estudios: [
+      {
+        "pmid": "29068605",
+        "titulo": "The potential role of selected bioactive compounds from spelt and common wheat in glycemic control.",
+        "revista": "Advances in clinical and experimental medicine : official organ Wroclaw Medical University",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29068605/"
+      },
+      {
+        "pmid": "27301975",
+        "titulo": "Whole grain consumption and risk of cardiovascular disease, cancer, and all cause and cause specific mortality: systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27301975/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "queso_azul",
+    nombre: "Queso azul",
+    aliases: ["queso azul", "roquefort", "cabrales", "gorgonzola", "queso azul curado"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "C",
+    kcal: 353, carbs: 2.3, azucares: 0.5, proteinas: 21.4, grasas: 28.7, grasasSat: 18.7, fibra: 0, sodio: 1395,
+    motivo: "El queso azul aporta mucha proteína y calcio y, como el resto de quesos, los metaanálisis de cohortes no encuentran un aumento claro del riesgo cardiovascular con un consumo moderado [1]; además, sustituir queso por otros lácteos cambia poco los lípidos en sangre [2]. Pero es de los quesos más salados (cerca de 1.400 mg de sodio por 100 g) y con casi 19 g de grasa saturada. Por eso lo calificamos C: un trocito pequeño, de unos 20-30 g, para dar sabor.",
+    estudios: [
+      {
+        "pmid": "27517544",
+        "titulo": "Cheese consumption and risk of cardiovascular disease: a meta-analysis of prospective studies.",
+        "revista": "European journal of nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27517544/"
+      },
+      {
+        "pmid": "37717700",
+        "titulo": "Effect of Isoenergetic Substitution of Cheese with Other Dairy Products on Blood Lipid Markers in the Fasted and Postprandial State: An Updated and Extended Systematic Review and Meta-Analysis of Randomized Controlled Trials in Adults.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37717700/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso fresco batido 0%",
+        emoji: "🧀", mejor: true,
+        kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
+        porque: "Mucha menos grasa saturada y sodio, manteniendo un lácteo fresco y proteico."
+      }
+    ]
+  },
+  {
+    id: "cava",
+    nombre: "Cava",
+    aliases: ["cava", "champán", "champan", "espumoso", "vino espumoso", "cava brut"],
+    categorias: ["Bebidas"],
+    emoji: "🥂",
+    rating: "E",
+    kcal: 68, carbs: 1.1, azucares: 0.6, proteinas: 0.2, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+    motivo: "Como cualquier bebida alcohólica, el cava no aporta nada que compense el alcohol: el metaanálisis de 2023 no encontró menor mortalidad en quienes beben poco frente a quienes no beben, y sí más riesgo a partir de unos 45 g de alcohol al día [1]; el análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que el vino y la cerveza: si bebes, que sea ocasional y en pequeña cantidad (una copa tiene unos 10 g de alcohol).",
+    estudios: [
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua con gas y limón",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin alcohol; con gas, limón y hielo cumple el mismo papel en un brindis."
+      }
+    ]
+  },
+  {
+    id: "gominolas",
+    nombre: "Gominolas",
+    aliases: ["gominolas", "gominola", "chuches", "golosinas", "caramelos de goma", "ositos de goma"],
+    categorias: ["Dulces"],
+    emoji: "🍬",
+    rating: "E",
+    kcal: 343, carbs: 77, azucares: 47, proteinas: 6.9, grasas: 0.1, grasasSat: 0, fibra: 0, sodio: 30,
+    motivo: "Las gominolas son prácticamente azúcar y jarabe de glucosa (unos 47 g de azúcares por 100 g) con gelatina, colorantes y aromas, sin apenas fibra ni micronutrientes. Las revisiones sobre el azúcar libre lo asocian con peores resultados cardiometabólicos y dentales [1], y en la infancia, su principal consumidor, se recomienda limitarlo [2]. Por eso las calificamos E: un capricho muy ocasional, y mejor tras las comidas que entre horas por el efecto sobre los dientes.",
+    estudios: [
+      {
+        "pmid": "37019448",
+        "titulo": "Dietary sugar consumption and health: umbrella review.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37019448/"
+      },
+      {
+        "pmid": "28922262",
+        "titulo": "Sugar in Infants, Children and Adolescents: A Position Paper of the European Society for Paediatric Gastroenterology, Hepatology and Nutrition Committee on Nutrition.",
+        "revista": "Journal of pediatric gastroenterology and nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28922262/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Fresas",
+        emoji: "🍓", mejor: true,
+        kcal: 32, carbs: 7.7, azucares: 4.9, proteinas: 0.7, grasas: 0.3, grasasSat: 0.02, fibra: 2, sodio: 1,
+        porque: "Dulzor natural con fibra, vitamina C y sin azúcar añadido."
+      }
+    ]
+  },
+  {
+    id: "agua_coco",
+    nombre: "Agua de coco",
+    aliases: ["agua de coco", "agua de coco natural"],
+    categorias: ["Bebidas"],
+    emoji: "🥥",
+    rating: "B",
+    kcal: 19, carbs: 3.7, azucares: 2.6, proteinas: 0.7, grasas: 0.2, grasasSat: 0.2, fibra: 1.1, sodio: 105,
+    motivo: "El agua de coco es un líquido ligero con unas 19 kcal por 100 ml, rico en potasio y con algo de sodio. Las revisiones la sitúan como una alternativa natural a las bebidas deportivas para rehidratarse tras un ejercicio moderado [1], con resultados similares a otras bebidas con electrolitos en los ensayos más recientes [2]; pero para el día a día el agua sigue siendo la mejor opción. La calificamos B: elige la natural, sin azúcar añadido, y no la confundas con la leche de coco.",
+    estudios: [
+      {
+        "pmid": "37755860",
+        "titulo": "Coconut Water: A Sports Drink Alternative?",
+        "revista": "Sports (Basel, Switzerland)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37755860/"
+      },
+      {
+        "pmid": "41359932",
+        "titulo": "Rehydration After Exercise-Induced Fluid Losses: Comparing Flavored Water, Coconut Water, and Carbohydrate-Electrolyte Sports Beverage.",
+        "revista": "Journal of strength and conditioning research",
+        "anio": "2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41359932/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "pan_pita",
+    nombre: "Pan de pita",
+    aliases: ["pan de pita", "pita", "pan pita", "pan árabe", "pan arabe", "pan de kebab"],
+    categorias: ["Cereales"],
+    emoji: "🫓",
+    rating: "C",
+    kcal: 275, carbs: 55.7, azucares: 1.3, proteinas: 9.1, grasas: 1.2, grasasSat: 0.2, fibra: 2.2, sodio: 536,
+    motivo: "El pan de pita blanco es un pan de harina refinada: poca fibra (2 g por 100 g) y unos 540 mg de sodio. La calidad de los carbohidratos importa: los cereales integrales se asocian con menor riesgo cardiovascular y de diabetes que los refinados [1], con un efecto que crece con la cantidad consumida [2]. Por eso lo calificamos C: sirve para rellenar con hummus, verduras y proteína, mejor en versión integral.",
+    estudios: [
+      {
+        "pmid": "30638909",
+        "titulo": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+        "revista": "Lancet (London, England)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30638909/"
+      },
+      {
+        "pmid": "27301975",
+        "titulo": "Whole grain consumption and risk of cardiovascular disease, cancer, and all cause and cause specific mortality: systematic review and dose-response meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27301975/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pan integral",
+        emoji: "🌾", mejor: true,
+        kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
+        porque: "Más fibra y saciedad, con carbohidratos de absorción más lenta."
+      }
+    ]
   }
 ];
 
