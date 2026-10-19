@@ -48,6 +48,8 @@ def cabecera(titulo, descripcion, url, jsonld):
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="js/analytics.js" defer></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9500680534035396"
+     crossorigin="anonymous"></script>
 <title>{esc(titulo)}</title>
 <meta name="description" content="{esc(descripcion)}">
 <link rel="canonical" href="{url}">
