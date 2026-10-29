@@ -1644,3 +1644,5 @@ a.ingrediente-link { text-decoration: none; }
 .indice-alimentos-lista li { break-inside: avoid; padding: 2px 0; }
 .indice-alimentos-lista a { color: var(--ink-soft); text-decoration: none; }
 .indice-alimentos-lista a:hover { color: var(--green-700); text-decoration: underline; }
+.ficha-revision { margin: 4px 0 18px; font-size: .82rem; color: var(--ink-faint); }
+.ficha-revision a { color: var(--green-700); }

@@ -16,6 +16,14 @@ import subprocess
 import urllib.request
 
 SITE_URL = "https://www.hsnutricion.com"
+# Fecha de la última revisión editorial de la guía (se muestra en fichas, recetas y rankings y va en el JSON-LD).
+# Actualízala cuando se revisen notas o contenidos.
+REVISION_ISO = "2026-10-29"
+REVISION_TXT = "29 de octubre de 2026"
+LINEA_REVISION = (
+    f'<p class="ficha-revision">Revisado el {REVISION_TXT} · Calificación según nuestra '
+    f'<a href="metodologia.html">metodología</a> · Información educativa, no un consejo médico.</p>'
+)
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_JS = os.path.join(ROOT, "js", "data.js")
@@ -259,6 +267,7 @@ def build_recipe_jsonld(receta, foods, totales):
     fecha = fecha_publicacion_git(receta["id"])
     if fecha:
         data["datePublished"] = fecha
+    data["dateModified"] = REVISION_ISO
     return data
 
 
@@ -541,6 +550,7 @@ def render_pagina(receta, foods, todas_recetas):
             <p class="receta-meta">⏱️ {esc(receta["tiempo"])} · 🍽️ {raciones_txt}</p>
             <p class="receta-desc">{esc(receta["descripcion"])}</p>
             <p class="food-motivo">{esc(receta["motivo"])}</p>
+            {LINEA_REVISION}
 
             <div class="receta-columnas">
               <div>
@@ -592,6 +602,8 @@ def render_pagina(receta, foods, todas_recetas):
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
+      <a href="metodologia.html" class="footer-link">Metodología</a>
+      <a href="contacto.html" class="footer-link">Contacto</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>
@@ -711,6 +723,9 @@ def render_sitemap(recetas, extra_urls=None):
         {"loc": f"{SITE_URL}/recetas.html", "prioridad": "0.8"},
         {"loc": f"{SITE_URL}/comunidad.html", "prioridad": "0.7"},
         {"loc": f"{SITE_URL}/sobre.html", "prioridad": "0.6"},
+        {"loc": f"{SITE_URL}/metodologia.html", "prioridad": "0.7"},
+        {"loc": f"{SITE_URL}/contacto.html", "prioridad": "0.5"},
+        {"loc": f"{SITE_URL}/menu.html", "prioridad": "0.7"},
         {"loc": f"{SITE_URL}/privacidad.html", "prioridad": "0.3"},
     ]
     # Rankings de alimentos (scripts/generar_rankings.py): el índice y una página por ranking.

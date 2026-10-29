@@ -947,14 +947,16 @@
       document.getElementById("btnFiltrosMenu"), document.getElementById("panelFiltrosMenu")
     );
 
-    // --- Sesión: sin ella solo se ve la invitación a registrarse.
+    // --- Acceso. MENU_REQUIERE_CUENTA = false: la herramienta es pública (generar menús no necesita cuenta;
+    // guardarlos sí). Pon true para volver a pedir cuenta para usarla.
+    const MENU_REQUIERE_CUENTA = false;
     function aplicarSesion() {
-      const dentro = Boolean(window.__usuarioActual);
-      bloqueo.hidden = dentro;
-      herramienta.hidden = !dentro;
+      const accede = !MENU_REQUIERE_CUENTA || Boolean(window.__usuarioActual);
+      bloqueo.hidden = accede;
+      herramienta.hidden = !accede;
     }
     document.addEventListener("hsn:auth-cambio", aplicarSesion);
-    if (window.__usuarioActual !== undefined) aplicarSesion();
+    if (!MENU_REQUIERE_CUENTA || window.__usuarioActual !== undefined) aplicarSesion();
     // Si /api/me no llega a responder, no dejar la página en blanco.
     setTimeout(() => { if (bloqueo.hidden && herramienta.hidden) aplicarSesion(); }, 4000);
     document.getElementById("menuBtnAcceder").addEventListener("click", () => document.getElementById("btnAuth").click());
@@ -1499,6 +1501,13 @@
       const msgGuardar = acciones.querySelector(".menu-guardar-msg");
       const btnAbrirGuardar = acciones.querySelector('[data-guardar="abrir"]');
       btnAbrirGuardar.addEventListener("click", () => {
+        // Guardar menús necesita cuenta: sin sesión se abre el cuadro de acceso.
+        if (!window.__usuarioActual) {
+          msgGuardar.classList.remove("error");
+          msgGuardar.textContent = "Para guardar menús, inicia sesión o crea una cuenta gratuita.";
+          document.getElementById("btnAuth").click();
+          return;
+        }
         formGuardar.hidden = false; btnAbrirGuardar.hidden = true; msgGuardar.textContent = "";
         const campo = formGuardar.querySelector("input");
         campo.value = `Menú de ${fmt(objetivo)} kcal`;

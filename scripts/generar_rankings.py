@@ -12,7 +12,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-from generar_recetas import SITE_URL, ROOT, DATA_JS, es, esc, formatear_nombre, slug  # noqa: E402
+from generar_recetas import SITE_URL, ROOT, DATA_JS, LINEA_REVISION, es, esc, formatear_nombre, slug  # noqa: E402
 from generar_sustitutos import parse_foods_full  # noqa: E402
 import rankings_lib as RL  # noqa: E402
 
@@ -164,7 +164,9 @@ def render_ranking(r, lista, marco, todos_rankings):
         </table>
       </div>
 
-      <p class="food-motivo">{esc(NOTA_METRICA[metrica])} Todos los valores son por 100 g del alimento tal como aparece en su ficha (crudo, cocido o seco según el caso). La nota A-E de HSNutrición resume la calidad nutricional global, no solo este nutriente.</p>
+      <p class="food-motivo">{esc(NOTA_METRICA[metrica])} Todos los valores son por 100 g del alimento tal como aparece en su ficha (crudo, cocido o seco según el caso). La nota A-E de HSNutrición resume la calidad nutricional global, no solo este nutriente (<a href="metodologia.html">ver metodología</a>).</p>
+
+      {LINEA_REVISION}
 
       <h2 class="ficha-sub">Otros rankings de alimentos</h2>
       <div class="filtro-chips">

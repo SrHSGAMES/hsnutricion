@@ -18,7 +18,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
-    es, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
+    es, LINEA_REVISION, REVISION_ISO, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 import rankings_lib as RL
 from generar_sustitutos import (
@@ -60,6 +60,7 @@ def build_article_jsonld(food, page_url, nombre_fmt):
     fecha = fecha_publicacion_git(food["id"])
     if fecha:
         data["datePublished"] = fecha
+    data["dateModified"] = REVISION_ISO
     return data
 
 
@@ -341,6 +342,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
       <p class="section-sub reveal" style="text-align:left;margin:0 0 20px">{respuesta}</p>
 
       <p class="food-motivo">{esc(food["motivo"])}</p>
+      {LINEA_REVISION}
 
       <h2 class="ficha-sub">Información nutricional (por 100 g)</h2>
       <div class="macro-table">
@@ -369,6 +371,8 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
+      <a href="metodologia.html" class="footer-link">Metodología</a>
+      <a href="contacto.html" class="footer-link">Contacto</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
   </div>
