@@ -16,7 +16,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ESCALAS, ETIQUETAS,
-    es, formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
+    es, AUTOR_JSONLD, formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
     parse_recetas, render_sitemap, render_receta_teaser, render_recetas_paginadas,
 )
 
@@ -267,7 +267,7 @@ def build_article_jsonld(food, page_url):
         "@type": "Article",
         "headline": f'Sustitutos saludables de {formatear_nombre(food["nombre"])}',
         "description": f'Alternativas más saludables a {formatear_nombre(food["nombre"])}, con comparativa nutricional y la razón científica de cada una.',
-        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
+        "author": AUTOR_JSONLD,
         "publisher": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "mainEntityOfPage": page_url,
     }
@@ -386,6 +386,7 @@ def render_pagina(food, todos_los_foods, todas_recetas):
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="metodologia.html" class="footer-link">Metodología</a>
+      <a href="autor.html" class="footer-link">Autor</a>
       <a href="contacto.html" class="footer-link">Contacto</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>

@@ -1646,3 +1646,6 @@ a.ingrediente-link { text-decoration: none; }
 .indice-alimentos-lista a:hover { color: var(--green-700); text-decoration: underline; }
 .ficha-revision { margin: 4px 0 18px; font-size: .82rem; color: var(--ink-faint); }
 .ficha-revision a { color: var(--green-700); }
+.autor-cargo { margin: -6px 0 22px; color: var(--ink-soft, var(--ink-faint)); font-size: 1.02rem; font-weight: 600; }
+.autor-tarjeta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; margin-top: 18px; }
+.autor-tarjeta a { color: var(--green-700); font-weight: 600; }

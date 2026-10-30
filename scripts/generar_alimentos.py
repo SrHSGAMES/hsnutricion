@@ -18,7 +18,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
-    es, LINEA_REVISION, REVISION_ISO, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
+    es, LINEA_REVISION, REVISION_ISO, AUTOR_JSONLD, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 import rankings_lib as RL
 from generar_sustitutos import (
@@ -53,7 +53,7 @@ def build_article_jsonld(food, page_url, nombre_fmt):
         "@type": "Article",
         "headline": f'{nombre_fmt} — Ficha nutricional y calificación',
         "description": f'Valor nutricional de {nombre_fmt} por 100 g, calificación {food["rating"]} y la razón nutricional detrás de esa calificación.',
-        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
+        "author": AUTOR_JSONLD,
         "publisher": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "mainEntityOfPage": page_url,
     }
@@ -372,6 +372,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="metodologia.html" class="footer-link">Metodología</a>
+      <a href="autor.html" class="footer-link">Autor</a>
       <a href="contacto.html" class="footer-link">Contacto</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>

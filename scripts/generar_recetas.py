@@ -20,8 +20,13 @@ SITE_URL = "https://www.hsnutricion.com"
 # Actualízala cuando se revisen notas o contenidos.
 REVISION_ISO = "2026-10-29"
 REVISION_TXT = "29 de octubre de 2026"
+# Autor visible (perfil en autor.html). Se muestra en la firma de fichas, recetas y rankings y va en el JSON-LD.
+AUTOR_NOMBRE = "Nicolás Hernández Sánchez"
+AUTOR_CARGO = "Estudiante del Grado de Nutrición Humana y Dietética · Universidad de Alicante"
+AUTOR_JSONLD = {"@type": "Person", "name": AUTOR_NOMBRE, "url": f"{SITE_URL}/autor.html"}
 LINEA_REVISION = (
-    f'<p class="ficha-revision">Revisado el {REVISION_TXT} · Calificación según nuestra '
+    f'<p class="ficha-revision">Por <a href="autor.html">{AUTOR_NOMBRE}</a>, estudiante de Nutrición Humana y Dietética · '
+    f'Revisado el {REVISION_TXT} · Calificación según nuestra '
     f'<a href="metodologia.html">metodología</a> · Información educativa, no un consejo médico.</p>'
 )
 
@@ -246,7 +251,7 @@ def build_recipe_jsonld(receta, foods, totales):
         "recipeYield": f'{receta["raciones"]:g} {"raciones" if receta["raciones"] > 1 else "ración"}',
         "recipeIngredient": ingredientes_txt,
         "recipeInstructions": [{"@type": "HowToStep", "text": p} for p in receta["pasos"]],
-        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
+        "author": AUTOR_JSONLD,
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": f'{totales["kcal"]:g} kcal',
@@ -603,6 +608,7 @@ def render_pagina(receta, foods, todas_recetas):
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
       <a href="metodologia.html" class="footer-link">Metodología</a>
+      <a href="autor.html" class="footer-link">Autor</a>
       <a href="contacto.html" class="footer-link">Contacto</a>
       <a href="privacidad.html" class="footer-link">Privacidad</a>
     </div>
@@ -725,6 +731,7 @@ def render_sitemap(recetas, extra_urls=None):
         {"loc": f"{SITE_URL}/sobre.html", "prioridad": "0.6"},
         {"loc": f"{SITE_URL}/metodologia.html", "prioridad": "0.7"},
         {"loc": f"{SITE_URL}/contacto.html", "prioridad": "0.5"},
+        {"loc": f"{SITE_URL}/autor.html", "prioridad": "0.6"},
         {"loc": f"{SITE_URL}/menu.html", "prioridad": "0.7"},
         {"loc": f"{SITE_URL}/privacidad.html", "prioridad": "0.3"},
     ]
