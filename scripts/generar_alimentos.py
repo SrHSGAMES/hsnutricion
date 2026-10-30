@@ -464,10 +464,7 @@ def main():
             {"loc": f'{SITE_URL}/alimento-{slug(fid)}.html', "prioridad": "0.5"}
             for fid in foods
         ]
-        urls_sustitutos = [
-            {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.6"}
-            for p in sorted(glob.glob(os.path.join(ROOT, "sustituto-*.html")))
-        ]
+        urls_sustitutos = []  # las páginas de sustitutos llevan noindex y no van al sitemap
         sitemap_path = os.path.join(ROOT, "sitemap.xml")
         with open(sitemap_path, "w", encoding="utf-8") as f:
             f.write(render_sitemap(todas_recetas, extra_urls=urls_alimentos + urls_sustitutos))

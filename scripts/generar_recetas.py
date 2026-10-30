@@ -781,10 +781,8 @@ def main():
     # (generar_sustitutos.py, generar_alimentos.py); se detectan aquí por
     # archivo para que el sitemap quede completo sin importar qué script se
     # ejecute último ni en qué orden.
-    urls_sustitutos = [
-        {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.6"}
-        for p in sorted(glob.glob(os.path.join(ROOT, "sustituto-*.html")))
-    ]
+    # Las de sustitutos llevan noindex y no se incluyen en el sitemap.
+    urls_sustitutos = []
     urls_alimentos = [
         {"loc": f"{SITE_URL}/{os.path.basename(p)}", "prioridad": "0.5"}
         for p in sorted(glob.glob(os.path.join(ROOT, "alimento-*.html")))

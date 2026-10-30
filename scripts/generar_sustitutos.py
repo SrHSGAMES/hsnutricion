@@ -306,6 +306,7 @@ def render_pagina(food, todos_los_foods, todas_recetas):
 <title>¿Cuál es el mejor sustituto de {nombre_fmt}? — HSNutrición</title>
 <meta name="description" content="{esc(descripcion)}">
 <link rel="canonical" href="{page_url}">
+<meta name="robots" content="noindex, follow">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sustitutos saludables de {nombre_fmt} — HSNutrición">
 <meta property="og:description" content="{esc(descripcion)}">
@@ -495,8 +496,8 @@ def main():
         ]
         sitemap_path = os.path.join(ROOT, "sitemap.xml")
         with open(sitemap_path, "w", encoding="utf-8") as f:
-            f.write(render_sitemap(todas_recetas, extra_urls=urls_sustitutos + urls_alimentos))
-        print(f"  sitemap.xml actualizado con {len(urls_sustitutos)} páginas de sustitutos + {len(urls_alimentos)} de alimentos")
+            f.write(render_sitemap(todas_recetas, extra_urls=urls_alimentos))
+        print(f"  sitemap.xml actualizado con {len(urls_alimentos)} páginas de alimentos (sustitutos: noindex, fuera del sitemap)")
 
 
 if __name__ == "__main__":
