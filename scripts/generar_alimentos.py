@@ -18,7 +18,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ETIQUETAS,
-    es, LINEA_REVISION, REVISION_ISO, AUTOR_JSONLD, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
+    es, LINEA_REVISION, REVISION_ISO, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 import rankings_lib as RL
 from generar_sustitutos import (
@@ -53,7 +53,7 @@ def build_article_jsonld(food, page_url, nombre_fmt):
         "@type": "Article",
         "headline": f'{nombre_fmt} — Ficha nutricional y calificación',
         "description": f'Valor nutricional de {nombre_fmt} por 100 g, calificación {food["rating"]} y la razón nutricional detrás de esa calificación.',
-        "author": AUTOR_JSONLD,
+        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "publisher": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "mainEntityOfPage": page_url,
     }

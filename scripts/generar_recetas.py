@@ -20,13 +20,8 @@ SITE_URL = "https://www.hsnutricion.com"
 # Actualízala cuando se revisen notas o contenidos.
 REVISION_ISO = "2026-10-29"
 REVISION_TXT = "29 de octubre de 2026"
-# Autor visible (perfil en autor.html). Se muestra en la firma de fichas, recetas y rankings y va en el JSON-LD.
-AUTOR_NOMBRE = "Nicolás Hernández Sánchez"
-AUTOR_CARGO = "Estudiante del Grado de Nutrición Humana y Dietética · Universidad de Alicante"
-AUTOR_JSONLD = {"@type": "Person", "name": AUTOR_NOMBRE, "url": f"{SITE_URL}/autor.html"}
 LINEA_REVISION = (
-    f'<p class="ficha-revision">Por <a href="autor.html">{AUTOR_NOMBRE}</a>, estudiante de Nutrición Humana y Dietética · '
-    f'Revisado el {REVISION_TXT} · Calificación según nuestra '
+    f'<p class="ficha-revision">Revisado el {REVISION_TXT} · Calificación según nuestra '
     f'<a href="metodologia.html">metodología</a> · Información educativa, no un consejo médico.</p>'
 )
 
@@ -251,7 +246,7 @@ def build_recipe_jsonld(receta, foods, totales):
         "recipeYield": f'{receta["raciones"]:g} {"raciones" if receta["raciones"] > 1 else "ración"}',
         "recipeIngredient": ingredientes_txt,
         "recipeInstructions": [{"@type": "HowToStep", "text": p} for p in receta["pasos"]],
-        "author": AUTOR_JSONLD,
+        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "nutrition": {
             "@type": "NutritionInformation",
             "calories": f'{totales["kcal"]:g} kcal',

@@ -16,7 +16,7 @@ import sys
 
 from generar_recetas import (
     SITE_URL, ROOT, DATA_JS, RECETAS_JS, MACRO_KEYS, ESCALAS, ETIQUETAS,
-    es, AUTOR_JSONLD, formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
+    es, formatear_nombre, fetch_community_foods, pct, esc, render_macro_row, slug,
     parse_recetas, render_sitemap, render_receta_teaser, render_recetas_paginadas,
 )
 
@@ -267,7 +267,7 @@ def build_article_jsonld(food, page_url):
         "@type": "Article",
         "headline": f'Sustitutos saludables de {formatear_nombre(food["nombre"])}',
         "description": f'Alternativas más saludables a {formatear_nombre(food["nombre"])}, con comparativa nutricional y la razón científica de cada una.',
-        "author": AUTOR_JSONLD,
+        "author": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "publisher": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "mainEntityOfPage": page_url,
     }
