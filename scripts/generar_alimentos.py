@@ -47,6 +47,28 @@ def render_citas(estudios):
       <div class="citas open">{items}</div>'''
 
 
+GUIA_ULTRAPROCESADOS = ("guia-ultraprocesados", "Guía: ultraprocesados, qué riesgos tienen y cómo reducirlos")
+GUIA_PROTEINAS = ("guia-proteinas", "Guía: cuánta proteína necesitas y cuándo tener cuidado")
+GUIA_ALCOHOL = ("guia-alcohol", "Guía: qué dice la evidencia sobre el alcohol")
+# Fichas que enlazan a una guía (id del alimento -> guía).
+GUIAS_FICHA = {
+    **{i: GUIA_ALCOHOL for i in ("cerveza", "vino_tinto", "vino_blanco", "cava")},
+    **{i: GUIA_ULTRAPROCESADOS for i in (
+        "refresco", "refresco_zero", "bolleria_industrial", "croissant", "galletas", "patatas_fritas",
+        "cereales_azucarados", "nuggets_pollo", "salchichas", "yogur_azucarado", "pizza_congelada")},
+    **{i: GUIA_PROTEINAS for i in (
+        "proteina_whey", "soja_texturizada", "seitan", "ia_pechuga_de_pollo", "ia_atun", "huevo",
+        "clara_huevo", "yogur_griego", "ia_tempeh", "ia_tofu", "ia_lentejas", "ia_garbanzos", "lentejas_cocidas")},
+}
+
+
+def linea_guia(food_id):
+    if food_id not in GUIAS_FICHA:
+        return ""
+    ruta, texto = GUIAS_FICHA[food_id]
+    return f'<p class="ficha-guia"><a href="{ruta}.html">{texto} →</a></p>'
+
+
 def build_article_jsonld(food, page_url, nombre_fmt):
     data = {
         "@context": "https://schema.org",
@@ -306,6 +328,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
       <a href="index.html#como-funciona">Cómo funciona</a>
       <a href="index.html#alimentos">Alimentos</a>
       <a href="menu.html">Menú diario</a>
+      <a href="guias.html">Guías</a>
       <a href="comunidad.html">Comunidad</a>
       <a href="sobre.html">Sobre</a>
       <a href="index.html#contacto">Contacto</a>
@@ -343,6 +366,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
 
       <p class="food-motivo">{esc(food["motivo"])}</p>
       {LINEA_REVISION}
+      {linea_guia(food["id"])}
 
       <h2 class="ficha-sub">Información nutricional (por 100 g)</h2>
       <div class="macro-table">
@@ -371,6 +395,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
+      <a href="guias.html" class="footer-link">Guías</a>
       <a href="metodologia.html" class="footer-link">Metodología</a>
       <a href="autor.html" class="footer-link">Autor</a>
       <a href="contacto.html" class="footer-link">Contacto</a>

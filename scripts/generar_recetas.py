@@ -515,6 +515,7 @@ def render_pagina(receta, foods, todas_recetas):
       <a href="index.html#como-funciona">Cómo funciona</a>
       <a href="index.html#alimentos">Alimentos</a>
       <a href="menu.html">Menú diario</a>
+      <a href="guias.html">Guías</a>
       <a href="comunidad.html">Comunidad</a>
       <a href="sobre.html">Sobre</a>
       <a href="index.html#contacto">Contacto</a>
@@ -602,6 +603,7 @@ def render_pagina(receta, foods, todas_recetas):
     <div class="footer-meta">
       <p>Hecho con criterio nutricional y mucho verde 🌿 — Información educativa, no un consejo médico. Las fotos de las recetas son ilustrativas y están generadas con IA.</p>
       <a href="rankings.html" class="footer-link">Rankings de alimentos</a>
+      <a href="guias.html" class="footer-link">Guías</a>
       <a href="metodologia.html" class="footer-link">Metodología</a>
       <a href="autor.html" class="footer-link">Autor</a>
       <a href="contacto.html" class="footer-link">Contacto</a>
@@ -733,6 +735,10 @@ def render_sitemap(recetas, extra_urls=None):
     # Rankings de alimentos (scripts/generar_rankings.py): el índice y una página por ranking.
     import rankings_lib as RL
     urls.append({"loc": f"{SITE_URL}/rankings.html", "prioridad": "0.8"})
+    # Guías (scripts/generar_guias.py): el índice y una página por guía.
+    from guias_lib import leer_guias
+    urls.append({"loc": f"{SITE_URL}/guias.html", "prioridad": "0.8"})
+    urls.extend({"loc": f'{SITE_URL}/{g["slug"]}.html', "prioridad": "0.8"} for g in leer_guias())
     urls.extend({"loc": f'{SITE_URL}/{r["slug"]}.html', "prioridad": "0.7"} for r in RL.RANKINGS)
     for receta in recetas:
         urls.append({"loc": f'{SITE_URL}/receta-{slug(receta["id"])}.html', "prioridad": "0.7"})

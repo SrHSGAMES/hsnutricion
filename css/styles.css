@@ -1649,3 +1649,44 @@ a.ingrediente-link { text-decoration: none; }
 .autor-cargo { margin: -6px 0 22px; color: var(--ink-soft, var(--ink-faint)); font-size: 1.02rem; font-weight: 600; }
 .autor-tarjeta { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; margin-top: 18px; }
 .autor-tarjeta a { color: var(--green-700); font-weight: 600; }
+
+/* Guías */
+.guia .receta-breadcrumb { margin: 0 0 14px; }
+.guia-titulo { text-align: left; max-width: 820px; text-wrap: balance; }
+.guia-firma { margin: 6px 0 22px; max-width: 760px; font-size: .88rem; color: var(--ink-faint); line-height: 1.55; }
+.guia-firma a { color: var(--green-700); }
+.guia-indice { max-width: 760px; margin: 0 0 30px; padding: 16px 20px; background: var(--green-50); border: 1.5px solid var(--line); border-radius: var(--radius-md); }
+.guia-indice p { margin: 0 0 8px; font-weight: 700; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
+.guia-indice ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 28px; font-size: .94rem; line-height: 1.7; }
+.guia-indice a { color: var(--ink); text-decoration: none; }
+.guia-indice a:hover { color: var(--green-700); text-decoration: underline; }
+.guia-contenido h2 { margin: 44px 0 14px; font-size: 1.5rem; line-height: 1.25; scroll-margin-top: 90px; text-wrap: balance; }
+.guia-contenido h3 { margin: 28px 0 10px; font-size: 1.12rem; }
+.guia-contenido p { margin: 0 0 1em; color: var(--ink-soft); line-height: 1.7; }
+.guia-contenido ol { color: var(--ink-soft); line-height: 1.65; padding-left: 24px; margin: 0 0 1em; }
+.guia-contenido li ul { margin: 8px 0 4px; }
+.guia-contenido a { color: var(--green-700); }
+.guia-resumen { margin: 0 0 8px; padding: 20px 24px 8px; background: var(--green-50); border: 1.5px solid var(--line); border-radius: var(--radius-md); }
+.guia-resumen h2 { margin-top: 0; }
+.guia-aviso { margin: 24px 0; padding: 14px 18px; background: #fff; border: 1.5px solid var(--line); border-left: 5px solid var(--green-700); border-radius: 10px; color: var(--ink-soft); line-height: 1.6; }
+.guia-tabla-wrap { overflow-x: auto; margin: 0 0 22px; border: 1.5px solid var(--line); border-radius: var(--radius-md); background: #fff; }
+.guia-tabla { width: 100%; border-collapse: collapse; font-size: .93rem; font-variant-numeric: tabular-nums; }
+.guia-tabla th, .guia-tabla td { padding: 9px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+.guia-tabla thead th { background: var(--green-50); color: var(--ink-soft); font-size: .78rem; text-transform: uppercase; letter-spacing: .03em; }
+.guia-tabla tbody tr:last-child td { border-bottom: 0; }
+.guia-nota { display: inline-flex; width: 20px; height: 20px; min-width: 20px; font-size: .7rem; margin-left: 4px; vertical-align: 1px; }
+.cita { font-size: .72rem; line-height: 0; white-space: nowrap; }
+.cita a { text-decoration: none; padding: 0 1px; }
+.guia-fuentes ol { font-size: .86rem; line-height: 1.55; padding-left: 28px; }
+.guia-fuentes li { margin-bottom: 7px; scroll-margin-top: 90px; }
+.guia-fuentes li:target { background: var(--green-50); }
+.guia-mas { margin-top: 36px; }
+.guia-cartas { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.guia-carta { display: flex; flex-direction: column; gap: 10px; padding: 22px; background: #fff; border: 1.5px solid var(--line); border-radius: var(--radius-md); text-decoration: none; color: var(--ink); }
+.guia-carta:hover { border-color: var(--green-700); }
+.guia-carta h2 { margin: 0; font-size: 1.2rem; line-height: 1.3; text-wrap: balance; }
+.guia-carta p { margin: 0; color: var(--ink-soft); line-height: 1.55; }
+.guia-carta span { margin-top: auto; font-size: .85rem; font-weight: 600; color: var(--green-700); }
+.ficha-guia { margin: 0 0 18px; font-size: .92rem; }
+.ficha-guia a { color: var(--green-700); font-weight: 600; }
+@media (max-width: 640px) { .guia-indice ol { columns: 1; } }
