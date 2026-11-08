@@ -737,6 +737,10 @@ def render_sitemap(recetas, extra_urls=None):
     urls.append({"loc": f"{SITE_URL}/rankings.html", "prioridad": "0.8"})
     # Guías (scripts/generar_guias.py): el índice y una página por guía.
     from guias_lib import leer_guias
+    # Listas por intención (scripts/generar_listas.py): se detectan por archivo.
+    for archivo in sorted(glob.glob(os.path.join(ROOT, "recetas-*.html"))) + [os.path.join(ROOT, "alimentos-saludables.html"), os.path.join(ROOT, "alimentos-poco-saludables.html")]:
+        if os.path.exists(archivo):
+            urls.append({"loc": f"{SITE_URL}/{os.path.basename(archivo)}", "prioridad": "0.8"})
     urls.append({"loc": f"{SITE_URL}/guias.html", "prioridad": "0.8"})
     urls.extend({"loc": f'{SITE_URL}/{g["slug"]}.html', "prioridad": "0.8"} for g in leer_guias())
     urls.extend({"loc": f'{SITE_URL}/{r["slug"]}.html', "prioridad": "0.7"} for r in RL.RANKINGS)

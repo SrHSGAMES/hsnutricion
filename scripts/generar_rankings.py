@@ -96,9 +96,10 @@ def render_ranking(r, lista, marco, todos_rankings):
     buenos = sum(1 for f in lista if f["rating"] in ("A", "B"))
     orden_txt = "de mayor a menor" if sentido_desc else "de menor a mayor"
 
-    titulo = f'{r["h1"]}: ranking por 100 g | HSNutrición'
-    if len(titulo) > 70:
-        titulo = f'{r["h1"]}: ranking por 100 g'
+    # Los resultados que mejor funcionan en Google llevan el número delante ("Top 50 ..."), como una lista.
+    titulo = f'Top {n} {r["h1"][0].lower() + r["h1"][1:]}: ranking por 100 g'
+    if len(titulo) + len(" | HSNutrición") <= 70:
+        titulo += " | HSNutrición"
     descripcion = (
         f'{r["h1"]}: los {n} {r["sujeto"]} {r["grupo"]} ordenados por {nombre_m} por 100 g, de {nombres[0]} '
         f'({fmt_valor(metrica, primero[metrica])} {unidad}) a {nombres[-1]} ({fmt_valor(metrica, ultimo[metrica])} {unidad}).'

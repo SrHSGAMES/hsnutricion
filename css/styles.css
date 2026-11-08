@@ -1690,3 +1690,9 @@ a.ingrediente-link { text-decoration: none; }
 .ficha-guia { margin: 0 0 18px; font-size: .92rem; }
 .ficha-guia a { color: var(--green-700); font-weight: 600; }
 @media (max-width: 640px) { .guia-indice ol { columns: 1; } }
+.ficha-tarjeta { margin: 22px 0 0; max-width: 560px; }
+.ficha-tarjeta img { width: 100%; height: auto; display: block; border-radius: var(--radius-md); border: 1.5px solid var(--line); }
+.ficha-tarjeta figcaption { margin-top: 6px; font-size: .8rem; color: var(--ink-faint); }
+.ranking-tabla th.col-nombre { text-align: left; }
+.listas-enlaces { margin: 0 0 22px; }
+.listas-enlaces .filtro-grupo-label { display: block; margin-bottom: 8px; }

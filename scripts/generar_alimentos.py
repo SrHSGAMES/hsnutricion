@@ -70,6 +70,12 @@ def linea_guia(food_id):
     return f'<p class="ficha-guia"><a href="{ruta}.html">{texto} →</a></p>'
 
 
+def tarjeta_imagen(food_id):
+    """Ruta relativa de la tarjeta de la ficha (scripts/generar_tarjetas.py) o None si aún no existe."""
+    ruta = f"img/alimentos/{slug(food_id)}.jpg"
+    return ruta if os.path.exists(os.path.join(ROOT, ruta)) else None
+
+
 def build_article_jsonld(food, page_url, nombre_fmt):
     data = {
         "@context": "https://schema.org",
@@ -80,6 +86,8 @@ def build_article_jsonld(food, page_url, nombre_fmt):
         "publisher": {"@type": "Organization", "name": "HSNutrición", "url": SITE_URL},
         "mainEntityOfPage": page_url,
     }
+    if tarjeta_imagen(food["id"]):
+        data["image"] = [f'{SITE_URL}/{tarjeta_imagen(food["id"])}']
     fecha = fecha_publicacion_git(food["id"])
     if fecha:
         data["datePublished"] = fecha
@@ -239,6 +247,14 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
     macros_html = "\n".join(render_macro_row(k, food[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     citas_html = render_citas(food.get("estudios") or [])
 
+    tarjeta_html = ""
+    if tarjeta_imagen(food["id"]):
+        tarjeta_html = (
+            f'<figure class="ficha-tarjeta"><img src="{tarjeta_imagen(food["id"])}" width="1200" height="630" loading="lazy" '
+            f'alt="{esc(nombre_fmt)}: nota {food["rating"]}, {kcal_txt} kcal y {prot_txt} g de proteína por 100 g">'
+            f'<figcaption>Tarjeta de {esc(nombre_fmt)} para guardar o compartir</figcaption></figure>'
+        )
+
     sustituto_html = ""
     if food["id"] in ids_con_sustituto:
         sustituto_html = f'''
@@ -299,7 +315,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
 <meta property="og:type" content="article">
 <meta property="og:title" content="{esc(titulo_og)}">
 <meta property="og:description" content="{esc(descripcion)}">
-<meta property="og:image" content="{SITE_URL}/img/banner-hsnutricion.jpg">
+<meta property="og:image" content="{SITE_URL}/{tarjeta_imagen(food["id"]) or "img/banner-hsnutricion.jpg"}">
 <meta property="og:url" content="{page_url}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/png" href="img/favicon.png">
@@ -374,6 +390,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
 {macros_html}
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(food["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(food["azucares"])} g</b> son azúcares · sodio: <b>{es(food["sodio"])} mg</b></p>
       </div>
+      {tarjeta_html}
       {sustituto_html}
 
       <h2 class="ficha-sub">Preguntas frecuentes sobre {esc(nombre_fmt)}</h2>
