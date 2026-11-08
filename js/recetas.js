@@ -2045,6 +2045,7 @@ const RECETAS = [
   {
     id: "lenguado_limon_judias",
     nombre: "Lenguado al Limón con Judías Verdes y Patata",
+    imagen: "img/recetas/lenguado-al-limon-con-judias-verdes-y-patata.jpg",
     emojiPortada: "🐟🍋🫛",
     rating: "B",
     tiempo: "25 min",
@@ -2079,6 +2080,7 @@ const RECETAS = [
   {
     id: "rape_salsa_verde",
     nombre: "Rape en Salsa Verde Ligera con Guisantes",
+    imagen: "img/recetas/rape-en-salsa-verde-ligera-con-guisantes.jpg",
     emojiPortada: "🐟🌿🟢",
     rating: "B",
     tiempo: "30 min",
@@ -2115,6 +2117,7 @@ const RECETAS = [
   {
     id: "sepia_plancha_escarola",
     nombre: "Sepia a la Plancha con Ensalada de Escarola y Tomate",
+    imagen: "img/recetas/sepia-a-la-plancha-con-ensalada-de-escarola-y-tomate.jpg",
     emojiPortada: "🦑🥗🍅",
     rating: "B",
     tiempo: "20 min",
@@ -2149,6 +2152,7 @@ const RECETAS = [
   {
     id: "wraps_pollo_aguacate",
     nombre: "Wraps de Pollo, Aguacate y Escarola",
+    imagen: "img/recetas/wraps-de-pollo-aguacate-y-escarola.jpg",
     emojiPortada: "🌯🍗🥑",
     rating: "B",
     tiempo: "15 min",
@@ -2183,6 +2187,7 @@ const RECETAS = [
   {
     id: "ensalada_endibia_pera_castanas",
     nombre: "Ensalada de Endibias, Pera y Castañas con Manchego",
+    imagen: "img/recetas/ensalada-de-endibias-pera-y-castañas-con-manchego.jpg",
     emojiPortada: "🥗🍐🌰",
     rating: "B",
     tiempo: "15 min",
@@ -2216,6 +2221,7 @@ const RECETAS = [
   {
     id: "bol_yogur_soja_maracuya_macadamia",
     nombre: "Bol de Yogur de Soja con Maracuyá, Pasas y Macadamia",
+    imagen: "img/recetas/bol-de-yogur-de-soja-con-pasas-caracuya-y-macadamia.jpg",
     emojiPortada: "🥣🟡🥜",
     rating: "A",
     tiempo: "5 min",
@@ -2246,6 +2252,7 @@ const RECETAS = [
   {
     id: "arroz_con_leche_vegano",
     nombre: "Arroz con Leche Vegano con Dátiles",
+    imagen: "img/recetas/Arroz-con-Leche-vegano-con-datiles.jpg",
     emojiPortada: "🍚🌱🍂",
     rating: "A",
     tiempo: "45 min",
@@ -2277,6 +2284,7 @@ const RECETAS = [
   {
     id: "boquerones_horno_patatas",
     nombre: "Boquerones al Horno con Patatas y Limón",
+    imagen: "img/recetas/boquerones-al-horno-con-patatas-y-limon.jpg",
     emojiPortada: "🐟🥔🍋",
     rating: "B",
     tiempo: "35 min",
@@ -2311,6 +2319,7 @@ const RECETAS = [
   {
     id: "potaje_judias_pintas_nabo",
     nombre: "Potaje de Judías Pintas con Nabo y Espelta",
+    imagen: "img/recetas/potaje-de-judias-pintas-con-nabo-y-espelta.jpg",
     emojiPortada: "🫘🥕🌾",
     rating: "A",
     tiempo: "60 min",
@@ -2348,6 +2357,7 @@ const RECETAS = [
   {
     id: "ensalada_canonigos_guayaba",
     nombre: "Ensalada de Canónigos, Guayaba y Nueces",
+    imagen: "img/recetas/ensalada-de-canonigos-cuayaba-y-nueces.jpg",
     emojiPortada: "🥗🍈🌰",
     rating: "A",
     tiempo: "10 min",
@@ -2380,6 +2390,7 @@ const RECETAS = [
   {
     id: "calcots_romesco_ligero",
     nombre: "Calçots al Horno con Salsa Romesco Ligera",
+    imagen: "img/recetas/calçots-al-horno-con-salsa-romesco-ligera.jpg",
     emojiPortada: "🌱🍅🥜",
     rating: "A",
     tiempo: "40 min",
@@ -2417,6 +2428,7 @@ const RECETAS = [
   {
     id: "batido_hipercalorico_avena_cacahuete",
     nombre: "Batido Hipercalórico de Avena, Plátano y Cacahuete",
+    imagen: "img/recetas/batido-hipercalorico-de-avena-platano-y-cacahuete.jpg",
     emojiPortada: "🥤🍌🥜",
     rating: "B",
     tiempo: "5 min",
@@ -2448,6 +2460,7 @@ const RECETAS = [
   {
     id: "bowl_hipercalorico_arroz_salmon",
     nombre: "Bowl Hipercalórico de Arroz, Salmón y Aguacate",
+    imagen: "img/recetas/bowl-hipercalorico-de-arroz-salmon-y-aguacate.jpg",
     emojiPortada: "🍚🐟🥑",
     rating: "B",
     tiempo: "35 min",
