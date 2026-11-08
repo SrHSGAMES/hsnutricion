@@ -205,7 +205,7 @@ const FOODS = [
   {
     id: "pan_blanco",
     nombre: "Pan blanco",
-    aliases: ["pan blanco", "pan de molde blanco", "pan"],
+    aliases: ["pan blanco", "pan"],
     categorias: ["Cereales"],
     emoji: "🍞",
     rating: "C",
@@ -8575,6 +8575,496 @@ const FOODS = [
         emoji: "🌾", mejor: true,
         kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
         porque: "Más fibra y saciedad, con carbohidratos de absorción más lenta."
+      }
+    ]
+  },
+  {
+    id: "pan_de_molde",
+    nombre: "Pan de molde blanco",
+    aliases: ["pan de molde", "pan molde", "pan de molde blanco", "pan bimbo", "pan de sándwich", "pan de sandwich"],
+    categorias: ["Cereales"],
+    emoji: "🍞",
+    rating: "C",
+    kcal: 268, carbs: 49, azucares: 4.5, proteinas: 8.5, grasas: 3.5, grasasSat: 0.8, fibra: 2.7, sodio: 490,
+    motivo: "El pan de molde blanco es un pan de harina refinada, de los ultraprocesados más habituales (suele llevar azúcar, emulsionantes y conservantes): unos 4,5 g de azúcar, 490 mg de sodio y menos de 3 g de fibra por 100 g. Sustituir cereales refinados por integrales se asocia con menos riesgo: en un gran análisis, quienes más fibra y cereales integrales consumían tenían entre un 15 % y un 30 % menos de mortalidad y de enfermedad cardiovascular, diabetes tipo 2 y cáncer colorrectal [1]; para los refinados, la evidencia es de baja calidad y hay que interpretarla con cautela [2]. Lo calificamos C, igual que el pan blanco: vale para un bocadillo ocasional, mejor integral de verdad (con harina integral como primer ingrediente).",
+    estudios: [
+      {
+        "pmid": "30638909",
+        "titulo": "Carbohydrate quality and human health: a series of systematic reviews and meta-analyses.",
+        "revista": "Lancet (London, England)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30638909/"
+      },
+      {
+        "pmid": "36789934",
+        "titulo": "Consumption of whole grains and refined grains and associated risk of cardiovascular disease events and all-cause mortality: a systematic review and dose-response meta-analysis of prospective cohort studies.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36789934/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pan integral",
+        emoji: "🌾", mejor: true,
+        kcal: 250, carbs: 41, azucares: 3, proteinas: 9, grasas: 3.3, grasasSat: 0.6, fibra: 7, sodio: 450,
+        porque: "Más fibra y saciedad, con carbohidratos de absorción más lenta."
+      }
+    ]
+  },
+  {
+    id: "destilados",
+    nombre: "Licores y destilados (whisky, ron, ginebra, vodka)",
+    aliases: ["whisky", "whiskey", "ron", "ginebra", "vodka", "brandy", "coñac", "tequila", "licor", "destilado", "destilados", "licores"],
+    categorias: ["Bebidas"],
+    emoji: "🥃",
+    rating: "E",
+    kcal: 231, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 1,
+    motivo: "Whisky, ron, ginebra, vodka o brandy tienen en torno a un 40 % de alcohol: unas 230 kcal por 100 ml (unas 115 kcal por un chupito de 50 ml) y ningún nutriente. El alcohol es un carcinógeno del grupo 1 y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [1]. En 599.912 bebedores, el riesgo de morir fue mínimo por debajo de unos 100 g de alcohol por semana (unas 10 bebidas estándar), y por encima se acortaba la esperanza de vida [2]. En el UK Biobank (340.924 personas), el alcohol de destilados, incluso en consumos bajos o moderados, se asoció con más mortalidad (HR de 1,07 a 1,83 según la causa) [3]. Por eso lo calificamos E, igual que el vino, la cerveza y el cava.",
+    estudios: [
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      },
+      {
+        "pmid": "29676281",
+        "titulo": "Risk thresholds for alcohol consumption: combined analysis of individual-participant data for 599 912 current drinkers in 83 prospective studies.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29676281/"
+      },
+      {
+        "pmid": "42902373",
+        "titulo": "Total and beverage-specific alcohol use at mid-life and all-cause and cause-specific mortality: a prospective cohort study.",
+        "revista": "Nutrition journal",
+        "anio": "2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42902373/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua con gas y limón",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin alcohol; con gas, limón y hielo cumple el mismo papel en la copa."
+      }
+    ]
+  },
+  {
+    id: "sidra",
+    nombre: "Sidra",
+    aliases: ["sidra", "sidra natural", "sidra asturiana", "sidra espumosa"],
+    categorias: ["Bebidas"],
+    emoji: "🍎",
+    rating: "E",
+    kcal: 41, carbs: 2, azucares: 0.8, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
+    motivo: "La sidra natural tiene un 5-6 % de alcohol y unas 40 kcal por 100 ml (la espumosa y la dulce suelen llevar más azúcar). Aunque se perciba como una bebida suave, el alcohol es el mismo: en el UK Biobank, el consumo de cerveza o sidra, incluso bajo o moderado, se asoció con más mortalidad que no beber o beber ocasionalmente (HR de 1,07 a 1,83 según la causa) [1], y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso la calificamos E, igual que la cerveza y el vino.",
+    estudios: [
+      {
+        "pmid": "42902373",
+        "titulo": "Total and beverage-specific alcohol use at mid-life and all-cause and cause-specific mortality: a prospective cohort study.",
+        "revista": "Nutrition journal",
+        "anio": "2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42902373/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua con gas y limón",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin alcohol; el burbujeo y el limón mantienen el ritual del escanciado."
+      }
+    ]
+  },
+  {
+    id: "vermut",
+    nombre: "Vermut",
+    aliases: ["vermut", "vermú", "vermouth", "vermut rojo", "vermut blanco"],
+    categorias: ["Bebidas"],
+    emoji: "🍸",
+    rating: "E",
+    kcal: 150, carbs: 15, azucares: 15, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 10,
+    motivo: "El vermut es vino aromatizado y encabezado: tiene un 15-18 % de alcohol y mucho azúcar (el rojo, unos 15 g por 100 ml), con unas 150 kcal por 100 ml. Suma, por tanto, alcohol y azúcar. El alcohol aumenta el riesgo de cáncer de boca, faringe, esófago, hígado, colon y mama, con relación dosis-respuesta [1], y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que el vino y el cava.",
+    estudios: [
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Agua con gas y limón",
+        emoji: "💧", mejor: true,
+        kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
+        porque: "Cero calorías y sin alcohol; con hielo, naranja y gas cumple el mismo papel en el aperitivo."
+      }
+    ]
+  },
+  {
+    id: "fiambre_pavo",
+    nombre: "Fiambre de pavo (lonchas)",
+    aliases: ["fiambre de pavo", "pavo en lonchas", "pechuga de pavo en lonchas", "pechuga de pavo cocida", "jamón de pavo", "jamon de pavo", "fiambre de pollo"],
+    categorias: ["Cárnicos"],
+    emoji: "🦃",
+    rating: "E",
+    kcal: 100, carbs: 1.5, azucares: 1, proteinas: 17.5, grasas: 2.2, grasasSat: 0.6, fibra: 0, sodio: 950,
+    motivo: "El fiambre de pavo parece una opción ligera (unas 100 kcal y 17 g de proteína por 100 g), pero es carne procesada: lleva sal y aditivos y casi 1.000 mg de sodio por 100 g. La IARC clasifica la carne procesada como carcinógena para las personas [1], y en los metaanálisis un mayor consumo se asocia con un 18 % más de riesgo de cáncer colorrectal [2] y, por cada ración diaria, con un 15 % más de mortalidad total y cardiovascular [3]. Por eso lo calificamos E según nuestro criterio de carne procesada, aunque sea de pavo.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      },
+      {
+        "pmid": "26143683",
+        "titulo": "Red and processed meat consumption and mortality: dose-response meta-analysis of prospective cohort studies.",
+        "revista": "Public health nutrition",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26143683/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pavo",
+        emoji: "🦃", mejor: true,
+        kcal: 114, carbs: 0, azucares: 0, proteinas: 24.1, grasas: 1.5, grasasSat: 0.4, fibra: 0, sodio: 60,
+        porque: "Pavo fresco cocinado en casa: misma proteína, sin aditivos y con mucho menos sodio."
+      }
+    ]
+  },
+  {
+    id: "lomo_embuchado",
+    nombre: "Lomo embuchado",
+    aliases: ["lomo embuchado", "lomo curado", "lomo ibérico", "lomo iberico", "caña de lomo", "cana de lomo"],
+    categorias: ["Cárnicos"],
+    emoji: "🥩",
+    rating: "E",
+    kcal: 275, carbs: 0.5, azucares: 0.5, proteinas: 40, grasas: 11.5, grasasSat: 4, fibra: 0, sodio: 2400,
+    motivo: "El lomo embuchado es carne de cerdo curada con sal: muy proteico (unos 40 g por 100 g) pero con unos 2.400 mg de sodio por 100 g. Es carne procesada: la IARC la clasifica como carcinógena para las personas [1], y por cada ración diaria se asocia con un 15 % más de mortalidad total y cardiovascular [2] y con un 23 % más de mortalidad total en otro metaanálisis de grupos de alimentos [3]. Por eso lo calificamos E, igual que el resto de embutidos y el jamón.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "26143683",
+        "titulo": "Red and processed meat consumption and mortality: dose-response meta-analysis of prospective cohort studies.",
+        "revista": "Public health nutrition",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26143683/"
+      },
+      {
+        "pmid": "28446499",
+        "titulo": "Food groups and risk of all-cause mortality: a systematic review and meta-analysis of prospective studies.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28446499/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pechuga de pollo",
+        emoji: "🍗", mejor: true,
+        kcal: 165, carbs: 0, azucares: 0, proteinas: 31, grasas: 3.6, grasasSat: 1, fibra: 0, sodio: 74,
+        porque: "Misma proteína sin curar: pechuga a la plancha, con una fracción del sodio."
+      }
+    ]
+  },
+  {
+    id: "higado_ternera",
+    nombre: "Hígado de ternera",
+    aliases: ["hígado", "higado", "hígado de ternera", "higado de ternera", "hígado de vaca", "higado de vaca", "hígado de buey"],
+    categorias: ["Cárnicos", "Proteínas"],
+    emoji: "🥩",
+    rating: "C",
+    kcal: 135, carbs: 3.9, azucares: 0, proteinas: 20.4, grasas: 3.6, grasasSat: 1.2, fibra: 0, sodio: 69,
+    motivo: "El hígado de ternera es un alimento muy denso en nutrientes (hierro, vitamina B12, folato), pero concentra vitamina A ya formada: unos 5.000 µg por 100 g crudo, más que el máximo diario tolerable para un adulto (3.000 µg), además de unos 275 mg de colesterol. Un exceso mantenido de vitamina A es tóxico para el hígado, desde la esteatosis hasta la fibrosis y la cirrosis, con síntomas como náuseas y dolor óseo [1]; con 25.000-50.000 UI al día durante meses aparecen efectos adversos múltiples, y los niños y las embarazadas son especialmente vulnerables [2]. En el embarazo es un riesgo real: más de 15.000 UI de vitamina A al día (alimentos y suplementos) multiplicaron por 3,5 la prevalencia de defectos en tejidos derivados de la cresta neural craneal [3]. Por eso lo calificamos C: ocasional, en ración pequeña (unos 100 g como mucho, de vez en cuando) y mejor evitarlo en el embarazo.",
+    estudios: [
+      {
+        "pmid": "40901583",
+        "titulo": "Vitamin A toxicity and hepatic pathology: A comprehensive review.",
+        "revista": "World journal of hepatology",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40901583/"
+      },
+      {
+        "pmid": "2197848",
+        "titulo": "Evaluation of vitamin A toxicity.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "1990",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/2197848/"
+      },
+      {
+        "pmid": "7477116",
+        "titulo": "Teratogenicity of high vitamin A intake.",
+        "revista": "The New England journal of medicine",
+        "anio": "1995",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/7477116/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "queso_crema",
+    nombre: "Queso crema untable",
+    aliases: ["queso crema", "queso de untar", "queso untable", "philadelphia", "queso crema para untar"],
+    categorias: ["Lácteos"],
+    emoji: "🧀",
+    rating: "D",
+    kcal: 253, carbs: 3.7, azucares: 3.4, proteinas: 5.5, grasas: 23, grasasSat: 15, fibra: 0, sodio: 320,
+    motivo: "El queso crema untable (tipo Philadelphia) es un queso fresco muy cremoso, pobre en proteína (5,5 g por 100 g) y con 23 g de grasa, 15 de ellas saturadas: unas 250 kcal por 100 g. En general, el queso se asocia con un riesgo cardiovascular neutro o ligeramente menor [1], pero este es de los más grasos y de los que menos proteína aportan, y reducir la grasa saturada bajó un 21 % los eventos cardiovasculares en ensayos largos [2]. Lo calificamos D: una capa fina, mejor en versión ligera o con queso fresco batido.",
+    estudios: [
+      {
+        "pmid": "37328108",
+        "titulo": "Cheese consumption and multiple health outcomes: an umbrella review and updated meta-analysis of prospective studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37328108/"
+      },
+      {
+        "pmid": "32428300",
+        "titulo": "Reduction in saturated fat intake for cardiovascular disease.",
+        "revista": "The Cochrane database of systematic reviews",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32428300/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Queso fresco batido 0%",
+        emoji: "🧀", mejor: true,
+        kcal: 60, carbs: 3.5, azucares: 3.5, proteinas: 8, grasas: 0.2, grasasSat: 0.1, fibra: 0, sodio: 300,
+        porque: "Más proteína y casi sin grasa saturada, con una textura suave similar."
+      }
+    ]
+  },
+  {
+    id: "leche_condensada",
+    nombre: "Leche condensada azucarada",
+    aliases: ["leche condensada", "condensada", "leche condensada azucarada"],
+    categorias: ["Lácteos", "Dulces"],
+    emoji: "🥛",
+    rating: "E",
+    kcal: 321, carbs: 54.4, azucares: 54.4, proteinas: 7.9, grasas: 8.7, grasasSat: 5.5, fibra: 0, sodio: 127,
+    motivo: "La leche condensada azucarada es leche concentrada con azúcar: más de la mitad de su peso es azúcar (unos 54 g por 100 g) y aporta unas 320 kcal. El azúcar libre influye en el peso: en ensayos con dieta libre, reducirlo hizo perder 0,8 kg y aumentarlo hizo ganar 0,75 kg [1]; y la revisión de revisiones del BMJ recomienda mantener los azúcares libres por debajo de 25 g al día [2]. Dos cucharadas soperas de leche condensada (unos 40 g) ya aportan unos 22 g de azúcar. Por eso la calificamos E.",
+    estudios: [
+      {
+        "pmid": "23321486",
+        "titulo": "Dietary sugars and body weight: systematic review and meta-analyses of randomised controlled trials and cohort studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23321486/"
+      },
+      {
+        "pmid": "37019448",
+        "titulo": "Dietary sugar consumption and health: umbrella review.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37019448/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Leche desnatada",
+        emoji: "🥛", mejor: true,
+        kcal: 34, carbs: 5, azucares: 5, proteinas: 3.4, grasas: 0.1, grasasSat: 0.1, fibra: 0, sodio: 42,
+        porque: "Sin azúcar añadido: endulza el postre con fruta o una pizca de miel."
+      }
+    ]
+  },
+  {
+    id: "copos_maiz",
+    nombre: "Copos de maíz (corn flakes)",
+    aliases: ["copos de maíz", "copos de maiz", "corn flakes", "cornflakes", "cereales de maíz", "cereales de maiz"],
+    categorias: ["Cereales"],
+    emoji: "🥣",
+    rating: "C",
+    kcal: 378, carbs: 84, azucares: 8, proteinas: 7, grasas: 0.9, grasasSat: 0.2, fibra: 3, sodio: 440,
+    motivo: "Los copos de maíz clásicos llevan poco azúcar (unos 8 g por 100 g) y suelen estar fortificados, pero son un cereal refinado y ultraprocesado, de índice glucémico alto, con solo 3 g de fibra y unos 440 mg de sodio por 100 g. En estudios observacionales, quienes toman cereales de desayuno listos para comer pesan algo menos y tienen mejor calidad de dieta, aunque en los ensayos no son mejores que otras opciones [1]; por su parte, las dietas de índice glucémico alto se asociaron con un 27 % más de diabetes tipo 2 y un 15 % más de enfermedad cardiovascular [2]. Los calificamos C: mejor avena o copos integrales sin azúcar.",
+    estudios: [
+      {
+        "pmid": "37149263",
+        "titulo": "The Relationship of Ready-to-Eat Cereal Intake and Body Weight in Adults: A Systematic Review of Observational Studies and Controlled Trials.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37149263/"
+      },
+      {
+        "pmid": "38272606",
+        "titulo": "Association of glycaemic index and glycaemic load with type 2 diabetes, cardiovascular disease, cancer, and all-cause mortality: a meta-analysis of mega cohorts of more than 100 000 participants.",
+        "revista": "The lancet. Diabetes & endocrinology",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38272606/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Avena integral",
+        emoji: "🌾", mejor: true,
+        kcal: 389, carbs: 66, azucares: 0.8, proteinas: 17, grasas: 7, grasasSat: 1.2, fibra: 10, sodio: 2,
+        porque: "Más fibra (betaglucanos) y menor índice glucémico, sin sodio añadido."
+      }
+    ]
+  },
+  {
+    id: "muesli",
+    nombre: "Muesli sin azúcar añadido",
+    aliases: ["muesli", "müsli", "musli", "muesli sin azúcar", "muesli sin azucar"],
+    categorias: ["Cereales"],
+    emoji: "🥣",
+    rating: "B",
+    kcal: 360, carbs: 63, azucares: 12, proteinas: 10, grasas: 6.5, grasasSat: 1, fibra: 8, sodio: 30,
+    motivo: "El muesli sin azúcar añadido mezcla copos de avena u otros cereales integrales con frutos secos y fruta desecada: unos 8 g de fibra por 100 g. La avena aporta betaglucanos: una mediana de 3,5 g al día bajó el colesterol LDL (−0,19 mmol/l) en 58 ensayos [1], y quienes más avena consumen tienen un 22 % menos de diabetes tipo 2 en los estudios de seguimiento [2]. Lo calificamos B y no A porque la fruta desecada concentra azúcar (unos 12 g por 100 g) y calorías (360 kcal), y muchos muesli comerciales llevan azúcar añadido: conviene leer la etiqueta.",
+    estudios: [
+      {
+        "pmid": "27724985",
+        "titulo": "The effect of oat β-glucan on LDL-cholesterol, non-HDL-cholesterol and apoB for CVD risk reduction: a systematic review and meta-analysis of randomised-controlled trials.",
+        "revista": "The British journal of nutrition",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27724985/"
+      },
+      {
+        "pmid": "34444718",
+        "titulo": "Oat Intake and Risk of Type 2 Diabetes, Cardiovascular Disease and All-Cause Mortality: A Systematic Review and Meta-Analysis.",
+        "revista": "Nutrients",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34444718/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "fideos_instantaneos",
+    nombre: "Fideos instantáneos (noodles)",
+    aliases: ["fideos instantáneos", "fideos instantaneos", "noodles", "noodles instantáneos", "fideos chinos", "sopa de fideos instantánea", "yakisoba instantáneo"],
+    categorias: ["Cereales", "Platos Preparados"],
+    emoji: "🍜",
+    rating: "E",
+    kcal: 450, carbs: 62, azucares: 2.5, proteinas: 10, grasas: 18.5, grasasSat: 8.5, fibra: 2.5, sodio: 1900,
+    motivo: "Los fideos instantáneos (el bloque seco con su sobre de sazonador) son un ultraprocesado: pasta refinada frita en aceite (unos 18,5 g de grasa y 8,5 g de saturada por 100 g) con unos 1.900 mg de sodio por 100 g en seco, casi 5 g de sal. En una encuesta con 10.711 adultos coreanos, comerlos dos o más veces por semana se asoció con más síndrome metabólico en mujeres (OR 1,68) [1], y un consumo alto de sal se asocia con un 23 % más de riesgo de ictus [2]. Si los tomas, usa solo parte del sobre y añade verdura y huevo.",
+    estudios: [
+      {
+        "pmid": "24966409",
+        "titulo": "Instant noodle intake and dietary patterns are associated with distinct cardiometabolic risk factors in Korea.",
+        "revista": "The Journal of nutrition",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/24966409/"
+      },
+      {
+        "pmid": "19934192",
+        "titulo": "Salt intake, stroke, and cardiovascular disease: meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2009",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19934192/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Pasta integral (cocida)",
+        emoji: "🌾", mejor: true,
+        kcal: 124, carbs: 25, azucares: 0.8, proteinas: 5.3, grasas: 1.1, grasasSat: 0.2, fibra: 3.9, sodio: 3,
+        porque: "Más fibra, sin freír y sin el sazonador salado: tú pones la sal."
+      }
+    ]
+  },
+  {
+    id: "nueces_brasil",
+    nombre: "Nueces de Brasil",
+    aliases: ["nueces de brasil", "nuez de brasil", "nueces de pará", "castañas de brasil", "castaña de brasil"],
+    categorias: ["Frutos Secos"],
+    emoji: "🌰",
+    rating: "B",
+    kcal: 659, carbs: 11.7, azucares: 2.3, proteinas: 14.3, grasas: 67.1, grasasSat: 15.1, fibra: 7.5, sodio: 3,
+    motivo: "Las nueces de Brasil son la mayor fuente natural de selenio: una sola nuez puede cubrir o superar la ingesta diaria recomendada [1]. En los ensayos aumentan el selenio en sangre y la actividad antioxidante, sin cambios claros en el colesterol [2]. Y ahí está el riesgo: la relación del selenio con la salud tiene forma de U; quien ya tiene un aporte adecuado no obtiene beneficio con más, e incluso podría aumentar el riesgo de diabetes tipo 2 [3]. Con 1 o 2 nueces al día basta. Además aportan unos 67 g de grasa por 100 g (15 g saturada), por lo que las calificamos B y no A, como el resto de frutos secos.",
+    estudios: [
+      {
+        "pmid": "28888463",
+        "titulo": "Brazil nuts: Nutritional composition, health benefits and safety aspects.",
+        "revista": "Food research international (Ottawa, Ont.)",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28888463/"
+      },
+      {
+        "pmid": "35204285",
+        "titulo": "Effect of Brazil Nuts on Selenium Status, Blood Lipids, and Biomarkers of Oxidative Stress and Inflammation: A Systematic Review and Meta-Analysis of Randomized Clinical Trials.",
+        "revista": "Antioxidants (Basel, Switzerland)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35204285/"
+      },
+      {
+        "pmid": "22381456",
+        "titulo": "Selenium and human health.",
+        "revista": "Lancet (London, England)",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22381456/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "salsa_soja",
+    nombre: "Salsa de soja",
+    aliases: ["salsa de soja", "soja salsa", "salsa soja", "salsa de soya", "shoyu"],
+    categorias: ["Salsas"],
+    emoji: "🥢",
+    rating: "C",
+    kcal: 53, carbs: 4.9, azucares: 0.4, proteinas: 8.1, grasas: 0.6, grasasSat: 0.1, fibra: 0.8, sodio: 5493,
+    motivo: "La salsa de soja normal es muy salada: unos 5.500 mg de sodio por 100 ml, es decir, unos 14 g de sal por cada 100 ml. Una cucharada sopera (15 ml) aporta unos 2 g de sal, un tercio del tope de 5 g diarios que recomienda la OMS. Un consumo alto de sal se asocia con un 23 % más de riesgo de ictus [1], y reducir el sodio baja la tensión arterial (−3,4 mm Hg de sistólica de media) [2]. Se usa en pequeñas cantidades, por eso la calificamos C y no más baja; existe una versión baja en sodio.",
+    estudios: [
+      {
+        "pmid": "19934192",
+        "titulo": "Salt intake, stroke, and cardiovascular disease: meta-analysis of prospective studies.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2009",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19934192/"
+      },
+      {
+        "pmid": "23558163",
+        "titulo": "Effect of lower sodium intake on health: systematic review and meta-analyses.",
+        "revista": "BMJ (Clinical research ed.)",
+        "anio": "2013",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23558163/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Salsa de soja (baja en sodio)",
+        emoji: "🍶", mejor: true,
+        kcal: 53, carbs: 4.9, azucares: 0.4, proteinas: 8, grasas: 0.1, grasasSat: 0, fibra: 0.8, sodio: 3300,
+        porque: "El mismo sabor umami con bastante menos sodio."
       }
     ]
   }

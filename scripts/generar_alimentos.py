@@ -52,10 +52,11 @@ GUIA_PROTEINAS = ("guia-proteinas", "Guía: cuánta proteína necesitas y cuánd
 GUIA_ALCOHOL = ("guia-alcohol", "Guía: qué dice la evidencia sobre el alcohol")
 # Fichas que enlazan a una guía (id del alimento -> guía).
 GUIAS_FICHA = {
-    **{i: GUIA_ALCOHOL for i in ("cerveza", "vino_tinto", "vino_blanco", "cava")},
+    **{i: GUIA_ALCOHOL for i in ("cerveza", "vino_tinto", "vino_blanco", "cava", "destilados", "sidra", "vermut")},
     **{i: GUIA_ULTRAPROCESADOS for i in (
         "refresco", "refresco_zero", "bolleria_industrial", "croissant", "galletas", "patatas_fritas",
-        "cereales_azucarados", "nuggets_pollo", "salchichas", "yogur_azucarado", "pizza_congelada")},
+        "cereales_azucarados", "nuggets_pollo", "salchichas", "yogur_azucarado", "pizza_congelada",
+        "pan_de_molde", "copos_maiz", "fideos_instantaneos", "fiambre_pavo", "lomo_embuchado")},
     **{i: GUIA_PROTEINAS for i in (
         "proteina_whey", "soja_texturizada", "seitan", "ia_pechuga_de_pollo", "ia_atun", "huevo",
         "clara_huevo", "yogur_griego", "ia_tempeh", "ia_tofu", "ia_lentejas", "ia_garbanzos", "lentejas_cocidas")},
