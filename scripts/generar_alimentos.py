@@ -21,6 +21,7 @@ from generar_recetas import (
     es, LINEA_REVISION, REVISION_ISO, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 import rankings_lib as RL
+from raciones import ALCOHOL, racion, frecuencia
 from generar_sustitutos import (
     parse_foods_full, fecha_publicacion_git as _fecha_publicacion_generica,
 )
@@ -68,6 +69,10 @@ def linea_guia(food_id):
         return ""
     ruta, texto = GUIAS_FICHA[food_id]
     return f'<p class="ficha-guia"><a href="{ruta}.html">{texto} →</a></p>'
+
+
+def _base_id(food_id):
+    return food_id[3:] if food_id.startswith("ia_") else food_id
 
 
 def tarjeta_imagen(food_id):
@@ -130,6 +135,41 @@ def primera_frase(texto, maximo=260):
     return corte
 
 
+def datos_racion(food):
+    """Valores nutricionales de la ración orientativa (None si el alimento no lleva ración)."""
+    r = racion(food)
+    if not r:
+        return None
+    cantidad, medida, unidad = r
+    f = cantidad / 100
+    return {
+        "cantidad": cantidad, "medida": medida, "unidad": unidad,
+        "kcal": round(food["kcal"] * f), "proteinas": round(food["proteinas"] * f, 1), "carbs": round(food["carbs"] * f, 1),
+        "grasas": round(food["grasas"] * f, 1), "fibra": round(food["fibra"] * f, 1),
+    }
+
+
+def frase_racion(nombre_fmt, rc):
+    return (f'Una ración orientativa de {nombre_fmt} es de {es(rc["cantidad"])} {rc["unidad"]} ({rc["medida"]}): aporta {es(rc["kcal"])} kcal, '
+            f'{es(rc["proteinas"])} g de proteína, {es(rc["carbs"])} g de carbohidratos y {es(rc["grasas"])} g de grasa.')
+
+
+def respuesta_dieta(food, nombre_fmt, rc):
+    k, rat = rc["kcal"], food["rating"]
+    if rat in ("A", "B") and k <= 300:
+        base = f'Sí, encaja bien en una alimentación variada: una ración ({es(rc["cantidad"])} {rc["unidad"]}) aporta {es(k)} kcal y tiene calificación {rat} ({RATING_TXT[rat]}).'
+    elif rat in ("A", "B"):
+        base = (f'Sí, con moderación: aunque tiene calificación {rat} ({RATING_TXT[rat]}), una ración ({es(rc["cantidad"])} {rc["unidad"]}) aporta {es(k)} kcal, '
+                f'así que conviene ajustar la cantidad.')
+    elif rat == "C":
+        base = f'Con moderación: tiene calificación C ({RATING_TXT["C"]}) y una ración ({es(rc["cantidad"])} {rc["unidad"]}) aporta {es(k)} kcal.'
+    else:
+        base = (f'Es mejor dejarlo para ocasiones puntuales: tiene calificación {rat} ({RATING_TXT[rat]}) y una ración ({es(rc["cantidad"])} {rc["unidad"]}) '
+                f'aporta {es(k)} kcal.')
+    return (base + ' Ningún alimento por sí solo hace adelgazar ni engordar: cuenta el conjunto de lo que comes y su balance de calorías. '
+            'Si sigues una dieta pautada, consúltala con tu dietista-nutricionista.')
+
+
 def construir_faq(food, nombre_fmt, contexto, recetas_relacionadas):
     """Preguntas frecuentes con respuestas calculadas solo con los datos de la ficha (nada inventado)."""
     cat = (food["categorias"] or [""])[0]
@@ -169,6 +209,33 @@ def construir_faq(food, nombre_fmt, contexto, recetas_relacionadas):
             f"¿Qué puedo comer en lugar de {nombre_fmt}?",
             f'Las alternativas que proponemos son: {nombres}. {food["sustitutos"][0]["porque"]}',
         ))
+
+    rc = datos_racion(food)
+    if rc:
+        faq.append((f"¿Cuántas calorías tiene una ración de {nombre_fmt}?",
+                    frase_racion(nombre_fmt, rc) + " Es un tamaño orientativo: la ración real depende de cada persona."))
+        base = _base_id(food["id"])
+        if base in ALCOHOL:
+            alcohol_g = round(rc["cantidad"] * ALCOHOL[base] / 100 * 0.8)
+            faq.append((
+                f"¿Cuánto se puede beber de {nombre_fmt}?",
+                f'Ninguna cantidad está libre de riesgo para la salud. El Ministerio de Sanidad fija como límites de bajo riesgo 20 g de alcohol al día en hombres y 10 g en mujeres. '
+                f'Una ración de {nombre_fmt} ({es(rc["cantidad"])} {rc["unidad"]}, {es(ALCOHOL[base])} % vol.) contiene unos {es(alcohol_g)} g de alcohol. '
+                f'Tienes los detalles en nuestra guía del alcohol.',
+            ))
+        else:
+            fr = frecuencia(food)
+            if fr:
+                grupo, texto, fuente = fr
+                if texto == "consumo ocasional":
+                    resp = f'{fuente[0].upper() + fuente[1:]} clasifica los alimentos del grupo «{grupo}» como de consumo ocasional.'
+                else:
+                    resp = f'{fuente[0].upper() + fuente[1:]} recomienda, para {grupo}: {texto}.'
+                resp += (f' Una ración de {nombre_fmt} son unos {es(rc["cantidad"])} {rc["unidad"]} ({rc["medida"]}). '
+                         'La recomendación es para adultos sanos; si tienes alguna enfermedad, sigue la pauta de tu profesional sanitario.')
+                faq.append((f"¿Con qué frecuencia se puede tomar {nombre_fmt}?", resp))
+            if food["kcal"] > 0 and "Condimentos y Aditivos" not in food["categorias"]:
+                faq.append((f"¿Puedo tomar {nombre_fmt} si estoy a dieta?", respuesta_dieta(food, nombre_fmt, rc)))
 
     if recetas_relacionadas:
         ejemplos = ", ".join(r["nombre"] for r in recetas_relacionadas[:3])
@@ -246,6 +313,13 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
 
     macros_html = "\n".join(render_macro_row(k, food[k]) for k in ["kcal", "carbs", "proteinas", "grasas", "fibra"])
     citas_html = render_citas(food.get("estudios") or [])
+
+    racion_html = ""
+    rc = datos_racion(food)
+    if rc:
+        racion_html = f'''
+      <h2 class="ficha-sub">Ración orientativa de {esc(nombre_fmt)}</h2>
+      <p class="food-motivo">{esc(frase_racion(nombre_fmt, rc))} Es un tamaño orientativo: ajústalo a tu caso.</p>'''
 
     tarjeta_html = ""
     if tarjeta_imagen(food["id"]):
@@ -390,6 +464,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
 {macros_html}
         <p class="food-motivo" style="margin-top:0">De las grasas, <b>{es(food["grasasSat"])} g</b> son saturadas · de los carbohidratos, <b>{es(food["azucares"])} g</b> son azúcares · sodio: <b>{es(food["sodio"])} mg</b></p>
       </div>
+      {racion_html}
       {tarjeta_html}
       {sustituto_html}
 
