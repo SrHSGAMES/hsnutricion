@@ -9,11 +9,12 @@ revisado: 2026-11-07
 ## En resumen
 
 - La OMS en Europa lo resume así: **no existe un nivel de consumo de alcohol que no afecte a la salud**; el riesgo empieza con la primera copa [^who-europa]. El alcohol es un carcinógeno del **grupo 1** de la IARC, la misma categoría que el tabaco o el amianto [^who-europa] [^27353523].
+- **Causa cáncer**: de boca, faringe, laringe, esófago, hígado, colon y recto, y mama [^25422909]. En 2020 se le atribuyeron 741.300 cánceres nuevos en el mundo, y hasta los consumos moderados (menos de 20 g al día) supusieron 103.100 de ellos [^34270924]. También sube la tensión, favorece la fibrilación auricular y el ictus, y daña el hígado y el cerebro.
 - Durante años se creyó que una copa de vino al día protegía el corazón. Los estudios genéticos más sólidos **no respaldan** ese efecto: cualquier cantidad se asoció con algo más de riesgo, y este crece más deprisa con consumos altos [^30955975] [^38508868] [^35333364].
 - El riesgo **no es el mismo para todos**: en el cáncer de mama o de esófago aumenta incluso con consumos bajos, y en jóvenes de 15 a 39 años el nivel de menor riesgo estimado va de 0 a 0,6 bebidas al día según la región [^22910838] [^35843246].
 - Evidentemente, lo recomendable es **0 g de alcohol al día**, y cualquier otra cifra es peligrosa. Los «límites de bajo riesgo» que publican algunas autoridades no son cantidades seguras: el propio Ministerio de Sanidad parte de que cualquier consumo implica riesgo [^ministerio-alcohol].
 - **Especialmente, no bebas** si estás embarazada o lo buscas, si vas a conducir, si tomas ciertos medicamentos o si tienes enfermedad hepática. Y si bebes mucho a diario, **no lo dejes de golpe sin ayuda médica**: puede ser peligroso.
-- Por eso, en HSNutrición todas las bebidas alcohólicas (vino, cerveza, cava) tienen una **E**.
+- Por eso, en HSNutrición todas las bebidas alcohólicas (vino, cerveza, cava, destilados, sidra y vermut) tienen una **E**.
 
 ## Qué cuenta como "una bebida"
 
@@ -51,7 +52,7 @@ Durante décadas, los estudios mostraron que quienes bebían poco vivían un poc
 - Mecanismo: el etanol y el **acetaldehído**, el producto en el que lo transforma el cuerpo, son carcinógenos; la IARC clasifica las bebidas alcohólicas como cancerígenas desde 1988 [^27353523].
 - En una revisión de 572 estudios, quienes más bebían tenían, frente a no bebedores, 5 veces más riesgo de cáncer de boca y faringe (RR 5,13), casi 5 veces más de esófago (RR 4,95), 2,6 veces más de laringe, 2,1 veces más de hígado, 1,6 veces más de mama (RR 1,61) y 1,4 veces más colorrectal (RR 1,44) [^25422909].
 - **Beber poco no elimina el riesgo.** Hasta una bebida al día se asoció con un 17 % más de riesgo de cáncer de boca y faringe, un 30 % más de esófago y un 5 % más de mama [^22910838].
-- En el mundo, el 4,1 % de los cánceres nuevos de 2020 (741.300 casos) se atribuyeron al alcohol, sobre todo esófago, hígado y mama. Los consumos moderados (menos de 20 g al día) supusieron el 14 % de esa carga (103.100 casos) [^34270924].
+- En el mundo, el 4,1 % de los cánceres nuevos de 2020 (741.300 casos) se atribuyeron al alcohol, sobre todo esófago, hígado y mama. Ni siquiera el consumo moderado es inocuo: beber menos de 20 g al día causó el 14 % de esos cánceres (103.100 casos) [^34270924].
 - **Si has tenido cáncer**, los datos sobre alcohol y recaída son mixtos; pregunta a tu equipo de oncología [^37555890].
 
 ### Corazón, tensión y ritmo
@@ -111,7 +112,7 @@ Si te cuesta dejarlo, habla con tu médico; lee antes el aviso de abajo sobre la
 
 ## Por qué la E en HSNutrición
 
-Calificamos con E todas las bebidas alcohólicas, sean vino tinto, vino blanco, cerveza o cava, porque los análisis globales no identifican un nivel de consumo sin riesgo y el alcohol es un carcinógeno del grupo 1 (ver [metodología](metodologia.html)). Una nota no es una prohibición: es una orientación para decidir con información.
+Calificamos con E todas las bebidas alcohólicas, sean vino tinto, vino blanco, cerveza, cava, destilados, sidra o vermut, porque los análisis globales no identifican un nivel de consumo sin riesgo y el alcohol es un carcinógeno del grupo 1 (ver [metodología](metodologia.html)). La E significa que no hay ninguna cantidad que podamos recomendar: lo recomendable es 0 g al día.
 
 ## Preguntas frecuentes
 

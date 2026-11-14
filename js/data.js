@@ -663,7 +663,23 @@ const FOODS = [
     emoji: "🥤",
     rating: "E",
     kcal: 42, carbs: 10.6, azucares: 10.6, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
-    motivo: "Azúcar líquido de absorción muy rápida sin ningún nutriente adicional; principal fuente de azúcar añadido en muchas dietas.",
+    motivo: "Azúcar líquido de absorción muy rápida sin ningún nutriente adicional; principal fuente de azúcar añadido en muchas dietas. En los metaanálisis de estudios prospectivos, por cada 250 ml al día aumenta el riesgo un 19 % de diabetes tipo 2, un 12 % de obesidad, un 10 % de hipertensión y un 4 % de mortalidad total [1]; y por cada ración diaria, un 8 % el de enfermedad cardiovascular y el de mortalidad cardiovascular [2]. Por eso lo calificamos E: lo recomendable es no tomarlo de forma habitual.",
+    estudios: [
+      {
+        "pmid": "32529512",
+        "titulo": "Sugar and artificially sweetened beverages and risk of obesity, type 2 diabetes mellitus, hypertension, and all-cause mortality: a dose-response meta-analysis of prospective cohort studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32529512/"
+      },
+      {
+        "pmid": "32696948",
+        "titulo": "Intake of Sugar-Sweetened and Low-Calorie Sweetened Beverages and Risk of Cardiovascular Disease: A Meta-Analysis and Systematic Review.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32696948/"
+      }
+    ],
     sustitutos: [
       {
         nombre: "Agua con gas + limón / infusión fría",
@@ -717,7 +733,7 @@ const FOODS = [
     emoji: "🌭",
     rating: "E",
     kcal: 455, carbs: 2, azucares: 0.5, proteinas: 24, grasas: 38, grasasSat: 14, fibra: 0, sodio: 1200,
-    motivo: "Carne procesada rica en grasas saturadas y sodio. La Organización Mundial de la Salud, a través de su agencia IARC, clasifica la carne procesada como carcinógena para las personas (grupo 1) por su relación con el cáncer colorrectal [1], y los metaanálisis de estudios prospectivos asocian su consumo con más incidencia de cáncer [2]. Por eso lo calificamos E: mejor evitarlo como consumo habitual.",
+    motivo: "Carne procesada rica en grasas saturadas y sodio. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [2]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E: lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
@@ -751,7 +767,23 @@ const FOODS = [
     emoji: "🥓",
     rating: "E",
     kcal: 541, carbs: 1.4, azucares: 0, proteinas: 37, grasas: 42, grasasSat: 14, fibra: 0, sodio: 1700,
-    motivo: "Muy alto en grasas saturadas y sodio, además de ser carne procesada; se recomienda un consumo ocasional.",
+    motivo: "Muy alto en grasas saturadas (14 g por 100 g) y en sodio (1.700 mg por 100 g), además de ser carne procesada. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [2]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E: lo recomendable es no incluirlo en la alimentación habitual.",
+    estudios: [
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
+      }
+    ],
     sustitutos: [
       {
         nombre: "Jamón cocido bajo en sal o salmón ahumado (ración moderada)",
@@ -769,7 +801,7 @@ const FOODS = [
     emoji: "🍖",
     rating: "E",
     kcal: 241, carbs: 0.4, azucares: 0, proteinas: 30, grasas: 14, grasasSat: 5, fibra: 0, sodio: 2200,
-    motivo: "Buena fuente de proteína y grasa mayoritariamente insaturada (sobre todo el ibérico), pero es un curado, es decir, carne procesada, y muy rico en sodio (en torno a 2.200 mg por 100 g). La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) por su relación con el cáncer colorrectal [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso lo calificamos E: mejor evitarlo como consumo habitual.",
+    motivo: "Buena fuente de proteína y grasa mayoritariamente insaturada (sobre todo el ibérico), pero es un curado, es decir, carne procesada, y muy rico en sodio (en torno a 2.200 mg por 100 g). La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [2]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E: lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
@@ -2297,7 +2329,7 @@ const FOODS = [
     emoji: "🥓",
     rating: "E",
     kcal: 455, carbs: 1.9, azucares: 0.8, proteinas: 24.1, grasas: 38.3, grasasSat: 14.5, fibra: 0, sodio: 1600,
-    motivo: "El chorizo es una carne procesada de alto valor calórico, rica en grasas saturadas y sodio. Su consumo habitual se enmarca en patrones de dieta occidental [1] y el consumo de carne procesada y roja está asociado a un mayor riesgo de enfermedades cardiovasculares y diabetes [2], además de otros riesgos para la salud [3].",
+    motivo: "El chorizo es una carne procesada de alto valor calórico, rica en grasas saturadas y sodio. Su consumo habitual se enmarca en patrones de dieta occidental [1], y el consumo de carne procesada y roja está asociado a un mayor riesgo de enfermedades cardiovasculares y diabetes [2], además de otros riesgos para la salud [3]. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [4]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [5]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E: lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "37375654",
@@ -2319,6 +2351,20 @@ const FOODS = [
         "revista": "International journal for vitamin and nutrition research. Internationale Zeitschrift fur Vitamin- und Ernahrungsforschung. Journal international de vitaminologie et de nutrition",
         "anio": "2015",
         "url": "https://pubmed.ncbi.nlm.nih.gov/26780279/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -2796,7 +2842,7 @@ const FOODS = [
     emoji: "🥓",
     rating: "E",
     kcal: 105, carbs: 1.5, azucares: 1, proteinas: 17.5, grasas: 3, grasasSat: 1.1, fibra: 0, sodio: 900,
-    motivo: "Aunque aporta proteínas de buen valor biológico y un nivel moderado de calorías y grasas, el jamón cocido es carne procesada. Suele contener mucho sodio y aditivos como nitritos y fosfatos, cuyo consumo habitual se vincula con diversos riesgos para la salud [1][2], y la agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [4]. Por eso lo calificamos E, y conviene limitar su ingesta dentro de la calidad global de la dieta [3].",
+    motivo: "Aunque aporta proteínas de buen valor biológico y un nivel moderado de calorías y grasas, el jamón cocido es carne procesada: suele contener mucho sodio y aditivos como nitritos y fosfatos, cuyo consumo habitual se vincula con diversos riesgos para la salud [1][2]. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [4]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [5]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E: lo recomendable es no incluirlo en la alimentación habitual, y la calidad global de la dieta pesa más que cualquier alimento aislado [3].",
     estudios: [
       {
         "pmid": "27597529",
@@ -2825,6 +2871,13 @@ const FOODS = [
         "revista": "The Lancet. Oncology",
         "anio": "2015",
         "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -3641,7 +3694,7 @@ const FOODS = [
     emoji: "🧂",
     rating: "E",
     kcal: 0, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 38750,
-    motivo: "La sal de mesa es prácticamente cloruro de sodio puro, aportando una cantidad extremadamente alta de sodio (aproximadamente 38.750 mg por cada 100 g). Un consumo excesivo de sodio es un factor de riesgo principal para la hipertensión arterial, la cual es la principal causa de muertes prevenibles a nivel global [1]. Dietas ricas en sodio contribuyen a la presión arterial elevada y al riesgo de enfermedades cardiovasculares [2, 1, 3]. La Organización Mundial de la Salud (OMS) recomienda reducir la ingesta media de sodio en la población para disminuir la carga de enfermedades asociadas a la hipertensión [1]. Aunque el sodio es un mineral esencial para el cuerpo, la mayoría de la población consume muy por encima de las recomendaciones diarias, lo que convierte a la sal en un ingrediente a limitar drásticamente en la dieta.",
+    motivo: "La sal de mesa es prácticamente cloruro de sodio puro, aportando una cantidad extremadamente alta de sodio (aproximadamente 38.750 mg por cada 100 g). Un consumo excesivo de sodio es un factor de riesgo principal para la hipertensión arterial, la cual es la principal causa de muertes prevenibles a nivel global [1]. Dietas ricas en sodio contribuyen a la presión arterial elevada y al riesgo de enfermedades cardiovasculares [2, 1, 3]. Además, en estudios prospectivos un consumo habitual alto de sal, frente a uno bajo, se asoció con un 68 % más de riesgo de cáncer de estómago [4]. La Organización Mundial de la Salud (OMS) recomienda reducir la ingesta media de sodio en la población para disminuir la carga de enfermedades asociadas a la hipertensión [1]. Aunque el sodio es un mineral esencial para el cuerpo, la mayoría de la población consume muy por encima de las recomendaciones diarias, lo que convierte a la sal en un ingrediente a limitar drásticamente en la dieta.",
     estudios: [
       {
         "pmid": "35944931",
@@ -3663,6 +3716,13 @@ const FOODS = [
         "revista": "Journal of human hypertension",
         "anio": "2002",
         "url": "https://pubmed.ncbi.nlm.nih.gov/11986896/"
+      },
+      {
+        "pmid": "22296873",
+        "titulo": "Habitual salt intake and risk of gastric cancer: a meta-analysis of prospective studies.",
+        "revista": "Clinical nutrition (Edinburgh, Scotland)",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22296873/"
       }
     ],
     sustitutos: [
@@ -4082,7 +4142,7 @@ const FOODS = [
     emoji: "🥩",
     rating: "D",
     kcal: 125, carbs: 0, azucares: 0, proteinas: 21, grasas: 5, grasasSat: 2.1, fibra: 0, sodio: 65,
-    motivo: "Aunque su 5 % de grasa la hace una de las opciones más magras de la carne roja, sigue siendo carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: mejor ocasional que diaria, y alternándola con pescado, legumbres o aves.",
+    motivo: "Aunque su 5 % de grasa la hace una de las opciones más magras de la carne roja, sigue siendo carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Además, la IARC (OMS) la clasifica como probablemente carcinógena para las personas (grupo 2A) por su relación con el cáncer colorrectal [4], y los metaanálisis asocian un consumo alto con un 10 % más de cáncer colorrectal, un 17 % más de colon, un 26 % más de pulmón y un 22 % más de hígado [5]. Por eso la calificamos D: mejor ocasional que diaria, y alternándola con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "37264855",
@@ -4104,6 +4164,20 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -4607,7 +4681,7 @@ const FOODS = [
     emoji: "🍺",
     rating: "E",
     kcal: 43, carbs: 3.6, azucares: 0.1, proteinas: 0.5, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
-    motivo: "Aporta calorías del alcohol y carbohidratos sin apenas nutrientes. Contiene compuestos no alcohólicos (polifenoles del lúpulo, vitaminas del grupo B) que se han estudiado [1], pero no compensan el efecto del alcohol: el metaanálisis de 2023 no encontró un beneficio claro en consumos bajos y sí un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2], y el alcohol es un carcinógeno reconocido, con riesgo de cáncer que aumenta con la cantidad [3]. Por eso la calificamos E: lo más prudente es evitarla o reservarla para ocasiones muy puntuales.",
+    motivo: "Aporta calorías del alcohol y carbohidratos sin apenas nutrientes. Contiene compuestos no alcohólicos (polifenoles del lúpulo, vitaminas del grupo B) que se han estudiado [1], pero no compensan el efecto del alcohol. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [4]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [5]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [2]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [6]. Por eso la calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "31782326",
@@ -4629,6 +4703,27 @@ const FOODS = [
         "revista": "Nutrients",
         "anio": "2021",
         "url": "https://pubmed.ncbi.nlm.nih.gov/34579050/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
       }
     ],
     sustitutos: [
@@ -4762,7 +4857,7 @@ const FOODS = [
     emoji: "🥩",
     rating: "D",
     kcal: 135, carbs: 0, azucares: 0, proteinas: 21, grasas: 5, grasasSat: 2.1, fibra: 0, sodio: 60,
-    motivo: "Aunque es un corte magro y aporta proteína completa, hierro hemo, zinc y vitamina B12, es carne roja y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: es mejor tratarla como un plato ocasional y alternarla con pescado, legumbres o aves.",
+    motivo: "Aunque es un corte magro y aporta proteína completa, hierro hemo, zinc y vitamina B12, es carne roja y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Además, la IARC (OMS) la clasifica como probablemente carcinógena para las personas (grupo 2A) por su relación con el cáncer colorrectal [4], y los metaanálisis asocian un consumo alto con un 10 % más de cáncer colorrectal, un 17 % más de colon, un 26 % más de pulmón y un 22 % más de hígado [5]. Por eso la calificamos D: es mejor tratarla como un plato ocasional y alternarla con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "37264855",
@@ -4784,6 +4879,20 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -5613,7 +5722,7 @@ const FOODS = [
     emoji: "🍷",
     rating: "E",
     kcal: 85, carbs: 2.6, azucares: 0.6, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
-    motivo: "El vino tinto contiene resveratrol y otros polifenoles del hollejo de la uva, estudiados por su posible efecto cardioprotector [1], pero las revisiones más recientes coinciden en que esos compuestos no compensan el efecto del alcohol: no existe un nivel de consumo que se considere sin riesgo, y la cantidad de resveratrol que aporta una copa es demasiado baja para tener un efecto clínico relevante. El metaanálisis de 2023 encontró un mayor riesgo de mortalidad a partir de unos 25 g de alcohol al día [2]. Si bebes, que sea ocasional y en cantidad moderada. Por eso lo calificamos E, igual que el resto de bebidas alcohólicas de la guía (cerveza y vino blanco).",
+    motivo: "El vino tinto contiene resveratrol y otros polifenoles del hollejo de la uva, estudiados por su posible efecto cardioprotector [1], pero las revisiones más recientes coinciden en que esos compuestos no compensan el efecto del alcohol, y la cantidad de resveratrol que aporta una copa es demasiado baja para tener un efecto clínico relevante. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [3]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [4]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [2]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [5]. Por eso lo calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "31597344",
@@ -5628,6 +5737,27 @@ const FOODS = [
         "revista": "JAMA network open",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
+      },
+      {
+        "pmid": "30146330",
+        "titulo": "Alcohol use and burden for 195 countries and territories, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.",
+        "revista": "Lancet (London, England)",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
       }
     ],
     sustitutos: [
@@ -6107,7 +6237,7 @@ const FOODS = [
     emoji: "🥩",
     rating: "D",
     kcal: 143, carbs: 0, azucares: 0, proteinas: 26, grasas: 3.5, grasasSat: 1.2, fibra: 0, sodio: 57,
-    motivo: "El solomillo es el corte más magro del cerdo: 26 g de proteína por 100 g con solo 3,5 g de grasa. Aun así es carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso lo calificamos D: mejor ocasional que diario, y alternándolo con pescado, legumbres o aves.",
+    motivo: "El solomillo es el corte más magro del cerdo: 26 g de proteína por 100 g con solo 3,5 g de grasa. Aun así es carne roja, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Además, la IARC (OMS) la clasifica como probablemente carcinógena para las personas (grupo 2A) por su relación con el cáncer colorrectal [4], y los metaanálisis asocian un consumo alto con un 10 % más de cáncer colorrectal, un 17 % más de colon, un 26 % más de pulmón y un 22 % más de hígado [5]. Por eso lo calificamos D: mejor ocasional que diario, y alternándolo con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "37264855",
@@ -6129,6 +6259,20 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -7236,7 +7380,7 @@ const FOODS = [
     emoji: "🌭",
     rating: "E",
     kcal: 290, carbs: 4, azucares: 1.5, proteinas: 11, grasas: 26, grasasSat: 9.5, fibra: 0, sodio: 1000,
-    motivo: "Carne procesada rica en grasa saturada y sodio (en torno a 1.000 mg por 100 g) y con aditivos como los nitritos. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso la calificamos E: mejor evitarla como consumo habitual.",
+    motivo: "Carne procesada rica en grasa saturada y sodio (en torno a 1.000 mg por 100 g) y con aditivos como los nitritos. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [2]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso la calificamos E: lo recomendable es no incluirla en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
@@ -7399,7 +7543,7 @@ const FOODS = [
     emoji: "🐑",
     rating: "D",
     kcal: 250, carbs: 0, azucares: 0, proteinas: 25, grasas: 16, grasasSat: 7, fibra: 0, sodio: 62,
-    motivo: "El cordero aporta proteína completa, hierro hemo, zinc y vitamina B12, y el perfil de ácidos grasos de su carne varía según la alimentación del animal [1]. Pero es carne roja, con unos 7 g de grasa saturada por 100 g, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [2] y de diabetes tipo 2 [3]. Por eso lo calificamos D, igual que el resto de carnes rojas de la guía: mejor como plato ocasional, alternándolo con pescado, legumbres o aves.",
+    motivo: "El cordero aporta proteína completa, hierro hemo, zinc y vitamina B12, y el perfil de ácidos grasos de su carne varía según la alimentación del animal [1]. Pero es carne roja, con unos 7 g de grasa saturada por 100 g, y los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [2] y de diabetes tipo 2 [3]. Además, la IARC (OMS) la clasifica como probablemente carcinógena para las personas (grupo 2A) por su relación con el cáncer colorrectal [4], y los metaanálisis asocian un consumo alto con un 10 % más de cáncer colorrectal, un 17 % más de colon, un 26 % más de pulmón y un 22 % más de hígado [5]. Por eso lo calificamos D, igual que el resto de carnes rojas de la guía: mejor como plato ocasional, alternándolo con pescado, legumbres o aves.",
     estudios: [
       {
         "pmid": "29433780",
@@ -7421,6 +7565,20 @@ const FOODS = [
         "revista": "The lancet. Diabetes & endocrinology",
         "anio": "2024",
         "url": "https://pubmed.ncbi.nlm.nih.gov/39174161/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -7440,7 +7598,7 @@ const FOODS = [
     emoji: "🍔",
     rating: "D",
     kcal: 254, carbs: 0, azucares: 0, proteinas: 24, grasas: 17, grasasSat: 6.8, fibra: 0, sodio: 75,
-    motivo: "La hamburguesa de carne picada de ternera aporta proteína, hierro hemo y vitamina B12, pero con unos 17 g de grasa y casi 7 g de grasa saturada por 100 g. Al ser carne roja, los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Por eso la calificamos D: mejor ocasional, con carne magra, a la plancha y con verduras y pan integral en lugar de salsas y patatas fritas.",
+    motivo: "La hamburguesa de carne picada de ternera aporta proteína, hierro hemo y vitamina B12, pero con unos 17 g de grasa y casi 7 g de grasa saturada por 100 g. Al ser carne roja, los metaanálisis más recientes asocian un consumo alto y habitual con mayor riesgo cardiovascular [1] y de diabetes tipo 2 [2], con un efecto que crece con la cantidad consumida [3]. Además, la IARC (OMS) la clasifica como probablemente carcinógena para las personas (grupo 2A) por su relación con el cáncer colorrectal [4], y los metaanálisis asocian un consumo alto con un 10 % más de cáncer colorrectal, un 17 % más de colon, un 26 % más de pulmón y un 22 % más de hígado [5]. Por eso la calificamos D: mejor ocasional, con carne magra, a la plancha y con verduras y pan integral en lugar de salsas y patatas fritas.",
     estudios: [
       {
         "pmid": "37264855",
@@ -7462,6 +7620,20 @@ const FOODS = [
         "revista": "Critical reviews in food science and nutrition",
         "anio": "2023",
         "url": "https://pubmed.ncbi.nlm.nih.gov/35491892/"
+      },
+      {
+        "pmid": "26514947",
+        "titulo": "Carcinogenicity of consumption of red and processed meat.",
+        "revista": "The Lancet. Oncology",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26514947/"
+      },
+      {
+        "pmid": "34455534",
+        "titulo": "Consumption of red meat and processed meat and cancer incidence: a systematic review and meta-analysis of prospective studies.",
+        "revista": "European journal of epidemiology",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/34455534/"
       }
     ],
     sustitutos: [
@@ -7989,7 +8161,7 @@ const FOODS = [
     emoji: "🥂",
     rating: "E",
     kcal: 82, carbs: 2.6, azucares: 1, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
-    motivo: "Como el vino tinto, el blanco no aporta nada que compense el alcohol: el metaanálisis de 2023 no encontró menor mortalidad en quienes beben poco frente a quienes no beben, y sí más riesgo a partir de unos 45 g de alcohol al día [1]; el análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que la cerveza: si bebes, que sea ocasional y en pequeña cantidad (una copa tiene unos 12 g de alcohol).",
+    motivo: "Como el vino tinto, el blanco no aporta nada que compense el alcohol. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [3]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [4]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [1]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "37000449",
@@ -8004,6 +8176,20 @@ const FOODS = [
         "revista": "Lancet (London, England)",
         "anio": "2018",
         "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
       }
     ],
     sustitutos: [
@@ -8186,7 +8372,7 @@ const FOODS = [
     emoji: "🥩",
     rating: "E",
     kcal: 300, carbs: 6, azucares: 1, proteinas: 14, grasas: 23, grasasSat: 8.5, fibra: 0.5, sodio: 780,
-    motivo: "La morcilla aporta proteína y hierro hemo, pero es un embutido: grasa saturada elevada (unos 8-9 g por 100 g) y cerca de 800 mg de sodio. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [1], y los metaanálisis asocian su consumo con más incidencia de cáncer [2]. Por eso la calificamos E: mejor evitarla como consumo habitual y dejarla para una ocasión puntual.",
+    motivo: "La morcilla aporta proteína y hierro hemo, pero es un embutido: grasa saturada elevada (unos 8-9 g por 100 g) y cerca de 800 mg de sodio. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [2]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso la calificamos E: lo recomendable es no incluirla en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
@@ -8220,7 +8406,7 @@ const FOODS = [
     emoji: "🍖",
     rating: "E",
     kcal: 375, carbs: 0, azucares: 0, proteinas: 30, grasas: 28, grasasSat: 10, fibra: 0, sodio: 1900,
-    motivo: "El jamón ibérico tiene una grasa rica en ácido oleico y el curado genera péptidos con actividad biológica descrita [1], pero sigue siendo una carne procesada curada: unos 1.900 mg de sodio por 100 g y 10 g de grasa saturada. La agencia IARC de la OMS clasifica la carne procesada como carcinógena para las personas (grupo 1) [2], y los metaanálisis asocian su consumo con más incidencia de cáncer [3]. Por eso lo calificamos E, igual que el jamón serrano: en lonchas finas y de forma ocasional.",
+    motivo: "El jamón ibérico tiene una grasa rica en ácido oleico y el curado genera péptidos con actividad biológica descrita [1], pero sigue siendo una carne procesada curada: unos 1.900 mg de sodio por 100 g y 10 g de grasa saturada. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [2]. En los metaanálisis, un consumo alto se asocia con un 18 % más de cáncer colorrectal, un 21 % más de colon, un 22 % más de recto y un 12 % más de pulmón [3]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E, igual que el jamón serrano: que sea el mejor jamón no cambia que sea carne procesada, y lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "40867906",
@@ -8457,7 +8643,7 @@ const FOODS = [
     emoji: "🥂",
     rating: "E",
     kcal: 68, carbs: 1.1, azucares: 0.6, proteinas: 0.2, grasas: 0, grasasSat: 0, fibra: 0, sodio: 5,
-    motivo: "Como cualquier bebida alcohólica, el cava no aporta nada que compense el alcohol: el metaanálisis de 2023 no encontró menor mortalidad en quienes beben poco frente a quienes no beben, y sí más riesgo a partir de unos 45 g de alcohol al día [1]; el análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que el vino y la cerveza: si bebes, que sea ocasional y en pequeña cantidad (una copa tiene unos 10 g de alcohol).",
+    motivo: "Como cualquier bebida alcohólica, el cava no aporta nada que compense el alcohol. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [3]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [4]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [1]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "37000449",
@@ -8472,6 +8658,20 @@ const FOODS = [
         "revista": "Lancet (London, England)",
         "anio": "2018",
         "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
       }
     ],
     sustitutos: [
@@ -8620,7 +8820,7 @@ const FOODS = [
     emoji: "🥃",
     rating: "E",
     kcal: 231, carbs: 0, azucares: 0, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 1,
-    motivo: "Whisky, ron, ginebra, vodka o brandy tienen en torno a un 40 % de alcohol: unas 230 kcal por 100 ml (unas 115 kcal por un chupito de 50 ml) y ningún nutriente. El alcohol es un carcinógeno del grupo 1 y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [1]. En 599.912 bebedores, el riesgo de morir fue mínimo por debajo de unos 100 g de alcohol por semana (unas 10 bebidas estándar), y por encima se acortaba la esperanza de vida [2]. En el UK Biobank (340.924 personas), el alcohol de destilados, incluso en consumos bajos o moderados, se asoció con más mortalidad (HR de 1,07 a 1,83 según la causa) [3]. Por eso lo calificamos E, igual que el vino, la cerveza y el cava.",
+    motivo: "Whisky, ron, ginebra, vodka o brandy tienen en torno a un 40 % de alcohol: unas 230 kcal por 100 ml (unas 115 kcal por un chupito de 50 ml) y ningún nutriente. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [4]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [5]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [6]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [1]. En 599.912 bebedores, a más alcohol, menos años de vida: beber 100-200 g a la semana ya se asoció con unos 6 meses menos de esperanza de vida a los 40 años, y más de 350 g, con 4-5 años menos [2]. En el UK Biobank (340.924 personas), el alcohol de destilados, incluso en consumos bajos o moderados, se asoció con más mortalidad (HR de 1,07 a 1,83 según la causa) [3]. Por eso lo calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "30146330",
@@ -8642,6 +8842,27 @@ const FOODS = [
         "revista": "Nutrition journal",
         "anio": "2026",
         "url": "https://pubmed.ncbi.nlm.nih.gov/42902373/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
+      },
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
       }
     ],
     sustitutos: [
@@ -8661,7 +8882,7 @@ const FOODS = [
     emoji: "🍎",
     rating: "E",
     kcal: 41, carbs: 2, azucares: 0.8, proteinas: 0.1, grasas: 0, grasasSat: 0, fibra: 0, sodio: 4,
-    motivo: "La sidra natural tiene un 5-6 % de alcohol y unas 40 kcal por 100 ml (la espumosa y la dulce suelen llevar más azúcar). Aunque se perciba como una bebida suave, el alcohol es el mismo: en el UK Biobank, el consumo de cerveza o sidra, incluso bajo o moderado, se asoció con más mortalidad que no beber o beber ocasionalmente (HR de 1,07 a 1,83 según la causa) [1], y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso la calificamos E, igual que la cerveza y el vino.",
+    motivo: "La sidra natural tiene un 5-6 % de alcohol y unas 40 kcal por 100 ml (la espumosa y la dulce suelen llevar más azúcar). Aunque se perciba como una bebida suave, el alcohol es el mismo: en el UK Biobank, el consumo de cerveza o sidra, incluso bajo o moderado, se asoció con más mortalidad que no beber o beber ocasionalmente (HR de 1,07 a 1,83 según la causa) [1]. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [3]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [4]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [5]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso la calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "42902373",
@@ -8676,6 +8897,27 @@ const FOODS = [
         "revista": "Lancet (London, England)",
         "anio": "2018",
         "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "25422909",
+        "titulo": "Alcohol consumption and site-specific cancer risk: a comprehensive dose-response meta-analysis.",
+        "revista": "British journal of cancer",
+        "anio": "2015",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25422909/"
+      },
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
       }
     ],
     sustitutos: [
@@ -8695,7 +8937,7 @@ const FOODS = [
     emoji: "🍸",
     rating: "E",
     kcal: 150, carbs: 15, azucares: 15, proteinas: 0, grasas: 0, grasasSat: 0, fibra: 0, sodio: 10,
-    motivo: "El vermut es vino aromatizado y encabezado: tiene un 15-18 % de alcohol y mucho azúcar (el rojo, unos 15 g por 100 ml), con unas 150 kcal por 100 ml. Suma, por tanto, alcohol y azúcar. El alcohol aumenta el riesgo de cáncer de boca, faringe, esófago, hígado, colon y mama, con relación dosis-respuesta [1], y el mayor análisis global concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E, igual que el vino y el cava.",
+    motivo: "El vermut es vino aromatizado y encabezado: tiene un 15-18 % de alcohol y mucho azúcar (el rojo, unos 15 g por 100 ml), con unas 150 kcal por 100 ml. Suma, por tanto, alcohol y azúcar. El alcohol es un carcinógeno para las personas (grupo 1 de la IARC) [3]: causa cáncer de boca, faringe, laringe, esófago, hígado, colon y recto y mama, y el riesgo aumenta con la cantidad [1]. El mayor metaanálisis de mortalidad (107 estudios, 4,8 millones de personas) no encontró ningún beneficio en consumos bajos, y el riesgo de morir subió un 19 % con 45-64 g de alcohol al día y un 35 % con 65 g o más [4]. El análisis global más amplio concluye que el nivel de consumo que minimiza el riesgo para la salud es cero [2]. Por eso lo calificamos E: evidentemente, lo recomendable es 0 g de alcohol al día, y cualquier otra cifra es peligrosa.",
     estudios: [
       {
         "pmid": "25422909",
@@ -8710,6 +8952,20 @@ const FOODS = [
         "revista": "Lancet (London, England)",
         "anio": "2018",
         "url": "https://pubmed.ncbi.nlm.nih.gov/30146330/"
+      },
+      {
+        "pmid": "27353523",
+        "titulo": "Carcinogenic compounds in alcoholic beverages: an update.",
+        "revista": "Archives of toxicology",
+        "anio": "2016",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27353523/"
+      },
+      {
+        "pmid": "37000449",
+        "titulo": "Association Between Daily Alcohol Intake and Risk of All-Cause Mortality: A Systematic Review and Meta-analyses.",
+        "revista": "JAMA network open",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37000449/"
       }
     ],
     sustitutos: [
@@ -8729,7 +8985,7 @@ const FOODS = [
     emoji: "🦃",
     rating: "E",
     kcal: 100, carbs: 1.5, azucares: 1, proteinas: 17.5, grasas: 2.2, grasasSat: 0.6, fibra: 0, sodio: 950,
-    motivo: "El fiambre de pavo parece una opción ligera (unas 100 kcal y 17 g de proteína por 100 g), pero es carne procesada: lleva sal y aditivos y casi 1.000 mg de sodio por 100 g. La IARC clasifica la carne procesada como carcinógena para las personas [1], y en los metaanálisis un mayor consumo se asocia con un 18 % más de riesgo de cáncer colorrectal [2] y, por cada ración diaria, con un 15 % más de mortalidad total y cardiovascular [3]. Por eso lo calificamos E según nuestro criterio de carne procesada, aunque sea de pavo.",
+    motivo: "El fiambre de pavo parece una opción ligera (unas 100 kcal y 17 g de proteína por 100 g), pero es carne procesada: lleva sal y aditivos y casi 1.000 mg de sodio por 100 g. La IARC (OMS) clasifica la carne procesada como carcinógena para las personas (grupo 1): hay evidencia suficiente de que causa cáncer colorrectal [1]. En los metaanálisis, un mayor consumo se asocia con un 18 % más de riesgo de cáncer colorrectal [2] y, por cada ración diaria, con un 15 % más de mortalidad total y cardiovascular [3]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E aunque sea de pavo: lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
@@ -8770,7 +9026,7 @@ const FOODS = [
     emoji: "🥩",
     rating: "E",
     kcal: 275, carbs: 0.5, azucares: 0.5, proteinas: 40, grasas: 11.5, grasasSat: 4, fibra: 0, sodio: 2400,
-    motivo: "El lomo embuchado es carne de cerdo curada con sal: muy proteico (unos 40 g por 100 g) pero con unos 2.400 mg de sodio por 100 g. Es carne procesada: la IARC la clasifica como carcinógena para las personas [1], y por cada ración diaria se asocia con un 15 % más de mortalidad total y cardiovascular [2] y con un 23 % más de mortalidad total en otro metaanálisis de grupos de alimentos [3]. Por eso lo calificamos E, igual que el resto de embutidos y el jamón.",
+    motivo: "El lomo embuchado es carne de cerdo curada con sal: muy proteico (unos 40 g por 100 g) pero con unos 2.400 mg de sodio por 100 g. Es carne procesada: la IARC (OMS) la clasifica como carcinógena para las personas (grupo 1), con evidencia suficiente de que causa cáncer colorrectal [1]. Por cada ración diaria se asocia con un 15 % más de mortalidad total y cardiovascular [2] y con un 23 % más de mortalidad total en otro metaanálisis de grupos de alimentos [3]. El riesgo aumenta con la cantidad y no se conoce un nivel de consumo sin riesgo. Por eso lo calificamos E, igual que el resto de embutidos y el jamón: lo recomendable es no incluirlo en la alimentación habitual.",
     estudios: [
       {
         "pmid": "26514947",
