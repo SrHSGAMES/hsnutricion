@@ -21,7 +21,7 @@ from generar_recetas import (
     es, LINEA_REVISION, REVISION_ISO, formatear_nombre, esc, render_macro_row, pct, parse_recetas, render_sitemap, slug, render_receta_teaser, render_recetas_paginadas,
 )
 import rankings_lib as RL
-from raciones import ALCOHOL, racion, frecuencia
+from raciones import ALCOHOL, racion
 from generar_sustitutos import (
     parse_foods_full, fecha_publicacion_git as _fecha_publicacion_generica,
 )
@@ -213,27 +213,18 @@ def construir_faq(food, nombre_fmt, contexto, recetas_relacionadas):
     rc = datos_racion(food)
     if rc:
         faq.append((f"¿Cuántas calorías tiene una ración de {nombre_fmt}?",
-                    frase_racion(nombre_fmt, rc) + " Es un tamaño orientativo: la ración real depende de cada persona."))
+                    frase_racion(nombre_fmt, rc) + (" Se indica solo como referencia de calorías: la cantidad recomendable de alcohol es 0 g al día."
+                       if _base_id(food["id"]) in ALCOHOL else " Es un tamaño orientativo: la ración real depende de cada persona.")))
         base = _base_id(food["id"])
         if base in ALCOHOL:
             alcohol_g = round(rc["cantidad"] * ALCOHOL[base] / 100 * 0.8)
             faq.append((
                 f"¿Cuánto se puede beber de {nombre_fmt}?",
-                f'Ninguna cantidad está libre de riesgo para la salud. El Ministerio de Sanidad fija como límites de bajo riesgo 20 g de alcohol al día en hombres y 10 g en mujeres. '
-                f'Una ración de {nombre_fmt} ({es(rc["cantidad"])} {rc["unidad"]}, {es(ALCOHOL[base])} % vol.) contiene unos {es(alcohol_g)} g de alcohol. '
-                f'Tienes los detalles en nuestra guía del alcohol.',
+                f'Evidentemente, lo recomendable es 0 g de alcohol al día: ninguna cantidad está libre de riesgo para la salud y cualquier otra cifra es peligrosa. '
+                f'Una ración de {nombre_fmt} ({es(rc["cantidad"])} {rc["unidad"]}, {es(ALCOHOL[base])} % vol.) contiene unos {es(alcohol_g)} g de alcohol; '
+                f'se indica solo para que sepas qué estás tomando, no como cantidad aconsejada. Tienes los detalles en nuestra guía del alcohol.',
             ))
         else:
-            fr = frecuencia(food)
-            if fr:
-                grupo, texto, fuente = fr
-                if texto == "consumo ocasional":
-                    resp = f'{fuente[0].upper() + fuente[1:]} clasifica los alimentos del grupo «{grupo}» como de consumo ocasional.'
-                else:
-                    resp = f'{fuente[0].upper() + fuente[1:]} recomienda, para {grupo}: {texto}.'
-                resp += (f' Una ración de {nombre_fmt} son unos {es(rc["cantidad"])} {rc["unidad"]} ({rc["medida"]}). '
-                         'La recomendación es para adultos sanos; si tienes alguna enfermedad, sigue la pauta de tu profesional sanitario.')
-                faq.append((f"¿Con qué frecuencia se puede tomar {nombre_fmt}?", resp))
             if food["kcal"] > 0 and "Condimentos y Aditivos" not in food["categorias"]:
                 faq.append((f"¿Puedo tomar {nombre_fmt} si estoy a dieta?", respuesta_dieta(food, nombre_fmt, rc)))
 
@@ -319,7 +310,7 @@ def render_pagina(food, todas_recetas, ids_con_sustituto, contexto):
     if rc:
         racion_html = f'''
       <h2 class="ficha-sub">Ración orientativa de {esc(nombre_fmt)}</h2>
-      <p class="food-motivo">{esc(frase_racion(nombre_fmt, rc))} Es un tamaño orientativo: ajústalo a tu caso.</p>'''
+      <p class="food-motivo">{esc(frase_racion(nombre_fmt, rc))} {esc("No es una recomendación de consumo: la cantidad recomendable de alcohol es 0 g al día." if _base_id(food["id"]) in ALCOHOL else "Es un tamaño orientativo: ajústalo a tu caso.")}</p>'''
 
     tarjeta_html = ""
     if tarjeta_imagen(food["id"]):

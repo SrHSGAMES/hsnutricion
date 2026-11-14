@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Ración orientativa de cada alimento y frecuencia recomendada por la pirámide de la SENC.
+"""Ración orientativa de cada alimento.
 
 - RACIONES: tamaño habitual de una ración (g o ml) y su medida casera. Son estimaciones de HSNutrición
   (raciones habituales en España, en peso neto), no una tabla oficial: cada ficha las llama «orientativas».
   Los alimentos que no se toman por raciones (bicarbonato, sacarina, insectos...) no llevan.
-- FRECUENCIAS: lo que recomiendan para adultos sanos la pirámide de la alimentación saludable de la SENC
-  (raciones por día o por semana) y la pirámide de la dieta mediterránea para la población adulta (carne roja
-  y procesada). Las frecuencias NO dicen el tamaño de la ración.
-- El alcohol no lleva frecuencia: su respuesta sale de la guía del alcohol (la pirámide SENC de 2004 lo
-  presenta como «consumo opcional y moderado»; las evidencias y las autoridades sanitarias actuales dicen que
-  ningún consumo está libre de riesgo).
+- ALCOHOL: la cantidad recomendable es 0 g al día. Las raciones de las bebidas alcohólicas solo sirven para saber
+  cuántas calorías y cuánto alcohol contienen, nunca como cantidad aconsejada.
 """
 
 RACIONES = {}
@@ -172,47 +168,6 @@ _r("mostaza alcaparras", 10, "1 cucharadita")
 # Alimentos sin ración (no se toman por raciones o no aportan nada que comparar)
 SIN_RACION = {"sacarina", "stevia", "levadura_quimica", "levadura_panaderia", "saltamontes_frito", "sal", "sal_baja_en_sodio"}
 
-# ---------- Frecuencias (pirámide SENC de la alimentación saludable para adultos sanos)
-SENC = "la pirámide de la alimentación saludable de la SENC para adultos sanos"
-MEDITERRANEA = "la pirámide de la dieta mediterránea para la población adulta"
-OCASIONAL = "consumo ocasional"
-
-FRECUENCIAS = {}
-
-
-def _f(ids, grupo, texto, fuente=SENC):
-    for i in ids.split():
-        FRECUENCIAS[i] = (grupo, texto, fuente)
-
-
-_f("lechuga rucula canonigos escarola endibia espinacas kale acelgas repollo col_lombarda coliflor brocoli calabacin berenjena calabaza judias_verdes "
-   "esparragos setas puerro hinojo nabo apio coles_bruselas pepino tomate zanahoria cebolla pimiento_rojo pimiento_verde remolacha rabano calcots "
-   "alcachofa guisantes", "verduras y hortalizas", "2 o más raciones al día")
-_f("manzana pera naranja melocoton nectarina pina mango papaya chirimoya caqui pitaya pomelo platano mandarina kiwi albaricoque ciruela fresas "
-   "arandanos frambuesas moras cerezas uva granada melon sandia higos_frescos nispero guayaba lichi maracuya", "frutas", "3 o más raciones al día")
-_f("pan_integral pan_centeno arroz_integral pasta_integral quinoa trigo_sarraceno bulgur mijo cebada espelta avena arroz_integral_seco pasta_integral_seca "
-   "quinoa_seca bulgur_seco mijo_seco trigo_sarraceno_seco cebada_seca patata patata_cocida boniato",
-   "pan, cereales, arroz, pasta y patatas", "4-6 raciones al día, mejor si son integrales")
-_f("pan_blanco arroz_blanco pasta_blanca cuscus arroz_blanco_seco pasta_blanca_seca cuscus_seco",
-   "pan, cereales, arroz, pasta y patatas", "4-6 raciones al día, mejor si son integrales")
-_f("lentejas lentejas_cocidas garbanzos alubias judias_pintas", "legumbres", "2-4 raciones por semana")
-_f("almendras avellanas nueces pistachos anacardo pinones macadamia nueces_brasil cacahuetes", "frutos secos", "3-7 raciones por semana (al natural, sin sal)")
-_f("leche_entera leche_desnatada leche_semidesnatada yogur_natural yogur_griego kefir skyr queso_fresco queso_cottage requeson mozzarella queso_feta "
-   "queso_cabra queso_brie queso_curado queso_manchego queso_azul queso_parmesano queso_crema", "leche, yogur y queso",
-   "2-4 raciones al día en total, mejor bajos en grasa")
-_f("aove", "aceite de oliva", "3-6 raciones al día")
-_f("salmon atun bacalao merluza lubina dorada trucha rape lenguado mero pez_espada boquerones caballa sardina gambas langostinos mejillones almejas calamar "
-   "pulpo sepia", "pescados y mariscos", "3-4 raciones por semana")
-_f("huevo huevo_de_codorniz clara_huevo", "huevos", "3-4 raciones por semana")
-_f("pavo pechuga_de_pollo conejo muslo_pollo", "carnes magras y aves", "3-4 raciones por semana")
-_f("carne_de_cerdo ternera_filete ternera_magra_picada_5 solomillo_cerdo cordero hamburguesa_ternera", "carne roja", "menos de 2 raciones por semana",
-   MEDITERRANEA)
-_f("embutido chorizo lomo_embuchado jamon_serrano jamon_iberico jamon_cocido fiambre_pavo bacon salchichas morcilla", "carnes procesadas y embutidos",
-   "1 ración por semana como máximo", MEDITERRANEA)
-_f("croissant bolleria_industrial galletas gominolas turron_duro chocolate_leche chocolate_blanco helado", "dulces, bollería y helados", OCASIONAL)
-_f("refresco bebida_energetica zumo_envasado", "bebidas azucaradas", OCASIONAL)
-_f("mantequilla margarina margarina_100_vegetal margarina_vegetal_sin_grasas_trans", "mantequilla y margarinas", OCASIONAL)
-
 # Graduación habitual (% vol.) de las bebidas alcohólicas, para calcular los gramos de alcohol de una ración (ml x % x 0,8 / 100).
 ALCOHOL = {"cerveza": 5, "vino_tinto": 13, "vino_blanco": 12, "cava": 11.5, "destilados": 40, "sidra": 5.5, "vermut": 15}
 
@@ -233,6 +188,3 @@ def racion(food):
     return gramos, medida, unidad
 
 
-def frecuencia(food):
-    """(grupo, texto, fuente) recomendado por la pirámide o None si no hay (alcohol incluido)."""
-    return FRECUENCIAS.get(_base(food["id"]))

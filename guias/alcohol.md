@@ -11,8 +11,8 @@ revisado: 2026-11-07
 - La OMS en Europa lo resume así: **no existe un nivel de consumo de alcohol que no afecte a la salud**; el riesgo empieza con la primera copa [^who-europa]. El alcohol es un carcinógeno del **grupo 1** de la IARC, la misma categoría que el tabaco o el amianto [^who-europa] [^27353523].
 - Durante años se creyó que una copa de vino al día protegía el corazón. Los estudios genéticos más sólidos **no respaldan** ese efecto: cualquier cantidad se asoció con algo más de riesgo, y este crece más deprisa con consumos altos [^30955975] [^38508868] [^35333364].
 - El riesgo **no es el mismo para todos**: en el cáncer de mama o de esófago aumenta incluso con consumos bajos, y en jóvenes de 15 a 39 años el nivel de menor riesgo estimado va de 0 a 0,6 bebidas al día según la región [^22910838] [^35843246].
-- Los límites oficiales españoles (**20 g al día los hombres, 10 g las mujeres**) son límites de "bajo riesgo", no de consumo seguro [^ministerio-alcohol].
-- **No bebas** si estás embarazada o lo buscas, si vas a conducir, si tomas ciertos medicamentos o si tienes enfermedad hepática. Y si bebes mucho a diario, **no lo dejes de golpe sin ayuda médica**: puede ser peligroso.
+- Evidentemente, lo recomendable es **0 g de alcohol al día**, y cualquier otra cifra es peligrosa. Los «límites de bajo riesgo» que publican algunas autoridades no son cantidades seguras: el propio Ministerio de Sanidad parte de que cualquier consumo implica riesgo [^ministerio-alcohol].
+- **Especialmente, no bebas** si estás embarazada o lo buscas, si vas a conducir, si tomas ciertos medicamentos o si tienes enfermedad hepática. Y si bebes mucho a diario, **no lo dejes de golpe sin ayuda médica**: puede ser peligroso.
 - Por eso, en HSNutrición todas las bebidas alcohólicas (vino, cerveza, cava) tienen una **E**.
 
 ## Qué cuenta como "una bebida"
@@ -42,7 +42,7 @@ Durante décadas, los estudios mostraron que quienes bebían poco vivían un poc
 
 - Los "abstemios" de esos estudios incluían a personas que habían dejado de beber por enfermedad. Al corregir ese sesgo, el beneficio **desaparece**: sin ajustar, los bebedores de poco volumen tenían un 14 % menos de riesgo (RR 0,86); ajustado por sesgos, un 3 % (RR 0,97; IC 0,88–1,07), es decir, **ningún beneficio** [^26997174].
 - Un metaanálisis de 107 estudios (4,8 millones de personas, 425.564 muertes) lo confirmó: los bebedores de poco volumen (hasta 24 g al día) no tuvieron un riesgo significativamente menor que quienes nunca bebieron (RR 0,93; P = 0,07); con 45–64 g al día el riesgo subió un 19 % y con 65 g o más un 35 %. Las mujeres que bebían tenían, en conjunto, un 22 % más de riesgo que las que nunca bebieron (RR 1,22) [^37000449].
-- En un análisis de 599.912 bebedores de 83 estudios, el riesgo de morir por cualquier causa fue mínimo por debajo de **100 g a la semana** (unas 10 UBE). Beber 100–200 g a la semana se asoció con unos 6 meses menos de esperanza de vida a los 40 años; 200–350 g con 1–2 años menos; más de 350 g, con 4–5 años menos [^29676281].
+- En un análisis de 599.912 bebedores de 83 estudios, el riesgo de morir por cualquier causa fue mínimo por debajo de **100 g a la semana** (unas 10 UBE), lo que no significa que esa cantidad sea segura. Beber 100–200 g a la semana se asoció con unos 6 meses menos de esperanza de vida a los 40 años; 200–350 g con 1–2 años menos; más de 350 g, con 4–5 años menos [^29676281].
 - El enfoque más riguroso, la **aleatorización mendeliana** (usar variantes genéticas que hacen beber más o menos, para evitar sesgos), mostró en 278.093 personas un aumento lineal del riesgo: cada unidad adicional de alcohol se asoció con un 27 % más de mortalidad total, un 30 % más cardiovascular, un 20 % más por cáncer y el doble de mortalidad digestiva (OR 2,06). **No hubo ningún efecto protector** a dosis bajas [^38508868].
 
 ### Cáncer
@@ -89,6 +89,8 @@ El alcohol interacciona con muchos fármacos. En mayores, puede causar sedación
 
 ## Quién no debería beber nada
 
+Lo recomendable es no beber nada. Estas personas, además, tienen motivos concretos:
+
 - **Embarazo** o intento de embarazo [^28089487].
 - **Menores de 18 años**. Entre los 15 y los 39 años, el nivel de consumo de menor riesgo estimado va de 0 a 0,6 bebidas al día según la región [^35843246].
 - **Si vas a conducir** o manejar maquinaria [^22563862].
@@ -97,15 +99,11 @@ El alcohol interacciona con muchos fármacos. En mayores, puede causar sedación
 - **Antecedentes de dependencia del alcohol** o de depresión [^32469287].
 - **Si has tenido cáncer** o estás en tratamiento: consulta a tu oncólogo [^37555890].
 
-## Si decides beber
+## La cantidad recomendable: cero
 
-No hay un nivel seguro, pero el riesgo **aumenta con la cantidad**, así que reducir siempre ayuda. Como referencias:
+Lo recomendable es **0 g de alcohol al día**, y cualquier otra cifra es peligrosa. No hay una cantidad que podamos aconsejarte: la OMS en Europa afirma que no existe un nivel de consumo seguro [^who-europa], y el Ministerio de Sanidad parte de que «cualquier consumo, por mínimo que sea, implica riesgo» [^ministerio-alcohol]. Los estudios muestran que el riesgo crece con la cantidad [^29676281] [^38508868]: si ya bebes, beber menos es mejor que beber más, pero eso no convierte ninguna cantidad en segura. Y si vas a conducir, la única cantidad segura es cero.
 
-- **España (Ministerio de Sanidad, 2020):** límites de bajo riesgo de 20 g al día (2 UBE) para hombres y 10 g (1 UBE) para mujeres, partiendo de que "cualquier consumo, por mínimo que sea, implica riesgo" [^ministerio-alcohol].
-- **El estudio de 600.000 bebedores** sitúa el riesgo mínimo por debajo de 100 g a la semana, y sugiere que los límites de la mayoría de las guías son demasiado altos [^29676281].
-- **Canadá (2023)** considera de bajo riesgo 1–2 bebidas estándar a la semana (unos 13 g cada una) y de riesgo moderado 3–6 [^ccsa-canada].
-
-Algunos consejos prácticos: no bebas todos los días ni muchas copas de una vez, y no conduzcas después de beber.
+Si te cuesta dejarlo, habla con tu médico; lee antes el aviso de abajo sobre la abstinencia.
 
 ## Si bebes mucho a diario: no lo dejes de golpe sin ayuda
 
@@ -121,9 +119,9 @@ Calificamos con E todas las bebidas alcohólicas, sean vino tinto, vino blanco, 
 
 No hay pruebas sólidas. Los estudios que lo sugerían eran observacionales y sesgados; los genéticos no encuentran protección y sí un riesgo creciente [^26997174] [^30955975] [^38508868].
 
-### ¿Cuánto alcohol es seguro?
+### ¿Cuánto alcohol se puede beber?
 
-Ninguno puede considerarse seguro. Los límites de bajo riesgo sirven para reducir el riesgo, no para eliminarlo [^who-europa] [^ministerio-alcohol].
+Evidentemente, 0 g al día: ninguna cantidad es segura y cualquier otra cifra es peligrosa [^who-europa] [^ministerio-alcohol].
 
 ### ¿Es peor beber solo los fines de semana?
 
@@ -142,4 +140,3 @@ Aporta 7 kcal por gramo y, además de sumar calorías, reduce la oxidación de l
 @ref who-europa | Organización Mundial de la Salud, Oficina Regional para Europa. «No level of alcohol consumption is safe for our health» (4 de enero de 2023). | https://www.who.int/europe/news/item/04-01-2023-no-level-of-alcohol-consumption-is-safe-for-our-health
 @ref ministerio-alcohol | Ministerio de Sanidad. «El Ministerio de Sanidad actualiza los límites de consumo de bajo riesgo de alcohol» (13 de noviembre de 2020). | https://www.sanidad.gob.es/ca/gabinete/notasPrensa.do?id=5128
 @ref ocu-cerveza | OCU. «Cervezas sin y 0,0: ¿cuánto alcohol tienen?» | https://www.ocu.org/alimentacion/cervezas/noticias/cervezas-sin-y-00
-@ref ccsa-canada | Centro Canadiense sobre Uso de Sustancias y Adicción (CCSA). «Canada's Guidance on Alcohol and Health» (enero de 2023). | https://ccsa.ca/canadas-guidance-alcohol-and-health
