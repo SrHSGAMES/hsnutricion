@@ -511,8 +511,11 @@ def main():
             break
     inicio = date.fromisoformat(sys.argv[1]) if len(sys.argv) > 1 else date(2026, 11, 17)
     por_dia = int(sys.argv[2]) if len(sys.argv) > 2 else 4
-    horas = {3: ["08:00", "13:00", "19:00"], 4: ["08:00", "12:00", "17:00", "20:00"], 5: ["07:00", "10:00", "13:00", "17:00", "20:00"]}[por_dia]
+    horas = {1: ["19:00"], 2: ["12:00", "19:00"], 3: ["08:00", "13:00", "19:00"], 4: ["08:00", "12:00", "17:00", "20:00"], 5: ["07:00", "10:00", "13:00", "17:00", "20:00"]}[por_dia]
     os.makedirs(os.path.join(ROOT, "pines"), exist_ok=True)
+    for viejo in os.listdir(os.path.join(ROOT, "pines")):
+        if viejo.startswith("pines-lote") and viejo.endswith(".csv"):
+            os.remove(os.path.join(ROOT, "pines", viejo))
     lote_tam = por_dia * 25  # Pinterest permite programar hasta 30 días y 200 pines por CSV
     for n in range(0, len(orden), lote_tam):
         trozo = orden[n:n + lote_tam]
