@@ -57,7 +57,7 @@ button.ok{background:var(--acc);color:var(--bg)}
 .fila label{margin-left:auto;font-size:15px;display:flex;gap:6px;align-items:center}
 @media (max-width:640px){.pin{grid-template-columns:1fr}.pin img{width:100%;height:auto;aspect-ratio:2/3}}
 </style></head><body>
-<header><h1>Panel de pines</h1><span class="cont" id="cont"></span>
+<header><h1>Panel de pines</h1><span class="cont" id="cont"></span><a href="inicio.html" style="color:var(--acc);font-weight:600">← Inicio</a>
 <label class="f"><input type="checkbox" id="solo"> Ocultar los ya publicados</label></header>
 <main id="lista"></main>
 <script>
