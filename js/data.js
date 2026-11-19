@@ -9323,6 +9323,423 @@ const FOODS = [
         porque: "El mismo sabor umami con bastante menos sodio."
       }
     ]
+  },
+  {
+    id: "altramuces",
+    nombre: "Altramuces",
+    aliases: ["altramuces", "altramuz", "lupino", "lupinos", "chochos", "tarwi"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 116, carbs: 9.3, azucares: 0.3, proteinas: 15.6, grasas: 2.9, grasasSat: 0.3, fibra: 2.8, sodio: 240,
+    motivo: "Los altramuces (lupinos) son una legumbre muy proteica: unos 16 g de proteína por 100 g ya cocidos, con casi 3 g de fibra y 116 kcal. En ensayos cruzados, un pan enriquecido con harina de altramuz aumentó la saciedad y redujo la energía ingerida en la comida siguiente (unos 117 kcal menos) [1]. Pero tienen riesgos reales. Son alérgenos de declaración obligatoria y se relacionan con el cacahuete: en un estudio pequeño con 43 personas alérgicas al cacahuete, el 44 % resultó también alérgica al altramuz, la anafilaxia fue la reacción más frecuente y bastó 1 g de harina para provocarla [2]. Y el altramuz amargo, sin desamargar, contiene alcaloides: hay casos descritos de síndrome anticolinérgico tras consumir harina de altramuz amargo [3]. Compra solo altramuces ya desamargados y no los tomes si eres alérgico al cacahuete salvo indicación de tu alergólogo. Los de bote o bolsa vienen en salmuera: cuenta con su sal. Los calificamos A para quien no es alérgico.",
+    estudios: [
+      {
+        "pmid": "17093146",
+        "titulo": "Lupin-enriched bread increases satiety and reduces energy intake acutely.",
+        "revista": "The American journal of clinical nutrition",
+        "anio": "2006",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17093146/"
+      },
+      {
+        "pmid": "36191849",
+        "titulo": "High prevalence of lupin allergy among patients with peanut allergy: Identification of γ-conglutin as major allergen.",
+        "revista": "Annals of allergy, asthma & immunology : official publication of the American College of Allergy, Asthma, & Immunology",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36191849/"
+      },
+      {
+        "pmid": "19645650",
+        "titulo": "Two cases of anticholinergic syndrome associated with consumption of bitter lupin flour.",
+        "revista": "The Medical journal of Australia",
+        "anio": "2009",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19645650/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "yuca",
+    nombre: "Yuca (mandioca)",
+    aliases: ["yuca", "mandioca", "cassava", "aipim", "casabe"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥔",
+    rating: "A",
+    kcal: 160, carbs: 38.1, azucares: 1.7, proteinas: 1.4, grasas: 0.3, grasasSat: 0.1, fibra: 1.8, sodio: 14,
+    motivo: "La yuca (mandioca) es una raíz muy energética: unas 160 kcal por 100 g (datos en crudo y pelada), casi todo almidón, con 1,4 g de proteína y 1,8 g de fibra. Hay que pelarla y cocinarla siempre; nunca se come cruda. Contiene glucósidos cianogénicos y, mal procesada, libera cianuro: su consumo insuficientemente procesado se asocia con el konzo, una enfermedad neurológica paralizante, con epidemias de más de 1.100 casos en Mozambique en 1981 [2]. Los más expuestos son quienes la toman en grandes cantidades con una dieta pobre en proteína; bien procesada es segura, pero una dieta basada solo en yuca es deficiente en proteína [1]. El índice glucémico estimado depende de cómo se prepare (54-67 en la masa de gari, y más lento en el fufu) [3]. La calificamos A como fuente de hidratos de carbono bien cocinada, dentro de una dieta con proteína; nunca cruda ni mal procesada.",
+    estudios: [
+      {
+        "pmid": "16619750",
+        "titulo": "Chronic poisoning by hydrogen cyanide in cassava and its prevention in Africa and Latin America.",
+        "revista": "Food and nutrition bulletin",
+        "anio": "2002",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16619750/"
+      },
+      {
+        "pmid": "20654676",
+        "titulo": "Konzo and continuing cyanide intoxication from cassava in Mozambique.",
+        "revista": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+        "anio": "2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20654676/"
+      },
+      {
+        "pmid": "33813203",
+        "titulo": "Effect of processing and variety on starch digestibility and glycemic index of popular foods made from cassava (Manihot esculenta).",
+        "revista": "Food chemistry",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33813203/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "platano_macho",
+    nombre: "Plátano macho (hervido)",
+    aliases: ["plátano macho", "platano macho", "plátano verde", "platano verde", "plátano de cocinar", "platano de cocinar", "patacones", "tostones", "maduros", "plantain"],
+    categorias: ["Frutas", "Verduras y Hortalizas"],
+    emoji: "🍌",
+    rating: "A",
+    kcal: 121, carbs: 29.2, azucares: 2.4, proteinas: 1.1, grasas: 0.1, grasasSat: 0.1, fibra: 2.6, sodio: 2,
+    motivo: "El plátano macho verde y hervido es sobre todo almidón: unas 121 kcal por 100 g, apenas 2 g de azúcares, 2,6 g de fibra y casi nada de sodio. Se cocina como una patata, no se come como un plátano. El método de cocción cambia el índice glucémico: en un estudio con 10 voluntarios, los alimentos asados u horneados tuvieron un índice glucémico más alto que los hervidos o fritos [1], aunque una estimación posterior situó el índice más alto en el hervido [2]; los resultados no coinciden. En un ensayo con 80 niños con diarrea persistente, una dieta de plátano macho verde cocido acortó la diarrea 18 horas frente a una de yogur [3]. Frito (patacones, tostones, maduros fritos) absorbe mucho aceite y pasa a ser un plato calórico, no una guarnición ligera. La evidencia es limitada; lo calificamos A hervido, al vapor o al horno, y bastante peor frito.",
+    estudios: [
+      {
+        "pmid": "16925852",
+        "titulo": "Food processing methods influence the glycaemic indices of some commonly eaten West Indian carbohydrate-rich foods.",
+        "revista": "The British journal of nutrition",
+        "anio": "2006",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16925852/"
+      },
+      {
+        "pmid": "37539198",
+        "titulo": "Nutritional composition and in vitro digestibility of two Plantain Cultivars (Musa Paradisiaca spp.) in Puerto Rico.",
+        "revista": "Heliyon",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37539198/"
+      },
+      {
+        "pmid": "19828902",
+        "titulo": "Beneficial role of green plantain [Musa paradisiaca] in the management of persistent diarrhea: a prospective randomized trial.",
+        "revista": "Journal of the American College of Nutrition",
+        "anio": "2009",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19828902/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "judias_negras",
+    nombre: "Judías negras (cocidas)",
+    aliases: ["judías negras", "judias negras", "frijoles negros", "alubias negras", "caraotas negras", "frijol negro"],
+    categorias: ["Proteína vegetal"],
+    emoji: "🫘",
+    rating: "A",
+    kcal: 132, carbs: 23.7, azucares: 0.3, proteinas: 8.9, grasas: 0.5, grasasSat: 0.1, fibra: 8.7, sodio: 1,
+    motivo: "Las judías negras (frijoles negros) cocidas aportan unas 132 kcal, casi 9 g de proteína y 8,7 g de fibra por 100 g. Un mayor consumo de legumbres se asocia con menor mortalidad total (HR 0,94; el análisis es por cada 50 g al día) [1] y con menos enfermedad coronaria (RR 0,90), con el máximo beneficio hacia los 400 g a la semana [2]. En un ensayo con 60 personas con colesterol algo alto por grupo, 120 g al día de judías durante 6 semanas redujeron el LDL frente al arroz [3]. Riesgo: las legumbres crudas o poco cocidas contienen lectinas (fitohemaglutinina). En 2018, 200 personas enfermaron en un comedor militar de Francia por judías rojas crudas mal cocinadas en un chili [4]. Remójalas y cuécelas bien; nunca las comas crudas ni las cocines a baja temperatura. Las calificamos A.",
+    estudios: [
+      {
+        "pmid": "36811595",
+        "titulo": "Legume Consumption and Risk of All-Cause and Cause-Specific Mortality: A Systematic Review and Dose-Response Meta-Analysis of Prospective Studies.",
+        "revista": "Advances in nutrition (Bethesda, Md.)",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36811595/"
+      },
+      {
+        "pmid": "36411221",
+        "titulo": "Intake of legumes and cardiovascular disease: A systematic review and dose-response meta-analysis.",
+        "revista": "Nutrition, metabolism, and cardiovascular diseases : NMCD",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36411221/"
+      },
+      {
+        "pmid": "39357673",
+        "titulo": "A Comparison of Dry Bean and Pea Consumption on Serum Cholesterol: A Randomized Controlled Trial in Adults with Mild Hypercholesterolemia.",
+        "revista": "The Journal of nutrition",
+        "anio": "2024",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39357673/"
+      },
+      {
+        "pmid": "37505726",
+        "titulo": "From Foodborne Disease Outbreak (FBDO) to Investigation: The Plant Toxin Trap, Brittany, France, 2018.",
+        "revista": "Toxins",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/37505726/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "nopal",
+    nombre: "Nopal (cocido)",
+    aliases: ["nopal", "nopales", "pala de nopal", "penca", "cactus", "chumbera"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌵",
+    rating: "A",
+    kcal: 15, carbs: 3.3, azucares: 1.1, proteinas: 1.4, grasas: 0.1, grasasSat: 0, fibra: 2, sodio: 20,
+    motivo: "El nopal (la pala del cactus Opuntia) es una verdura muy ligera: unas 15 kcal por 100 g cocinado, con 2 g de fibra. En 14 personas con diabetes tipo 2, añadir 300 g de nopal al vapor a un desayuno rico en hidratos redujo el área bajo la curva de glucosa (287 frente a 443) [1]. Las revisiones apuntan a un efecto hipoglucemiante, pero faltan estudios a largo plazo [2]. Ojo si tomas medicación para la diabetes: hay un caso descrito de hipoglucemias (49-68 mg/dL) en un paciente que tomaba nopal crudo a diario junto con glipizida y metformina [3]. Consúltalo con tu médico antes de usarlo como ayuda. Lo calificamos A.",
+    estudios: [
+      {
+        "pmid": "25132122",
+        "titulo": "The effect of nopal (Opuntia ficus indica) on postprandial blood glucose, incretins, and antioxidant activity in Mexican patients with type 2 diabetes after consumption of two different composition breakfasts.",
+        "revista": "Journal of the Academy of Nutrition and Dietetics",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25132122/"
+      },
+      {
+        "pmid": "35208623",
+        "titulo": "Prickly Pear Cacti (Opuntia spp.) Cladodes as a Functional Ingredient for Hyperglycemia Management: A Brief Narrative Review.",
+        "revista": "Medicina (Kaunas, Lithuania)",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35208623/"
+      },
+      {
+        "pmid": "20516361",
+        "titulo": "Probable hypoglycemic adverse drug reaction associated with prickly pear cactus, glipizide, and metformin in a patient with type 2 diabetes mellitus.",
+        "revista": "The Annals of pharmacotherapy",
+        "anio": "2010",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20516361/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "wakame",
+    nombre: "Alga wakame",
+    aliases: ["wakame", "alga wakame", "algas wakame", "ensalada de algas"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌿",
+    rating: "C",
+    kcal: 45, carbs: 9.1, azucares: 0.7, proteinas: 3, grasas: 0.6, grasasSat: 0.1, fibra: 0.5, sodio: 872,
+    motivo: "El wakame es un alga con pocas calorías (unas 45 kcal por 100 g, valor en crudo) pero salada: unos 870 mg de sodio por 100 g. En 26 personas, 4 g de wakame seco con 200 g de arroz redujeron la glucosa y la insulina posteriores a la comida frente al arroz solo [1], y un metaanálisis de 29 ensayos encontró que las algas bajan la tensión sistólica unos 2 mmHg [2]. Los riesgos son el yodo y los metales: el exceso de yodo puede causar hipertiroidismo, hipotiroidismo o bocio, sobre todo en quien ya tiene enfermedad tiroidea, y el hipertiroidismo por yodo puede ser potencialmente mortal en algunas personas [3]. La EFSA encontró ingestas medias de yodo superiores a 20 µg/kg de peso al día entre consumidores de kombu y nori [4], y en 112 preparados de algas vendidos en España todas las muestras de hiziki superaron el límite de arsénico inorgánico (evítalo) [5]. Quien tenga problemas de tiroides o esté embarazada debería consultarlo antes. Lo calificamos C: ocasional y en poca cantidad, no a diario.",
+    estudios: [
+      {
+        "pmid": "31418121",
+        "titulo": "Effects of Undaria pinnatifida (Wakame) on Postprandial Glycemia and Insulin Levels in Humans: a Randomized Crossover Trial.",
+        "revista": "Plant foods for human nutrition (Dordrecht, Netherlands)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31418121/"
+      },
+      {
+        "pmid": "40726022",
+        "titulo": "Edible Algae Reduce Blood Pressure in Humans: A Systematic Review and Meta-Analysis of Randomised Controlled Trials.",
+        "revista": "Journal of human nutrition and dietetics : the official journal of the British Dietetic Association",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40726022/"
+      },
+      {
+        "pmid": "30891786",
+        "titulo": "Excess iodine intake: sources, assessment, and effects on thyroid function.",
+        "revista": "Annals of the New York Academy of Sciences",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30891786/"
+      },
+      {
+        "pmid": "36742462",
+        "titulo": "Dietary exposure to heavy metals and iodine intake via consumption of seaweeds and halophytes in the European population.",
+        "revista": "EFSA journal. European Food Safety Authority",
+        "anio": "2023",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36742462/"
+      },
+      {
+        "pmid": "16901603",
+        "titulo": "Total arsenic, inorganic arsenic, lead and cadmium contents in edible seaweed sold in Spain.",
+        "revista": "Food and chemical toxicology : an international journal published for the British Industrial Biological Research Association",
+        "anio": "2006",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16901603/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Espinacas",
+        emoji: "🥬", mejor: true,
+        kcal: 23, carbs: 3.6, azucares: 0.4, proteinas: 2.9, grasas: 0.4, grasasSat: 0.06, fibra: 2.2, sodio: 79,
+        porque: "Minerales y folato sin el yodo ni la sal de las algas."
+      }
+    ]
+  },
+  {
+    id: "chucrut",
+    nombre: "Chucrut",
+    aliases: ["chucrut", "chucrute", "sauerkraut", "col fermentada", "repollo fermentado"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🥬",
+    rating: "B",
+    kcal: 19, carbs: 4.3, azucares: 1.8, proteinas: 0.9, grasas: 0.1, grasasSat: 0, fibra: 2.9, sodio: 661,
+    motivo: "El chucrut es col fermentada: solo 19 kcal por 100 g y casi 3 g de fibra, pero con 661 mg de sodio por 100 g (unos 330 mg en una ración de 50 g). En un ensayo piloto con 34 personas con colon irritable, tomarlo durante 6 semanas mejoró los síntomas, aunque era un estudio pequeño [1]; en 87 voluntarios sanos, 4 semanas de chucrut cambiaron algunas especies de la microbiota, que en conjunto resistió bien el cambio [2]. Riesgos: en las dietas bajas en histamina, los fermentados son el único grupo que todas excluyen [3], y con antidepresivos inhibidores de la MAO las aminas de los alimentos fermentados (como la tiramina) pueden provocar una crisis hipertensiva [4]. Además, los metaanálisis asocian el consumo alto de encurtidos en salmuera, sobre todo asiáticos, con más cáncer de estómago (+15 % por cada 40 g al día) [5]; no hay estudios que midan el chucrut en concreto. Lo calificamos B: en cantidad pequeña, no como guarnición diaria.",
+    estudios: [
+      {
+        "pmid": "30256365",
+        "titulo": "Lacto-fermented sauerkraut improves symptoms in IBS patients independent of product pasteurisation - a pilot study.",
+        "revista": "Food & function",
+        "anio": "2018",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30256365/"
+      },
+      {
+        "pmid": "39940045",
+        "titulo": "The impact of regular sauerkraut consumption on the human gut microbiota: a crossover intervention trial.",
+        "revista": "Microbiome",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39940045/"
+      },
+      {
+        "pmid": "33919293",
+        "titulo": "Low-Histamine Diets: Is the Exclusion of Foods Justified by Their Histamine Content?",
+        "revista": "Nutrients",
+        "anio": "2021",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/33919293/"
+      },
+      {
+        "pmid": "3525654",
+        "titulo": "Dietary tyramine and other pressor amines in MAOI regimens: a review.",
+        "revista": "Journal of the American Dietetic Association",
+        "anio": "1986",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/3525654/"
+      },
+      {
+        "pmid": "32316595",
+        "titulo": "Pickled Vegetable and Salted Fish Intake and the Risk of Gastric Cancer: Two Prospective Cohort Studies and a Meta-Analysis.",
+        "revista": "Cancers",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32316595/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Repollo",
+        emoji: "🥬", mejor: true,
+        kcal: 25, carbs: 5.8, azucares: 3.2, proteinas: 1.3, grasas: 0.1, grasasSat: 0.02, fibra: 2.5, sodio: 18,
+        porque: "Mismos 3 g de fibra y vitamina C, sin la salmuera ni los 660 mg de sodio."
+      }
+    ]
+  },
+  {
+    id: "kimchi",
+    nombre: "Kimchi",
+    aliases: ["kimchi", "kimchee", "kimchi coreano"],
+    categorias: ["Verduras y Hortalizas"],
+    emoji: "🌶️",
+    rating: "C",
+    kcal: 15, carbs: 2.4, azucares: 1.1, proteinas: 1.1, grasas: 0.5, grasasSat: 0.1, fibra: 1.6, sodio: 498,
+    motivo: "El kimchi es verdura fermentada y muy salada: 15 kcal por 100 g, 1,6 g de fibra y 498 mg de sodio por 100 g. En un metaanálisis de 5 ensayos con 205 personas, el kimchi fermentado redujo la glucosa en ayunas (−1,9 mg/dL) y, tras excluir los estudios más heterogéneos, los triglicéridos (−29 mg/dL) y la tensión sistólica (−3,5 mmHg) [1]; en 22 personas con sobrepeso, el fermentado mejoró más los parámetros metabólicos que el fresco [2]. Pero el consumo alto de encurtidos salados se asocia con más cáncer de estómago: en un metaanálisis de 60 estudios, los encurtidos subieron el riesgo un 52 % (OR 1,52), y un 89 % en los estudios coreanos [3]; y por cada 40 g al día de encurtidos, un 15 % más [4]. En un metaanálisis de la población coreana, el kimchi se asoció con un OR de 2,21 de cáncer gástrico [5]. Son estudios observacionales, pero la relación es consistente y creciente con la cantidad. Por eso lo calificamos C: pequeñas cantidades y no a diario.",
+    estudios: [
+      {
+        "pmid": "39545368",
+        "titulo": "Effects of Fermented Kimchi Consumption on Anthropometric and Blood Cardiometabolic Indicators: A Systematic Review and Meta-Analysis of Intervention Studies and Prospective Cohort Studies.",
+        "revista": "Nutrition reviews",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39545368/"
+      },
+      {
+        "pmid": "21745625",
+        "titulo": "Fermented kimchi reduces body weight and improves metabolic parameters in overweight and obese patients.",
+        "revista": "Nutrition research (New York, N.Y.)",
+        "anio": "2011",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/21745625/"
+      },
+      {
+        "pmid": "22499775",
+        "titulo": "Pickled food and risk of gastric cancer--a systematic review and meta-analysis of English and Chinese literature.",
+        "revista": "Cancer epidemiology, biomarkers & prevention : a publication of the American Association for Cancer Research, cosponsored by the American Society of Preventive Oncology",
+        "anio": "2012",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22499775/"
+      },
+      {
+        "pmid": "32316595",
+        "titulo": "Pickled Vegetable and Salted Fish Intake and the Risk of Gastric Cancer: Two Prospective Cohort Studies and a Meta-Analysis.",
+        "revista": "Cancers",
+        "anio": "2020",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32316595/"
+      },
+      {
+        "pmid": "25339056",
+        "titulo": "Diet and cancer risk in the Korean population: a meta- analysis.",
+        "revista": "Asian Pacific journal of cancer prevention : APJCP",
+        "anio": "2014",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25339056/"
+      }
+    ],
+    sustitutos: [
+      {
+        nombre: "Repollo",
+        emoji: "🥬", mejor: true,
+        kcal: 25, carbs: 5.8, azucares: 3.2, proteinas: 1.3, grasas: 0.1, grasasSat: 0.02, fibra: 2.5, sodio: 18,
+        porque: "Misma fibra y vitamina C, sin salmuera ni sodio añadido."
+      }
+    ]
+  },
+  {
+    id: "nueces_pecanas",
+    nombre: "Nueces pecanas",
+    aliases: ["nueces pecanas", "nuez pecana", "pecanas", "pecana", "pecán", "pecan", "pacanas"],
+    categorias: ["Frutos Secos"],
+    emoji: "🌰",
+    rating: "A",
+    kcal: 691, carbs: 13.9, azucares: 4, proteinas: 9.2, grasas: 72, grasasSat: 6.2, fibra: 9.6, sodio: 0,
+    motivo: "Las nueces pecanas son muy calóricas (691 kcal por 100 g, unas 207 kcal en un puñado de 30 g) pero con grasa mayoritariamente insaturada y 9,6 g de fibra por 100 g. Un metaanálisis de 10 ensayos aleatorizados halló que reducen el colesterol total (−8,5 mg/dL), el LDL (−7,4 mg/dL) y los triglicéridos (−14 mg/dL), con poco efecto sobre el peso o la glucosa [1]. En 138 adultos con riesgo cardiometabólico, sustituir sus tentempiés por 57 g al día de pecanas durante 12 semanas mejoró la apolipoproteína B y las partículas de LDL [2]. Si eres alérgico a los frutos secos, evítalas: la alergia a frutos secos de cáscara puede ser grave y el tratamiento es la evitación estricta [3]. Cuenta las calorías: un puñado, no un cuenco. Las calificamos A.",
+    estudios: [
+      {
+        "pmid": "42298717",
+        "titulo": "The effect of pecan consumption on cardiometabolic risk factors: a systematic review and meta-analysis of randomized controlled trials.",
+        "revista": "Diabetology & metabolic syndrome",
+        "anio": "2026",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42298717/"
+      },
+      {
+        "pmid": "40113170",
+        "titulo": "Pecan Intake Improves Lipoprotein Particle Concentrations Compared with Usual Intake in Adults at Increased Risk of Cardiometabolic Diseases: A Randomized Controlled Trial.",
+        "revista": "The Journal of nutrition",
+        "anio": "2025",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40113170/"
+      },
+      {
+        "pmid": "28836701",
+        "titulo": "BSACI guideline for the diagnosis and management of peanut and tree nut allergy.",
+        "revista": "Clinical and experimental allergy : journal of the British Society for Allergy and Clinical Immunology",
+        "anio": "2017",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/28836701/"
+      }
+    ],
+    sustitutos: []
+  },
+  {
+    id: "amaranto",
+    nombre: "Amaranto (cocido)",
+    aliases: ["amaranto", "amaranth", "kiwicha"],
+    categorias: ["Cereales"],
+    emoji: "🌾",
+    rating: "A",
+    kcal: 102, carbs: 18.7, azucares: 1.7, proteinas: 3.8, grasas: 1.6, grasasSat: 0.4, fibra: 2.1, sodio: 6,
+    motivo: "El amaranto es un pseudocereal sin gluten: cocido, unas 102 kcal, casi 4 g de proteína y 2 g de fibra por 100 g, y el grano crudo aporta de media unos 186 mg de calcio y 280 mg de magnesio por 100 g [1]. Es una opción útil en la dieta sin gluten de las personas celíacas, junto con la quinoa, el mijo y el trigo sarraceno [2]. Su efecto sobre el colesterol no está demostrado en personas: los estudios piloto no fueron convincentes [3], y en un ensayo cruzado el aceite de amaranto subió el colesterol total y el LDL frente al aceite de colza [4] (es el aceite, no el grano). Desventaja: es una fuente alta de oxalato (unos 229 mg por 100 g de grano) y la cocción no reduce el total [1], aunque la mayor parte es insoluble y por su calcio y magnesio podría absorberse poco; si has tenido cálculos renales de oxalato, consúltalo con tu médico. Lo calificamos A, igual que la quinoa.",
+    estudios: [
+      {
+        "pmid": "17511467",
+        "titulo": "Oxalate in grain amaranth.",
+        "revista": "Journal of agricultural and food chemistry",
+        "anio": "2007",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/17511467/"
+      },
+      {
+        "pmid": "35186332",
+        "titulo": "The Role of Pseudocereals in Celiac Disease: Reducing Nutritional Deficiencies to Improve Well-Being and Health.",
+        "revista": "Journal of nutrition and metabolism",
+        "anio": "2022",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35186332/"
+      },
+      {
+        "pmid": "31757630",
+        "titulo": "Amaranth as a potential dietary adjunct of lifestyle modification to improve cardiovascular risk profile.",
+        "revista": "Nutrition research (New York, N.Y.)",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31757630/"
+      },
+      {
+        "pmid": "31888234",
+        "titulo": "Amaranth Oil Increases Total and LDL Cholesterol Levels without Influencing Early Markers of Atherosclerosis in an Overweight and Obese Population: A Randomized Double-Blind Cross-Over Study in Comparison with Rapeseed Oil Supplementation.",
+        "revista": "Nutrients",
+        "anio": "2019",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/31888234/"
+      }
+    ],
+    sustitutos: []
   }
 ];
 
